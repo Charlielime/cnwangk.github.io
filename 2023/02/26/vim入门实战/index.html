@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一入编程深似海，从此节操是路人。  前段时间由于业务场景需求，不得不近一步学习 vim 使用方法，提高工作效率，就总结了一些常用快捷键使用方法。满足一般需求，掌握基本增、删、改、查就可以了，近一步学习可以了解多屏操作和宏的使用以及自定义插件功能。  Linux发行版服务器基本上是已经配置好 vi 或者 vim，可以使用进行练习，也可以下载vim客户端（支持多个平台：Linux、macOS、Wind">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim入门实战">
+<meta property="og:url" content="https://cnwangk.github.io/2023/02/26/vim%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:site_name" content="养得胸中一种恬静">
+<meta property="og:description" content="一入编程深似海，从此节操是路人。  前段时间由于业务场景需求，不得不近一步学习 vim 使用方法，提高工作效率，就总结了一些常用快捷键使用方法。满足一般需求，掌握基本增、删、改、查就可以了，近一步学习可以了解多屏操作和宏的使用以及自定义插件功能。  Linux发行版服务器基本上是已经配置好 vi 或者 vim，可以使用进行练习，也可以下载vim客户端（支持多个平台：Linux、macOS、Wind">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9CGA1.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9CKcF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9kna9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9CacD.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9CDHA.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9CJtx.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9C0nH.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9CN9K.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9CU1O.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9Cdje.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9ktVH.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9CYh6.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9C1B9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9ClnJ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9Cu1U.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9CMX4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9C37R.png">
+<meta property="article:published_time" content="2023-02-26T12:04:54.000Z">
+<meta property="article:modified_time" content="2023-03-01T11:30:07.449Z">
+<meta property="article:author" content="文正耕耘">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2023/02/26/pp9CGA1.png">
+
+
+<link rel="canonical" href="https://cnwangk.github.io/2023/02/26/vim%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://cnwangk.github.io/2023/02/26/vim%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/","path":"2023/02/26/vim入门实战/","title":"vim入门实战"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>vim入门实战 | 养得胸中一种恬静</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?8cd73d3e373ec975b52226e6d54add67"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">养得胸中一种恬静</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li><li class="menu-item menu-item-bangumis"><a href="/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>番剧</a></li><li class="menu-item menu-item-cinemas"><a href="/cinemas/" rel="section"><i class="fa fa-th fa-fw"></i>电视剧</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#shell%E6%88%96%E8%80%85%E5%85%B6%E5%AE%83terminal%E5%BF%AB%E9%80%9F%E7%BA%A0%E9%94%99"><span class="nav-number">1.</span> <span class="nav-text">shell或者其它terminal快速纠错</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98"><span class="nav-number">2.</span> <span class="nav-text">vim入门实战</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim%E5%BF%AB%E9%80%9F%E7%A7%BB%E5%8A%A8"><span class="nav-number">3.</span> <span class="nav-text">vim快速移动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="nav-number">4.</span> <span class="nav-text">vim增删改查</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim%E5%A4%9A%E5%B1%8F%E6%93%8D%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">vim多屏操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim%E8%BF%9B%E9%98%B6"><span class="nav-number">6.</span> <span class="nav-text">vim进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vim%E6%8F%92%E4%BB%B6"><span class="nav-number">6.1.</span> <span class="nav-text">vim插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim%E6%97%A0%E5%A4%84%E4%B8%8D%E5%9C%A8"><span class="nav-number">6.2.</span> <span class="nav-text">vim无处不在</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="文正耕耘"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">文正耕耘</p>
+  <div class="site-description" itemprop="description">莫问收获，但问耕耘。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cnwangk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cnwangk" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/dywangk@gmail.com" title="E-Mail → dywangk@gmail.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          友情链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.wxlzb.top/" title="https:&#x2F;&#x2F;www.wxlzb.top" rel="noopener" target="_blank">arryluo（随想笔记）</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://theme-next.js.org/docs/" title="https:&#x2F;&#x2F;theme-next.js.org&#x2F;docs&#x2F;" rel="noopener" target="_blank">Next主题官方文档</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://blog.skk.moe/" title="https:&#x2F;&#x2F;blog.skk.moe&#x2F;" rel="noopener" target="_blank">Sukka blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://zu1k.com/" title="https:&#x2F;&#x2F;zu1k.com&#x2F;" rel="noopener" target="_blank">zu1k blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://dict.youdao.com/" title="https:&#x2F;&#x2F;dict.youdao.com&#x2F;" rel="noopener" target="_blank">有道词典</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://developer.mozilla.org/zh-CN/" title="https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;" rel="noopener" target="_blank">MDN</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://dev.mysql.com/doc/refman/8.0/en" title="https:&#x2F;&#x2F;dev.mysql.com&#x2F;doc&#x2F;refman&#x2F;8.0&#x2F;en" rel="noopener" target="_blank">MySQL8.0 doc</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://stackoverflow.com/questions" title="https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions" rel="noopener" target="_blank">stackoverflow</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/" title="https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank">github</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://msdn.itellyou.cn/" title="https:&#x2F;&#x2F;msdn.itellyou.cn&#x2F;" rel="noopener" target="_blank">MSDN itellyou</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.rpmfind.net/" title="https:&#x2F;&#x2F;www.rpmfind.net&#x2F;" rel="noopener" target="_blank">rpmfind</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2023/02/26/vim%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="vim入门实战 | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vim入门实战
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <i class="fa fa-thumb-tack"></i>
+    <font color="RED">置顶</font>
+    <span class="post-meta-divider"> </span>
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-26 20:04:54" itemprop="dateCreated datePublished" datetime="2023-02-26T20:04:54+08:00">2023-02-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-01 19:30:07" itemprop="dateModified" datetime="2023-03-01T19:30:07+08:00">2023-03-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>一入编程深似海，从此节操是路人。</p>
+<p><strong>前段时间由于业务场景需求</strong>，不得不近一步学习 vim 使用方法，<strong>提高工作效率</strong>，就总结了一些常用快捷键使用方法。满足一般需求，掌握基本增、删、改、查就可以了，近一步学习可以了解多屏操作和宏的使用以及自定义插件功能。</p>
+<p>Linux发行版服务器基本上是已经配置好 vi 或者 vim，可以使用进行练习，也可以下载vim客户端（支持多个平台：Linux、macOS、Windows）软件进行练习，当然还使用git bash一样可以进行练习。目前主流IDE工具，基本上是支持安装vim插件，开启插件支持vim相关功能。例如：VSCode、IntelliJ IDEA（社区版与旗舰版均支持）。</p>
+<p>展示一下Windows平台下的vim以及gvim：</p>
+<p>vim：在字符界面进行使用，可以看到初次进入会显示版本信息、维护人以及一些帮助命令。</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CGA1"><img src="https://s1.ax1x.com/2023/02/26/pp9CGA1.png" alt="pp9CGA1.png"></a></p>
+<p>GVIM：其实是GUI VIM，带有图形操作界面，便于桌面客户端使用。</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CKcF"><img src="https://s1.ax1x.com/2023/02/26/pp9CKcF.png" alt="pp9CKcF.png"></a></p>
+<p><strong>VSCode使用vim插件，简单介绍一下</strong></p>
+<p>ctrl + shift + p：快速掉出命令行工具，键入vim找到Toggle Vim Mode</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9kna9"><img src="https://s1.ax1x.com/2023/02/26/pp9kna9.png" alt="pp9kna9.png"></a></p>
+<h1 id="shell或者其它terminal快速纠错"><a href="#shell或者其它terminal快速纠错" class="headerlink" title="shell或者其它terminal快速纠错"></a>shell或者其它terminal快速纠错</h1><p>掌握常用快捷键提高日常工作效率，某些快捷键并不适用Windows terminal。</p>
+<ul>
+<li>ctrl + h ：删除上一个字符，ctrl + w：删除上一个单词，ctrl + u： 删除一整行；</li>
+<li>ctrl + a：跳到行首，在Windows terminal是全选；ctrl + e：跳到行末，不适用Windows terminal；</li>
+<li>ctrl + b：前移，不适用Windows terminal；ctrl + f：后移，不适用Windows terminal。</li>
+</ul>
+<p><strong>tips</strong>：Windows terminal快速跳转，使用ctrl + 左右方向键进行跳转。</p>
+<h1 id="vim入门实战"><a href="#vim入门实战" class="headerlink" title="vim入门实战"></a>vim入门实战</h1><p>vim官网：<a target="_blank" rel="noopener" href="https://www.vim.org/">https://www.vim.org/</a></p>
+<p>开源仓库：<a target="_blank" rel="noopener" href="https://github.com/vim/vim">https://github.com/vim/vim</a></p>
+<p>插件查找：<a target="_blank" rel="noopener" href="https://vimawesome.com/">https://vimawesome.com/</a></p>
+<p>使用VimAwesome检索自己需要的插件，基本上每个插件列出了源地址。通常个人习惯从github上克隆，比较方便。</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CacD"><img src="https://s1.ax1x.com/2023/02/26/pp9CacD.png" alt="pp9CacD.png"></a></p>
+<p>唯有多练才能熟练，善用自带帮助文档，如下列举最基本帮助文档以及分屏操作获取方式。<br><strong>注意</strong>：使用格式为英文输入法下的冒号加上help，使用命令亦是如此。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">help</span></span><br><span class="line">:<span class="built_in">help</span> vs</span><br><span class="line">:<span class="built_in">help</span> sp</span><br></pre></td></tr></table></figure>
+
+<p><strong>插入（编辑）模式</strong>：a 	i 	o。插入模式姿势也很多啊，标准姿势 i ，高难度姿势 a、o。</p>
+<ul>
+<li><p>a：节奏插，在当前字符光标前一个字符插入</p>
+</li>
+<li><p>i：慢插，当前光标位置插入。</p>
+</li>
+<li><p>o：快插，快速在前一行下方插入一行空白行</p>
+</li>
+</ul>
+<p><strong>快速终止</strong>（进入插入模式），等价于ESC退出编辑模式进入normal模式</p>
+<ul>
+<li><p>ctrl + [</p>
+</li>
+<li><p>ctrl + c</p>
+</li>
+</ul>
+<p>养成使用 hjkl 按键替代方向键进行上下左右移动，提高操作效率。</p>
+<h1 id="vim快速移动"><a href="#vim快速移动" class="headerlink" title="vim快速移动"></a>vim快速移动</h1><p><strong>normal模式</strong></p>
+<p><strong>快速移动</strong>：按住快捷键 h j k l</p>
+<ul>
+<li>h：左移</li>
+<li>j：下移</li>
+<li>k：上移</li>
+<li>l：右移</li>
+</ul>
+<p><strong>单词切换</strong></p>
+<ul>
+<li>w\W</li>
+<li>b\B</li>
+<li>e</li>
+</ul>
+<p><strong>搜索移动</strong>（行间）</p>
+<ul>
+<li>f\F：按住f输入单词，使用逗号（,），分号（;）切换单词。</li>
+<li>t：转到输入字符前一个字符上。</li>
+</ul>
+<p><strong>水平移动</strong></p>
+<ul>
+<li>0：移动到行首第一个字符</li>
+<li>^：移动到第一个非空白字符</li>
+<li>$：移动到行尾，g_ 移动到非空白行尾</li>
+</ul>
+<p><strong>页面快速移动</strong></p>
+<ul>
+<li>ctrl + u： 上翻页，等同于shift + 方向键上键</li>
+<li>ctrl + f： 下翻页，等同于shift + 方向键下键</li>
+<li>gg :快速回到页面顶部。</li>
+</ul>
+<p>更多用法，可以参考</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">help</span> g</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="vim增删改查"><a href="#vim增删改查" class="headerlink" title="vim增删改查"></a>vim增删改查</h1><p>vi：选择多个字符，等同于shift + v：选择当前行，使用G选择余下行。 </p>
+<p><strong>normal模式下使用</strong></p>
+<p>删除</p>
+<ul>
+<li>x：快速删除一个字符</li>
+<li>d（delete）：配合文本对象快速删除一个单词：dw；快速删除一行：dd</li>
+<li>d和x：配合数字执行多次</li>
+</ul>
+<p>新增</p>
+<ul>
+<li>插入数据（a	i	o）</li>
+</ul>
+<p>修改</p>
+<ul>
+<li>r\R（replace）：以…替代，替代当前字符，R：替代后续字符</li>
+<li>c（change）：改变，cc：删除当前行，cw（ciw、caw）：删除当前单词并修改</li>
+<li>s\S（substitute）：替代，删除当前字符并进行插入，可以在normal模式替代插入模式；S：删除整行</li>
+</ul>
+<p>恢复</p>
+<ul>
+<li>u：恢复到之前的状态，删掉插入内容。</li>
+</ul>
+<p><strong>搜索替换</strong></p>
+<ul>
+<li>s\S（substitute），可以配合正则表达式替换</li>
+<li>替换位标志：g（global），c（confirm），n（number）</li>
+<li>:% s&#x2F;word&#x2F;w&#x2F;g：全局替换</li>
+<li>:% s&#x2F;\&lt;word\&gt;&#x2F;w&#x2F;g：精确匹配单词后替换</li>
+</ul>
+<h1 id="vim多屏操作"><a href="#vim多屏操作" class="headerlink" title="vim多屏操作"></a>vim多屏操作</h1><p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CDHA"><img src="https://s1.ax1x.com/2023/02/26/pp9CDHA.png" alt="pp9CDHA.png"></a></p>
+<p><strong>normal模式</strong></p>
+<p><strong>多文件操作，准备多个文件用于测试</strong></p>
+<p>预先准备多个测试文件，使用vim或者touch命令都行</p>
+<p>vim test_a.txt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">this is test_a file</span><br><span class="line"><span class="comment"># test a</span></span><br></pre></td></tr></table></figure>
+
+<p>复制多个文件用于测试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> test_a.txt test_b.txt;<span class="built_in">cp</span> test_a.txt test_c.txt</span><br></pre></td></tr></table></figure>
+
+<p>开始测试，依次输入如下命令：</p>
+<ul>
+<li>:e test_a.txt，:e test_b.txt，:e test_c.txt</li>
+<li>:ls</li>
+<li>:bprevious</li>
+</ul>
+<p>使用 :e 进入编辑模式，不退出当前会话同时编辑多个文件，:ls 查看当前会话缓存文件，:bprevious 查看之前编辑过的文件。</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CJtx"><img src="https://s1.ax1x.com/2023/02/26/pp9CJtx.png" alt="pp9CJtx.png"></a></p>
+<p><strong>多屏操作</strong></p>
+<ul>
+<li>:vs：水平分割</li>
+<li>:sp：垂直分割</li>
+<li>ctrl + w ：移动窗口，配合大写L和hjkl操作</li>
+</ul>
+<p>水平分割效果展示</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9C0nH"><img src="https://s1.ax1x.com/2023/02/26/pp9C0nH.jpg" alt="pp9C0nH.jpg"></a></p>
+<p>垂直分割效果展示</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CN9K"><img src="https://s1.ax1x.com/2023/02/26/pp9CN9K.jpg" alt="pp9CN9K.jpg"></a></p>
+<p>更多用法，参考帮助文档</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">help</span> vs</span><br><span class="line">:<span class="built_in">help</span> sp</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>多个标签页</strong></p>
+<ul>
+<li>:tabnew ：打开新的标签页</li>
+<li>:tabnext：切换标签页<br>还可以使用快捷键 gt 快速切换标签页，同样可以使用简化写法 :tabn 切换标签页。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CU1O"><img src="https://s1.ax1x.com/2023/02/26/pp9CU1O.jpg" alt="pp9CU1O.jpg"></a></li>
+</ul>
+<p>更多用法，参考帮助文档</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">help</span> tabnew</span><br><span class="line">:<span class="built_in">help</span> tabnext</span><br></pre></td></tr></table></figure>
+
+<p><strong>复制粘贴</strong></p>
+<ul>
+<li>normal下使用y（yank）复制，p（put）粘贴</li>
+<li>yy：复制一行</li>
+<li>yiw：复制一个单词</li>
+<li>x删除，p粘贴。</li>
+</ul>
+<p>示例：如果复制一大段内容，可以结合快捷键shift + v 配合 y复制，使用 p 粘贴内容。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9Cdje"><img src="https://s1.ax1x.com/2023/02/26/pp9Cdje.jpg" alt="pp9Cdje.jpg"></a></p>
+<p>打开了多个分屏或者标签页，如何一次性关闭？使用 :qa 命令关闭全部，返回当前终端。</p>
+<h1 id="vim进阶"><a href="#vim进阶" class="headerlink" title="vim进阶"></a>vim进阶</h1><p><strong>normal模式</strong></p>
+<p><strong>vim宏</strong></p>
+<ul>
+<li>按住 q 键录制类容，配合使用命令qa</li>
+<li>快速选择余下所有行：shift + v  G</li>
+<li>进入普通模式输入：:normal @a</li>
+</ul>
+<p><strong>常用补全</strong></p>
+<ul>
+<li>ctrl + n 和 ctrl + p 补全单词</li>
+<li>ctrl + x 和 ctrl + f 补全文件名</li>
+<li>ctrl + x 和 ctrl + o 补全代码</li>
+</ul>
+<p>补全如果没生效，需要配置相应的插件。</p>
+<p><strong>使用vim相关插件，修改配色方案</strong></p>
+<p>以Java类为示例进行说明，编辑Java代码Hello world</p>
+<p><code>vim Hello.java</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Hello&#123;</span><br><span class="line">        public static void main(String args[])&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;Hello cangls&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>克隆hybrid配色方案</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/w0ng/vim-hybrid.git</span><br></pre></td></tr></table></figure>
+
+<p>创建文键目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p .vim/colors</span><br></pre></td></tr></table></figure>
+
+<p>复制hybrid.vim到.vim&#x2F;colors目录中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> vim-hybrid/colors/hybrid.vim  .vim/colors</span><br></pre></td></tr></table></figure>
+
+<p>编辑配色方案</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim Hello.java</span><br><span class="line">:colorscheme hybrid</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9ktVH"><img src="https://s1.ax1x.com/2023/02/26/pp9ktVH.png" alt="pp9ktVH.png"></a></p>
+<p>修改配色方案永久生效，设置<code>background=dark</code>为暗色系，默认为light浅色系，默认设置显示行号<code>set number</code></p>
+<p>vim .vimrc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> background=dark</span><br><span class="line">colorscheme hybrid</span><br><span class="line"><span class="built_in">set</span> number</span><br></pre></td></tr></table></figure>
+
+
+
+<p>恢复默认配色</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:colorscheme default</span><br></pre></td></tr></table></figure>
+
+<h2 id="vim插件"><a href="#vim插件" class="headerlink" title="vim插件"></a>vim插件</h2><p>初次使用，插件不在多，在于对你的操作有所提升。可以一步步尝试安装插件，对比哪些对你的日常工作有帮助。</p>
+<ul>
+<li>vim-plug：用于管理插件。</li>
+<li>NERDTree：用于增强目录树插件。</li>
+<li>TarBag：用于显示标签插件（需要ctags支撑，Windows平台将ctags.exe文件置于vim根目录同级即可使用）<br>例如：个人解压后vim路径：D:\gvim_9.0.1075_x64\vim90\，将ctags.exe放入vim90目录即可。</li>
+</ul>
+<p>如果当前用户根目录没有.vimrc 文件，则新增。</p>
+<p>Windows平台需要在当前用户新增 .vimrc 文件。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~\.vimrc</span><br></pre></td></tr></table></figure>
+<p>Linux平台一样需要新增 .vimrc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.vimrc</span><br></pre></td></tr></table></figure>
+
+<p>加入如下内容即可安装插件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> number</span><br><span class="line">call plug<span class="comment">#begin()</span></span><br><span class="line">  Plug <span class="string">&#x27;preservim/nerdtree&#x27;</span></span><br><span class="line">  Plug <span class="string">&#x27;preservim/tagbar&#x27;</span></span><br><span class="line">call plug<span class="comment">#end()</span></span><br></pre></td></tr></table></figure>
+<p>插件安装命令： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:PlugInstall</span><br></pre></td></tr></table></figure>
+<p>插件安装后，重启vim即可生效。</p>
+<p>安装插件效果展示，最左侧是nerdtree效果，最右侧是tagbar效果。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CYh6"><img src="https://s1.ax1x.com/2023/02/26/pp9CYh6.jpg" alt="pp9CYh6.jpg"></a></p>
+<h2 id="vim无处不在"><a href="#vim无处不在" class="headerlink" title="vim无处不在"></a>vim无处不在</h2><p><strong>vim与Tmux</strong>可以在Linux服务器上安装tmux配合vim使用，效果更加。</p>
+<p>Linux发行版（centos9-stream）安装tmux</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Centos9-Stream ~]# yum list | grep tmuxtmux.x86_64                                          3.2a-4.el9                         baseos[root@Centos9-Stream ~]# yum -y install tmux[root@Centos9-Stream ~]# rpm -qa | grep tmuxtmux-3.2a-4.el9.x86_64</span><br></pre></td></tr></table></figure>
+
+<p>安装后初步使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Centos9-Stream ~]# tmux ls0: 1 windows (created Sun Feb 26 15:42:19 2023) (attached)</span><br></pre></td></tr></table></figure>
+
+<p>默认进入tmux，使用tab键可以提示相关命令，使用exit退出tmux。</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9C1B9"><img src="https://s1.ax1x.com/2023/02/26/pp9C1B9.png" alt="pp9C1B9.png"></a></p>
+<p><strong>IDE与vim</strong></p>
+<ul>
+<li>VSCode(Visual Studio Code)</li>
+<li>STS4(Spring Tool Suite4)</li>
+<li>IDEA(IntelliJ IDEA)</li>
+</ul>
+<p><strong>文初演示了VSCode使用vim插件，此处展示一下STS4使用vim插件：</strong></p>
+<p>01、STS4启动界面</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9ClnJ"><img src="https://s1.ax1x.com/2023/02/26/pp9ClnJ.png" alt="pp9ClnJ.png"></a></p>
+<p>02、顶部菜单栏找到help，打开<strong>Eclipse Marketplace</strong></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9Cu1U"><img src="https://s1.ax1x.com/2023/02/26/pp9Cu1U.png" alt="pp9Cu1U.png"></a></p>
+<p><strong>03、搜索vim并安装</strong></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CMX4"><img src="https://s1.ax1x.com/2023/02/26/pp9CMX4.png" alt="pp9CMX4.png"></a></p>
+<p><strong>04、重启开发工具STS4，初始化界面效果</strong></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9C37R"><img src="https://s1.ax1x.com/2023/02/26/pp9C37R.png" alt="pp9C37R.png"></a></p>
+<p><strong>vim与neovim</strong><br>与时俱进，竞争产出新特性。<br><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim">https://github.com/neovim/neovim</a></p>
+<p><strong>站在巨人的肩膀上，打造炫酷的vim</strong><br>SpaceVim：<a target="_blank" rel="noopener" href="https://github.com/SpaceVim/SpaceVim">https://github.com/SpaceVim/SpaceVim</a></p>
+<p>个人收藏一些vim相关插件仓库地址：<a target="_blank" rel="noopener" href="https://github.com/stars/cnwangk/lists/vim">https://github.com/stars/cnwangk/lists/vim</a></p>
+<p>你还可以通过 vimawesome 寻找vim插件：<a target="_blank" rel="noopener" href="https://vimawesome.com/">https://vimawesome.com</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/vim/" rel="tag"># vim</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/15/SQL%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/" rel="prev" title="SQL是什么？如何选择">
+                  <i class="fa fa-chevron-left"></i> SQL是什么？如何选择
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/03/08/podman%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/" rel="next" title="podman入门实战">
+                  podman入门实战 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Copyright © 文正耕耘. All Rights Reserved.</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">204k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">12:22</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言 最近公司有新需求，需要接入大华和海康的项目，优先解决接入海康的SDK。对于我这个之前完全没接触过对接SDK的新手来说，完全是焦头烂额。公司只提供了SDK文档，没有其它文档支持。但是需要使用java进行对接数据。俗话说的好，工欲善其事，必先利其器。海康官方的SDK文档提供了java的demo例子，但是文档说明并不全面（个人感觉，遇到了很多坑，故予以总结）。  运行demo之前，最好浏览一遍SD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【解决HCNetSDK.dll无法加载问题】海康SDK开发对接java项目demo运行">
+<meta property="og:url" content="https://cnwangk.github.io/2022/02/21/%E3%80%90%E8%A7%A3%E5%86%B3HCNetSDK-dll%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98%E3%80%91%E6%B5%B7%E5%BA%B7SDK%E5%BC%80%E5%8F%91%E5%AF%B9%E6%8E%A5java%E9%A1%B9%E7%9B%AEdemo%E8%BF%90%E8%A1%8C/index.html">
+<meta property="og:site_name" content="养得胸中一种恬静">
+<meta property="og:description" content="前言 最近公司有新需求，需要接入大华和海康的项目，优先解决接入海康的SDK。对于我这个之前完全没接触过对接SDK的新手来说，完全是焦头烂额。公司只提供了SDK文档，没有其它文档支持。但是需要使用java进行对接数据。俗话说的好，工欲善其事，必先利其器。海康官方的SDK文档提供了java的demo例子，但是文档说明并不全面（个人感觉，遇到了很多坑，故予以总结）。  运行demo之前，最好浏览一遍SD">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200809222148484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200809222437800.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200809222501713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200810210111366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200809232643937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200809225617225.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200809222547563.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200809222628320.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200809225428266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200809230532598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200809230625986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201219164229216.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201219164414475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2022-02-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-05T12:25:50.484Z">
+<meta property="article:author" content="文正耕耘">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200809222148484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70">
+
+
+<link rel="canonical" href="https://cnwangk.github.io/2022/02/21/%E3%80%90%E8%A7%A3%E5%86%B3HCNetSDK-dll%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98%E3%80%91%E6%B5%B7%E5%BA%B7SDK%E5%BC%80%E5%8F%91%E5%AF%B9%E6%8E%A5java%E9%A1%B9%E7%9B%AEdemo%E8%BF%90%E8%A1%8C/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://cnwangk.github.io/2022/02/21/%E3%80%90%E8%A7%A3%E5%86%B3HCNetSDK-dll%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98%E3%80%91%E6%B5%B7%E5%BA%B7SDK%E5%BC%80%E5%8F%91%E5%AF%B9%E6%8E%A5java%E9%A1%B9%E7%9B%AEdemo%E8%BF%90%E8%A1%8C/","path":"2022/02/21/【解决HCNetSDK-dll无法加载问题】海康SDK开发对接java项目demo运行/","title":"【解决HCNetSDK.dll无法加载问题】海康SDK开发对接java项目demo运行"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【解决HCNetSDK.dll无法加载问题】海康SDK开发对接java项目demo运行 | 养得胸中一种恬静</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?8cd73d3e373ec975b52226e6d54add67"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">养得胸中一种恬静</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li><li class="menu-item menu-item-bangumis"><a href="/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>番剧</a></li><li class="menu-item menu-item-cinemas"><a href="/cinemas/" rel="section"><i class="fa fa-th fa-fw"></i>电视剧</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E7%9A%84%E7%A1%AE%E8%AE%A4"><span class="nav-number">2.1.</span> <span class="nav-text">一、环境的确认</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%BC%95%E5%85%A5%E9%A1%B9%E7%9B%AE%E5%88%B0%E7%BC%96%E8%BE%91%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">二、引入项目到编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E5%B9%B6%E8%A7%A3%E6%9E%90%E9%97%AE%E9%A2%98"><span class="nav-number">2.3.</span> <span class="nav-text">三、遇到问题并解析问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%BC%96%E5%86%99"><span class="nav-number">2.4.</span> <span class="nav-text">四、工具类编写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%BC%95%E5%85%A5%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="nav-number">2.5.</span> <span class="nav-text">五、引入工具类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E8%BF%90%E8%A1%8C%E6%88%90%E5%8A%9F%E5%90%8E%E7%9A%84%E7%95%8C%E9%9D%A2"><span class="nav-number">2.6.</span> <span class="nav-text">六、运行成功后的界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%88%86%E6%9E%90%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.7.</span> <span class="nav-text">七、分析接口</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="文正耕耘"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">文正耕耘</p>
+  <div class="site-description" itemprop="description">莫问收获，但问耕耘。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cnwangk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cnwangk" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/dywangk@gmail.com" title="E-Mail → dywangk@gmail.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          友情链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.wxlzb.top/" title="https:&#x2F;&#x2F;www.wxlzb.top" rel="noopener" target="_blank">arryluo（随想笔记）</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://theme-next.js.org/docs/" title="https:&#x2F;&#x2F;theme-next.js.org&#x2F;docs&#x2F;" rel="noopener" target="_blank">Next主题官方文档</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://blog.skk.moe/" title="https:&#x2F;&#x2F;blog.skk.moe&#x2F;" rel="noopener" target="_blank">Sukka blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://zu1k.com/" title="https:&#x2F;&#x2F;zu1k.com&#x2F;" rel="noopener" target="_blank">zu1k blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://dict.youdao.com/" title="https:&#x2F;&#x2F;dict.youdao.com&#x2F;" rel="noopener" target="_blank">有道词典</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://developer.mozilla.org/zh-CN/" title="https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;" rel="noopener" target="_blank">MDN</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://dev.mysql.com/doc/refman/8.0/en" title="https:&#x2F;&#x2F;dev.mysql.com&#x2F;doc&#x2F;refman&#x2F;8.0&#x2F;en" rel="noopener" target="_blank">MySQL8.0 doc</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://stackoverflow.com/questions" title="https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions" rel="noopener" target="_blank">stackoverflow</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/" title="https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank">github</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://msdn.itellyou.cn/" title="https:&#x2F;&#x2F;msdn.itellyou.cn&#x2F;" rel="noopener" target="_blank">MSDN itellyou</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.rpmfind.net/" title="https:&#x2F;&#x2F;www.rpmfind.net&#x2F;" rel="noopener" target="_blank">rpmfind</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/21/%E3%80%90%E8%A7%A3%E5%86%B3HCNetSDK-dll%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98%E3%80%91%E6%B5%B7%E5%BA%B7SDK%E5%BC%80%E5%8F%91%E5%AF%B9%E6%8E%A5java%E9%A1%B9%E7%9B%AEdemo%E8%BF%90%E8%A1%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【解决HCNetSDK.dll无法加载问题】海康SDK开发对接java项目demo运行 | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【解决HCNetSDK.dll无法加载问题】海康SDK开发对接java项目demo运行
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-21 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-21T00:00:00+08:00">2022-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-05 20:25:50" itemprop="dateModified" datetime="2022-04-05T20:25:50+08:00">2022-04-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Java系列</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近公司有新需求，需要接入<strong>大华</strong>和<strong>海康</strong>的项目，优先解决接入海康的<code>SDK</code>。对于我这个之前完全没接触过对接SDK的新手来说，完全是<strong>焦头烂额</strong>。公司只提供了<code>SDK</code>文档，没有其它文档支持。但是需要使用<code>java</code>进行对接数据。俗话说的好，<strong>工欲善其事，必先利其器</strong>。海康官方的SDK文档提供了<code>java</code>的demo例子，但是文档说明并不全面（个人感觉，遇到了很多坑，故予以总结）。</p>
+<p><strong>运行demo之前，最好浏览一遍SDK文档，比如操作系统与JDK以及DLL文件保持一致性。而且对你调试代码也颇有帮助，返回一些错误码在官方提供的文档有说明参照</strong>。例如：win64下运行64位JDK和64位DLL文件，也可以运行32位JDK和32位的DLL文件。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p><strong>官方文档直通车</strong>：<a target="_blank" rel="noopener" href="https://www.hikvision.com/cn/download_61.html">https://www.hikvision.com/cn/download_61.html</a><br><img src="https://img-blog.csdnimg.cn/20200809222148484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>官方文档</strong>给出的【<strong>注意事项</strong>】</p>
+<p><strong>—————————————————————————————————————————————-</strong><br>一、 更新设备网络<code>SDK</code>时，<code>SDK</code>开发包【<strong>库文件</strong>】里的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HCNetSDK.dll、</span><br><span class="line">HCCore.dll、</span><br><span class="line">PlayCtrl.dll、</span><br><span class="line">SuperRender.dll、</span><br><span class="line">AudioRender.dll、</span><br><span class="line">HCNetSDKCom文件夹、</span><br><span class="line">ssleay32.dll、</span><br><span class="line">libeay32.dll、</span><br><span class="line">hlog.dll、</span><br><span class="line">hpr.dll、</span><br><span class="line">zlib1.dll、</span><br><span class="line">log4cxx.properties</span><br></pre></td></tr></table></figure>
+
+<p>等文件均要加载到程序里面，【<strong>HCNetSDKCom文件夹</strong>】（包含里面的功能组件<code>dll</code>库文件）需要和<strong>HCNetSDK.dll</strong>、<strong>HCCore.dll</strong>一起加载，放在同一个目录下，<strong>且HCNetSDKCom文件夹名不能修改</strong>。</p>
+<p>二、 如果自行开发软件不能正常实现相应功能，而且程序没有指定加载的dll库路径，请在程序运行的情况下尝试删HCNetSDK.dll。如果可以删除，说明程序可能调用到系统盘Windows-&gt;System32目录下的dll文件，建议删除或者更新该目录下的相关dll文件；如果不能删除，dll文件右键选择属性确认SDK库版本。</p>
+<p>三、如按上述步骤操作后还是不能实现相应功能，请根据<strong>NET_DVR_GetLastError返回的错误号判断原因</strong>。</p>
+<p><strong>—————————————————————————————————————————————–</strong></p>
+<br/>
+
+<p><strong>基于海康</strong><code>SDK</code>开发提供的<code>demo</code>之<code>java</code>版运行，基于<code>HCNetSDKV6.1.4.42</code>版本写的，<strong>此时是官方提供的最新版本</strong>。<br><img src="https://img-blog.csdnimg.cn/20200809222437800.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="一、环境的确认"><a href="#一、环境的确认" class="headerlink" title="一、环境的确认"></a>一、环境的确认</h2><p><strong>注意</strong>：<strong>我下载的是64位的SDK，操作系统win10_x64，jdk_x64</strong>，<strong>熟读官方文档真的很重要，会少走很多弯路</strong>。<strong>JDK和SDK版本必须一致，同是32位或者64位</strong>。如果不统一，遇到问题我也没辙。<br><img src="https://img-blog.csdnimg.cn/20200809222501713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="二、引入项目到编辑器"><a href="#二、引入项目到编辑器" class="headerlink" title="二、引入项目到编辑器"></a>二、引入项目到编辑器</h2><p>使用<code>eclipse for javaee</code>或者<code>IDEA</code>都行，看个人喜好嘛。注意必须要将<code>jar</code>包和库文件<code>build path</code>怎么引入我相信大家肯定知道，<code>example.jar</code>和<code>jna.jar</code>引入后代码就不会报红了。<strong>引入这里面指定的</strong>也能运行起来<code>demo</code>，没必要将整个库文件引入。</p>
+<p><strong>eclipse引入项目的目录结构，我直接新建了sdk文件夹放入指定的库文件</strong><br><img src="https://img-blog.csdnimg.cn/20200810210111366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>IDEA引入项目的目录结构，这是将整个库文件完全引入时做的测试</strong><br><img src="https://img-blog.csdnimg.cn/20200809232643937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="三、遇到问题并解析问题"><a href="#三、遇到问题并解析问题" class="headerlink" title="三、遇到问题并解析问题"></a>三、遇到问题并解析问题</h2><p><strong>最开始你会看到这个不友好的警告，一个很严重的java异常</strong>：<br><img src="https://img-blog.csdnimg.cn/20200809225617225.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>运行java版demo遇到的问题一</strong>：<code>Unable to load library &#39;HCNetSDK&#39;: ÕҲ»µ½ָ¶¨</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.UnsatisfiedLinkError: Unable to load library <span class="string">&#x27;HCNetSDK&#x27;</span>: ÕҲ»µ½ָ¶¨</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200809222547563.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>解析问题一</strong>：不难看出来，无法去加载库文件<code>HCNetSDK.dll</code>。<strong>这时你分析一下这个报错的代码提示</strong>，可以看出来定位到<code>ClientDemo.java</code>这个类的第<strong>66</strong>行，那肯定是找不到<code>HCNetSDK</code>接口里提供的<code>HCNetSDK</code>的<strong>实例</strong>。再向上看定位分析，找不到<code>HCNetSDK.dll</code>的<strong>路径</strong>，定位到第<strong>36</strong>行。<strong>遇到报错不要怕，重要的是学会分析问题所在并去解决掉</strong>，领导也喜欢善于解决问题的。</p>
+<br/>
+
+<p><strong>运行java版demo遇到的问题二</strong>：<code>Unable to load library &#39;PlayCtrl&#39;: ÕҲ»µ½ָ¶¨</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.UnsatisfiedLinkError: Unable to load library <span class="string">&#x27;PlayCtrl&#x27;</span>: ÕҲ»µ½ָ¶¨</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200809222628320.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>解析问题二</strong>：不难看出来，无法去加载库文件<code>PlayCtrl.dll</code>。<strong>这时你分析一下这个报错的代码提示</strong>，可以看出来定位到<code>ClientDemo.java</code>这个类的第<strong>67</strong>行，那肯定是找不到<code>PlayCtrl</code>接口里提供的<code>PlayCtrl</code>的<strong>实例</strong>。再向上看定位分析，找不到<code>PlayCtrl.dll</code>的<strong>路径</strong>，定位到第<strong>3069</strong>行。<strong>遇到报错不要怕，重要的是学会分析问题所在并去解决掉</strong>，领导也喜欢善于解决问题的。</p>
+<h2 id="四、工具类编写"><a href="#四、工具类编写" class="headerlink" title="四、工具类编写"></a>四、工具类编写</h2><p><strong>解析完问题后</strong>，我们了解到<strong>无法加载</strong><code>HCNetSDK.dll、PlayCtrl.dll</code>这个两个<strong>库文件</strong>，下面给出<strong>解决方案</strong>：我采用的是编写<strong>工具类</strong><code>GetDLLPath()</code>方法来解决找不到<strong>路径</strong>的问题。</p>
+<p><strong>代码如下</strong>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取DLL文件路径</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GetDLLPath</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//路径</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> String DLL_PATH;</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		<span class="comment">//通过getPath方法去拿路径</span></span><br><span class="line">		<span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> GetDLLPath.class.getResource(<span class="string">&quot;/&quot;</span>).getPath()</span><br><span class="line">				.replaceAll(<span class="string">&quot;20%&quot;</span>, <span class="string">&quot; &quot;</span>).substring(<span class="number">1</span>);</span><br><span class="line">				</span><br><span class="line"><span class="comment">//		这个是解决打包找不到路径的写法，但是目前引入demo运行用不上，我就注释掉了</span></span><br><span class="line"><span class="comment">//		String[] ph = path.split(&quot;/&quot;);		</span></span><br><span class="line"><span class="comment">//		StringBuilder sb = new StringBuilder();</span></span><br><span class="line"><span class="comment">//		for(int i= 0;i &lt; ph.length-2;i++)&#123;</span></span><br><span class="line"><span class="comment">//			sb.append(&quot;/&quot;).append(ph[i]);</span></span><br><span class="line"><span class="comment">//		&#125;	</span></span><br><span class="line"><span class="comment">//		//解决打包加载类找不到路径的问题,这里编写你自己存放的路径</span></span><br><span class="line"><span class="comment">//		sb.append(&quot;/src/main/resource/sdk&quot;);</span></span><br><span class="line"><span class="comment">//		path = sb.toString();</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//设置编码为UTF-8，这样设置转码会出一个问题，一旦遇到+号这种就会转成空格</span></span><br><span class="line">			DLL_PATH = java.net.URLDecoder.decode(path,<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">			</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="comment">//测试	</span></span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<p><strong>上面的工具类写好后</strong>，就可以<strong>修改</strong><code>HCNetSDK.java</code>类，我给出原始文档写法和改良后的写法。修改<code>HCNetSDK</code>对象，引入<code>GetDLLPath</code><strong>工具类</strong>，下面的代码给出<strong>解决方案</strong>：</p>
+<br/>
+
+<p><strong>建议多手动敲代码，不要一味的复制粘贴</strong>。不然你会生疏的，除非是达到了一定的技术后，可以偷偷懒也是可以的嘛，当然这是玩笑话，活跃下气氛。</p>
+<br/>
+
+<h2 id="五、引入工具类"><a href="#五、引入工具类" class="headerlink" title="五、引入工具类"></a>五、引入工具类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原始写法</span></span><br><span class="line"><span class="comment">//    HCNetSDK INSTANCE = (HCNetSDK) Native.loadLibrary(&quot;HCNetSDK&quot;,</span></span><br><span class="line"><span class="comment">//            HCNetSDK.class);</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//改完后的写法:通过GetDLLPath工具类去找dll绝对路径</span></span><br><span class="line">    <span class="type">HCNetSDK</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> (HCNetSDK) Native.loadLibrary(GetDLLPath.DLL_PATH </span><br><span class="line">    + <span class="string">&quot;HCNetSDK.dll&quot;</span>,HCNetSDK.class);</span><br><span class="line">			</span><br><span class="line"><span class="comment">//原始写法</span></span><br><span class="line"><span class="comment">//	 PlayCtrl INSTANCE = (PlayCtrl) Native.loadLibrary(&quot;PlayCtrl&quot;,</span></span><br><span class="line"><span class="comment">//	            PlayCtrl.class);</span></span><br><span class="line">	<span class="comment">//改良后写法:通过GetDLLPath工具类去找dll绝对路径</span></span><br><span class="line">    <span class="type">PlayCtrl</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> (PlayCtrl) Native.loadLibrary(GetDLLPath.DLL_PATH </span><br><span class="line">    					+<span class="string">&quot;PlayCtrl.dll&quot;</span>,PlayCtrl.class);</span><br></pre></td></tr></table></figure>
+
+<p><br/><br/></p>
+<h2 id="六、运行成功后的界面"><a href="#六、运行成功后的界面" class="headerlink" title="六、运行成功后的界面"></a>六、运行成功后的界面</h2><p><strong>做完以上步骤后，终于可以运行起来了</strong>。<code>demo</code>起飞，开启征程。<strong>工欲善其事，必先利其器</strong>。<br><img src="https://img-blog.csdnimg.cn/20200809225428266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>当然这是<strong>官方文档基于</strong><code>java</code>的<code>swing</code>写出的<code>demo</code>。如果项目需要引入，基本是用<code>web</code>开发的模式，网上找一找海康<code>web3.0</code>也是可行的。当然你自己写个出来，也是可行的，最终你还是要在自己的项目中编写接口拿到数据。</p>
+<br/>
+
+<h2 id="七、分析接口"><a href="#七、分析接口" class="headerlink" title="七、分析接口"></a>七、分析接口</h2><p>其实不难发现，最重要的就是<code>HCNetSDK</code>这个<strong>接口</strong>里面提供的类容。比如定义了一些常量和全局错误代码可供快速查询，具体还是看你需要用到那一部分。下面<strong>截取部分代码</strong>：<br><img src="https://img-blog.csdnimg.cn/20200809230532598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200809230625986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>最后点击注册时<strong>遇到了报错提示</strong>，可以使用<code>hCNetSDK.NET_DVR_GetLastError()</code>方法，获取错误<code>code</code>码，在<code>HCNetSDK</code><strong>类中有提示</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(hCNetSDK.NET_DVR_GetLastError());</span><br></pre></td></tr></table></figure>
+<p>注册失败，通过错误code码定位原因。</p>
+<p><img src="https://img-blog.csdnimg.cn/20201219164229216.png#pic_center" alt="在这里插入图片描述"></p>
+<br/>
+
+<p><strong>定位错误可以参考官方给出的PDF帮助文档</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20201219164414475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>说不定后续还会继续更新如何去拿数据的文章，未完待续</strong>…</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/21/springboot%E5%88%9D%E4%BD%93%E9%AA%8C/" rel="prev" title="springboot初体验">
+                  <i class="fa fa-chevron-left"></i> springboot初体验
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/02/21/%E3%80%90CentOS%E3%80%91%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0yum%E6%BA%90/" rel="next" title="【CentOS】搭建本地yum源">
+                  【CentOS】搭建本地yum源 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Copyright © 文正耕耘. All Rights Reserved.</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">204k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">12:22</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="MySQL优化方法——优化数据库对象  如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。官方文档非常具有参考意义。你可以将这篇博文，当成过度到MySQL8.0的参考资料。友情提示：经验是用来参考，不是拿来即用。如果您能看到并分享这篇文章，我很荣幸。如果有误导您的地方，我表示抱歉。    MySQL优化方法——优化数据库对象 注意：在某些情况，你自己测试的结果可能与我演示有所不同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL优化方法--优化数据库对象">
+<meta property="og:url" content="https://cnwangk.github.io/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95-%E4%BC%98%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:site_name" content="养得胸中一种恬静">
+<meta property="og:description" content="MySQL优化方法——优化数据库对象  如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。官方文档非常具有参考意义。你可以将这篇博文，当成过度到MySQL8.0的参考资料。友情提示：经验是用来参考，不是拿来即用。如果您能看到并分享这篇文章，我很荣幸。如果有误导您的地方，我表示抱歉。    MySQL优化方法——优化数据库对象 注意：在某些情况，你自己测试的结果可能与我演示有所不同">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/acf1fd88c4b72660309388d03852a999.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/17d4943de92930dea49aa6fe2eaeac55.png">
+<meta property="article:published_time" content="2022-04-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-07T03:36:42.637Z">
+<meta property="article:author" content="文正耕耘">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/acf1fd88c4b72660309388d03852a999.png">
+
+
+<link rel="canonical" href="https://cnwangk.github.io/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95-%E4%BC%98%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E8%B1%A1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://cnwangk.github.io/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95-%E4%BC%98%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E8%B1%A1/","path":"2022/04/07/MySQL优化方法-优化数据库对象/","title":"MySQL优化方法--优化数据库对象"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MySQL优化方法--优化数据库对象 | 养得胸中一种恬静</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?8cd73d3e373ec975b52226e6d54add67"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">养得胸中一种恬静</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li><li class="menu-item menu-item-bangumis"><a href="/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>番剧</a></li><li class="menu-item menu-item-cinemas"><a href="/cinemas/" rel="section"><i class="fa fa-th fa-fw"></i>电视剧</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95%E2%80%94%E2%80%94%E4%BC%98%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">MySQL优化方法——优化数据库对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.</span> <span class="nav-text">优化数据库对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-%E4%BC%98%E5%8C%96%E8%A1%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">01 优化表数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-%E6%8B%86%E5%88%86%E8%A1%A8%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E6%95%88%E7%8E%87"><span class="nav-number">1.1.2.</span> <span class="nav-text">02 拆分表提高访问效率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-%E9%80%86%E8%A7%84%E8%8C%83"><span class="nav-number">1.1.3.</span> <span class="nav-text">03 逆规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#04-%E4%B8%AD%E9%97%B4%E8%A1%A8%E6%8F%90%E9%AB%98%E7%BB%9F%E8%AE%A1%E6%9F%A5%E8%AF%A2%E6%95%88%E7%8E%87"><span class="nav-number">1.1.4.</span> <span class="nav-text">04 中间表提高统计查询效率</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%AB%E9%97%AE%E6%94%B6%E8%8E%B7%EF%BC%8C%E4%BD%86%E9%97%AE%E8%80%95%E8%80%98"><span class="nav-number">2.</span> <span class="nav-text">莫问收获，但问耕耘</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="文正耕耘"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">文正耕耘</p>
+  <div class="site-description" itemprop="description">莫问收获，但问耕耘。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cnwangk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cnwangk" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/dywangk@gmail.com" title="E-Mail → dywangk@gmail.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          友情链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.wxlzb.top/" title="https:&#x2F;&#x2F;www.wxlzb.top" rel="noopener" target="_blank">arryluo（随想笔记）</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://theme-next.js.org/docs/" title="https:&#x2F;&#x2F;theme-next.js.org&#x2F;docs&#x2F;" rel="noopener" target="_blank">Next主题官方文档</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://blog.skk.moe/" title="https:&#x2F;&#x2F;blog.skk.moe&#x2F;" rel="noopener" target="_blank">Sukka blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://zu1k.com/" title="https:&#x2F;&#x2F;zu1k.com&#x2F;" rel="noopener" target="_blank">zu1k blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://dict.youdao.com/" title="https:&#x2F;&#x2F;dict.youdao.com&#x2F;" rel="noopener" target="_blank">有道词典</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://developer.mozilla.org/zh-CN/" title="https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;" rel="noopener" target="_blank">MDN</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://dev.mysql.com/doc/refman/8.0/en" title="https:&#x2F;&#x2F;dev.mysql.com&#x2F;doc&#x2F;refman&#x2F;8.0&#x2F;en" rel="noopener" target="_blank">MySQL8.0 doc</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://stackoverflow.com/questions" title="https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions" rel="noopener" target="_blank">stackoverflow</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/" title="https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank">github</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://msdn.itellyou.cn/" title="https:&#x2F;&#x2F;msdn.itellyou.cn&#x2F;" rel="noopener" target="_blank">MSDN itellyou</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.rpmfind.net/" title="https:&#x2F;&#x2F;www.rpmfind.net&#x2F;" rel="noopener" target="_blank">rpmfind</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95-%E4%BC%98%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MySQL优化方法--优化数据库对象 | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MySQL优化方法--优化数据库对象
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-07 00:00:00 / 修改时间：11:36:42" itemprop="dateCreated datePublished" datetime="2022-04-07T00:00:00+08:00">2022-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL%E4%BC%98%E5%8C%96%E7%AF%87/" itemprop="url" rel="index"><span itemprop="name">MySQL优化篇</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>﻿﻿﻿MySQL优化方法——优化数据库对象</p>
+<p>如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。官方文档非常具有参考意义。你可以将这篇博文，当成过度到MySQL8.0的参考资料。<strong>友情提示：经验是用来参考，不是拿来即用</strong>。如果您能看到并分享这篇文章，我很荣幸。如果有误导您的地方，我表示抱歉。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/acf1fd88c4b72660309388d03852a999.png"></p>
+<h1 id="MySQL优化方法——优化数据库对象"><a href="#MySQL优化方法——优化数据库对象" class="headerlink" title="MySQL优化方法——优化数据库对象"></a>MySQL优化方法——优化数据库对象</h1><p><strong>注意</strong>：在某些情况，你自己测试的结果可能与我演示有所不同，我省略了查询结果的部分参数。</p>
+<p><strong>本文侧重点在SQL优化流程以及MySQL锁问题</strong>（MyISAM和InnoDB存储引擎）。图片可能会挂，演示时尽量使用SQL查询语句返回结果进行示例。篇幅很长，因此使用markdown语法加了目录。</p>
+<p>起初，也只是想看MySQL8.0.28有哪些变化，后面索性结合书籍和官方文档总结了一篇。花了将近两周，基本是每天完善一点，因为个人只有晚上和周末有时间总结并测试验证。如果有错别字，也请多多担待。如果你能看到并分享这篇文章，我很荣幸。如果有误导你的地方，我表示抱歉。</p>
+<p>如果你是从MySQL5.6或者5.7版本过渡到MySQL8.0。学习之前，建议线看官方文档这一章节：1.3 What Is New MySQL8.0 。在做对比的时候，<strong>文档中带有Note标识是你应该注意的地方</strong>。比如下面这张截图：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/17d4943de92930dea49aa6fe2eaeac55.png"></p>
+<h2 id="优化数据库对象"><a href="#优化数据库对象" class="headerlink" title="优化数据库对象"></a>优化数据库对象</h2><p>第二部分，优化数据库对象。看看就行，因为没做过多示例介绍，以理论知识居多。</p>
+<p>面对数据库设计过程，用户可能会遇到这类问题。是否完全遵循数据库设计三范式设计表结构？表的字段值大小到底设置为多长合适？这些问题看似很小，但设计不当则可能会给将来的应用带来很多性能问题。</p>
+<h3 id="01-优化表数据类型"><a href="#01-优化表数据类型" class="headerlink" title="01 优化表数据类型"></a>01 优化表数据类型</h3><p>设计表的时候，需要给定字段类型。</p>
+<p>表需要使用何种数据类型应该依据实际应用来判断。当然，考虑到应用字段留有冗余是一个不错的选择。但并不推荐所有字段留有大量的冗余，因为浪费磁盘存储空间，同时在操作应用时也浪费物理内存。</p>
+<p>在MySQL中，可以使用函数procedure analyse()对当前应用的表进行分析。该函数可以对数据表中列的数据类型提出优化建议，可以根据实际情况进行优化。</p>
+<p><strong>示例</strong>：MariaDB 10.5.6中使用procedure analyse()</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [test]<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> student <span class="keyword">procedure</span> analyse()\G</span><br><span class="line"><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span> <span class="number">1.</span> <span class="type">row</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line">             Field_name: test.student.ID</span><br><span class="line">              Min_value: <span class="number">1</span></span><br><span class="line">              Max_value: <span class="number">1000000</span></span><br><span class="line">             Min_length: <span class="number">1</span></span><br><span class="line">             Max_length: <span class="number">7</span></span><br><span class="line">       Empties_or_zeros: <span class="number">0</span></span><br><span class="line">                  Nulls: <span class="number">0</span></span><br><span class="line">Avg_value_or_avg_length: <span class="number">500000.5000</span></span><br><span class="line">                    Std: <span class="number">577357.8230</span></span><br><span class="line">      Optimal_fieldtype: MEDIUMINT(<span class="number">7</span>) UNSIGNED <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br></pre></td></tr></table></figure>
+
+<p>最终给出的优化建议Optimal_fieldtype：MEDIUMINT(7) UNSIGNED NOT NULL，字段类型MEDIUMINT(7) 。</p>
+<p><strong>注意</strong>：在MySQL 5.x版本和MariaDB 10.5.6还可以使用。但在MySQL8.0.x版本已经被移除了，暂时没看到替代的方式。</p>
+<blockquote>
+<p>PROCEDURE ANALYSE() syntax is removed.</p>
+<p>摘自第1.3章节：Features Removed in MySQL 8.0</p>
+</blockquote>
+<h3 id="02-拆分表提高访问效率"><a href="#02-拆分表提高访问效率" class="headerlink" title="02 拆分表提高访问效率"></a>02 拆分表提高访问效率</h3><p>看小标题已经描述很清晰，通过对数据表进行拆分。</p>
+<p>假如针对MyISAM类型表进行，有如下两种方式：</p>
+<ol>
+<li><p><strong>垂直拆分</strong>：将主列和一些列存放至一张表中，然后将主列和另外的列存放到另一张表中。如果不好理解，可以想象一下垂直平分线的方式。如果一张表某些列常用，而另一些列不常用，则可以采取垂直拆分。</p>
+<p>垂直拆分可以使数据行变小，一个数据页可以存放更多数据，查询时会减少I&#x2F;O次数。缺点在于需要管理冗余列，查询所有数据需要联合（union）操作。</p>
+</li>
+<li><p><strong>水平拆分</strong>：根据一列或多列数据的值将数据行放入两张独立的表中。<br> 水平拆分通常在以下几种场景下使用：<br><br> <strong>表很大</strong>，分割后可以降低在查询时需要读取的数据和索引页数。同时降低索引层数，提高查询速度。</p>
+<p> <strong>表中数据本就有独立性</strong>。比如，表中数据记录着不同地区的数据或者不同时间段的数据。区分常用数据和不常用数据，需要将数据存		放在多个介质上。</p>
+</li>
+</ol>
+<p>水平拆分会给应用增加复杂度，查询时通常需要联结多个表，查询所有数据需要使用UNION操作。考虑是否进行水平拆分，可以依据应用实际数据增长速率进行酌情处理。</p>
+<h3 id="03-逆规范"><a href="#03-逆规范" class="headerlink" title="03 逆规范"></a>03 逆规范</h3><p>谈到逆规范，第一时间会想到规范，其次想到表中加入冗余字段便于操作。</p>
+<p>从我们学习数据库知识起，已经深入到脑海里并理解满足规范设计的重要性。</p>
+<p><strong>是不是满足数据设计规范越高越好呢</strong>？以前数据库没那么多范式，最多满足3范式，现在到了N范式。个人理解，应该根据实际需求定，不应一概而论。规范越高，关系相对越复杂，表之间联结操作越频繁。如果是查询统计较多的应用，则大大影响查询性能。</p>
+<p><strong>设计逆规范时</strong>，我们想达到的目的是啥？降低联结操作需求、减少索引数目，也许还会减少表数目。如果带来数据完整性问题，如何处理。做逆规范，理应权衡利弊；弊大于利，则适得其反。如果优质索引可以解决，则不必增加逆规范。</p>
+<p><strong>使用逆规范前的思考</strong>：</p>
+<ul>
+<li>数据存储需求；</li>
+<li>常用表大小；</li>
+<li>特殊计算（比如合计）；</li>
+<li>物理存储位置。</li>
+</ul>
+<p>常用逆规范技术手段：增加<strong>冗余列</strong>、<strong>派生列</strong>、<strong>重新组表和分割表</strong>。</p>
+<p>使用逆规范操作，<strong>往往有一种比较友好的方式来应对处理</strong>，那就是<strong>触发器</strong>。对数据任何修改立即出发对复制列或派生列的相应修改。触发器是实时的，相应处理逻辑只在一个地方出现，易于维护。</p>
+<h3 id="04-中间表提高统计查询效率"><a href="#04-中间表提高统计查询效率" class="headerlink" title="04 中间表提高统计查询效率"></a>04 中间表提高统计查询效率</h3><p>曾几何时，你在面试时遇到是否有海量数据处理经验。如果是你来应对，如何处理，思考过如何回答么？</p>
+<p>仔细想想，其实可以从单表存储数据过多，会带来哪些缺点进行思考。</p>
+<p>对于数据量较大的表，进行统计查询通常效率会降低，并且还要考虑统计查询是否影响在线应用（负面影响）。通常在这种情况下，使用中间表可以提高查询效率。考虑前提，对转移（复制）当前表时间进行忽略。</p>
+<p><strong>使用方法进行示例</strong>：只需两步完成操作</p>
+<p>1、创建新表使用源表数据结构（<strong>你也可以适当优化，比如常用字段加单独索引</strong>）。当时考虑Oracle中分批次生成1kw数据想到这种方法。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test.student01 <span class="keyword">as</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> test.student;</span><br></pre></td></tr></table></figure>
+
+<p>2、然后插入源表数据，这样做确实很方便。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> test.student01 <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> test.student;</span><br></pre></td></tr></table></figure>
+
+<p>做完之后，数据转移到中间表上进行统计，得到结果。既不影响在线应用，也可以快速查询统计。</p>
+<p><strong>中间表做统计查询优点</strong>：</p>
+<ol>
+<li>复制源表部分数据，与源表隔离，中间表做统计查询不影响在线应用使用。</li>
+<li>灵活添加索引，增加临时字段，最终达到提高统计查询效率。</li>
+</ol>
+<p><strong>参考资料&amp;鸣谢</strong>：</p>
+<ul>
+<li>《深入浅出MySQL 第2版 数据库开发、优化与管理维护》。</li>
+<li>《MySQL技术内幕InnoDB存储引擎 第2版》。</li>
+<li>MySQL8.0官网文档：refman-8.0-en.pdf，如果学习新版本，官方文档是非常不错的选择。</li>
+</ul>
+<p>虽然书籍年份比较久远（停留在MySQL5.6.x版本），但仍然具有借鉴意义。</p>
+<p>最后，对以上书籍和官方文档所有作者表示衷心感谢。让我充分体会到：前人栽树，后人乘凉。</p>
+<h1 id="莫问收获，但问耕耘"><a href="#莫问收获，但问耕耘" class="headerlink" title="莫问收获，但问耕耘"></a>莫问收获，但问耕耘</h1><p>只停留在看上面，提升效果甚微。应该带着思考去测试佐证，或者使用（同类书籍）新版本进行对比，这样带来的效果更好。最重要的一环，<strong>养成阅读官方文档</strong>，是一个良好的习惯。能编写官方文档，至少证明他们在这个领域是有很高的造诣，对用法足够熟练。</p>
+<p><strong>能看到这里的，都是帅哥靓妹</strong>。以上是本次MySQL优化篇（上部分）全部内容，希望能对你的工作与学习有所帮助。感觉写的好，就拿出你的一键三连。如果感觉总结的不到位，也希望能留下您宝贵的意见，我会在文章中定期进行调整优化。<strong>好记性不如烂笔头，多实践多积累</strong>。<strong>你会发现，自己的知识宝库越来越丰富</strong>。原创不易，转载也请标明出处和作者，尊重原创。</p>
+<p>一般情况下，会优先在公众号发布：龙腾万里sky。</p>
+<p>不定期上传到github仓库：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/cnwangk/SQL-study">https://github.com/cnwangk/SQL-study</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98%EF%BC%9AMyISAM%E5%8A%A0%E8%A1%A8%E9%94%81%E3%80%81%E5%B9%B6%E5%8F%91%E6%8F%92%E5%85%A5%E4%BB%A5%E5%8F%8A%E9%94%81%E8%B0%83%E5%BA%A6/" rel="prev" title="MySQL锁问题：MyISAM加表锁、并发插入以及锁调度">
+                  <i class="fa fa-chevron-left"></i> MySQL锁问题：MyISAM加表锁、并发插入以及锁调度
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/15/Linux%EF%BC%88Redhat7-or-Centos7%EF%BC%89%E4%BD%BF%E7%94%A8VMware12%E6%90%AD%E5%BB%BA%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83/" rel="next" title="Linux（Redhat7 or Centos7）使用VMware12搭建测试环境">
+                  Linux（Redhat7 or Centos7）使用VMware12搭建测试环境 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Copyright © 文正耕耘. All Rights Reserved.</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">204k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">12:22</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: '32px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>
