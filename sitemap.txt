@@ -92,8 +92,8 @@ https://cnwangk.github.io/tags/%E5%B7%A5%E5%85%B7%E7%AF%87/
 https://cnwangk.github.io/tags/VScode/
 https://cnwangk.github.io/tags/PostgreSQL/
 https://cnwangk.github.io/tags/Windows/
-https://cnwangk.github.io/tags/Java/
 https://cnwangk.github.io/tags/git/
+https://cnwangk.github.io/tags/Java/
 https://cnwangk.github.io/tags/%E5%86%99%E4%BD%9C%E5%B7%A5%E5%85%B7/
 https://cnwangk.github.io/tags/podman/
 https://cnwangk.github.io/tags/MQ/
