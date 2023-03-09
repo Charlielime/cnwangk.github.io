@@ -240,6 +240,122 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/" class="post-title-link" itemprop="url">Linux服务器使用firewalld和iptables</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-10T00:00:00+08:00">2022-02-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-05 20:35:48" itemprop="dateModified" datetime="2022-04-05T20:35:48+08:00">2022-04-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux%E8%87%AA%E5%AD%A6%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Linux自学系列</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Linux服务器有必要开启iptables防火墙么？其实是使用iptables和firewalld工具进行管理，真正起作用的是Netfilter内核模块。
+
+iptables与firewalld防火墙管理工具在linux发行版Redhat7系列使用较为广泛。
+UFW则是在linux发行版Ubuntu下进行管理防火墙的一款管理工具。
+
+在选用防火墙工具的时候，运维或者是开发人员往往会纠结使用哪个。这里给出建议，使用iptables工具管理就禁用firewalld，使用firewalld工具管理就禁用iptables，二者选其一即可，避免产生混乱。
+
+此篇文章不会在原理上做深究，主要以实用性为主，
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8vsftpd%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -332,122 +448,6 @@ Linux网络文件共享。例如NFS、Sambs、FTP，其中以FTP应用最为广�
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8vsftpd%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/" class="post-title-link" itemprop="url">Linux服务器使用firewalld和iptables</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-10T00:00:00+08:00">2022-02-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-05 20:35:48" itemprop="dateModified" datetime="2022-04-05T20:35:48+08:00">2022-04-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux%E8%87%AA%E5%AD%A6%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">Linux自学系列</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>12 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          Linux服务器有必要开启iptables防火墙么？其实是使用iptables和firewalld工具进行管理，真正起作用的是Netfilter内核模块。
-
-iptables与firewalld防火墙管理工具在linux发行版Redhat7系列使用较为广泛。
-UFW则是在linux发行版Ubuntu下进行管理防火墙的一款管理工具。
-
-在选用防火墙工具的时候，运维或者是开发人员往往会纠结使用哪个。这里给出建议，使用iptables工具管理就禁用firewalld，使用firewalld工具管理就禁用iptables，二者选其一即可，避免产生混乱。
-
-此篇文章不会在原理上做深究，主要以实用性为主，
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
