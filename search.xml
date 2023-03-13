@@ -319,7 +319,7 @@
 <p>——END——</p>
 ]]></content>
       <categories>
-        <category>博客框架</category>
+        <category>静态博客</category>
       </categories>
       <tags>
         <tag>hexo</tag>
@@ -591,7 +591,7 @@
 <p>——END——</p>
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
+        <category>运维</category>
       </categories>
       <tags>
         <tag>podman</tag>
@@ -1207,10 +1207,10 @@
 <p><a href="https://github.com/cnwangk/wangk-stick">https://github.com/cnwangk/wangk-stick</a></p>
 ]]></content>
       <categories>
-        <category>面试宝典</category>
+        <category>软件实施</category>
       </categories>
       <tags>
-        <tag>软件实施</tag>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -1227,7 +1227,7 @@
 <p><a href="https://ac.scmor.com/">https://ac.scmor.com/</a></p>
 ]]></content>
       <categories>
-        <category>工具篇</category>
+        <category>实用工具</category>
       </categories>
   </entry>
   <entry>
@@ -1410,7 +1410,7 @@
 <p><strong>ED2K：</strong><br><a href="ed2k://|file|cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso|3420557312|B58548681854236C7939003B583A8078|/">ed2k:&#x2F;&#x2F;|file|cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso|3420557312|B58548681854236C7939003B583A8078|&#x2F;</a></p>
 ]]></content>
       <categories>
-        <category>工具篇</category>
+        <category>实用工具</category>
       </categories>
       <tags>
         <tag>Windows</tag>
@@ -1545,6 +1545,76 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux配置全局与当前用户环境变量</title>
+    <url>/2022/04/20/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<p>今天这篇文章，讲解linux系统的全局环境变量以及当前用户环境变量的配置。</p>
+<p>以前在没有遇到实际问题时，基本忽略掉思考，所有配置的环境变量都配成全局生效。这样是有弊端的，在某一次偶然的机会，我沉思的一小会，意识到全局环境变量与当前用户环境变量还是区分为好，不应一概而论。</p>
+<p>直到后来我在linux服务器从Oracle11g过度到Oracle19c时。需要创建普通用户例如oracle才能安装，这时我才恍然大悟。这大概是linux操作系统的魅力所在。</p>
+<p>当时遇到的国产银河麒麟操作系统，把不同用户权限区分的明明白白的，三权分立。管理员用户root、安全用户secure、普通用户user，三者之间均无法访问别人的home目录，这时我才明白原来那个root用户是假的。泾渭分明，这样做当然有优势。好处在于运维人员只需要分心维护管路员用户和安全用户。普通用户权限比较小，相对来说不会造成较为严重的后果。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>配置环境变量，并不一定需要非得配置成所有用全局的或者当前用户全局的。如果使用的中间件有配置文件，你甚至可以在当前的中间件配置文件中指定JDK安装的路径，我做测试时一般会这样配置，为了不干扰原有的环境配置而做出让步。这样会显得繁琐一些，配置全局则更为方便管理。</p>
+<h2 id="一、配置全局环境变量"><a href="#一、配置全局环境变量" class="headerlink" title="一、配置全局环境变量"></a>一、配置全局环境变量</h2><h3 id="1、Redhat系列配置环境变量"><a href="#1、Redhat系列配置环境变量" class="headerlink" title="1、Redhat系列配置环境变量"></a>1、Redhat系列配置环境变量</h3><p>注意：<strong>需要root用户权限</strong>，才能编辑<code>/etc/profile</code>文件，默认配置如下图所示</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/bd1db81b028ca8354d6ae09175e5db32.png"></p>
+<h4 id="1-1、永久生效"><a href="#1-1、永久生效" class="headerlink" title="1.1、永久生效"></a>1.1、永久生效</h4><p>1.1.1、配置全局环境变量，针对所有用户</p>
+<p>首先需要切换到root用户模式，然后编辑全局系统环境变量配置文件，所有用户都生效，永久生效。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换到root用户下</span></span><br><span class="line">su root</span><br><span class="line"><span class="comment">#编辑全局系统环境变量存储配置文件，所有用户都生效，永久生效。</span></span><br><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+<p>例如加入配置文件，对应你安装JDK所在路径</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如加入JDK环境变量</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/jdk1.8</span><br></pre></td></tr></table></figure>
+
+<p><strong>1.2.1、source命令</strong></p>
+<p>执行source命令读取并执行shell脚本配置文件，无需重启服务器。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#执行source命令使其生效</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="1-2、临时生效"><a href="#1-2、临时生效" class="headerlink" title="1.2、临时生效"></a>1.2、临时生效</h4><p>临时设置这种方式一般很少采取，大多数情况下都是直接编辑环境变量配置文件进行设置。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如配置ORACLE_HOME</span></span><br><span class="line">export ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/<span class="number">19</span>c/dbhome_1;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、Ubuntu配置环境变量"><a href="#2、Ubuntu配置环境变量" class="headerlink" title="2、Ubuntu配置环境变量"></a>2、Ubuntu配置环境变量</h3><h4 id="2-1、永久生效"><a href="#2-1、永久生效" class="headerlink" title="2.1、永久生效"></a>2.1、永久生效</h4><p>2.1.1、全局环境变量，针对所有用户</p>
+<p>首先需要切换到root用户模式，然后编辑全局系统环境变量配置文件，所有用户都生效，永久生效。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换到root用户下</span></span><br><span class="line">su root</span><br><span class="line"><span class="comment">#编辑全局系统环境变量存储配置文件，所有用户都生效，永久生效。</span></span><br><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>2.1.2、当前用户环境变量</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#编辑当前用户环境变量</span></span><br><span class="line">vim .bashrc</span><br></pre></td></tr></table></figure>
+
+<p>加入环境变量配置，这是以源码包安装<code>JDK</code>为例子</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#以最常见的JDK为例子,真实安装的JDK目录，一般源码包安装会这样设置</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/java</span><br><span class="line"><span class="comment">#OPENJDK，一般情况下openjdk所在目录</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm</span><br></pre></td></tr></table></figure>
+
+<p>既然谈到了openjdk，我就简单的列举下<strong>Centos7.3默认安装openjdk的目录</strong>，如下图所示</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/2389802a83651e99409bd2802246b203.png"></p>
+<p>如果你是开发人员，你可能还需要加入如下配置CLASS_PATH的配置，在lib目录下的dt.jar和tools.jar。在JDK5以后，貌似可以不用加此项，但是加了比较保险。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#CLASS_PATH的配置，在lib目录下的dt.jar和tools.jar</span></span><br><span class="line"><span class="built_in">export</span> CLASS_PATH=.:<span class="variable">$JAVA_HOME</span>/jre/lib/rt.jar:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure>
+
+<p>最后配置PATH，找到bin目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#PATH的设置，找到bin目录</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、配置当前用户环境变量"><a href="#二、配置当前用户环境变量" class="headerlink" title="二、配置当前用户环境变量"></a>二、配置当前用户环境变量</h2><h3 id="1、切换到当前用户"><a href="#1、切换到当前用户" class="headerlink" title="1、切换到当前用户"></a>1、切换到当前用户</h3><h4 id="1-1、Redhat系列"><a href="#1-1、Redhat系列" class="headerlink" title="1.1、Redhat系列"></a>1.1、Redhat系列</h4><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换至当前用户的home目录</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment">#编辑当前用户的系统环境变量</span></span><br><span class="line">vim .bash_profile </span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2、Ubuntu系列"><a href="#1-2、Ubuntu系列" class="headerlink" title="1.2、Ubuntu系列"></a>1.2、Ubuntu系列</h4><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换至当前用户的home目录</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment">#编辑当前用户的系统环境变量</span></span><br><span class="line">vim .bashrc</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2、Oracle为例配置环境变量"><a href="#2、Oracle为例配置环境变量" class="headerlink" title="2、Oracle为例配置环境变量"></a>2、Oracle为例配置环境变量</h3><p>下面列举的例子是新增了oracle用户，并且安装了oracle19c，然后配置oracle用户的环境变量。</p>
+<h4 id="2-1、永久生效-1"><a href="#2-1、永久生效-1" class="headerlink" title="2.1、永久生效"></a>2.1、永久生效</h4><p>编辑当前用户的环境变量配置文件<code>.bash_profile</code> ，并加入如下配置，执行<code>source .bash_profile</code>生效。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#加入环境变量</span></span><br><span class="line">ORACLE_BASE=/opt/oracle;</span><br><span class="line">ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/19c/dbhome_1;</span><br><span class="line">PATH=<span class="variable">$ORACLE_HOME</span>/bin:<span class="variable">$PATH</span>;</span><br><span class="line">ORACLE_SID=ORCLCDB;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> ORACLE_SID ORACLE_BASE ORACLE_HOME PATH</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-2、临时生效"><a href="#2-2、临时生效" class="headerlink" title="2.2、临时生效"></a>2.2、临时生效</h4><p>此方法在当前用户下配置环境变量只是临时生效，如果服务器不重启那可能一直有效。万一重启了，就失效了，相当于一次性的设置。建议在当前用户或者全局配置文件中写入相应的配置，效果更佳。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如配置ORACLE_HOME</span></span><br><span class="line"><span class="built_in">export</span> ORACLE_BASE=/opt/oracle;</span><br><span class="line"><span class="built_in">export</span> ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/19c/dbhome_1;</span><br></pre></td></tr></table></figure>
+
+<p>相当于一次性的设置。建议在当前用户或者全局配置文件中写入相应的配置，效果更佳。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如配置ORACLE_HOME</span></span><br><span class="line"><span class="built_in">export</span> ORACLE_BASE=/opt/oracle;</span><br><span class="line"><span class="built_in">export</span> ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/19c/dbhome_1;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux预防利用ssh暴力破解用户：过滤试图非法登录IP</title>
     <url>/2022/04/20/Linux%E9%A2%84%E9%98%B2%E5%88%A9%E7%94%A8ssh%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E7%94%A8%E6%88%B7%EF%BC%9A%E8%BF%87%E6%BB%A4%E8%AF%95%E5%9B%BE%E9%9D%9E%E6%B3%95%E7%99%BB%E5%BD%95IP/</url>
     <content><![CDATA[<p>之前买的腾讯云服务器，总是收到提醒被其它的<code>ip</code>攻击试图破解。实在是忍无可忍，自己在网上参考了一篇教程，就总结了下，防止<code>ssh</code>暴力破解<code>linux</code>用户，将试图入侵的ip达到一定次数就放入黑名单中。</p>
@@ -1625,77 +1695,7 @@
 
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux配置全局与当前用户环境变量</title>
-    <url>/2022/04/20/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<p>今天这篇文章，讲解linux系统的全局环境变量以及当前用户环境变量的配置。</p>
-<p>以前在没有遇到实际问题时，基本忽略掉思考，所有配置的环境变量都配成全局生效。这样是有弊端的，在某一次偶然的机会，我沉思的一小会，意识到全局环境变量与当前用户环境变量还是区分为好，不应一概而论。</p>
-<p>直到后来我在linux服务器从Oracle11g过度到Oracle19c时。需要创建普通用户例如oracle才能安装，这时我才恍然大悟。这大概是linux操作系统的魅力所在。</p>
-<p>当时遇到的国产银河麒麟操作系统，把不同用户权限区分的明明白白的，三权分立。管理员用户root、安全用户secure、普通用户user，三者之间均无法访问别人的home目录，这时我才明白原来那个root用户是假的。泾渭分明，这样做当然有优势。好处在于运维人员只需要分心维护管路员用户和安全用户。普通用户权限比较小，相对来说不会造成较为严重的后果。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>配置环境变量，并不一定需要非得配置成所有用全局的或者当前用户全局的。如果使用的中间件有配置文件，你甚至可以在当前的中间件配置文件中指定JDK安装的路径，我做测试时一般会这样配置，为了不干扰原有的环境配置而做出让步。这样会显得繁琐一些，配置全局则更为方便管理。</p>
-<h2 id="一、配置全局环境变量"><a href="#一、配置全局环境变量" class="headerlink" title="一、配置全局环境变量"></a>一、配置全局环境变量</h2><h3 id="1、Redhat系列配置环境变量"><a href="#1、Redhat系列配置环境变量" class="headerlink" title="1、Redhat系列配置环境变量"></a>1、Redhat系列配置环境变量</h3><p>注意：<strong>需要root用户权限</strong>，才能编辑<code>/etc/profile</code>文件，默认配置如下图所示</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/bd1db81b028ca8354d6ae09175e5db32.png"></p>
-<h4 id="1-1、永久生效"><a href="#1-1、永久生效" class="headerlink" title="1.1、永久生效"></a>1.1、永久生效</h4><p>1.1.1、配置全局环境变量，针对所有用户</p>
-<p>首先需要切换到root用户模式，然后编辑全局系统环境变量配置文件，所有用户都生效，永久生效。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换到root用户下</span></span><br><span class="line">su root</span><br><span class="line"><span class="comment">#编辑全局系统环境变量存储配置文件，所有用户都生效，永久生效。</span></span><br><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
-<p>例如加入配置文件，对应你安装JDK所在路径</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如加入JDK环境变量</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/jdk1.8</span><br></pre></td></tr></table></figure>
-
-<p><strong>1.2.1、source命令</strong></p>
-<p>执行source命令读取并执行shell脚本配置文件，无需重启服务器。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#执行source命令使其生效</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="1-2、临时生效"><a href="#1-2、临时生效" class="headerlink" title="1.2、临时生效"></a>1.2、临时生效</h4><p>临时设置这种方式一般很少采取，大多数情况下都是直接编辑环境变量配置文件进行设置。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如配置ORACLE_HOME</span></span><br><span class="line">export ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/<span class="number">19</span>c/dbhome_1;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2、Ubuntu配置环境变量"><a href="#2、Ubuntu配置环境变量" class="headerlink" title="2、Ubuntu配置环境变量"></a>2、Ubuntu配置环境变量</h3><h4 id="2-1、永久生效"><a href="#2-1、永久生效" class="headerlink" title="2.1、永久生效"></a>2.1、永久生效</h4><p>2.1.1、全局环境变量，针对所有用户</p>
-<p>首先需要切换到root用户模式，然后编辑全局系统环境变量配置文件，所有用户都生效，永久生效。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换到root用户下</span></span><br><span class="line">su root</span><br><span class="line"><span class="comment">#编辑全局系统环境变量存储配置文件，所有用户都生效，永久生效。</span></span><br><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
-
-<p>2.1.2、当前用户环境变量</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#编辑当前用户环境变量</span></span><br><span class="line">vim .bashrc</span><br></pre></td></tr></table></figure>
-
-<p>加入环境变量配置，这是以源码包安装<code>JDK</code>为例子</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#以最常见的JDK为例子,真实安装的JDK目录，一般源码包安装会这样设置</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/java</span><br><span class="line"><span class="comment">#OPENJDK，一般情况下openjdk所在目录</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm</span><br></pre></td></tr></table></figure>
-
-<p>既然谈到了openjdk，我就简单的列举下<strong>Centos7.3默认安装openjdk的目录</strong>，如下图所示</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/2389802a83651e99409bd2802246b203.png"></p>
-<p>如果你是开发人员，你可能还需要加入如下配置CLASS_PATH的配置，在lib目录下的dt.jar和tools.jar。在JDK5以后，貌似可以不用加此项，但是加了比较保险。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#CLASS_PATH的配置，在lib目录下的dt.jar和tools.jar</span></span><br><span class="line"><span class="built_in">export</span> CLASS_PATH=.:<span class="variable">$JAVA_HOME</span>/jre/lib/rt.jar:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure>
-
-<p>最后配置PATH，找到bin目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#PATH的设置，找到bin目录</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、配置当前用户环境变量"><a href="#二、配置当前用户环境变量" class="headerlink" title="二、配置当前用户环境变量"></a>二、配置当前用户环境变量</h2><h3 id="1、切换到当前用户"><a href="#1、切换到当前用户" class="headerlink" title="1、切换到当前用户"></a>1、切换到当前用户</h3><h4 id="1-1、Redhat系列"><a href="#1-1、Redhat系列" class="headerlink" title="1.1、Redhat系列"></a>1.1、Redhat系列</h4><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换至当前用户的home目录</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment">#编辑当前用户的系统环境变量</span></span><br><span class="line">vim .bash_profile </span><br></pre></td></tr></table></figure>
-
-<h4 id="1-2、Ubuntu系列"><a href="#1-2、Ubuntu系列" class="headerlink" title="1.2、Ubuntu系列"></a>1.2、Ubuntu系列</h4><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换至当前用户的home目录</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment">#编辑当前用户的系统环境变量</span></span><br><span class="line">vim .bashrc</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="2、Oracle为例配置环境变量"><a href="#2、Oracle为例配置环境变量" class="headerlink" title="2、Oracle为例配置环境变量"></a>2、Oracle为例配置环境变量</h3><p>下面列举的例子是新增了oracle用户，并且安装了oracle19c，然后配置oracle用户的环境变量。</p>
-<h4 id="2-1、永久生效-1"><a href="#2-1、永久生效-1" class="headerlink" title="2.1、永久生效"></a>2.1、永久生效</h4><p>编辑当前用户的环境变量配置文件<code>.bash_profile</code> ，并加入如下配置，执行<code>source .bash_profile</code>生效。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#加入环境变量</span></span><br><span class="line">ORACLE_BASE=/opt/oracle;</span><br><span class="line">ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/19c/dbhome_1;</span><br><span class="line">PATH=<span class="variable">$ORACLE_HOME</span>/bin:<span class="variable">$PATH</span>;</span><br><span class="line">ORACLE_SID=ORCLCDB;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> ORACLE_SID ORACLE_BASE ORACLE_HOME PATH</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-2、临时生效"><a href="#2-2、临时生效" class="headerlink" title="2.2、临时生效"></a>2.2、临时生效</h4><p>此方法在当前用户下配置环境变量只是临时生效，如果服务器不重启那可能一直有效。万一重启了，就失效了，相当于一次性的设置。建议在当前用户或者全局配置文件中写入相应的配置，效果更佳。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如配置ORACLE_HOME</span></span><br><span class="line"><span class="built_in">export</span> ORACLE_BASE=/opt/oracle;</span><br><span class="line"><span class="built_in">export</span> ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/19c/dbhome_1;</span><br></pre></td></tr></table></figure>
-
-<p>相当于一次性的设置。建议在当前用户或者全局配置文件中写入相应的配置，效果更佳。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如配置ORACLE_HOME</span></span><br><span class="line"><span class="built_in">export</span> ORACLE_BASE=/opt/oracle;</span><br><span class="line"><span class="built_in">export</span> ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/19c/dbhome_1;</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>Linux自学系列</category>
+        <category>运维</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -1999,10 +1999,10 @@
 
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
+        <category>运维</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>VNC</tag>
       </tags>
   </entry>
   <entry>
@@ -2101,6 +2101,9 @@
 
 
 ]]></content>
+      <categories>
+        <category>软件实施</category>
+      </categories>
       <tags>
         <tag>Oracle</tag>
       </tags>
@@ -2131,10 +2134,10 @@
 <p>7、使用xshell7个人版登录（免费正版，个人使用足以）<br>填写信息，使用邮箱接收即可<br>正版商用下载地址：<a href="https://www.netsarang.com/en/xshell-download/">https://www.netsarang.com/en/xshell-download/</a><br>个人版下载地址直通车（免费）：<a href="https://www.netsarang.com/en/free-for-home-school/">https://www.netsarang.com/en/free-for-home-school/</a></p>
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
+        <category>运维</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -2179,6 +2182,9 @@
 <p>以上均为实际运维工作中使用到的小技巧，方便我们去管理维护服务器。在实际工作中，更多的是经验的累积。在之前的公司遇到这样一种，服务器的硬盘突然就gg思密达了。结果去查看后简直是让我措手不及，服务器版本那叫一个老，一些命令都不适用。心里真想来句mmp，最后还是硬着头皮上解决问题。</p>
 <p>说实话，当时我在Windows服务器的实施与运维经验还没linux上丰富，现在想来完全是<strong>工作让你不得不去适应</strong>。</p>
 ]]></content>
+      <categories>
+        <category>软件实施</category>
+      </categories>
       <tags>
         <tag>Oracle</tag>
       </tags>
@@ -2229,7 +2235,7 @@
 <p>7、 <strong>Battery life estimates</strong><br>Battery life estimates based on observed drains </p>
 ]]></content>
       <categories>
-        <category>工具篇</category>
+        <category>运维</category>
       </categories>
       <tags>
         <tag>Windows</tag>
@@ -2297,7 +2303,7 @@
 <p><strong>Windows服务器常用以及不常用的运维小技巧，持续更新中。。。</strong></p>
 ]]></content>
       <categories>
-        <category>工具篇</category>
+        <category>运维</category>
       </categories>
       <tags>
         <tag>Windows</tag>
@@ -2320,6 +2326,9 @@
 <p><strong>以管理员运行cmd</strong></p>
 <p>执行<code>net start msdtc</code>命令，恢复服务<code>net start msdtc</code>启动即可。后期持续更新相关文章，不定期补上遇到的问题以及解决方案。</p>
 ]]></content>
+      <categories>
+        <category>软件实施</category>
+      </categories>
       <tags>
         <tag>Oracle</tag>
       </tags>
@@ -2431,6 +2440,9 @@
 <p>这篇文章，centos7的版本应该是适用的，顺带提一点centos6.5安装docker有点麻烦，需要升级内核。好吧，生命在于折腾。<br><a href="https://www.kubernetes.org.cn/6632.html">https://www.kubernetes.org.cn/6632.html</a></p>
 <p><strong>持续更新，不定期优化，未完待续。。。</strong></p>
 ]]></content>
+      <categories>
+        <category>web后端</category>
+      </categories>
       <tags>
         <tag>Java</tag>
       </tags>
@@ -2474,8 +2486,11 @@
 
 <p><strong>设置完后记得保存，重启后生效</strong>，烦人的更新提示界面就消失了。可能对部分使用者并不适用，但对于我来说是验证好的。</p>
 ]]></content>
+      <categories>
+        <category>实用工具</category>
+      </categories>
       <tags>
-        <tag>工具篇</tag>
+        <tag>sublime text</tag>
       </tags>
   </entry>
   <entry>
@@ -2510,8 +2525,11 @@
 <p>设置界面，<strong>注意了，如果不想自动升级，可以在设置界面将开启自动升级按钮取消掉</strong>。</p>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/db29d40759407a4d8821956ac9ffc1c4.png"></p>
 ]]></content>
+      <categories>
+        <category>实用工具</category>
+      </categories>
       <tags>
-        <tag>工具篇</tag>
+        <tag>360zip</tag>
       </tags>
   </entry>
   <entry>
@@ -2523,10 +2541,10 @@
 <p><strong>仅仅只有距离目前最新的16版本的前两个版本无需注册与登录</strong>，后续需要注册登录才能下载<br><img src="https://img-blog.csdnimg.cn/d0943ea15907436dafb3f725c492ad7c.png?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
+        <category>实用工具</category>
       </categories>
       <tags>
-        <tag>工具篇</tag>
+        <tag>VMware</tag>
       </tags>
   </entry>
   <entry>
@@ -2643,7 +2661,7 @@
 <p><strong>好记性不如烂笔头</strong>，积少成多，收获也颇丰。<strong>你会发现，自己的知识宝库越来越丰富</strong>。白嫖有瘾，原创不易！</p>
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
+        <category>运维</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -2719,10 +2737,10 @@
 <p>参考lnmp网站的安装，很详细：<br><a href="https://lnmp.org/download.html">https://lnmp.org/download.html</a></p>
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
+        <category>运维</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>VMware</tag>
       </tags>
   </entry>
   <entry>
@@ -5125,10 +5143,10 @@
 <p>本期分享的是加速访问插件与管理浏览器脚本的插件。定期分享好用、实用的工具。</p>
 ]]></content>
       <categories>
-        <category>好好学习</category>
+        <category>实用工具</category>
       </categories>
       <tags>
-        <tag>工具篇</tag>
+        <tag>插件</tag>
       </tags>
   </entry>
   <entry>
@@ -5793,7 +5811,7 @@
 <p><strong>主题所在目录</strong>：themes</p>
 <p><strong>获取Next主题</strong>：使用git clone或者直接下载</p>
 <blockquote>
-<p>git clone <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#109;">&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#109;</a>:next-theme&#x2F;hexo-theme-next.git</p>
+<p>git clone <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#109;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#109;</a>:next-theme&#x2F;hexo-theme-next.git</p>
 <p><a href="https://github.com/next-theme/hexo-theme-next/archive/refs/heads/master.zip">https://github.com/next-theme/hexo-theme-next/archive/refs/heads/master.zip</a></p>
 </blockquote>
 <p>下载后复制到themes目录，然后<strong>修改hexo配置文件</strong>_config.yml：</p>
@@ -5886,7 +5904,7 @@
 <p><strong>tips</strong>：使用hexo搭建的静态博客也会定期更新维护。</p>
 ]]></content>
       <categories>
-        <category>写作工具</category>
+        <category>静态博客</category>
       </categories>
       <tags>
         <tag>hexo</tag>
@@ -6000,7 +6018,7 @@
 <p>学无止境，向阳而生。好啦！到此为止就是此篇文章的全部内容了！<strong>能看到这里的都是帅哥靓妹啊</strong>！！！善于总结，其乐不穷。<strong>好记性不如烂笔头</strong>，多收集自己第一次尝试的成果，收获也颇丰。<strong>你会发现，自己的知识宝库越来越丰富</strong>。</p>
 ]]></content>
       <categories>
-        <category>面试宝典</category>
+        <category>软件实施</category>
       </categories>
       <tags>
         <tag>SQL</tag>
@@ -6378,10 +6396,10 @@
 <h1 id="莫问收获，但问耕耘"><a href="#莫问收获，但问耕耘" class="headerlink" title="莫问收获，但问耕耘"></a>莫问收获，但问耕耘</h1><p>学无止境，向阳而生。好啦！到此为止就是此篇文章的全部内容了！<strong>能看到这里的都是帅哥靓妹啊</strong>！！！善于总结，其乐不穷。<strong>你会发现，自己的知识宝库越来越丰富</strong>。</p>
 ]]></content>
       <categories>
-        <category>面试宝典</category>
+        <category>软件实施</category>
       </categories>
       <tags>
-        <tag>软件实施</tag>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -6662,7 +6680,7 @@
         <category>开发工具</category>
       </categories>
       <tags>
-        <tag>工具篇</tag>
+        <tag>JDK</tag>
       </tags>
   </entry>
   <entry>
@@ -6670,9 +6688,9 @@
     <url>/2022/02/24/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%90%9C%E7%B4%A2%E8%BF%87%E6%BB%A4%E5%8F%82%E6%95%B0-site-csdn-net/</url>
     <content><![CDATA[<p>在浏览器搜索栏输入条件后面加上-site:xxx.xxx</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">检索内容加上后面的参数 -site:csdn.net</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>工具篇</tag>
-      </tags>
+      <categories>
+        <category>实用工具</category>
+      </categories>
   </entry>
   <entry>
     <title>Linux养成达人之入门实践图文超详细</title>
@@ -6746,7 +6764,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
+        <category>运维</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -6790,7 +6808,7 @@
 
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
+        <category>运维</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -6841,7 +6859,7 @@
 <h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>好了，<strong>到此为止就是此篇文章的全部内容了，能看到这的都是帅哥靓妹啊！！！</strong> 善于总结，其乐不穷。好记性不如烂笔头，多收集自己第一次尝试的成果，收获也颇丰。<strong>你会发现，自己的知识宝库越来越丰富。</strong></p>
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
+        <category>运维</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -6905,7 +6923,7 @@
 <p><strong>说不定后续还会继续更新如何去拿数据的文章，未完待续</strong>…</p>
 ]]></content>
       <categories>
-        <category>Java系列</category>
+        <category>web后端</category>
       </categories>
       <tags>
         <tag>Java</tag>
@@ -7110,7 +7128,7 @@
 <h1 id="小声哔哔"><a href="#小声哔哔" class="headerlink" title="小声哔哔"></a>小声哔哔</h1><p>好了，到此为止就是此篇文章的全部内容了，<strong>能看到这里的都是帅哥靓妹啊</strong>！！！善于总结，其乐不穷。<strong>好记性不如烂笔头</strong>，多收集自己第一次尝试的成果，收获也颇丰。<strong>你会发现，自己的知识宝库越来越丰富</strong>。</p>
 ]]></content>
       <categories>
-        <category>Java系列</category>
+        <category>web框架</category>
       </categories>
       <tags>
         <tag>springboot</tag>
@@ -7132,8 +7150,11 @@
 <h2 id="四、jdk目录生成jre文件夹"><a href="#四、jdk目录生成jre文件夹" class="headerlink" title="四、jdk目录生成jre文件夹"></a>四、jdk目录生成jre文件夹</h2><p>证明大功告成。可以测试一下了，体验新特性。<br><img src="https://img-blog.csdnimg.cn/20191217105815720.png?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>善于总结，其乐不穷。好记性不如烂笔头，多收集自己第一次尝试的成果，收获也颇丰。你会发现，自己的知识宝库越来越丰富。</p>
 ]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
       <tags>
-        <tag>工具篇</tag>
+        <tag>JDK</tag>
       </tags>
   </entry>
   <entry>
@@ -7152,7 +7173,7 @@
         <category>开发工具</category>
       </categories>
       <tags>
-        <tag>工具篇</tag>
+        <tag>eclipse</tag>
       </tags>
   </entry>
   <entry>
@@ -7170,10 +7191,10 @@
 <h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>记录点点滴滴。善于总结，其乐不穷。好记性不如烂笔头，多收集自己第一次尝试的成果，收获也颇丰。你会发现，自己的知识宝库越来越丰富。</p>
 ]]></content>
       <categories>
-        <category>运维工具</category>
+        <category>运维</category>
       </categories>
       <tags>
-        <tag>工具篇</tag>
+        <tag>xshell</tag>
       </tags>
   </entry>
   <entry>
@@ -7340,7 +7361,7 @@
 <p>——END——</p>
 ]]></content>
       <categories>
-        <category>博客框架</category>
+        <category>静态博客</category>
       </categories>
       <tags>
         <tag>hexo</tag>
@@ -7650,10 +7671,10 @@
 <p>——END——</p>
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>软件实施</category>
       </categories>
       <tags>
-        <tag>软件实施</tag>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -7711,10 +7732,10 @@
 </tbody></table>
 ]]></content>
       <categories>
-        <category>养生</category>
+        <category>实用工具</category>
       </categories>
       <tags>
-        <tag>写作工具</tag>
+        <tag>护眼色</tag>
       </tags>
   </entry>
   <entry>
@@ -8727,129 +8748,10 @@
 <p><img src="https://img-blog.csdnimg.cn/img_convert/acc910bff0c233f7614c1e37fb169c55.png"></p>
 ]]></content>
       <categories>
-        <category>监控工具</category>
+        <category>运维</category>
       </categories>
       <tags>
         <tag>zabbix</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux服务器vsftpd安装与配置</title>
-    <url>/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8vsftpd%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文，主要以vsftp软件为主进行讲解，版本为3.0.2。以介绍设置虚拟用户、权限验证为主，linux权限知识默认大家都有所了解。vsftpd设置有两种模式：主动模式、被动模式。</p>
-<p>Linux网络文件共享。例如NFS、Sambs、FTP，其中以FTP应用最为广泛，成为了当下linux文件系统中主流的网络文件共享工具。介绍FTP主要有几种常见的工具vsftp、proftp、wu-ftp、pureftp，各种FTP软件无优劣之分，实际工作中选择自己熟悉的一款即可。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/fb197ba8c54400818254253c8c0c1f6e.png"></p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、vsftp安装"><a href="#一、vsftp安装" class="headerlink" title="一、vsftp安装"></a>一、vsftp安装</h2><p>注意：以Redhat7系列（或者支持systemd环境的linux系统）</p>
-<p>1、准备安装包</p>
-<p>可以到此网站下载各个版本：<a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=vsftpd">http://www.rpmfind.net/linux/rpm2html/search.php?query=vsftpd</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vsftpd-3.0.2-29.el7_9.x86_64.rpm</span><br></pre></td></tr></table></figure>
-
-<p>2、安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -ivh vsftpd-3.0.2-29.el7_9.x86_64.rpm</span><br></pre></td></tr></table></figure>
-
-<p>查询是否安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -qa | grep vsftpd</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、启动与停止"><a href="#二、启动与停止" class="headerlink" title="二、启动与停止"></a>二、启动与停止</h2><h3 id="1、设置开启自启"><a href="#1、设置开启自启" class="headerlink" title="1、设置开启自启"></a>1、设置开启自启</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> vsftpd.service</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、启动vsftpd服务"><a href="#2、启动vsftpd服务" class="headerlink" title="2、启动vsftpd服务"></a>2、启动vsftpd服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start vsftpd.service</span><br></pre></td></tr></table></figure>
-
-<h3 id="3、查看vsftpd服务状态"><a href="#3、查看vsftpd服务状态" class="headerlink" title="3、查看vsftpd服务状态"></a>3、查看vsftpd服务状态</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status vsftpd.service</span><br></pre></td></tr></table></figure>
-
-<h3 id="4、查看vsftpd进程"><a href="#4、查看vsftpd进程" class="headerlink" title="4、查看vsftpd进程"></a>4、查看vsftpd进程</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ef | grep vsftpd</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">ps -aux | grep vsftpd</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="三、错误排查"><a href="#三、错误排查" class="headerlink" title="三、错误排查"></a>三、错误排查</h2><h3 id="1、通过Git-Bash验证ftp登录"><a href="#1、通过Git-Bash验证ftp登录" class="headerlink" title="1、通过Git Bash验证ftp登录"></a>1、通过Git Bash验证ftp登录</h3><p>在本机会提示没有ftp命令，直接就在远端测试连接。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ftp remote_ip</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2、排查错误"><a href="#2、排查错误" class="headerlink" title="2、排查错误"></a>2、排查错误</h3><p>其实翻译一下就知道了，chroot配置没有写入的权限。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">OOPS: vsftpd: refusing to run with writable root inside <span class="built_in">chroot</span>()</span><br><span class="line">Login failed.</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3、在vsftpd-conf加入如下配置"><a href="#3、在vsftpd-conf加入如下配置" class="headerlink" title="3、在vsftpd.conf加入如下配置"></a>3、在vsftpd.conf加入如下配置</h3><p>后续的版本更新了，需要手动加上allow_writeable_chroot&#x3D;YES参数配置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">allow_writeable_chroot=YES</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="4、重启vsftpd服务（Redhat7系列）"><a href="#4、重启vsftpd服务（Redhat7系列）" class="headerlink" title="4、重启vsftpd服务（Redhat7系列）"></a>4、重启vsftpd服务（Redhat7系列）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart vsftpd.service</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="四、优化设置"><a href="#四、优化设置" class="headerlink" title="四、优化设置"></a>四、优化设置</h2><h3 id="1、设置防火墙规则"><a href="#1、设置防火墙规则" class="headerlink" title="1、设置防火墙规则"></a>1、设置防火墙规则</h3><p>关于防火墙的设置，可以参考我的历史文章（在站内搜索firewalld与iptables）</p>
-<p>重启测试vsftpd上传文件，默认存储路径为该用户的home目录下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如</span></span><br><span class="line">/home/vsftpd/test</span><br></pre></td></tr></table></figure>
-
-<p>如需更改配置，如下设置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">local_root=/var/ftp/pub</span><br></pre></td></tr></table></figure>
-
-<p>防火墙加入ftp服务</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-service=ftp --permanent</span><br></pre></td></tr></table></figure>
-
-<p>主动模式，防火墙开启20、21端口</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=21/tcp --permanent </span><br><span class="line">firewall-cmd --zone=public --add-port=20/tcp --permanent</span><br></pre></td></tr></table></figure>
-
-
-
-<p>设置当前ftp存储目录用户权限、chroot_list文件配置用户登录、设置虚拟用户。</p>
-<p><strong>注意：在Windows资源管理访问，网络共享中心-&gt;Internet属性-&gt;高级，开启被动访问ftp（开启兼容模式）</strong></p>
-<h3 id="2、设置selinux"><a href="#2、设置selinux" class="headerlink" title="2、设置selinux"></a>2、设置selinux</h3><p>1、设置SELinux为宽容模式或者临时关闭</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#临时改成宽容模式</span></span><br><span class="line">setenforce 0</span><br><span class="line"><span class="comment">#查看selinux</span></span><br><span class="line">[root@dywangk <span class="built_in">test</span>]<span class="comment"># getenforce</span></span><br><span class="line">Permissive</span><br></pre></td></tr></table></figure>
-
-<p>2、永久设置selinux，修改配置文件<code>/etc/sysconfig/selinux</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看，默认配置文件是开启的</span></span><br><span class="line"><span class="built_in">cat</span> /etc/sysconfig/selinux</span><br><span class="line">SELINUX=enforcing</span><br><span class="line"><span class="comment">#禁用selinux</span></span><br><span class="line">SELINUX=<span class="built_in">disable</span></span><br><span class="line"><span class="comment">#宽容模式</span></span><br><span class="line">SELINUX=Permissive</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="五、配置参考"><a href="#五、配置参考" class="headerlink" title="五、配置参考"></a>五、配置参考</h2><h3 id="1、示例配置虚拟用户"><a href="#1、示例配置虚拟用户" class="headerlink" title="1、示例配置虚拟用户"></a>1、示例配置虚拟用户</h3><p>编辑配置文件<code>vim  /etc/vsftpd/vsftpd.conf</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Example config file /etc/vsftpd/vsftpd.conf</span></span><br><span class="line"><span class="comment">#绑定本机IP</span></span><br><span class="line">listen_address=192.168.245.134</span><br><span class="line"><span class="comment">#禁止匿名用户登录</span></span><br><span class="line">anonymous_enable=NO</span><br><span class="line"><span class="comment">#允许本地用户访问</span></span><br><span class="line">local_enable=YES</span><br><span class="line"><span class="comment">#开启写入权限</span></span><br><span class="line">write_enable=YES</span><br><span class="line"><span class="comment">#在后续比较高的版本中需要加入允许chroot写的权限</span></span><br><span class="line">allow_writeable_chroot=YES</span><br><span class="line"><span class="comment">#上传文件后默认权限掩码</span></span><br><span class="line">local_umask=022</span><br><span class="line"><span class="comment">#默认不开放匿名用户上传权限</span></span><br><span class="line"><span class="comment">#anon_upload_enable=YES</span></span><br><span class="line"><span class="comment">#默认不开放匿名用户创建于写的权限</span></span><br><span class="line"><span class="comment">#anon_mkdir_write_enable=YES</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">dirmessage_enable=YES</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Activate logging of uploads/downloads.</span></span><br><span class="line">xferlog_enable=YES</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Make sure PORT transfer connections originate from port 20 (ftp-data).</span></span><br><span class="line"><span class="comment">#默认为FTP主动模式，需要开启防火墙20、21端口</span></span><br><span class="line">connect_from_port_20=YES</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#chown_uploads=YES</span></span><br><span class="line"><span class="comment">#chown_username=whoever</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#xferlog_file=/var/log/xferlog</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">xferlog_std_format=YES</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#idle_session_timeout=600</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#data_connection_timeout=120</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#nopriv_user=ftpsecure</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#async_abor_enable=YES</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#ascii_upload_enable=YES</span></span><br><span class="line"><span class="comment">#ascii_download_enable=YES</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#ftpd_banner=Welcome to blah FTP service.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#deny_email_enable=YES</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#banned_email_file=/etc/vsftpd/banned_emails</span></span><br><span class="line"><span class="comment">#禁止FTP用户离开自己的主目录</span></span><br><span class="line">chroot_local_user=YES</span><br><span class="line">chroot_list_enable=NO</span><br><span class="line"><span class="comment"># (default follows)</span></span><br><span class="line"><span class="comment">#虚拟用户列表，设置默认允许登录FTP的用户，每行一个用户</span></span><br><span class="line">chroot_list_file=/etc/vsftpd/chroot_list</span><br><span class="line"><span class="comment">#开启虚拟用户功能</span></span><br><span class="line">guest_enable=YES</span><br><span class="line"><span class="comment">#虚拟用户宿主目录</span></span><br><span class="line">guest_username=ftp</span><br><span class="line"><span class="comment">#用户登录后操作主目录和本地用户具有同样的权限</span></span><br><span class="line">virtual_use_local_privs=YES</span><br><span class="line"><span class="comment">#虚拟用户主目录配置文件</span></span><br><span class="line">user_config_dir=/etc/vsftpd/vconf</span><br><span class="line"></span><br><span class="line"><span class="comment">#ls_recurse_enable=YES</span></span><br><span class="line"><span class="comment">#开启监听,开启ipv4就禁用listen_ipv6</span></span><br><span class="line">listen=YES</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">listen_ipv6=NO</span><br><span class="line"><span class="comment">#权限验证需要的加密文件</span></span><br><span class="line">pam_service_name=vsftpd.vu</span><br><span class="line"><span class="comment">#pam_service_name=vsftpd</span></span><br><span class="line">userlist_enable=YES</span><br><span class="line">tcp_wrappers=YES</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>在&#x2F;etc&#x2F;vsftpd&#x2F;chroot_list加入虚拟用户user1和user2。这里直接用vim编辑是一样的加入配置，每行对应一个用户。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;user1&#x27;</span> &gt;&gt; /etc/vsftpd/chroot_list</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;user2&#x27;</span> &gt;&gt; /etc/vsftpd/chroot_list</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2、新增用户并指定目录"><a href="#2、新增用户并指定目录" class="headerlink" title="2、新增用户并指定目录"></a>2、新增用户并指定目录</h3><p>建议：linux下赋予权限底线，<strong>在最小权限范围内满足需求即可</strong>。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#创建虚拟用户目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /data/&#123;user1,user2&#125;</span><br><span class="line"><span class="comment">#赋予权限，测试直接赋予最高权限了，实际工作中建议在最小权限范围内满足即可。</span></span><br><span class="line"><span class="built_in">chmod</span> -R 777 /data/user1 </span><br><span class="line"><span class="built_in">chmod</span> -R 777 /data/user2</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3、设置用户名密码数据库"><a href="#3、设置用户名密码数据库" class="headerlink" title="3、设置用户名密码数据库"></a>3、设置用户名密码数据库</h3><p>下面使用的\n并非错误输入，是的，就是正常的换行。熟悉编程的小伙伴应该不陌生，在Java语言的打印输出大家应该有印象吧！</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args)</span>&#123;</span><br><span class="line">		system.out.println(<span class="string">&quot;hello world!!!&quot;</span>);    </span><br><span class="line">	&#125;       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>在虚拟用户存储用户名以及密码</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#用vusers.list来区分本机用户与虚拟用户配置</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;user1\n123456\nuser2\n123456&quot;</span> &gt; /etc/vsftpd/vusers.list</span><br><span class="line"><span class="comment">#切换到vsftpd配置目录</span></span><br><span class="line"><span class="built_in">cd</span> /etc/vsftpd/</span><br><span class="line"><span class="comment">#解析vusers.list到vusers.db</span></span><br><span class="line">db_load -T -t <span class="built_in">hash</span> -f vusers.list vusers.db</span><br><span class="line"><span class="comment">#赋予权限</span></span><br><span class="line"><span class="built_in">chmod</span> 600 vusers.*</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="4、指定认证方式"><a href="#4、指定认证方式" class="headerlink" title="4、指定认证方式"></a>4、指定认证方式</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;#%PAM-1.0\n\nauth required pam_userdb.so db=/etc/vsftpd/vusers\naccount required  pam_userdb.so db=/etc/vsftpd/vusers&quot;</span> &gt; /etc/pam.d/vsftpd.vu</span><br><span class="line"><span class="comment">#创建虚拟配置文件目录</span></span><br><span class="line"><span class="built_in">mkdir</span> /etc/vsftpd/vconf</span><br><span class="line"><span class="comment">#进入虚拟用户配置文件目录</span></span><br><span class="line"><span class="built_in">cd</span> vconf/</span><br><span class="line"><span class="comment">#新增配置</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;local_root=/data/user1&#x27;</span> &gt; user1</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;local_root=/data/user2&#x27;</span> &gt; user2</span><br><span class="line"><span class="comment">#查看配置</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line">user1 user2</span><br><span class="line"><span class="comment">#查看user1与user2的主目录</span></span><br><span class="line"><span class="built_in">cat</span> user1</span><br><span class="line">local_root=/data/user1</span><br><span class="line"><span class="built_in">cat</span> user2</span><br><span class="line">local_root=/data/user2</span><br><span class="line"></span><br><span class="line"><span class="comment">#新建测试文件</span></span><br><span class="line"><span class="built_in">touch</span> /data/user1/test1</span><br><span class="line"><span class="built_in">touch</span> /data/user2/test2</span><br></pre></td></tr></table></figure>
-
-<p>如果没有指定虚拟用户的ftp目录，默认访问目录如下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/var/ftp/pub/</span><br></pre></td></tr></table></figure>
-
-<p>经过测试设置的虚拟用户user2禁锢在了<code>/data/user2</code> 目录下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#在Windows下访问到新增的test1、test2文件，如果没变过来多刷新几遍</span></span><br><span class="line">/data/user1/test1</span><br><span class="line">/data/user2/test2</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="5、ftp命令登录验证"><a href="#5、ftp命令登录验证" class="headerlink" title="5、ftp命令登录验证"></a>5、ftp命令登录验证</h3><p>Git Bash验证</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ftp remote_ip</span><br></pre></td></tr></table></figure>
-
-<p>或者在资源管理验证测试新增、删除、修改。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ftp://remote_ip</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Linux自学系列</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -8875,7 +8777,7 @@
 </ul>
 <h3 id="2、前世今生"><a href="#2、前世今生" class="headerlink" title="2、前世今生"></a>2、前世今生</h3><ul>
 <li><p>作者</p>
-<p>Timo Rinne <a href="mailto:&#116;&#114;&#x69;&#64;&#x69;&#107;&#105;&#46;&#x66;&#105;">&#116;&#114;&#x69;&#64;&#x69;&#107;&#105;&#46;&#x66;&#105;</a> 和 Tatu Ylonen <a href="mailto:&#x79;&#x6c;&#x6f;&#64;&#99;&#115;&#46;&#104;&#117;&#116;&#x2e;&#x66;&#105;">&#x79;&#x6c;&#x6f;&#64;&#99;&#115;&#46;&#104;&#117;&#116;&#x2e;&#x66;&#105;</a></p>
+<p>Timo Rinne <a href="mailto:&#116;&#114;&#x69;&#x40;&#105;&#x6b;&#105;&#x2e;&#x66;&#x69;">&#116;&#114;&#x69;&#x40;&#105;&#x6b;&#105;&#x2e;&#x66;&#x69;</a> 和 Tatu Ylonen <a href="mailto:&#121;&#x6c;&#x6f;&#64;&#99;&#x73;&#x2e;&#x68;&#x75;&#116;&#x2e;&#102;&#x69;">&#121;&#x6c;&#x6f;&#64;&#99;&#x73;&#x2e;&#x68;&#x75;&#116;&#x2e;&#102;&#x69;</a></p>
 </li>
 <li><p>起源</p>
 <p>scp 基于University of California BSD 的 rcp(1) 源代码</p>
@@ -9063,7 +8965,126 @@
 <p><strong>使用scp需要具备读取文件的权限，如果没有权限则无法传输</strong>。</p>
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux服务器vsftpd安装与配置</title>
+    <url>/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8vsftpd%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文，主要以vsftp软件为主进行讲解，版本为3.0.2。以介绍设置虚拟用户、权限验证为主，linux权限知识默认大家都有所了解。vsftpd设置有两种模式：主动模式、被动模式。</p>
+<p>Linux网络文件共享。例如NFS、Sambs、FTP，其中以FTP应用最为广泛，成为了当下linux文件系统中主流的网络文件共享工具。介绍FTP主要有几种常见的工具vsftp、proftp、wu-ftp、pureftp，各种FTP软件无优劣之分，实际工作中选择自己熟悉的一款即可。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/fb197ba8c54400818254253c8c0c1f6e.png"></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、vsftp安装"><a href="#一、vsftp安装" class="headerlink" title="一、vsftp安装"></a>一、vsftp安装</h2><p>注意：以Redhat7系列（或者支持systemd环境的linux系统）</p>
+<p>1、准备安装包</p>
+<p>可以到此网站下载各个版本：<a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=vsftpd">http://www.rpmfind.net/linux/rpm2html/search.php?query=vsftpd</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vsftpd-3.0.2-29.el7_9.x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<p>2、安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -ivh vsftpd-3.0.2-29.el7_9.x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<p>查询是否安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -qa | grep vsftpd</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、启动与停止"><a href="#二、启动与停止" class="headerlink" title="二、启动与停止"></a>二、启动与停止</h2><h3 id="1、设置开启自启"><a href="#1、设置开启自启" class="headerlink" title="1、设置开启自启"></a>1、设置开启自启</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> vsftpd.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、启动vsftpd服务"><a href="#2、启动vsftpd服务" class="headerlink" title="2、启动vsftpd服务"></a>2、启动vsftpd服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start vsftpd.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、查看vsftpd服务状态"><a href="#3、查看vsftpd服务状态" class="headerlink" title="3、查看vsftpd服务状态"></a>3、查看vsftpd服务状态</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status vsftpd.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、查看vsftpd进程"><a href="#4、查看vsftpd进程" class="headerlink" title="4、查看vsftpd进程"></a>4、查看vsftpd进程</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ef | grep vsftpd</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">ps -aux | grep vsftpd</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="三、错误排查"><a href="#三、错误排查" class="headerlink" title="三、错误排查"></a>三、错误排查</h2><h3 id="1、通过Git-Bash验证ftp登录"><a href="#1、通过Git-Bash验证ftp登录" class="headerlink" title="1、通过Git Bash验证ftp登录"></a>1、通过Git Bash验证ftp登录</h3><p>在本机会提示没有ftp命令，直接就在远端测试连接。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ftp remote_ip</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、排查错误"><a href="#2、排查错误" class="headerlink" title="2、排查错误"></a>2、排查错误</h3><p>其实翻译一下就知道了，chroot配置没有写入的权限。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">OOPS: vsftpd: refusing to run with writable root inside <span class="built_in">chroot</span>()</span><br><span class="line">Login failed.</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3、在vsftpd-conf加入如下配置"><a href="#3、在vsftpd-conf加入如下配置" class="headerlink" title="3、在vsftpd.conf加入如下配置"></a>3、在vsftpd.conf加入如下配置</h3><p>后续的版本更新了，需要手动加上allow_writeable_chroot&#x3D;YES参数配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">allow_writeable_chroot=YES</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4、重启vsftpd服务（Redhat7系列）"><a href="#4、重启vsftpd服务（Redhat7系列）" class="headerlink" title="4、重启vsftpd服务（Redhat7系列）"></a>4、重启vsftpd服务（Redhat7系列）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart vsftpd.service</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="四、优化设置"><a href="#四、优化设置" class="headerlink" title="四、优化设置"></a>四、优化设置</h2><h3 id="1、设置防火墙规则"><a href="#1、设置防火墙规则" class="headerlink" title="1、设置防火墙规则"></a>1、设置防火墙规则</h3><p>关于防火墙的设置，可以参考我的历史文章（在站内搜索firewalld与iptables）</p>
+<p>重启测试vsftpd上传文件，默认存储路径为该用户的home目录下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如</span></span><br><span class="line">/home/vsftpd/test</span><br></pre></td></tr></table></figure>
+
+<p>如需更改配置，如下设置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">local_root=/var/ftp/pub</span><br></pre></td></tr></table></figure>
+
+<p>防火墙加入ftp服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-service=ftp --permanent</span><br></pre></td></tr></table></figure>
+
+<p>主动模式，防火墙开启20、21端口</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=21/tcp --permanent </span><br><span class="line">firewall-cmd --zone=public --add-port=20/tcp --permanent</span><br></pre></td></tr></table></figure>
+
+
+
+<p>设置当前ftp存储目录用户权限、chroot_list文件配置用户登录、设置虚拟用户。</p>
+<p><strong>注意：在Windows资源管理访问，网络共享中心-&gt;Internet属性-&gt;高级，开启被动访问ftp（开启兼容模式）</strong></p>
+<h3 id="2、设置selinux"><a href="#2、设置selinux" class="headerlink" title="2、设置selinux"></a>2、设置selinux</h3><p>1、设置SELinux为宽容模式或者临时关闭</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#临时改成宽容模式</span></span><br><span class="line">setenforce 0</span><br><span class="line"><span class="comment">#查看selinux</span></span><br><span class="line">[root@dywangk <span class="built_in">test</span>]<span class="comment"># getenforce</span></span><br><span class="line">Permissive</span><br></pre></td></tr></table></figure>
+
+<p>2、永久设置selinux，修改配置文件<code>/etc/sysconfig/selinux</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看，默认配置文件是开启的</span></span><br><span class="line"><span class="built_in">cat</span> /etc/sysconfig/selinux</span><br><span class="line">SELINUX=enforcing</span><br><span class="line"><span class="comment">#禁用selinux</span></span><br><span class="line">SELINUX=<span class="built_in">disable</span></span><br><span class="line"><span class="comment">#宽容模式</span></span><br><span class="line">SELINUX=Permissive</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="五、配置参考"><a href="#五、配置参考" class="headerlink" title="五、配置参考"></a>五、配置参考</h2><h3 id="1、示例配置虚拟用户"><a href="#1、示例配置虚拟用户" class="headerlink" title="1、示例配置虚拟用户"></a>1、示例配置虚拟用户</h3><p>编辑配置文件<code>vim  /etc/vsftpd/vsftpd.conf</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Example config file /etc/vsftpd/vsftpd.conf</span></span><br><span class="line"><span class="comment">#绑定本机IP</span></span><br><span class="line">listen_address=192.168.245.134</span><br><span class="line"><span class="comment">#禁止匿名用户登录</span></span><br><span class="line">anonymous_enable=NO</span><br><span class="line"><span class="comment">#允许本地用户访问</span></span><br><span class="line">local_enable=YES</span><br><span class="line"><span class="comment">#开启写入权限</span></span><br><span class="line">write_enable=YES</span><br><span class="line"><span class="comment">#在后续比较高的版本中需要加入允许chroot写的权限</span></span><br><span class="line">allow_writeable_chroot=YES</span><br><span class="line"><span class="comment">#上传文件后默认权限掩码</span></span><br><span class="line">local_umask=022</span><br><span class="line"><span class="comment">#默认不开放匿名用户上传权限</span></span><br><span class="line"><span class="comment">#anon_upload_enable=YES</span></span><br><span class="line"><span class="comment">#默认不开放匿名用户创建于写的权限</span></span><br><span class="line"><span class="comment">#anon_mkdir_write_enable=YES</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">dirmessage_enable=YES</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Activate logging of uploads/downloads.</span></span><br><span class="line">xferlog_enable=YES</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Make sure PORT transfer connections originate from port 20 (ftp-data).</span></span><br><span class="line"><span class="comment">#默认为FTP主动模式，需要开启防火墙20、21端口</span></span><br><span class="line">connect_from_port_20=YES</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#chown_uploads=YES</span></span><br><span class="line"><span class="comment">#chown_username=whoever</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#xferlog_file=/var/log/xferlog</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">xferlog_std_format=YES</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#idle_session_timeout=600</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#data_connection_timeout=120</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#nopriv_user=ftpsecure</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#async_abor_enable=YES</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#ascii_upload_enable=YES</span></span><br><span class="line"><span class="comment">#ascii_download_enable=YES</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#ftpd_banner=Welcome to blah FTP service.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#deny_email_enable=YES</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#banned_email_file=/etc/vsftpd/banned_emails</span></span><br><span class="line"><span class="comment">#禁止FTP用户离开自己的主目录</span></span><br><span class="line">chroot_local_user=YES</span><br><span class="line">chroot_list_enable=NO</span><br><span class="line"><span class="comment"># (default follows)</span></span><br><span class="line"><span class="comment">#虚拟用户列表，设置默认允许登录FTP的用户，每行一个用户</span></span><br><span class="line">chroot_list_file=/etc/vsftpd/chroot_list</span><br><span class="line"><span class="comment">#开启虚拟用户功能</span></span><br><span class="line">guest_enable=YES</span><br><span class="line"><span class="comment">#虚拟用户宿主目录</span></span><br><span class="line">guest_username=ftp</span><br><span class="line"><span class="comment">#用户登录后操作主目录和本地用户具有同样的权限</span></span><br><span class="line">virtual_use_local_privs=YES</span><br><span class="line"><span class="comment">#虚拟用户主目录配置文件</span></span><br><span class="line">user_config_dir=/etc/vsftpd/vconf</span><br><span class="line"></span><br><span class="line"><span class="comment">#ls_recurse_enable=YES</span></span><br><span class="line"><span class="comment">#开启监听,开启ipv4就禁用listen_ipv6</span></span><br><span class="line">listen=YES</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">listen_ipv6=NO</span><br><span class="line"><span class="comment">#权限验证需要的加密文件</span></span><br><span class="line">pam_service_name=vsftpd.vu</span><br><span class="line"><span class="comment">#pam_service_name=vsftpd</span></span><br><span class="line">userlist_enable=YES</span><br><span class="line">tcp_wrappers=YES</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>在&#x2F;etc&#x2F;vsftpd&#x2F;chroot_list加入虚拟用户user1和user2。这里直接用vim编辑是一样的加入配置，每行对应一个用户。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;user1&#x27;</span> &gt;&gt; /etc/vsftpd/chroot_list</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;user2&#x27;</span> &gt;&gt; /etc/vsftpd/chroot_list</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、新增用户并指定目录"><a href="#2、新增用户并指定目录" class="headerlink" title="2、新增用户并指定目录"></a>2、新增用户并指定目录</h3><p>建议：linux下赋予权限底线，<strong>在最小权限范围内满足需求即可</strong>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#创建虚拟用户目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /data/&#123;user1,user2&#125;</span><br><span class="line"><span class="comment">#赋予权限，测试直接赋予最高权限了，实际工作中建议在最小权限范围内满足即可。</span></span><br><span class="line"><span class="built_in">chmod</span> -R 777 /data/user1 </span><br><span class="line"><span class="built_in">chmod</span> -R 777 /data/user2</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3、设置用户名密码数据库"><a href="#3、设置用户名密码数据库" class="headerlink" title="3、设置用户名密码数据库"></a>3、设置用户名密码数据库</h3><p>下面使用的\n并非错误输入，是的，就是正常的换行。熟悉编程的小伙伴应该不陌生，在Java语言的打印输出大家应该有印象吧！</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args)</span>&#123;</span><br><span class="line">		system.out.println(<span class="string">&quot;hello world!!!&quot;</span>);    </span><br><span class="line">	&#125;       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>在虚拟用户存储用户名以及密码</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#用vusers.list来区分本机用户与虚拟用户配置</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;user1\n123456\nuser2\n123456&quot;</span> &gt; /etc/vsftpd/vusers.list</span><br><span class="line"><span class="comment">#切换到vsftpd配置目录</span></span><br><span class="line"><span class="built_in">cd</span> /etc/vsftpd/</span><br><span class="line"><span class="comment">#解析vusers.list到vusers.db</span></span><br><span class="line">db_load -T -t <span class="built_in">hash</span> -f vusers.list vusers.db</span><br><span class="line"><span class="comment">#赋予权限</span></span><br><span class="line"><span class="built_in">chmod</span> 600 vusers.*</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4、指定认证方式"><a href="#4、指定认证方式" class="headerlink" title="4、指定认证方式"></a>4、指定认证方式</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;#%PAM-1.0\n\nauth required pam_userdb.so db=/etc/vsftpd/vusers\naccount required  pam_userdb.so db=/etc/vsftpd/vusers&quot;</span> &gt; /etc/pam.d/vsftpd.vu</span><br><span class="line"><span class="comment">#创建虚拟配置文件目录</span></span><br><span class="line"><span class="built_in">mkdir</span> /etc/vsftpd/vconf</span><br><span class="line"><span class="comment">#进入虚拟用户配置文件目录</span></span><br><span class="line"><span class="built_in">cd</span> vconf/</span><br><span class="line"><span class="comment">#新增配置</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;local_root=/data/user1&#x27;</span> &gt; user1</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;local_root=/data/user2&#x27;</span> &gt; user2</span><br><span class="line"><span class="comment">#查看配置</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line">user1 user2</span><br><span class="line"><span class="comment">#查看user1与user2的主目录</span></span><br><span class="line"><span class="built_in">cat</span> user1</span><br><span class="line">local_root=/data/user1</span><br><span class="line"><span class="built_in">cat</span> user2</span><br><span class="line">local_root=/data/user2</span><br><span class="line"></span><br><span class="line"><span class="comment">#新建测试文件</span></span><br><span class="line"><span class="built_in">touch</span> /data/user1/test1</span><br><span class="line"><span class="built_in">touch</span> /data/user2/test2</span><br></pre></td></tr></table></figure>
+
+<p>如果没有指定虚拟用户的ftp目录，默认访问目录如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/var/ftp/pub/</span><br></pre></td></tr></table></figure>
+
+<p>经过测试设置的虚拟用户user2禁锢在了<code>/data/user2</code> 目录下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#在Windows下访问到新增的test1、test2文件，如果没变过来多刷新几遍</span></span><br><span class="line">/data/user1/test1</span><br><span class="line">/data/user2/test2</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5、ftp命令登录验证"><a href="#5、ftp命令登录验证" class="headerlink" title="5、ftp命令登录验证"></a>5、ftp命令登录验证</h3><p>Git Bash验证</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ftp remote_ip</span><br></pre></td></tr></table></figure>
+
+<p>或者在资源管理验证测试新增、删除、修改。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ftp://remote_ip</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>运维</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -9313,7 +9334,7 @@
 
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
+        <category>运维</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -9819,7 +9840,7 @@
 <p>好了，整个VSCode的简单入门使用介绍就到此为止。</p>
 ]]></content>
       <categories>
-        <category>写作工具</category>
+        <category>开发工具</category>
       </categories>
       <tags>
         <tag>VScode</tag>
@@ -10292,7 +10313,7 @@
 <p><img src="https://img-blog.csdnimg.cn/img_convert/7a9b5700ab6514c606462bee53c1d837.png"></p>
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
+        <category>运维</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -11505,7 +11526,7 @@
 <p><a href="https://github.com/cnwangk/wangk-stick">https://github.com/cnwangk/wangk-stick</a></p>
 ]]></content>
       <categories>
-        <category>Linux自学系列</category>
+        <category>运维</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -12052,7 +12073,7 @@
 <p>原创不易，转载也请标明出处和作者，尊重原创。不定期上传到github。<strong>MySQL系列文章</strong>：《<strong>MySQL开发篇，存储引擎的选择真的很重要吗？</strong>》已经上传至github仓库wangk-stick。</p>
 ]]></content>
       <categories>
-        <category>MySQL安装篇</category>
+        <category>数据库</category>
       </categories>
       <tags>
         <tag>MySQL</tag>
@@ -12525,10 +12546,10 @@
 <H5 align=center><a href="https://github.com/cnwangk/SQL-study">作者：龙腾万里sky</a></H5>
 ]]></content>
       <categories>
-        <category>写作工具</category>
+        <category>实用工具</category>
       </categories>
       <tags>
-        <tag>写作工具</tag>
+        <tag>编辑器</tag>
       </tags>
   </entry>
   <entry>
@@ -13011,10 +13032,10 @@
 <h1 id="莫问收获，但问耕耘"><a href="#莫问收获，但问耕耘" class="headerlink" title="莫问收获，但问耕耘"></a>莫问收获，但问耕耘</h1><p>学无止境，向阳而生。好啦！到此为止就是此篇文章的全部内容了！<strong>能看到这里的都是帅哥靓妹啊</strong>！！！善于总结，其乐不穷。<strong>你会发现，自己的知识宝库越来越丰富</strong>。</p>
 ]]></content>
       <categories>
-        <category>面试宝典</category>
+        <category>软件实施</category>
       </categories>
       <tags>
-        <tag>软件实施</tag>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -13216,10 +13237,23 @@
 <p><img src="https://gitee.com/dywangk/img/raw/master/images/%E4%BD%BF%E7%94%A8hexo_help_proc50.jpg"></p>
 ]]></content>
       <categories>
-        <category>博客框架</category>
+        <category>静态博客</category>
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hello Java</title>
+    <url>/2022/01/26/hello-Java/</url>
+    <content><![CDATA[<p>hello world！！！</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		helloWorld();</span><br><span class="line">		printNoBug();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">helloWorld</span><span class="params">()</span>&#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span><span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printNoBug</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">		<span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot; ......................我佛慈悲......................&quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">b</span> <span class="operator">=</span> <span class="string">&quot;                       _oo0oo_                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&quot;                      o8888888o                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">d</span> <span class="operator">=</span> <span class="string">&quot;                      88\&quot; . \&quot;88                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">e</span> <span class="operator">=</span> <span class="string">&quot;                      (| -_- |)                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">f</span> <span class="operator">=</span> <span class="string">&quot;                      0\\  =  /0                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">g</span> <span class="operator">=</span> <span class="string">&quot;                    ___/‘---’\\___                   &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">h</span> <span class="operator">=</span> <span class="string">&quot;                  .&#x27; \\|       |/ &#x27;.                 &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">i</span> <span class="operator">=</span> <span class="string">&quot;                 / \\\\|||  :  |||// \\                &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">j</span> <span class="operator">=</span> <span class="string">&quot;                / _||||| -卍-|||||_ \\               &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">k</span> <span class="operator">=</span> <span class="string">&quot;               |   | \\\\\\  -  /// |   |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">l</span> <span class="operator">=</span> <span class="string">&quot;               | \\_|  &#x27;&#x27;\\---/&#x27;&#x27;  |_/ |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">m</span> <span class="operator">=</span> <span class="string">&quot;               \\  .-\\__  &#x27;-&#x27;  ___/-. /              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">n</span> <span class="operator">=</span> <span class="string">&quot;             ___&#x27;. .&#x27;  /--.--\\  &#x27;. .&#x27;___            &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">o</span> <span class="operator">=</span> <span class="string">&quot;          .\&quot;\&quot; ‘&lt;  ‘.___\\_&lt;|&gt;_/___.’ &gt;’ \&quot;\&quot;.          &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">p</span> <span class="operator">=</span> <span class="string">&quot;         | | :  ‘- \\‘.;‘\\ _ /’;.’/ - ’ : | |        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">q</span> <span class="operator">=</span> <span class="string">&quot;         \\  \\ ‘_.   \\_ __\\ /__ _/   .-’ /  /        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">r</span> <span class="operator">=</span> <span class="string">&quot;     =====‘-.____‘.___ \\_____/___.-’___.-’=====     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;                       ‘=---=’                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">t</span> <span class="operator">=</span> <span class="string">&quot;                                                    &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">u</span> <span class="operator">=</span> <span class="string">&quot;....................佛祖开光 ,永无BUG...................&quot;</span>;</span><br><span class="line">		sb = sb.append(a).append(<span class="string">&quot;\n&quot;</span>).append(b).append(<span class="string">&quot;\n&quot;</span>).append(c).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">				.append(d).append(<span class="string">&quot;\n&quot;</span>).append(e).append(<span class="string">&quot;\n&quot;</span>).append(f).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(g).append(<span class="string">&quot;\n&quot;</span>).append(h).append(<span class="string">&quot;\n&quot;</span>).append(i).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(j).append(<span class="string">&quot;\n&quot;</span>).append(k).append(<span class="string">&quot;\n&quot;</span>).append(l).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(m).append(<span class="string">&quot;\n&quot;</span>).append(n).append(<span class="string">&quot;\n&quot;</span>).append(o).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(p).append(<span class="string">&quot;\n&quot;</span>).append(q).append(<span class="string">&quot;\n&quot;</span>).append(r).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(s).append(<span class="string">&quot;\n&quot;</span>).append(t).append(<span class="string">&quot;\n&quot;</span>).append(u);</span><br><span class="line">		System.out.println(sb);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>web后端</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -13240,23 +13274,10 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
-        <category>博客框架</category>
+        <category>静态博客</category>
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hello Java</title>
-    <url>/2022/01/26/hello-Java/</url>
-    <content><![CDATA[<p>hello world！！！</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		helloWorld();</span><br><span class="line">		printNoBug();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">helloWorld</span><span class="params">()</span>&#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span><span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printNoBug</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">		<span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot; ......................我佛慈悲......................&quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">b</span> <span class="operator">=</span> <span class="string">&quot;                       _oo0oo_                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&quot;                      o8888888o                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">d</span> <span class="operator">=</span> <span class="string">&quot;                      88\&quot; . \&quot;88                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">e</span> <span class="operator">=</span> <span class="string">&quot;                      (| -_- |)                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">f</span> <span class="operator">=</span> <span class="string">&quot;                      0\\  =  /0                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">g</span> <span class="operator">=</span> <span class="string">&quot;                    ___/‘---’\\___                   &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">h</span> <span class="operator">=</span> <span class="string">&quot;                  .&#x27; \\|       |/ &#x27;.                 &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">i</span> <span class="operator">=</span> <span class="string">&quot;                 / \\\\|||  :  |||// \\                &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">j</span> <span class="operator">=</span> <span class="string">&quot;                / _||||| -卍-|||||_ \\               &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">k</span> <span class="operator">=</span> <span class="string">&quot;               |   | \\\\\\  -  /// |   |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">l</span> <span class="operator">=</span> <span class="string">&quot;               | \\_|  &#x27;&#x27;\\---/&#x27;&#x27;  |_/ |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">m</span> <span class="operator">=</span> <span class="string">&quot;               \\  .-\\__  &#x27;-&#x27;  ___/-. /              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">n</span> <span class="operator">=</span> <span class="string">&quot;             ___&#x27;. .&#x27;  /--.--\\  &#x27;. .&#x27;___            &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">o</span> <span class="operator">=</span> <span class="string">&quot;          .\&quot;\&quot; ‘&lt;  ‘.___\\_&lt;|&gt;_/___.’ &gt;’ \&quot;\&quot;.          &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">p</span> <span class="operator">=</span> <span class="string">&quot;         | | :  ‘- \\‘.;‘\\ _ /’;.’/ - ’ : | |        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">q</span> <span class="operator">=</span> <span class="string">&quot;         \\  \\ ‘_.   \\_ __\\ /__ _/   .-’ /  /        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">r</span> <span class="operator">=</span> <span class="string">&quot;     =====‘-.____‘.___ \\_____/___.-’___.-’=====     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;                       ‘=---=’                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">t</span> <span class="operator">=</span> <span class="string">&quot;                                                    &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">u</span> <span class="operator">=</span> <span class="string">&quot;....................佛祖开光 ,永无BUG...................&quot;</span>;</span><br><span class="line">		sb = sb.append(a).append(<span class="string">&quot;\n&quot;</span>).append(b).append(<span class="string">&quot;\n&quot;</span>).append(c).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">				.append(d).append(<span class="string">&quot;\n&quot;</span>).append(e).append(<span class="string">&quot;\n&quot;</span>).append(f).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(g).append(<span class="string">&quot;\n&quot;</span>).append(h).append(<span class="string">&quot;\n&quot;</span>).append(i).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(j).append(<span class="string">&quot;\n&quot;</span>).append(k).append(<span class="string">&quot;\n&quot;</span>).append(l).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(m).append(<span class="string">&quot;\n&quot;</span>).append(n).append(<span class="string">&quot;\n&quot;</span>).append(o).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(p).append(<span class="string">&quot;\n&quot;</span>).append(q).append(<span class="string">&quot;\n&quot;</span>).append(r).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(s).append(<span class="string">&quot;\n&quot;</span>).append(t).append(<span class="string">&quot;\n&quot;</span>).append(u);</span><br><span class="line">		System.out.println(sb);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Java系列</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
 </search>
