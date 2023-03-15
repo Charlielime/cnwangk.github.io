@@ -871,14 +871,14 @@
   </url>
   
   <url>
-    <loc>https://cnwangk.github.io/tags/Windows/</loc>
+    <loc>https://cnwangk.github.io/tags/PostgreSQL/</loc>
     <lastmod>2023-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://cnwangk.github.io/tags/PostgreSQL/</loc>
+    <loc>https://cnwangk.github.io/tags/Windows/</loc>
     <lastmod>2023-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -913,13 +913,6 @@
   </url>
   
   <url>
-    <loc>https://cnwangk.github.io/tags/podman/</loc>
-    <lastmod>2023-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://cnwangk.github.io/tags/MQ/</loc>
     <lastmod>2023-03-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -928,6 +921,13 @@
   
   <url>
     <loc>https://cnwangk.github.io/tags/vim/</loc>
+    <lastmod>2023-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://cnwangk.github.io/tags/podman/</loc>
     <lastmod>2023-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -962,14 +962,14 @@
   </url>
   
   <url>
-    <loc>https://cnwangk.github.io/tags/xshell/</loc>
+    <loc>https://cnwangk.github.io/tags/sublime-text/</loc>
     <lastmod>2023-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://cnwangk.github.io/tags/sublime-text/</loc>
+    <loc>https://cnwangk.github.io/tags/xshell/</loc>
     <lastmod>2023-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

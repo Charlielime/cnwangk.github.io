@@ -1702,76 +1702,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux配置全局与当前用户环境变量</title>
-    <url>/2022/04/20/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<p>今天这篇文章，讲解linux系统的全局环境变量以及当前用户环境变量的配置。</p>
-<p>以前在没有遇到实际问题时，基本忽略掉思考，所有配置的环境变量都配成全局生效。这样是有弊端的，在某一次偶然的机会，我沉思的一小会，意识到全局环境变量与当前用户环境变量还是区分为好，不应一概而论。</p>
-<p>直到后来我在linux服务器从Oracle11g过度到Oracle19c时。需要创建普通用户例如oracle才能安装，这时我才恍然大悟。这大概是linux操作系统的魅力所在。</p>
-<p>当时遇到的国产银河麒麟操作系统，把不同用户权限区分的明明白白的，三权分立。管理员用户root、安全用户secure、普通用户user，三者之间均无法访问别人的home目录，这时我才明白原来那个root用户是假的。泾渭分明，这样做当然有优势。好处在于运维人员只需要分心维护管路员用户和安全用户。普通用户权限比较小，相对来说不会造成较为严重的后果。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>配置环境变量，并不一定需要非得配置成所有用全局的或者当前用户全局的。如果使用的中间件有配置文件，你甚至可以在当前的中间件配置文件中指定JDK安装的路径，我做测试时一般会这样配置，为了不干扰原有的环境配置而做出让步。这样会显得繁琐一些，配置全局则更为方便管理。</p>
-<h2 id="一、配置全局环境变量"><a href="#一、配置全局环境变量" class="headerlink" title="一、配置全局环境变量"></a>一、配置全局环境变量</h2><h3 id="1、Redhat系列配置环境变量"><a href="#1、Redhat系列配置环境变量" class="headerlink" title="1、Redhat系列配置环境变量"></a>1、Redhat系列配置环境变量</h3><p>注意：<strong>需要root用户权限</strong>，才能编辑<code>/etc/profile</code>文件，默认配置如下图所示</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/bd1db81b028ca8354d6ae09175e5db32.png"></p>
-<h4 id="1-1、永久生效"><a href="#1-1、永久生效" class="headerlink" title="1.1、永久生效"></a>1.1、永久生效</h4><p>1.1.1、配置全局环境变量，针对所有用户</p>
-<p>首先需要切换到root用户模式，然后编辑全局系统环境变量配置文件，所有用户都生效，永久生效。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换到root用户下</span></span><br><span class="line">su root</span><br><span class="line"><span class="comment">#编辑全局系统环境变量存储配置文件，所有用户都生效，永久生效。</span></span><br><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
-<p>例如加入配置文件，对应你安装JDK所在路径</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如加入JDK环境变量</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/jdk1.8</span><br></pre></td></tr></table></figure>
-
-<p><strong>1.2.1、source命令</strong></p>
-<p>执行source命令读取并执行shell脚本配置文件，无需重启服务器。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#执行source命令使其生效</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="1-2、临时生效"><a href="#1-2、临时生效" class="headerlink" title="1.2、临时生效"></a>1.2、临时生效</h4><p>临时设置这种方式一般很少采取，大多数情况下都是直接编辑环境变量配置文件进行设置。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如配置ORACLE_HOME</span></span><br><span class="line">export ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/<span class="number">19</span>c/dbhome_1;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2、Ubuntu配置环境变量"><a href="#2、Ubuntu配置环境变量" class="headerlink" title="2、Ubuntu配置环境变量"></a>2、Ubuntu配置环境变量</h3><h4 id="2-1、永久生效"><a href="#2-1、永久生效" class="headerlink" title="2.1、永久生效"></a>2.1、永久生效</h4><p>2.1.1、全局环境变量，针对所有用户</p>
-<p>首先需要切换到root用户模式，然后编辑全局系统环境变量配置文件，所有用户都生效，永久生效。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换到root用户下</span></span><br><span class="line">su root</span><br><span class="line"><span class="comment">#编辑全局系统环境变量存储配置文件，所有用户都生效，永久生效。</span></span><br><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
-
-<p>2.1.2、当前用户环境变量</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#编辑当前用户环境变量</span></span><br><span class="line">vim .bashrc</span><br></pre></td></tr></table></figure>
-
-<p>加入环境变量配置，这是以源码包安装<code>JDK</code>为例子</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#以最常见的JDK为例子,真实安装的JDK目录，一般源码包安装会这样设置</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/java</span><br><span class="line"><span class="comment">#OPENJDK，一般情况下openjdk所在目录</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm</span><br></pre></td></tr></table></figure>
-
-<p>既然谈到了openjdk，我就简单的列举下<strong>Centos7.3默认安装openjdk的目录</strong>，如下图所示</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/2389802a83651e99409bd2802246b203.png"></p>
-<p>如果你是开发人员，你可能还需要加入如下配置CLASS_PATH的配置，在lib目录下的dt.jar和tools.jar。在JDK5以后，貌似可以不用加此项，但是加了比较保险。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#CLASS_PATH的配置，在lib目录下的dt.jar和tools.jar</span></span><br><span class="line"><span class="built_in">export</span> CLASS_PATH=.:<span class="variable">$JAVA_HOME</span>/jre/lib/rt.jar:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure>
-
-<p>最后配置PATH，找到bin目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#PATH的设置，找到bin目录</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、配置当前用户环境变量"><a href="#二、配置当前用户环境变量" class="headerlink" title="二、配置当前用户环境变量"></a>二、配置当前用户环境变量</h2><h3 id="1、切换到当前用户"><a href="#1、切换到当前用户" class="headerlink" title="1、切换到当前用户"></a>1、切换到当前用户</h3><h4 id="1-1、Redhat系列"><a href="#1-1、Redhat系列" class="headerlink" title="1.1、Redhat系列"></a>1.1、Redhat系列</h4><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换至当前用户的home目录</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment">#编辑当前用户的系统环境变量</span></span><br><span class="line">vim .bash_profile </span><br></pre></td></tr></table></figure>
-
-<h4 id="1-2、Ubuntu系列"><a href="#1-2、Ubuntu系列" class="headerlink" title="1.2、Ubuntu系列"></a>1.2、Ubuntu系列</h4><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换至当前用户的home目录</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment">#编辑当前用户的系统环境变量</span></span><br><span class="line">vim .bashrc</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="2、Oracle为例配置环境变量"><a href="#2、Oracle为例配置环境变量" class="headerlink" title="2、Oracle为例配置环境变量"></a>2、Oracle为例配置环境变量</h3><p>下面列举的例子是新增了oracle用户，并且安装了oracle19c，然后配置oracle用户的环境变量。</p>
-<h4 id="2-1、永久生效-1"><a href="#2-1、永久生效-1" class="headerlink" title="2.1、永久生效"></a>2.1、永久生效</h4><p>编辑当前用户的环境变量配置文件<code>.bash_profile</code> ，并加入如下配置，执行<code>source .bash_profile</code>生效。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#加入环境变量</span></span><br><span class="line">ORACLE_BASE=/opt/oracle;</span><br><span class="line">ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/19c/dbhome_1;</span><br><span class="line">PATH=<span class="variable">$ORACLE_HOME</span>/bin:<span class="variable">$PATH</span>;</span><br><span class="line">ORACLE_SID=ORCLCDB;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> ORACLE_SID ORACLE_BASE ORACLE_HOME PATH</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-2、临时生效"><a href="#2-2、临时生效" class="headerlink" title="2.2、临时生效"></a>2.2、临时生效</h4><p>此方法在当前用户下配置环境变量只是临时生效，如果服务器不重启那可能一直有效。万一重启了，就失效了，相当于一次性的设置。建议在当前用户或者全局配置文件中写入相应的配置，效果更佳。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如配置ORACLE_HOME</span></span><br><span class="line"><span class="built_in">export</span> ORACLE_BASE=/opt/oracle;</span><br><span class="line"><span class="built_in">export</span> ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/19c/dbhome_1;</span><br></pre></td></tr></table></figure>
-
-<p>相当于一次性的设置。建议在当前用户或者全局配置文件中写入相应的配置，效果更佳。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如配置ORACLE_HOME</span></span><br><span class="line"><span class="built_in">export</span> ORACLE_BASE=/opt/oracle;</span><br><span class="line"><span class="built_in">export</span> ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/19c/dbhome_1;</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>运维</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux预防利用ssh暴力破解用户：过滤试图非法登录IP</title>
     <url>/2022/04/20/Linux%E9%A2%84%E9%98%B2%E5%88%A9%E7%94%A8ssh%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E7%94%A8%E6%88%B7%EF%BC%9A%E8%BF%87%E6%BB%A4%E8%AF%95%E5%9B%BE%E9%9D%9E%E6%B3%95%E7%99%BB%E5%BD%95IP/</url>
     <content><![CDATA[<p>之前买的腾讯云服务器，总是收到提醒被其它的<code>ip</code>攻击试图破解。实在是忍无可忍，自己在网上参考了一篇教程，就总结了下，防止<code>ssh</code>暴力破解<code>linux</code>用户，将试图入侵的ip达到一定次数就放入黑名单中。</p>
@@ -2096,6 +2026,76 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux配置全局与当前用户环境变量</title>
+    <url>/2022/04/20/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<p>今天这篇文章，讲解linux系统的全局环境变量以及当前用户环境变量的配置。</p>
+<p>以前在没有遇到实际问题时，基本忽略掉思考，所有配置的环境变量都配成全局生效。这样是有弊端的，在某一次偶然的机会，我沉思的一小会，意识到全局环境变量与当前用户环境变量还是区分为好，不应一概而论。</p>
+<p>直到后来我在linux服务器从Oracle11g过度到Oracle19c时。需要创建普通用户例如oracle才能安装，这时我才恍然大悟。这大概是linux操作系统的魅力所在。</p>
+<p>当时遇到的国产银河麒麟操作系统，把不同用户权限区分的明明白白的，三权分立。管理员用户root、安全用户secure、普通用户user，三者之间均无法访问别人的home目录，这时我才明白原来那个root用户是假的。泾渭分明，这样做当然有优势。好处在于运维人员只需要分心维护管路员用户和安全用户。普通用户权限比较小，相对来说不会造成较为严重的后果。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>配置环境变量，并不一定需要非得配置成所有用全局的或者当前用户全局的。如果使用的中间件有配置文件，你甚至可以在当前的中间件配置文件中指定JDK安装的路径，我做测试时一般会这样配置，为了不干扰原有的环境配置而做出让步。这样会显得繁琐一些，配置全局则更为方便管理。</p>
+<h2 id="一、配置全局环境变量"><a href="#一、配置全局环境变量" class="headerlink" title="一、配置全局环境变量"></a>一、配置全局环境变量</h2><h3 id="1、Redhat系列配置环境变量"><a href="#1、Redhat系列配置环境变量" class="headerlink" title="1、Redhat系列配置环境变量"></a>1、Redhat系列配置环境变量</h3><p>注意：<strong>需要root用户权限</strong>，才能编辑<code>/etc/profile</code>文件，默认配置如下图所示</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/bd1db81b028ca8354d6ae09175e5db32.png"></p>
+<h4 id="1-1、永久生效"><a href="#1-1、永久生效" class="headerlink" title="1.1、永久生效"></a>1.1、永久生效</h4><p>1.1.1、配置全局环境变量，针对所有用户</p>
+<p>首先需要切换到root用户模式，然后编辑全局系统环境变量配置文件，所有用户都生效，永久生效。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换到root用户下</span></span><br><span class="line">su root</span><br><span class="line"><span class="comment">#编辑全局系统环境变量存储配置文件，所有用户都生效，永久生效。</span></span><br><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+<p>例如加入配置文件，对应你安装JDK所在路径</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如加入JDK环境变量</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/jdk1.8</span><br></pre></td></tr></table></figure>
+
+<p><strong>1.2.1、source命令</strong></p>
+<p>执行source命令读取并执行shell脚本配置文件，无需重启服务器。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#执行source命令使其生效</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="1-2、临时生效"><a href="#1-2、临时生效" class="headerlink" title="1.2、临时生效"></a>1.2、临时生效</h4><p>临时设置这种方式一般很少采取，大多数情况下都是直接编辑环境变量配置文件进行设置。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如配置ORACLE_HOME</span></span><br><span class="line">export ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/<span class="number">19</span>c/dbhome_1;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、Ubuntu配置环境变量"><a href="#2、Ubuntu配置环境变量" class="headerlink" title="2、Ubuntu配置环境变量"></a>2、Ubuntu配置环境变量</h3><h4 id="2-1、永久生效"><a href="#2-1、永久生效" class="headerlink" title="2.1、永久生效"></a>2.1、永久生效</h4><p>2.1.1、全局环境变量，针对所有用户</p>
+<p>首先需要切换到root用户模式，然后编辑全局系统环境变量配置文件，所有用户都生效，永久生效。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换到root用户下</span></span><br><span class="line">su root</span><br><span class="line"><span class="comment">#编辑全局系统环境变量存储配置文件，所有用户都生效，永久生效。</span></span><br><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>2.1.2、当前用户环境变量</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#编辑当前用户环境变量</span></span><br><span class="line">vim .bashrc</span><br></pre></td></tr></table></figure>
+
+<p>加入环境变量配置，这是以源码包安装<code>JDK</code>为例子</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#以最常见的JDK为例子,真实安装的JDK目录，一般源码包安装会这样设置</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/java</span><br><span class="line"><span class="comment">#OPENJDK，一般情况下openjdk所在目录</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm</span><br></pre></td></tr></table></figure>
+
+<p>既然谈到了openjdk，我就简单的列举下<strong>Centos7.3默认安装openjdk的目录</strong>，如下图所示</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/2389802a83651e99409bd2802246b203.png"></p>
+<p>如果你是开发人员，你可能还需要加入如下配置CLASS_PATH的配置，在lib目录下的dt.jar和tools.jar。在JDK5以后，貌似可以不用加此项，但是加了比较保险。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#CLASS_PATH的配置，在lib目录下的dt.jar和tools.jar</span></span><br><span class="line"><span class="built_in">export</span> CLASS_PATH=.:<span class="variable">$JAVA_HOME</span>/jre/lib/rt.jar:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure>
+
+<p>最后配置PATH，找到bin目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#PATH的设置，找到bin目录</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、配置当前用户环境变量"><a href="#二、配置当前用户环境变量" class="headerlink" title="二、配置当前用户环境变量"></a>二、配置当前用户环境变量</h2><h3 id="1、切换到当前用户"><a href="#1、切换到当前用户" class="headerlink" title="1、切换到当前用户"></a>1、切换到当前用户</h3><h4 id="1-1、Redhat系列"><a href="#1-1、Redhat系列" class="headerlink" title="1.1、Redhat系列"></a>1.1、Redhat系列</h4><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换至当前用户的home目录</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment">#编辑当前用户的系统环境变量</span></span><br><span class="line">vim .bash_profile </span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2、Ubuntu系列"><a href="#1-2、Ubuntu系列" class="headerlink" title="1.2、Ubuntu系列"></a>1.2、Ubuntu系列</h4><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换至当前用户的home目录</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment">#编辑当前用户的系统环境变量</span></span><br><span class="line">vim .bashrc</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2、Oracle为例配置环境变量"><a href="#2、Oracle为例配置环境变量" class="headerlink" title="2、Oracle为例配置环境变量"></a>2、Oracle为例配置环境变量</h3><p>下面列举的例子是新增了oracle用户，并且安装了oracle19c，然后配置oracle用户的环境变量。</p>
+<h4 id="2-1、永久生效-1"><a href="#2-1、永久生效-1" class="headerlink" title="2.1、永久生效"></a>2.1、永久生效</h4><p>编辑当前用户的环境变量配置文件<code>.bash_profile</code> ，并加入如下配置，执行<code>source .bash_profile</code>生效。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#加入环境变量</span></span><br><span class="line">ORACLE_BASE=/opt/oracle;</span><br><span class="line">ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/19c/dbhome_1;</span><br><span class="line">PATH=<span class="variable">$ORACLE_HOME</span>/bin:<span class="variable">$PATH</span>;</span><br><span class="line">ORACLE_SID=ORCLCDB;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> ORACLE_SID ORACLE_BASE ORACLE_HOME PATH</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-2、临时生效"><a href="#2-2、临时生效" class="headerlink" title="2.2、临时生效"></a>2.2、临时生效</h4><p>此方法在当前用户下配置环境变量只是临时生效，如果服务器不重启那可能一直有效。万一重启了，就失效了，相当于一次性的设置。建议在当前用户或者全局配置文件中写入相应的配置，效果更佳。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如配置ORACLE_HOME</span></span><br><span class="line"><span class="built_in">export</span> ORACLE_BASE=/opt/oracle;</span><br><span class="line"><span class="built_in">export</span> ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/19c/dbhome_1;</span><br></pre></td></tr></table></figure>
+
+<p>相当于一次性的设置。建议在当前用户或者全局配置文件中写入相应的配置，效果更佳。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#例如配置ORACLE_HOME</span></span><br><span class="line"><span class="built_in">export</span> ORACLE_BASE=/opt/oracle;</span><br><span class="line"><span class="built_in">export</span> ORACLE_HOME=<span class="variable">$ORACLE_BASE</span>/product/19c/dbhome_1;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux（银河麒麟V10）部署VNC服务端并且使用客户端连接</title>
     <url>/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2VNC%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%B9%B6%E4%B8%94%E4%BD%BF%E7%94%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5/</url>
     <content><![CDATA[<p><em>注意：这篇文章对于定制版本的系统并不适用，有可能导致系统环境变量被破坏。这里测试用root用户没大多关系，正式环境能不用尽量别用root测试，使用普通用户提权。再提一句，某些定制Linux系统可能做过安全标记，也是不能随便动权限的。</em></p>
@@ -2298,6 +2298,55 @@
       </tags>
   </entry>
   <entry>
+    <title>Windows_server2012服务器部署Oracle11g：.NET和CPU核心数问题解决方案</title>
+    <url>/2022/04/20/Windows-server2012%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2Oracle11g%EF%BC%9A-NET%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p>主要以Windows server2012R2为主进行介绍，解决实际工作中遇到到的一些问题。<strong>比如服务器CPU核心数过高，导致Oracle数据库安装时卡在2%的情况</strong>。在Windows下，你安装VMware工具模拟使用Windows server达到熟悉的目的。<br><img src="https://img-blog.csdnimg.cn/img_convert/82425eb0cead43315f66a14bec3b6122.png"></p>
+<p>说句心里话，我真没想到过我会在Windows服务器上总结这么多。一分耕耘一分收获，但是血赚不亏。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>第一次接触Windows服务器大约在5年前，那会的活动价我入手了入门级的Windows服务器。第一次安装了Windows server2012，低配版的服务器确实很吃力。<em>用了一段时间熟悉了就弃用了，后来果断换成了linux操作系统（Centos）。centos被（Redhat）红帽收购后，逐渐。。。说白了还是利益二字。感慨了一番，关于centos的这段话可以忽略。</em></p>
+<p>想熟悉Windows server服务器最新版，建议使用VMware配合服务器镜像。</p>
+<p><strong>镜像获取地址</strong>，推荐msdn我告诉你。良心网站，专业收集原版镜像。</p>
+<p><a href="https://msdn.itellyou.cn/">https://msdn.itellyou.cn/</a></p>
+<p><strong>关于想体验最新版的Windows11或者Windows server2022服务器</strong>，可以访问新地址</p>
+<p><a href="https://next.itellyou.cn/">https://next.itellyou.cn</a></p>
+<h2 id="一、Oracle数据库安装卡在2"><a href="#一、Oracle数据库安装卡在2" class="headerlink" title="一、Oracle数据库安装卡在2%"></a>一、Oracle数据库安装卡在2%</h2><h3 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h3><p>1.1、<strong>服务器CPU核心数过高</strong>。在使用Windows server2012或者是其它Windows服务器，可能也会遇到这类问题。</p>
+<h3 id="2、解决问题"><a href="#2、解决问题" class="headerlink" title="2、解决问题"></a>2、解决问题</h3><p>2.1、<strong>解决问题，进入服务器的系统配置</strong>，一次找到引导-&gt;高级选项，<strong>设置处理器的核心数为16，然后重启即可生效</strong>。</p>
+<p>2.2、小技巧</p>
+<p><strong>快捷键win + r，然后输入msconfig</strong>命令即可快速进入系统配置。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0a6139c3d47a8c3e3229fc0304b29443.png"></p>
+<h2 id="二、安装-net3-5失败"><a href="#二、安装-net3-5失败" class="headerlink" title="二、安装.net3.5失败"></a>二、安装.net3.5失败</h2><h3 id="1、准备工作，提取sxs"><a href="#1、准备工作，提取sxs" class="headerlink" title="1、准备工作，提取sxs"></a>1、准备工作，提取sxs</h3><p>1.1、准备服务器镜像，可以<strong>通过我上面提到的网址进行获取</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/af34fbc4dd53c24f7b5bef2d2f3d88da.png"></p>
+<p><strong>1.2、提取sxs</strong></p>
+<p>使用解压缩软件或者iso模拟软件打开镜像包，然后<strong>进入&#x2F;source&#x2F;找到sxs</strong>复制出来。在安装.net3.5时作为备用源使用，安装Oracle11gR2时需要安装.net3.5。</p>
+<p>解压缩软件推荐360zip国际版（旧版1.0几的无广告）或者7z（体积小）。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/d9d976e979fc0b3a2a82c724ea35416b.png"></p>
+<h3 id="2、再次安装-net3-5"><a href="#2、再次安装-net3-5" class="headerlink" title="2、再次安装.net3.5"></a>2、再次安装.net3.5</h3><h4 id="2-1、指定依赖sxs，安装-net3-5"><a href="#2-1、指定依赖sxs，安装-net3-5" class="headerlink" title="2.1、指定依赖sxs，安装.net3.5"></a>2.1、指定依赖sxs，安装.net3.5</h4><p>将之前从<strong>Windows server中提取的sxs</strong>复制到系统盘根目录下，然后在服务器仪表板中添加角色和功能（安装依赖），按照图上的提示<strong>指定我们准备好的sxs源路径</strong>，最终完美解决服务器上.net3.5无法安装的问题。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/05488105c6ea9d4445b2215d20a98450.png"></p>
+<h4 id="2-2、Windows-server仪表板"><a href="#2-2、Windows-server仪表板" class="headerlink" title="2.2、Windows server仪表板"></a>2.2、Windows server仪表板</h4><p>添加角色与功能，选择需要安装的功能时用得上，比如上面安装.net3.5</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/4cb90f5b86f022da71b6d744f580251b.png"></p>
+<h2 id="三、操作小技巧"><a href="#三、操作小技巧" class="headerlink" title="三、操作小技巧"></a>三、操作小技巧</h2><h3 id="1、以Oracle服务为例"><a href="#1、以Oracle服务为例" class="headerlink" title="1、以Oracle服务为例"></a>1、以Oracle服务为例</h3><p>1.1、进入服务快捷命令，<strong>win + r快捷键输入service.msc</strong>，如下图所示</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/efb984d5c170269d208e90314ba3cab3.png"></p>
+<p>1.2、定位Oracle服务，你看到的Oracle服务是双倍的，因为我安装了双实例。实际工作中，并不推荐在单台服务器上部署双实例。不要问我为什么，因为实际中遇到过。内存也耗不起，最终把服务器拖挂掉了，最后通过清理日志解决。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/eee4f790a16f92358d33e61d60db0e33.png"></p>
+<h3 id="2、配置IP地址与DNS"><a href="#2、配置IP地址与DNS" class="headerlink" title="2、配置IP地址与DNS"></a>2、配置IP地址与DNS</h3><p>配置IP地址与DNS与平时使用的win7或者win10是一样的配置方法</p>
+<p>2.1、<strong>进入控制面板找到网络和共享中心</strong></p>
+<p><code>win + r</code> 快捷键运行<code>control</code>命令进入控制面板，下图是VMware搭建的测试环境。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/35fdc2c7fbee80e505a4ba9c18c3beee.png"></p>
+<p><strong>2.2、配置IP地址和DNS</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/8e5ffa0746dadd2f577c4a1824c30b01.png"></p>
+<h3 id="3、磁盘管理"><a href="#3、磁盘管理" class="headerlink" title="3、磁盘管理"></a>3、磁盘管理</h3><p>最后再介绍一个小技巧，关于磁盘管理。当我们并不熟悉仪表板的操作时，或者旧版的服务器压根就没这玩意，如何处理。这是我们可以采用命令方式，先打开计算机管理。</p>
+<p>同样使用<code>win + r</code> 快捷键，然后运行<code>compmgmt.msc</code>命令进入计算机管理，最后定位到磁盘管理。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/faa599a6ac3bc19ebf12cbcd72fc286d.png"></p>
+<p>以上均为实际运维工作中使用到的小技巧，方便我们去管理维护服务器。在实际工作中，更多的是经验的累积。在之前的公司遇到这样一种，服务器的硬盘突然就gg思密达了。结果去查看后简直是让我措手不及，服务器版本那叫一个老，一些命令都不适用。心里真想来句mmp，最后还是硬着头皮上解决问题。</p>
+<p>说实话，当时我在Windows服务器的实施与运维经验还没linux上丰富，现在想来完全是<strong>工作让你不得不去适应</strong>。</p>
+]]></content>
+      <categories>
+        <category>软件实施</category>
+      </categories>
+      <tags>
+        <tag>Oracle</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows10日常使用点滴记录：禁用自动更新</title>
     <url>/2022/04/20/Windows10%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%82%B9%E6%BB%B4%E8%AE%B0%E5%BD%95%EF%BC%9A%E7%A6%81%E7%94%A8%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>win10这个自动下载更新着实很流氓，禁用掉需要尝试各种方法，像极了牛皮膏药。<strong>你更新我并不反感，但请不要耍流氓般的强制性更新，在后台下载偷跑流量这就不厚道了，真是苟的不行。</strong><br><img src="https://img-blog.csdnimg.cn/20210405205100599.png" alt="在这里插入图片描述"></p>
@@ -2347,55 +2396,6 @@
       </categories>
       <tags>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows_server2012服务器部署Oracle11g：.NET和CPU核心数问题解决方案</title>
-    <url>/2022/04/20/Windows-server2012%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2Oracle11g%EF%BC%9A-NET%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<p>主要以Windows server2012R2为主进行介绍，解决实际工作中遇到到的一些问题。<strong>比如服务器CPU核心数过高，导致Oracle数据库安装时卡在2%的情况</strong>。在Windows下，你安装VMware工具模拟使用Windows server达到熟悉的目的。<br><img src="https://img-blog.csdnimg.cn/img_convert/82425eb0cead43315f66a14bec3b6122.png"></p>
-<p>说句心里话，我真没想到过我会在Windows服务器上总结这么多。一分耕耘一分收获，但是血赚不亏。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>第一次接触Windows服务器大约在5年前，那会的活动价我入手了入门级的Windows服务器。第一次安装了Windows server2012，低配版的服务器确实很吃力。<em>用了一段时间熟悉了就弃用了，后来果断换成了linux操作系统（Centos）。centos被（Redhat）红帽收购后，逐渐。。。说白了还是利益二字。感慨了一番，关于centos的这段话可以忽略。</em></p>
-<p>想熟悉Windows server服务器最新版，建议使用VMware配合服务器镜像。</p>
-<p><strong>镜像获取地址</strong>，推荐msdn我告诉你。良心网站，专业收集原版镜像。</p>
-<p><a href="https://msdn.itellyou.cn/">https://msdn.itellyou.cn/</a></p>
-<p><strong>关于想体验最新版的Windows11或者Windows server2022服务器</strong>，可以访问新地址</p>
-<p><a href="https://next.itellyou.cn/">https://next.itellyou.cn</a></p>
-<h2 id="一、Oracle数据库安装卡在2"><a href="#一、Oracle数据库安装卡在2" class="headerlink" title="一、Oracle数据库安装卡在2%"></a>一、Oracle数据库安装卡在2%</h2><h3 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h3><p>1.1、<strong>服务器CPU核心数过高</strong>。在使用Windows server2012或者是其它Windows服务器，可能也会遇到这类问题。</p>
-<h3 id="2、解决问题"><a href="#2、解决问题" class="headerlink" title="2、解决问题"></a>2、解决问题</h3><p>2.1、<strong>解决问题，进入服务器的系统配置</strong>，一次找到引导-&gt;高级选项，<strong>设置处理器的核心数为16，然后重启即可生效</strong>。</p>
-<p>2.2、小技巧</p>
-<p><strong>快捷键win + r，然后输入msconfig</strong>命令即可快速进入系统配置。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/0a6139c3d47a8c3e3229fc0304b29443.png"></p>
-<h2 id="二、安装-net3-5失败"><a href="#二、安装-net3-5失败" class="headerlink" title="二、安装.net3.5失败"></a>二、安装.net3.5失败</h2><h3 id="1、准备工作，提取sxs"><a href="#1、准备工作，提取sxs" class="headerlink" title="1、准备工作，提取sxs"></a>1、准备工作，提取sxs</h3><p>1.1、准备服务器镜像，可以<strong>通过我上面提到的网址进行获取</strong>。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/af34fbc4dd53c24f7b5bef2d2f3d88da.png"></p>
-<p><strong>1.2、提取sxs</strong></p>
-<p>使用解压缩软件或者iso模拟软件打开镜像包，然后<strong>进入&#x2F;source&#x2F;找到sxs</strong>复制出来。在安装.net3.5时作为备用源使用，安装Oracle11gR2时需要安装.net3.5。</p>
-<p>解压缩软件推荐360zip国际版（旧版1.0几的无广告）或者7z（体积小）。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/d9d976e979fc0b3a2a82c724ea35416b.png"></p>
-<h3 id="2、再次安装-net3-5"><a href="#2、再次安装-net3-5" class="headerlink" title="2、再次安装.net3.5"></a>2、再次安装.net3.5</h3><h4 id="2-1、指定依赖sxs，安装-net3-5"><a href="#2-1、指定依赖sxs，安装-net3-5" class="headerlink" title="2.1、指定依赖sxs，安装.net3.5"></a>2.1、指定依赖sxs，安装.net3.5</h4><p>将之前从<strong>Windows server中提取的sxs</strong>复制到系统盘根目录下，然后在服务器仪表板中添加角色和功能（安装依赖），按照图上的提示<strong>指定我们准备好的sxs源路径</strong>，最终完美解决服务器上.net3.5无法安装的问题。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/05488105c6ea9d4445b2215d20a98450.png"></p>
-<h4 id="2-2、Windows-server仪表板"><a href="#2-2、Windows-server仪表板" class="headerlink" title="2.2、Windows server仪表板"></a>2.2、Windows server仪表板</h4><p>添加角色与功能，选择需要安装的功能时用得上，比如上面安装.net3.5</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/4cb90f5b86f022da71b6d744f580251b.png"></p>
-<h2 id="三、操作小技巧"><a href="#三、操作小技巧" class="headerlink" title="三、操作小技巧"></a>三、操作小技巧</h2><h3 id="1、以Oracle服务为例"><a href="#1、以Oracle服务为例" class="headerlink" title="1、以Oracle服务为例"></a>1、以Oracle服务为例</h3><p>1.1、进入服务快捷命令，<strong>win + r快捷键输入service.msc</strong>，如下图所示</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/efb984d5c170269d208e90314ba3cab3.png"></p>
-<p>1.2、定位Oracle服务，你看到的Oracle服务是双倍的，因为我安装了双实例。实际工作中，并不推荐在单台服务器上部署双实例。不要问我为什么，因为实际中遇到过。内存也耗不起，最终把服务器拖挂掉了，最后通过清理日志解决。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/eee4f790a16f92358d33e61d60db0e33.png"></p>
-<h3 id="2、配置IP地址与DNS"><a href="#2、配置IP地址与DNS" class="headerlink" title="2、配置IP地址与DNS"></a>2、配置IP地址与DNS</h3><p>配置IP地址与DNS与平时使用的win7或者win10是一样的配置方法</p>
-<p>2.1、<strong>进入控制面板找到网络和共享中心</strong></p>
-<p><code>win + r</code> 快捷键运行<code>control</code>命令进入控制面板，下图是VMware搭建的测试环境。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/35fdc2c7fbee80e505a4ba9c18c3beee.png"></p>
-<p><strong>2.2、配置IP地址和DNS</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/8e5ffa0746dadd2f577c4a1824c30b01.png"></p>
-<h3 id="3、磁盘管理"><a href="#3、磁盘管理" class="headerlink" title="3、磁盘管理"></a>3、磁盘管理</h3><p>最后再介绍一个小技巧，关于磁盘管理。当我们并不熟悉仪表板的操作时，或者旧版的服务器压根就没这玩意，如何处理。这是我们可以采用命令方式，先打开计算机管理。</p>
-<p>同样使用<code>win + r</code> 快捷键，然后运行<code>compmgmt.msc</code>命令进入计算机管理，最后定位到磁盘管理。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/faa599a6ac3bc19ebf12cbcd72fc286d.png"></p>
-<p>以上均为实际运维工作中使用到的小技巧，方便我们去管理维护服务器。在实际工作中，更多的是经验的累积。在之前的公司遇到这样一种，服务器的硬盘突然就gg思密达了。结果去查看后简直是让我措手不及，服务器版本那叫一个老，一些命令都不适用。心里真想来句mmp，最后还是硬着头皮上解决问题。</p>
-<p>说实话，当时我在Windows服务器的实施与运维经验还没linux上丰富，现在想来完全是<strong>工作让你不得不去适应</strong>。</p>
-]]></content>
-      <categories>
-        <category>软件实施</category>
-      </categories>
-      <tags>
-        <tag>Oracle</tag>
       </tags>
   </entry>
   <entry>
@@ -5968,7 +5968,7 @@
 <p><strong>主题所在目录</strong>：themes</p>
 <p><strong>获取Next主题</strong>：使用git clone或者直接下载</p>
 <blockquote>
-<p>git clone <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>:next-theme&#x2F;hexo-theme-next.git</p>
+<p>git clone <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;">&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#109;</a>:next-theme&#x2F;hexo-theme-next.git</p>
 <p><a href="https://github.com/next-theme/hexo-theme-next/archive/refs/heads/master.zip">https://github.com/next-theme/hexo-theme-next/archive/refs/heads/master.zip</a></p>
 </blockquote>
 <p>下载后复制到themes目录，然后<strong>修改hexo配置文件</strong>_config.yml：</p>
@@ -6972,57 +6972,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【CentOS】搭建本地yum源</title>
-    <url>/2022/02/21/%E3%80%90CentOS%E3%80%91%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0yum%E6%BA%90/</url>
-    <content><![CDATA[<p>之前自学的时候，那会刚到外地找工作，意识到了学习<code>linux</code>的重要性。作为开发人员的基本必备技能，找工作时也是加分项。当时租房没联网，就想到了这种方法。</p>
-<p><strong>针对初学入门者</strong>来说，做测试或者自学的时候，其实<strong>使用本地</strong><code>yum</code><strong>源更方便</strong>。当然对于没有联网的情况下，你是用此方法也是极度舒适的，毕竟不用占用你的网络资源。都2020年了，没有网还搞啥编程，当然这是玩笑话，就当乐一乐了。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、首先使网络yum源失效"><a href="#一、首先使网络yum源失效" class="headerlink" title="一、首先使网络yum源失效"></a>一、首先使网络<code>yum</code>源失效</h2><p><strong>切换到yum源所在目录</strong>：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200826204237701.png#pic_center" alt="在这里插入图片描述"></p>
-<p><strong>查询一下目录</strong>：<code>ls</code><br>主要关注我们用到的<strong>网络</strong><code>yum</code><strong>源和光盘源</strong>：<code>CentOS-Base.repo、CentOS-Media.repo</code><br><img src="https://img-blog.csdnimg.cn/2020082620430629.png#pic_center" alt="在这里插入图片描述"></p>
-<p><strong>修改</strong><code>yum</code>源文件后缀名<strong>使其失效</strong>。我这里就不做修改了，你们可以自己试试。<br><img src="https://img-blog.csdnimg.cn/20200826215149800.png#pic_center" alt="在这里插入图片描述"></p>
-<p>如果担心修改之后忘记怎么修改回来，最好备份一份，使用<code>cp</code>命令即可。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#备份到root目录下的backup下，这个目录你也可以自己定，备份更加保险</span></span><br><span class="line"><span class="built_in">cp</span> CentOS<span class="literal">-Base</span>.repo  /root/backup/</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mv</span> CentOS<span class="literal">-Base</span>.repo CentOS<span class="literal">-Base</span>.repo.bak</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="二、让光盘yum源生效"><a href="#二、让光盘yum源生效" class="headerlink" title="二、让光盘yum源生效"></a>二、让光盘<code>yum</code>源生效</h2><p><strong>tips：善用TAB键进行补全，很方便哟</strong></p>
-<p>进入<code>yum</code>源目录</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200826215523923.png#pic_center" alt="在这里插入图片描述"></p>
-<h3 id="修改光盘源，使其生效：vim-CentOS-Media-repo"><a href="#修改光盘源，使其生效：vim-CentOS-Media-repo" class="headerlink" title="修改光盘源，使其生效：vim CentOS-Media.repo"></a>修改光盘源，使其生效：vim CentOS-Media.repo</h3><p><strong>修改centos6的光盘源</strong>，考虑到还是一部分是用<code>centos6</code>作为入门的，所以也记录了。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">[<span class="type">c6</span>-<span class="type">media</span>] </span><br><span class="line">name=CentOS-<span class="variable">$releaserver</span> - Media</span><br><span class="line">baseurl=file:///mnt/cdrom <span class="comment">#此地址为你自己光盘挂载的地址</span></span><br><span class="line"><span class="comment">#file:///media/cdrom #注释掉不存在的地址</span></span><br><span class="line"><span class="comment">#file:///media/cdrecorder #注释掉不存在的地址</span></span><br><span class="line">gpgcheck=<span class="number">1</span></span><br><span class="line">enable=<span class="number">1</span> <span class="comment">#将enable由0改为1，yum配置文件生效</span></span><br><span class="line">gpgkey=file:///etc/pki/rpm<span class="literal">-gpg</span>/RPM<span class="literal">-GPG-KEY-CentOS-6</span></span><br></pre></td></tr></table></figure>
-
-
-<p><strong>修改centos7的光盘源</strong></p>
-<p>使用<code>cat</code>命令可以查看到<strong>光盘源的配置</strong><br><img src="https://img-blog.csdnimg.cn/2020082621150672.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p><strong>对比c6和c7版本，你会发现区别不大，基本上都是操作命令有些变动。</strong></p>
-<p><strong>这里是修改后的配置，vim CentOS-Media.repo</strong><br><img src="https://img-blog.csdnimg.cn/20200826211758191.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">[<span class="type">c7</span>-<span class="type">media</span>]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Media</span><br><span class="line">baseurl=file:///mnt/CentOS/</span><br><span class="line"><span class="comment">#file:///media/cdrom/</span></span><br><span class="line"><span class="comment">#file:///media/cdrecorder/</span></span><br><span class="line">gpgcheck=<span class="number">1</span></span><br><span class="line">enabled=<span class="number">1</span> <span class="comment">#将enable由0改为1，yum配置文件生效</span></span><br><span class="line">gpgkey=file:///etc/pki/rpm<span class="literal">-gpg</span>/RPM<span class="literal">-GPG-KEY-CentOS-7</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="挂载光盘"><a href="#挂载光盘" class="headerlink" title="挂载光盘"></a>挂载光盘</h3><p><strong>建立挂载点</strong>：<code>mkdir  /mnt/cdrom</code></p>
-<p><strong>这个可加可不加</strong>：<code>-t iso9660</code>，指定挂载类型</p>
-<p><strong>挂载光盘</strong>：<code>mount  -t iso9660 /dev/cdrom /mnt/cdrom</code>，我这里已经挂载了。<br><strong>挂载成功后</strong>：<code>ls /mnt/cdrom</code><br><img src="https://img-blog.csdnimg.cn/20200826214707744.png#pic_center" alt="在这里插入图片描述"></p>
-<p>遇到<strong>mount: 在 &#x2F;dev&#x2F;sr0 上找不到媒体</strong>，这种问题需要设置一下你的虚拟机，如下图设置。<br><img src="https://img-blog.csdnimg.cn/20200826211336417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p><strong>卸载命令</strong><br><img src="https://img-blog.csdnimg.cn/20200826220326374.png#pic_center" alt="在这里插入图片描述"></p>
-<ul>
-<li><code>umount</code> [接设备文件名或者挂载点]</li>
-<li>例如卸载光盘：<code>umount /mnt/cdrom/</code></li>
-</ul>
-<h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>好了，<strong>到此为止就是此篇文章的全部内容了，能看到这的都是帅哥靓妹啊！！！</strong> 善于总结，其乐不穷。好记性不如烂笔头，多收集自己第一次尝试的成果，收获也颇丰。<strong>你会发现，自己的知识宝库越来越丰富。</strong></p>
-]]></content>
-      <categories>
-        <category>运维</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【解决HCNetSDK.dll无法加载问题】海康SDK开发对接java项目demo运行</title>
     <url>/2022/02/21/%E3%80%90%E8%A7%A3%E5%86%B3HCNetSDK-dll%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98%E3%80%91%E6%B5%B7%E5%BA%B7SDK%E5%BC%80%E5%8F%91%E5%AF%B9%E6%8E%A5java%E9%A1%B9%E7%9B%AEdemo%E8%BF%90%E8%A1%8C/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近公司有新需求，需要接入<strong>大华</strong>和<strong>海康</strong>的项目，优先解决接入海康的<code>SDK</code>。对于我这个之前完全没接触过对接SDK的新手来说，完全是<strong>焦头烂额</strong>。公司只提供了<code>SDK</code>文档，没有其它文档支持。但是需要使用<code>java</code>进行对接数据。俗话说的好，<strong>工欲善其事，必先利其器</strong>。海康官方的SDK文档提供了<code>java</code>的demo例子，但是文档说明并不全面（个人感觉，遇到了很多坑，故予以总结）。</p>
@@ -7084,6 +7033,57 @@
       </categories>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【CentOS】搭建本地yum源</title>
+    <url>/2022/02/21/%E3%80%90CentOS%E3%80%91%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0yum%E6%BA%90/</url>
+    <content><![CDATA[<p>之前自学的时候，那会刚到外地找工作，意识到了学习<code>linux</code>的重要性。作为开发人员的基本必备技能，找工作时也是加分项。当时租房没联网，就想到了这种方法。</p>
+<p><strong>针对初学入门者</strong>来说，做测试或者自学的时候，其实<strong>使用本地</strong><code>yum</code><strong>源更方便</strong>。当然对于没有联网的情况下，你是用此方法也是极度舒适的，毕竟不用占用你的网络资源。都2020年了，没有网还搞啥编程，当然这是玩笑话，就当乐一乐了。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、首先使网络yum源失效"><a href="#一、首先使网络yum源失效" class="headerlink" title="一、首先使网络yum源失效"></a>一、首先使网络<code>yum</code>源失效</h2><p><strong>切换到yum源所在目录</strong>：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200826204237701.png#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>查询一下目录</strong>：<code>ls</code><br>主要关注我们用到的<strong>网络</strong><code>yum</code><strong>源和光盘源</strong>：<code>CentOS-Base.repo、CentOS-Media.repo</code><br><img src="https://img-blog.csdnimg.cn/2020082620430629.png#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>修改</strong><code>yum</code>源文件后缀名<strong>使其失效</strong>。我这里就不做修改了，你们可以自己试试。<br><img src="https://img-blog.csdnimg.cn/20200826215149800.png#pic_center" alt="在这里插入图片描述"></p>
+<p>如果担心修改之后忘记怎么修改回来，最好备份一份，使用<code>cp</code>命令即可。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#备份到root目录下的backup下，这个目录你也可以自己定，备份更加保险</span></span><br><span class="line"><span class="built_in">cp</span> CentOS<span class="literal">-Base</span>.repo  /root/backup/</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mv</span> CentOS<span class="literal">-Base</span>.repo CentOS<span class="literal">-Base</span>.repo.bak</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="二、让光盘yum源生效"><a href="#二、让光盘yum源生效" class="headerlink" title="二、让光盘yum源生效"></a>二、让光盘<code>yum</code>源生效</h2><p><strong>tips：善用TAB键进行补全，很方便哟</strong></p>
+<p>进入<code>yum</code>源目录</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200826215523923.png#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="修改光盘源，使其生效：vim-CentOS-Media-repo"><a href="#修改光盘源，使其生效：vim-CentOS-Media-repo" class="headerlink" title="修改光盘源，使其生效：vim CentOS-Media.repo"></a>修改光盘源，使其生效：vim CentOS-Media.repo</h3><p><strong>修改centos6的光盘源</strong>，考虑到还是一部分是用<code>centos6</code>作为入门的，所以也记录了。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">[<span class="type">c6</span>-<span class="type">media</span>] </span><br><span class="line">name=CentOS-<span class="variable">$releaserver</span> - Media</span><br><span class="line">baseurl=file:///mnt/cdrom <span class="comment">#此地址为你自己光盘挂载的地址</span></span><br><span class="line"><span class="comment">#file:///media/cdrom #注释掉不存在的地址</span></span><br><span class="line"><span class="comment">#file:///media/cdrecorder #注释掉不存在的地址</span></span><br><span class="line">gpgcheck=<span class="number">1</span></span><br><span class="line">enable=<span class="number">1</span> <span class="comment">#将enable由0改为1，yum配置文件生效</span></span><br><span class="line">gpgkey=file:///etc/pki/rpm<span class="literal">-gpg</span>/RPM<span class="literal">-GPG-KEY-CentOS-6</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>修改centos7的光盘源</strong></p>
+<p>使用<code>cat</code>命令可以查看到<strong>光盘源的配置</strong><br><img src="https://img-blog.csdnimg.cn/2020082621150672.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>对比c6和c7版本，你会发现区别不大，基本上都是操作命令有些变动。</strong></p>
+<p><strong>这里是修改后的配置，vim CentOS-Media.repo</strong><br><img src="https://img-blog.csdnimg.cn/20200826211758191.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">[<span class="type">c7</span>-<span class="type">media</span>]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Media</span><br><span class="line">baseurl=file:///mnt/CentOS/</span><br><span class="line"><span class="comment">#file:///media/cdrom/</span></span><br><span class="line"><span class="comment">#file:///media/cdrecorder/</span></span><br><span class="line">gpgcheck=<span class="number">1</span></span><br><span class="line">enabled=<span class="number">1</span> <span class="comment">#将enable由0改为1，yum配置文件生效</span></span><br><span class="line">gpgkey=file:///etc/pki/rpm<span class="literal">-gpg</span>/RPM<span class="literal">-GPG-KEY-CentOS-7</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="挂载光盘"><a href="#挂载光盘" class="headerlink" title="挂载光盘"></a>挂载光盘</h3><p><strong>建立挂载点</strong>：<code>mkdir  /mnt/cdrom</code></p>
+<p><strong>这个可加可不加</strong>：<code>-t iso9660</code>，指定挂载类型</p>
+<p><strong>挂载光盘</strong>：<code>mount  -t iso9660 /dev/cdrom /mnt/cdrom</code>，我这里已经挂载了。<br><strong>挂载成功后</strong>：<code>ls /mnt/cdrom</code><br><img src="https://img-blog.csdnimg.cn/20200826214707744.png#pic_center" alt="在这里插入图片描述"></p>
+<p>遇到<strong>mount: 在 &#x2F;dev&#x2F;sr0 上找不到媒体</strong>，这种问题需要设置一下你的虚拟机，如下图设置。<br><img src="https://img-blog.csdnimg.cn/20200826211336417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>卸载命令</strong><br><img src="https://img-blog.csdnimg.cn/20200826220326374.png#pic_center" alt="在这里插入图片描述"></p>
+<ul>
+<li><code>umount</code> [接设备文件名或者挂载点]</li>
+<li>例如卸载光盘：<code>umount /mnt/cdrom/</code></li>
+</ul>
+<h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>好了，<strong>到此为止就是此篇文章的全部内容了，能看到这的都是帅哥靓妹啊！！！</strong> 善于总结，其乐不穷。好记性不如烂笔头，多收集自己第一次尝试的成果，收获也颇丰。<strong>你会发现，自己的知识宝库越来越丰富。</strong></p>
+]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -8934,7 +8934,7 @@
 </ul>
 <h3 id="2、前世今生"><a href="#2、前世今生" class="headerlink" title="2、前世今生"></a>2、前世今生</h3><ul>
 <li><p>作者</p>
-<p>Timo Rinne <a href="mailto:&#x74;&#114;&#105;&#x40;&#x69;&#x6b;&#105;&#x2e;&#102;&#x69;">&#x74;&#114;&#105;&#x40;&#x69;&#x6b;&#105;&#x2e;&#102;&#x69;</a> 和 Tatu Ylonen <a href="mailto:&#121;&#108;&#x6f;&#64;&#x63;&#x73;&#x2e;&#104;&#x75;&#116;&#46;&#x66;&#105;">&#121;&#108;&#x6f;&#64;&#x63;&#x73;&#x2e;&#104;&#x75;&#116;&#46;&#x66;&#105;</a></p>
+<p>Timo Rinne <a href="mailto:&#x74;&#114;&#105;&#x40;&#105;&#107;&#105;&#x2e;&#x66;&#x69;">&#x74;&#114;&#105;&#x40;&#105;&#107;&#105;&#x2e;&#x66;&#x69;</a> 和 Tatu Ylonen <a href="mailto:&#x79;&#x6c;&#x6f;&#64;&#99;&#115;&#46;&#x68;&#x75;&#116;&#x2e;&#x66;&#x69;">&#x79;&#x6c;&#x6f;&#64;&#99;&#115;&#46;&#x68;&#x75;&#116;&#x2e;&#x66;&#x69;</a></p>
 </li>
 <li><p>起源</p>
 <p>scp 基于University of California BSD 的 rcp(1) 源代码</p>
@@ -13401,19 +13401,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hello Java</title>
-    <url>/2022/01/26/hello-Java/</url>
-    <content><![CDATA[<p>hello world！！！</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		helloWorld();</span><br><span class="line">		printNoBug();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">helloWorld</span><span class="params">()</span>&#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span><span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printNoBug</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">		<span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot; ......................我佛慈悲......................&quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">b</span> <span class="operator">=</span> <span class="string">&quot;                       _oo0oo_                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&quot;                      o8888888o                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">d</span> <span class="operator">=</span> <span class="string">&quot;                      88\&quot; . \&quot;88                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">e</span> <span class="operator">=</span> <span class="string">&quot;                      (| -_- |)                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">f</span> <span class="operator">=</span> <span class="string">&quot;                      0\\  =  /0                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">g</span> <span class="operator">=</span> <span class="string">&quot;                    ___/‘---’\\___                   &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">h</span> <span class="operator">=</span> <span class="string">&quot;                  .&#x27; \\|       |/ &#x27;.                 &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">i</span> <span class="operator">=</span> <span class="string">&quot;                 / \\\\|||  :  |||// \\                &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">j</span> <span class="operator">=</span> <span class="string">&quot;                / _||||| -卍-|||||_ \\               &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">k</span> <span class="operator">=</span> <span class="string">&quot;               |   | \\\\\\  -  /// |   |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">l</span> <span class="operator">=</span> <span class="string">&quot;               | \\_|  &#x27;&#x27;\\---/&#x27;&#x27;  |_/ |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">m</span> <span class="operator">=</span> <span class="string">&quot;               \\  .-\\__  &#x27;-&#x27;  ___/-. /              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">n</span> <span class="operator">=</span> <span class="string">&quot;             ___&#x27;. .&#x27;  /--.--\\  &#x27;. .&#x27;___            &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">o</span> <span class="operator">=</span> <span class="string">&quot;          .\&quot;\&quot; ‘&lt;  ‘.___\\_&lt;|&gt;_/___.’ &gt;’ \&quot;\&quot;.          &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">p</span> <span class="operator">=</span> <span class="string">&quot;         | | :  ‘- \\‘.;‘\\ _ /’;.’/ - ’ : | |        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">q</span> <span class="operator">=</span> <span class="string">&quot;         \\  \\ ‘_.   \\_ __\\ /__ _/   .-’ /  /        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">r</span> <span class="operator">=</span> <span class="string">&quot;     =====‘-.____‘.___ \\_____/___.-’___.-’=====     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;                       ‘=---=’                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">t</span> <span class="operator">=</span> <span class="string">&quot;                                                    &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">u</span> <span class="operator">=</span> <span class="string">&quot;....................佛祖开光 ,永无BUG...................&quot;</span>;</span><br><span class="line">		sb = sb.append(a).append(<span class="string">&quot;\n&quot;</span>).append(b).append(<span class="string">&quot;\n&quot;</span>).append(c).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">				.append(d).append(<span class="string">&quot;\n&quot;</span>).append(e).append(<span class="string">&quot;\n&quot;</span>).append(f).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(g).append(<span class="string">&quot;\n&quot;</span>).append(h).append(<span class="string">&quot;\n&quot;</span>).append(i).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(j).append(<span class="string">&quot;\n&quot;</span>).append(k).append(<span class="string">&quot;\n&quot;</span>).append(l).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(m).append(<span class="string">&quot;\n&quot;</span>).append(n).append(<span class="string">&quot;\n&quot;</span>).append(o).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(p).append(<span class="string">&quot;\n&quot;</span>).append(q).append(<span class="string">&quot;\n&quot;</span>).append(r).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(s).append(<span class="string">&quot;\n&quot;</span>).append(t).append(<span class="string">&quot;\n&quot;</span>).append(u);</span><br><span class="line">		System.out.println(sb);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>web后端</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2022/01/26/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -13435,6 +13422,19 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hello Java</title>
+    <url>/2022/01/26/hello-Java/</url>
+    <content><![CDATA[<p>hello world！！！</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		helloWorld();</span><br><span class="line">		printNoBug();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">helloWorld</span><span class="params">()</span>&#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span><span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printNoBug</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">		<span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot; ......................我佛慈悲......................&quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">b</span> <span class="operator">=</span> <span class="string">&quot;                       _oo0oo_                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&quot;                      o8888888o                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">d</span> <span class="operator">=</span> <span class="string">&quot;                      88\&quot; . \&quot;88                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">e</span> <span class="operator">=</span> <span class="string">&quot;                      (| -_- |)                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">f</span> <span class="operator">=</span> <span class="string">&quot;                      0\\  =  /0                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">g</span> <span class="operator">=</span> <span class="string">&quot;                    ___/‘---’\\___                   &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">h</span> <span class="operator">=</span> <span class="string">&quot;                  .&#x27; \\|       |/ &#x27;.                 &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">i</span> <span class="operator">=</span> <span class="string">&quot;                 / \\\\|||  :  |||// \\                &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">j</span> <span class="operator">=</span> <span class="string">&quot;                / _||||| -卍-|||||_ \\               &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">k</span> <span class="operator">=</span> <span class="string">&quot;               |   | \\\\\\  -  /// |   |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">l</span> <span class="operator">=</span> <span class="string">&quot;               | \\_|  &#x27;&#x27;\\---/&#x27;&#x27;  |_/ |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">m</span> <span class="operator">=</span> <span class="string">&quot;               \\  .-\\__  &#x27;-&#x27;  ___/-. /              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">n</span> <span class="operator">=</span> <span class="string">&quot;             ___&#x27;. .&#x27;  /--.--\\  &#x27;. .&#x27;___            &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">o</span> <span class="operator">=</span> <span class="string">&quot;          .\&quot;\&quot; ‘&lt;  ‘.___\\_&lt;|&gt;_/___.’ &gt;’ \&quot;\&quot;.          &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">p</span> <span class="operator">=</span> <span class="string">&quot;         | | :  ‘- \\‘.;‘\\ _ /’;.’/ - ’ : | |        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">q</span> <span class="operator">=</span> <span class="string">&quot;         \\  \\ ‘_.   \\_ __\\ /__ _/   .-’ /  /        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">r</span> <span class="operator">=</span> <span class="string">&quot;     =====‘-.____‘.___ \\_____/___.-’___.-’=====     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;                       ‘=---=’                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">t</span> <span class="operator">=</span> <span class="string">&quot;                                                    &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">u</span> <span class="operator">=</span> <span class="string">&quot;....................佛祖开光 ,永无BUG...................&quot;</span>;</span><br><span class="line">		sb = sb.append(a).append(<span class="string">&quot;\n&quot;</span>).append(b).append(<span class="string">&quot;\n&quot;</span>).append(c).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">				.append(d).append(<span class="string">&quot;\n&quot;</span>).append(e).append(<span class="string">&quot;\n&quot;</span>).append(f).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(g).append(<span class="string">&quot;\n&quot;</span>).append(h).append(<span class="string">&quot;\n&quot;</span>).append(i).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(j).append(<span class="string">&quot;\n&quot;</span>).append(k).append(<span class="string">&quot;\n&quot;</span>).append(l).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(m).append(<span class="string">&quot;\n&quot;</span>).append(n).append(<span class="string">&quot;\n&quot;</span>).append(o).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(p).append(<span class="string">&quot;\n&quot;</span>).append(q).append(<span class="string">&quot;\n&quot;</span>).append(r).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(s).append(<span class="string">&quot;\n&quot;</span>).append(t).append(<span class="string">&quot;\n&quot;</span>).append(u);</span><br><span class="line">		System.out.println(sb);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>web后端</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
 </search>
