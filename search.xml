@@ -259,6 +259,121 @@
       </tags>
   </entry>
   <entry>
+    <title>MySQL8.0.x 简易安装教程</title>
+    <url>/2023/03/15/MySQL8-0-x-%E7%AE%80%E6%98%93%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h3 id="Windows平台安装MySQL"><a href="#Windows平台安装MySQL" class="headerlink" title="Windows平台安装MySQL"></a>Windows平台安装MySQL</h3><p><strong>Windows install MySQL8.0.x (Archive zip) 简易安装教程</strong><br>注意：x代表使用MySQL8.0具体版本</p>
+<ol>
+<li>解压免安装版MySQL：unzip mysql-8.0.x-winx64.zip</li>
+<li>切换到MySQL解压目录：cd mysql-8.0.x-winx64</li>
+<li>新增MySQL配置文件： my.ini</li>
+<li>初始化MySQL：bin\mysqld –initialize-insecure 或者 bin\mysqld –initialize-insecure –console </li>
+<li>注册MySQL服务：bin\mysqld –install MySQL80（将MySQL服务注册到service，可以使用net命令进行管理）</li>
+<li>启动MySQL服务：net start MySQL80 或者 sc start MySQL80</li>
+<li>登录MySQL字符管理界面：mysql -uroot -p</li>
+</ol>
+<p>Windows环境新建my.ini做如下设置，指定基本安装目录与数据存放目录：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">basedir=D:\\mysql-8.0.32-winx64</span><br><span class="line">datadir=D:\\mysql-8.0.32-winx64\\data</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>tips</strong>：打开CMD或者Powershell时以管理员身份运行，如果没有，安装服务时则会提示权限拒绝，如下所示。</p>
+<p><strong>D:\software\mysql-8.0.32-winx64\bin&gt;mysqld –install MySQL80</strong><br><strong>Install&#x2F;Remove of the Service Denied!</strong></p>
+<p><strong>Windows11操作系统中安装MySQL8.0.32</strong> (noinstall Archive zip)步骤</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">D:\software\mysql-8.0.32-winx64\bin&gt;mysqld --initialize-insecure --console</span><br><span class="line">D:\software\mysql-8.0.32-winx64\bin&gt;mysqld --install MySQL80</span><br><span class="line">Service successfully installed.</span><br><span class="line">D:\software\mysql-8.0.32-winx64\bin&gt;net start mysql80</span><br><span class="line">MySQL80 服务正在启动 .</span><br><span class="line">MySQL80 服务已经启动成功。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>初步使用MySQL：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">D:\software\mysql<span class="number">-8.0</span><span class="number">.32</span><span class="operator">-</span>winx64\bin<span class="operator">&gt;</span>mysql <span class="operator">-</span>uroot <span class="operator">-</span>p</span><br><span class="line">Enter password:</span><br><span class="line">Welcome <span class="keyword">to</span> the MySQL monitor.  Commands <span class="keyword">end</span> <span class="keyword">with</span> ; <span class="keyword">or</span> \g.</span><br><span class="line">Your MySQL connection id <span class="keyword">is</span> <span class="number">8</span></span><br><span class="line">Server version: <span class="number">8.0</span><span class="number">.32</span> MySQL Community Server <span class="operator">-</span> GPL</span><br><span class="line"></span><br><span class="line">Copyright (c) <span class="number">2000</span>, <span class="number">2022</span>, Oracle <span class="keyword">and</span><span class="operator">/</span><span class="keyword">or</span> its affiliates.</span><br><span class="line"></span><br><span class="line">Oracle <span class="keyword">is</span> a registered trademark <span class="keyword">of</span> Oracle Corporation <span class="keyword">and</span><span class="operator">/</span><span class="keyword">or</span> its</span><br><span class="line">affiliates. Other names may be trademarks <span class="keyword">of</span> their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> <span class="keyword">or</span> <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> help. Type <span class="string">&#x27;\c&#x27;</span> <span class="keyword">to</span> clear the <span class="keyword">current</span> input statement.</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="number">1</span>\G</span><br><span class="line"><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span> <span class="number">1.</span> <span class="type">row</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line"><span class="number">1</span>: <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> database study;</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.01</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> use study;</span><br><span class="line">Database changed</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> <span class="keyword">table</span> books(books_id <span class="type">int</span> <span class="keyword">primary</span> key,books_name <span class="type">varchar</span>(<span class="number">64</span>),isbn <span class="type">varchar</span>(<span class="number">64</span>),author <span class="type">varchar</span>(<span class="number">32</span>));</span><br><span class="line">Query OK, <span class="number">0</span> <span class="keyword">rows</span> affected (<span class="number">0.02</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> books\G</span><br><span class="line"><span class="keyword">Empty</span> <span class="keyword">set</span> (<span class="number">0.01</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">insert</span> <span class="keyword">into</span> books(books_id,books_name,isbn,author) <span class="keyword">values</span>(<span class="number">1001</span>,<span class="string">&#x27;绝世武功秘籍&#x27;</span>,<span class="string">&#x27;22-90-12345&#x27;</span>,<span class="string">&#x27;不详&#x27;</span>);</span><br><span class="line">Query OK, <span class="number">1</span> <span class="type">row</span> affected (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> books\G</span><br><span class="line"><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span> <span class="number">1.</span> <span class="type">row</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line">  books_id: <span class="number">1001</span></span><br><span class="line">books_name: 绝世武功秘籍</span><br><span class="line">      isbn: <span class="number">22</span><span class="number">-90</span><span class="number">-12345</span></span><br><span class="line">    author: 不详</span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><strong>检查日志文件</strong> </p>
+<p>data directory host_name.err file.could not open the mysql.plugin table</p>
+<p>2023-01-17T22:48:19.711538Z 0 [System] [MY-013169] [Server] d:\mysql-8.0.32-winx64\bin\mysqld.exe (mysqld 8.0.32) initializing of server in progress as process 13908<br>2023-01-17T22:48:19.746579Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.<br>2023-01-17T22:48:20.205845Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.<br><strong>2023-01-17T22:48:21.399260Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the –initialize-insecure option.</strong><br>2023-01-17T22:48:26.020963Z 0 [System] [MY-010116] [Server] D:\mysql-8.0.32-winx64\bin\mysqld (mysqld 8.0.32) starting as process 13756<br>2023-01-17T22:48:26.038677Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.<br>2023-01-17T22:48:26.323181Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.<br>2023-01-17T22:48:26.552785Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.<br>2023-01-17T22:48:26.553244Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.<br>2023-01-17T22:48:26.583209Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: ‘::’ port: 33060<br>2023-01-17T22:48:26.583079Z 0 [System] [MY-010931] [Server] D:\mysql-8.0.32-winx64\bin\mysqld: ready for connections. Version: ‘8.0.32’  socket: ‘’  port: 3308  MySQL Community Server - GPL.<br>2023-01-17T22:53:43.085937Z 0 [System] [MY-013105] [Server] D:\mysql-8.0.32-winx64\bin\mysqld: Normal shutdown.<br>2023-01-17T22:53:43.812152Z 0 [System] [MY-010910] [Server] D:\mysql-8.0.32-winx64\bin\mysqld: Shutdown complete (mysqld 8.0.32)  MySQL Community Server - GPL.</p>
+<p>发现问题：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">could not open the mysql.plugin table</span><br></pre></td></tr></table></figure>
+
+<p>尝试解决问题：</p>
+<ol>
+<li>分析问题，检查初始化和安装服务：check mysqld –initialize 或者 mysqld –initialize-insecure –console</li>
+<li>移除服务：mysqld –remove&#x3D;MySQL80</li>
+<li>移除数据目录：remove data directory</li>
+<li>排查问题，再次初始化：mysqld –initialize 或者 mysqld –initialize-insecure –console</li>
+<li>再次安装服务：mysqld –install MySQL80</li>
+</ol>
+<h3 id="Linux平台Centos7安装MySQL"><a href="#Linux平台Centos7安装MySQL" class="headerlink" title="Linux平台Centos7安装MySQL"></a>Linux平台Centos7安装MySQL</h3><p><strong>binary package：二进制包安装</strong></p>
+<p>Linux for Centos7 MySQL8.0.32(binary package) | 2.2 Installing MySQL on Unix&#x2F;Linux Using Generic Binaries</p>
+<ol>
+<li>创建mysql组</li>
+<li>创建mysql用户并做软链接 </li>
+<li>切换到local目录</li>
+<li>解压tar包mysql文件</li>
+<li>创建软链接</li>
+<li>进入到mysql目录</li>
+<li>创建mysql-files目录</li>
+<li>赋予mysql用户mysql-files所属目录与所属组为mysql</li>
+<li>赋予mysql-files权限750</li>
+<li>初始化并设置用户为mysql，生成随机密码会打印在字符界面（使用 –initialize-insecure则设置空密码）</li>
+<li>启动ssl_rsa验证</li>
+<li>启动MySQL服务</li>
+<li>复制mysql.server脚本服务到Linux环境init.d目录，便于管理</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$&gt; groupadd mysql     <span class="comment">#创建mysql组                  </span></span><br><span class="line">$&gt; useradd -r -g mysql -s /bin/false mysql    <span class="comment">#创建mysql用户并做软链接 </span></span><br><span class="line">$&gt; <span class="built_in">cd</span> /usr/local      <span class="comment">#切换到local目录                  </span></span><br><span class="line">$&gt; tar xvf /path/to/mysql-VERSION-OS.tar.xz   <span class="comment">#解压tar包mysql文件 </span></span><br><span class="line">$&gt; <span class="built_in">ln</span> -s full-path-to-mysql-VERSION-OS mysql  <span class="comment">#创建软链接</span></span><br><span class="line">$&gt; <span class="built_in">cd</span> mysql   <span class="comment">#进入到mysql目录</span></span><br><span class="line">$&gt; <span class="built_in">mkdir</span> mysql-files  <span class="comment">#创建mysql-files目录</span></span><br><span class="line">$&gt; <span class="built_in">chown</span> mysql:mysql mysql-files <span class="comment">#赋予mysql用户mysql-files所属目录与所属组为mysql</span></span><br><span class="line">$&gt; <span class="built_in">chmod</span> 750 mysql-files  <span class="comment">#赋予mysql-files权限750</span></span><br><span class="line">$&gt; bin/mysqld --initialize --user=mysql <span class="comment">#初始化并设置用户为mysql，生成随机密码会打印在字符界面（使用 --initialize-insecure则设置空密码）</span></span><br><span class="line"><span class="comment">#--defaults-file=/usr/local/mysql/my.cnf 初始化指定my.cnf路径</span></span><br><span class="line">$&gt; bin/mysqld --defaults-file=/usr/local/mysql/my.cnf  --initialize-insecure --user=mysql </span><br><span class="line">--basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data</span><br><span class="line">$&gt; bin/mysql_ssl_rsa_setup   <span class="comment">#启动ssl_rsa验证</span></span><br><span class="line">$&gt; bin/mysqld_safe --user=mysql &amp; <span class="comment">#启动服务</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Next command is optional  </span></span><br><span class="line"><span class="comment">#复制mysql.server脚本服务到Linux环境init.d目录，便于管理</span></span><br><span class="line">$&gt; <span class="built_in">cp</span> support-files/mysql.server /etc/init.d/</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><strong>rpm包安装</strong></p>
+<p>Linux for Centos7 MySQL8.0.32(rpm package) </p>
+<blockquote>
+<p>2.5 Installing MySQL on Linux</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -ivh mysql-community-client-plugins-8.0.28-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-common-8.0.28-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-icu-data-files-8.0.28-1.el7.x86_64.rpm</span><br><span class="line">yum remove mariadb-libs</span><br><span class="line">rpm -ivh mysql-community-libs-8.0.28-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-client-8.0.28-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-server-8.0.28-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<p>或者使用yum命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. yum remove mariadb-libs</span><br><span class="line">2. sudo yum install mysql-community-*</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>yum源安装</strong></p>
+<p>Linux for Centos7 MySQL8.0.32(yum) | Installing MySQL on Linux Using the MySQL Yum Repository<br>tips:Centos8或者更高版本可以使用 dnf 替代 yum </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. download：mysql80-community-release-el7-6.noarch.rpm</span><br><span class="line">   click https://repo.mysql.com//mysql80-community-release-el7-6.noarch.rpm</span><br><span class="line">2. $&gt; sudo yum install platform-and-version-specific-package-name.rpm</span><br><span class="line">3. For an EL7-based system：$&gt; sudo yum install mysql80-community-release-el7-&#123;version-number&#125;.noarch.rpm</span><br><span class="line">4. Starting the MySQL Server：$&gt; systemctl start mysqld</span><br><span class="line">5. check Starting the MySQL Server：$&gt; systemctl status mysqld</span><br><span class="line">6. login mysql：$&gt; mysql -uroot -p</span><br><span class="line">7. update password：$&gt; ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;MyNewPwd832!&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><strong>Source：源码包安装</strong></p>
+<p>Linux for Centos7 MySQL8.0.32(source package) | 2.9 Installing MySQL from Source</p>
+<ol>
+<li>新增mysql管理组</li>
+<li>新增mysql用户</li>
+<li>解压mysql安装包</li>
+<li>创建bld目录</li>
+<li>切换到bld目录</li>
+<li>编译安装：cmake .. make make install</li>
+<li>进入源码包安装后的mysql目录</li>
+<li>创建目录mysql-files</li>
+<li>赋予mysql-files目录所属组和所属用户为mysql</li>
+<li>赋予mysql-files目录750权限</li>
+<li>执行安全命令：bin&#x2F;mysql_ssl_rsa_setup</li>
+<li>启动mysql服务：bin&#x2F;mysqld_safe –user&#x3D;mysql &amp;</li>
+<li>复制mysql.server脚本服务到Linux环境init.d目录，便于管理</li>
+</ol>
+<p>简易安装命令参考如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Preconfiguration setup</span></span><br><span class="line"></span><br><span class="line">$&gt; groupadd mysql</span><br><span class="line">$&gt; useradd -r -g mysql -s /bin/false mysql</span><br><span class="line"></span><br><span class="line"><span class="comment">#Beginning of source-build specific instructions</span></span><br><span class="line"></span><br><span class="line">$&gt; tar zxvf mysql-VERSION.tar.gz</span><br><span class="line">$&gt; <span class="built_in">cd</span> mysql-VERSION</span><br><span class="line">$&gt; <span class="built_in">mkdir</span> bld</span><br><span class="line">$&gt; <span class="built_in">cd</span> bld</span><br><span class="line">$&gt; cmake ..</span><br><span class="line">$&gt; make</span><br><span class="line">$&gt; make install</span><br><span class="line"></span><br><span class="line"><span class="comment">#End of source-build specific instructions</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Postinstallation setup</span></span><br><span class="line"></span><br><span class="line">$&gt; <span class="built_in">cd</span> /usr/local/mysql</span><br><span class="line">$&gt; <span class="built_in">mkdir</span> mysql-files</span><br><span class="line">$&gt; <span class="built_in">chown</span> mysql:mysql mysql-files</span><br><span class="line">$&gt; <span class="built_in">chmod</span> 750 mysql-files</span><br><span class="line">$&gt; bin/mysqld --initialize --user=mysql</span><br><span class="line">$&gt; bin/mysql_ssl_rsa_setup</span><br><span class="line">$&gt; bin/mysqld_safe --user=mysql &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#Next command is optional</span></span><br><span class="line"></span><br><span class="line">$&gt; <span class="built_in">cp</span> support-files/mysql.server /etc/init.d/mysql.server</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux是什么？</title>
     <url>/2023/03/14/Linux%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
     <content><![CDATA[<p><strong>Linux内核官网</strong>：<a href="https://www.kernel.org/">https://www.kernel.org/</a></p>
@@ -1744,73 +1859,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux（银河麒麟V10）部署VNC服务端并且使用客户端连接</title>
-    <url>/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2VNC%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%B9%B6%E4%B8%94%E4%BD%BF%E7%94%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5/</url>
-    <content><![CDATA[<p><em>注意：这篇文章对于定制版本的系统并不适用，有可能导致系统环境变量被破坏。这里测试用root用户没大多关系，正式环境能不用尽量别用root测试，使用普通用户提权。再提一句，某些定制Linux系统可能做过安全标记，也是不能随便动权限的。</em></p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、银河麒麟安装VNC服务"><a href="#一、银河麒麟安装VNC服务" class="headerlink" title="一、银河麒麟安装VNC服务"></a>一、银河麒麟安装VNC服务</h2><p>这里我并不推荐使用root用户，尽量用普通用户，通过提取权限即可。我这里用root，只是为了方便使用。<strong>赋予权限的宗旨是在最小范围内满足即可。</strong></p>
-<p>银河麒麟V10部署vncserver，使用如下yum命令安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install tigervnc-server tigervnc-server-module</span><br></pre></td></tr></table></figure>
-
-<p><strong>新建vncserver@.service</strong><br><img src="https://img-blog.csdnimg.cn/d5688877690449ef81f28266364814e5.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#使用vim命令新建vncserver@.service</span></span><br><span class="line"><span class="comment">#执行这个脚本在定制系统上可能会破坏系统环境变量，导致基本命令无法使用。</span></span><br><span class="line">vim /etc/systemd/system/vncserver@.service</span><br></pre></td></tr></table></figure>
-
-<p><strong>下面为具体配置文件内容</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Remote desktop service (VNC)</span><br><span class="line">After=syslog.target network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"><span class="comment">#必须设置为simple，设置其它的报错</span></span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root/</span><br><span class="line"><span class="comment">#必须为root</span></span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line"></span><br><span class="line"><span class="comment">#ExecStart=/usr/bin/vncserver :1 -geometry 1920x1080</span></span><br><span class="line"><span class="comment">#Clean any existing files in /tmp/.X11-unix environment                                                                    </span></span><br><span class="line">ExecStartPre=/bin/sh -c <span class="string">&#x27;/usr/bin/vncserver -kill %i &gt; /dev/null 2&gt;&amp;1 || :&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#ExecStart=/usr/sbin/runuser -l appadmin -c &quot;/usr/bin/vncserver %i -geometry 1280x1024&quot;  </span></span><br><span class="line"><span class="comment">#必须为root</span></span><br><span class="line">ExecStart=/usr/sbin/runuser -l root -c <span class="string">&quot;/usr/bin/vncserver %i&quot;</span>  </span><br><span class="line"><span class="comment">#必须为root</span></span><br><span class="line">PIDFile=/root/.vnc/%H%i.pid  </span><br></pre></td></tr></table></figure>
-
-
-<p><strong>重新加载systemctl</strong><br><img src="https://img-blog.csdnimg.cn/4d816a034e204d24945dece6e94e1523.jpg#" alt="在这里插入图片描述"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#执行这个命令，在定制linux系统可能导致基本命令无法使用</span></span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-
-<p><strong>停止vnc服务</strong><br><img src="https://img-blog.csdnimg.cn/7fad776f6aab4075ac3dc9e3db087898.jpg#" alt="在这里插入图片描述"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop vncserver@:1.service</span><br></pre></td></tr></table></figure>
-
-<p><strong>启动vnc服务</strong><br><img src="https://img-blog.csdnimg.cn/5018eb34cf7b42019f351516a166b71f.jpg#" alt="在这里插入图片描述"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start vncserver@:1.service</span><br></pre></td></tr></table></figure>
-
-<p><strong>查看vnc服务状态</strong><br><img src="https://img-blog.csdnimg.cn/df4b8eefdfc24a869bdc4e1877550503.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status vncserver@:1.service</span><br></pre></td></tr></table></figure>
-
-<p><strong>开机启用vnc服务</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> vncserver@:1.service</span><br></pre></td></tr></table></figure>
-
-
-<p><strong>修改vnc密码</strong>，如果没修改密码，启动VNC也存在报错情况</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vncpasswd</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="二、本机安装VNC客户端"><a href="#二、本机安装VNC客户端" class="headerlink" title="二、本机安装VNC客户端"></a>二、本机安装VNC客户端</h2><p>官网提供了很多版本的下载地址<br><a href="https://www.realvnc.com/en/connect/download/viewer/">https://www.realvnc.com/en/connect/download/viewer/</a></p>
-<p>1、安装完后，点击File-&gt;使用Ctrl+N快捷键打开new connection<br><img src="https://img-blog.csdnimg.cn/fc3f55d0bb4e4255b7debc5a7b8d2ea6.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
-<p>2、配置vnc连接</p>
-<p><img src="https://img-blog.csdnimg.cn/85f53e9dee97486aa75dab1e73e3a4e3.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
-<p>3、输入ip地址以及端口，输入服务器配置的vnc服务密码<br><img src="https://img-blog.csdnimg.cn/58a7a813d4754477862ef35eb65dbfa5.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
-<p>4、成功登陆到银河麒麟V10<br><img src="https://img-blog.csdnimg.cn/65b824ebae094e9ea612d50320e8d902.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
-<h2 id="三、关闭原有的firewalld防火墙，启用iptables并开放5901"><a href="#三、关闭原有的firewalld防火墙，启用iptables并开放5901" class="headerlink" title="三、关闭原有的firewalld防火墙，启用iptables并开放5901"></a>三、关闭原有的firewalld防火墙，启用iptables并开放5901</h2><p>永久关闭firewalld</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl disabled firewalld.service</span><br></pre></td></tr></table></figure>
-<p>临时关闭firewalld</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
-
-<p><strong>开启iptables</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> iptables.service</span><br></pre></td></tr></table></figure>
-
-<p><strong>修改iptables配置文件</strong><br><img src="https://img-blog.csdnimg.cn/cef62f850fc94784b0af39901b85a2eb.jpg#" alt="在这里插入图片描述"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/ipatbles</span><br></pre></td></tr></table></figure>
-<p><strong>添加如下图片红线框出来的配置</strong><br><img src="https://img-blog.csdnimg.cn/b41380556df24875875b64d99482920f.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
-<p><strong>重启iptables服务</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart iptables.service</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2ae38547f2214b80b5e8791bebc09dde.jpg#" alt="在这里插入图片描述"></p>
-<h2 id="四、权限问题"><a href="#四、权限问题" class="headerlink" title="四、权限问题"></a>四、权限问题</h2><p>出现权限不足，赋予vncserver@.service权限755，通过root提权</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755  /etc/systemd/system/vncserver@.service</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>运维</category>
-      </categories>
-      <tags>
-        <tag>VNC</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux（银河麒麟V10）部署DM8数据库：ARM架构</title>
     <url>/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2DM8%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AARM%E6%9E%B6%E6%9E%84/</url>
     <content><![CDATA[<p>国产适配linux银河麒麟V10下部署DM8（arm版本）</p>
@@ -2048,6 +2096,73 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux（银河麒麟V10）部署VNC服务端并且使用客户端连接</title>
+    <url>/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2VNC%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%B9%B6%E4%B8%94%E4%BD%BF%E7%94%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5/</url>
+    <content><![CDATA[<p><em>注意：这篇文章对于定制版本的系统并不适用，有可能导致系统环境变量被破坏。这里测试用root用户没大多关系，正式环境能不用尽量别用root测试，使用普通用户提权。再提一句，某些定制Linux系统可能做过安全标记，也是不能随便动权限的。</em></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、银河麒麟安装VNC服务"><a href="#一、银河麒麟安装VNC服务" class="headerlink" title="一、银河麒麟安装VNC服务"></a>一、银河麒麟安装VNC服务</h2><p>这里我并不推荐使用root用户，尽量用普通用户，通过提取权限即可。我这里用root，只是为了方便使用。<strong>赋予权限的宗旨是在最小范围内满足即可。</strong></p>
+<p>银河麒麟V10部署vncserver，使用如下yum命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install tigervnc-server tigervnc-server-module</span><br></pre></td></tr></table></figure>
+
+<p><strong>新建vncserver@.service</strong><br><img src="https://img-blog.csdnimg.cn/d5688877690449ef81f28266364814e5.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#使用vim命令新建vncserver@.service</span></span><br><span class="line"><span class="comment">#执行这个脚本在定制系统上可能会破坏系统环境变量，导致基本命令无法使用。</span></span><br><span class="line">vim /etc/systemd/system/vncserver@.service</span><br></pre></td></tr></table></figure>
+
+<p><strong>下面为具体配置文件内容</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Remote desktop service (VNC)</span><br><span class="line">After=syslog.target network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"><span class="comment">#必须设置为simple，设置其它的报错</span></span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root/</span><br><span class="line"><span class="comment">#必须为root</span></span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line"></span><br><span class="line"><span class="comment">#ExecStart=/usr/bin/vncserver :1 -geometry 1920x1080</span></span><br><span class="line"><span class="comment">#Clean any existing files in /tmp/.X11-unix environment                                                                    </span></span><br><span class="line">ExecStartPre=/bin/sh -c <span class="string">&#x27;/usr/bin/vncserver -kill %i &gt; /dev/null 2&gt;&amp;1 || :&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#ExecStart=/usr/sbin/runuser -l appadmin -c &quot;/usr/bin/vncserver %i -geometry 1280x1024&quot;  </span></span><br><span class="line"><span class="comment">#必须为root</span></span><br><span class="line">ExecStart=/usr/sbin/runuser -l root -c <span class="string">&quot;/usr/bin/vncserver %i&quot;</span>  </span><br><span class="line"><span class="comment">#必须为root</span></span><br><span class="line">PIDFile=/root/.vnc/%H%i.pid  </span><br></pre></td></tr></table></figure>
+
+
+<p><strong>重新加载systemctl</strong><br><img src="https://img-blog.csdnimg.cn/4d816a034e204d24945dece6e94e1523.jpg#" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#执行这个命令，在定制linux系统可能导致基本命令无法使用</span></span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+<p><strong>停止vnc服务</strong><br><img src="https://img-blog.csdnimg.cn/7fad776f6aab4075ac3dc9e3db087898.jpg#" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop vncserver@:1.service</span><br></pre></td></tr></table></figure>
+
+<p><strong>启动vnc服务</strong><br><img src="https://img-blog.csdnimg.cn/5018eb34cf7b42019f351516a166b71f.jpg#" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start vncserver@:1.service</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看vnc服务状态</strong><br><img src="https://img-blog.csdnimg.cn/df4b8eefdfc24a869bdc4e1877550503.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status vncserver@:1.service</span><br></pre></td></tr></table></figure>
+
+<p><strong>开机启用vnc服务</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> vncserver@:1.service</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>修改vnc密码</strong>，如果没修改密码，启动VNC也存在报错情况</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vncpasswd</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="二、本机安装VNC客户端"><a href="#二、本机安装VNC客户端" class="headerlink" title="二、本机安装VNC客户端"></a>二、本机安装VNC客户端</h2><p>官网提供了很多版本的下载地址<br><a href="https://www.realvnc.com/en/connect/download/viewer/">https://www.realvnc.com/en/connect/download/viewer/</a></p>
+<p>1、安装完后，点击File-&gt;使用Ctrl+N快捷键打开new connection<br><img src="https://img-blog.csdnimg.cn/fc3f55d0bb4e4255b7debc5a7b8d2ea6.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
+<p>2、配置vnc连接</p>
+<p><img src="https://img-blog.csdnimg.cn/85f53e9dee97486aa75dab1e73e3a4e3.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
+<p>3、输入ip地址以及端口，输入服务器配置的vnc服务密码<br><img src="https://img-blog.csdnimg.cn/58a7a813d4754477862ef35eb65dbfa5.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
+<p>4、成功登陆到银河麒麟V10<br><img src="https://img-blog.csdnimg.cn/65b824ebae094e9ea612d50320e8d902.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
+<h2 id="三、关闭原有的firewalld防火墙，启用iptables并开放5901"><a href="#三、关闭原有的firewalld防火墙，启用iptables并开放5901" class="headerlink" title="三、关闭原有的firewalld防火墙，启用iptables并开放5901"></a>三、关闭原有的firewalld防火墙，启用iptables并开放5901</h2><p>永久关闭firewalld</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl disabled firewalld.service</span><br></pre></td></tr></table></figure>
+<p>临时关闭firewalld</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+
+<p><strong>开启iptables</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> iptables.service</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改iptables配置文件</strong><br><img src="https://img-blog.csdnimg.cn/cef62f850fc94784b0af39901b85a2eb.jpg#" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/ipatbles</span><br></pre></td></tr></table></figure>
+<p><strong>添加如下图片红线框出来的配置</strong><br><img src="https://img-blog.csdnimg.cn/b41380556df24875875b64d99482920f.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
+<p><strong>重启iptables服务</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart iptables.service</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/2ae38547f2214b80b5e8791bebc09dde.jpg#" alt="在这里插入图片描述"></p>
+<h2 id="四、权限问题"><a href="#四、权限问题" class="headerlink" title="四、权限问题"></a>四、权限问题</h2><p>出现权限不足，赋予vncserver@.service权限755，通过root提权</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755  /etc/systemd/system/vncserver@.service</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>VNC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Oracle11g部署--注意事项</title>
     <url>/2022/04/20/Oracle11g%E9%83%A8%E7%BD%B2-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
     <content><![CDATA[<h1 id="Oracle重新部署注意事项"><a href="#Oracle重新部署注意事项" class="headerlink" title="Oracle重新部署注意事项"></a>Oracle重新部署注意事项</h1><p>Oracle19c下载地址，无需登录，历史版本下载需要登录<br><a href="https://www.oracle.com/cn/database/technologies/oracle-database-software-downloads.html#19c">https://www.oracle.com/cn/database/technologies/oracle-database-software-downloads.html#19c</a></p>
@@ -2183,55 +2298,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Windows_server2012服务器部署Oracle11g：.NET和CPU核心数问题解决方案</title>
-    <url>/2022/04/20/Windows-server2012%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2Oracle11g%EF%BC%9A-NET%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<p>主要以Windows server2012R2为主进行介绍，解决实际工作中遇到到的一些问题。<strong>比如服务器CPU核心数过高，导致Oracle数据库安装时卡在2%的情况</strong>。在Windows下，你安装VMware工具模拟使用Windows server达到熟悉的目的。<br><img src="https://img-blog.csdnimg.cn/img_convert/82425eb0cead43315f66a14bec3b6122.png"></p>
-<p>说句心里话，我真没想到过我会在Windows服务器上总结这么多。一分耕耘一分收获，但是血赚不亏。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>第一次接触Windows服务器大约在5年前，那会的活动价我入手了入门级的Windows服务器。第一次安装了Windows server2012，低配版的服务器确实很吃力。<em>用了一段时间熟悉了就弃用了，后来果断换成了linux操作系统（Centos）。centos被（Redhat）红帽收购后，逐渐。。。说白了还是利益二字。感慨了一番，关于centos的这段话可以忽略。</em></p>
-<p>想熟悉Windows server服务器最新版，建议使用VMware配合服务器镜像。</p>
-<p><strong>镜像获取地址</strong>，推荐msdn我告诉你。良心网站，专业收集原版镜像。</p>
-<p><a href="https://msdn.itellyou.cn/">https://msdn.itellyou.cn/</a></p>
-<p><strong>关于想体验最新版的Windows11或者Windows server2022服务器</strong>，可以访问新地址</p>
-<p><a href="https://next.itellyou.cn/">https://next.itellyou.cn</a></p>
-<h2 id="一、Oracle数据库安装卡在2"><a href="#一、Oracle数据库安装卡在2" class="headerlink" title="一、Oracle数据库安装卡在2%"></a>一、Oracle数据库安装卡在2%</h2><h3 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h3><p>1.1、<strong>服务器CPU核心数过高</strong>。在使用Windows server2012或者是其它Windows服务器，可能也会遇到这类问题。</p>
-<h3 id="2、解决问题"><a href="#2、解决问题" class="headerlink" title="2、解决问题"></a>2、解决问题</h3><p>2.1、<strong>解决问题，进入服务器的系统配置</strong>，一次找到引导-&gt;高级选项，<strong>设置处理器的核心数为16，然后重启即可生效</strong>。</p>
-<p>2.2、小技巧</p>
-<p><strong>快捷键win + r，然后输入msconfig</strong>命令即可快速进入系统配置。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/0a6139c3d47a8c3e3229fc0304b29443.png"></p>
-<h2 id="二、安装-net3-5失败"><a href="#二、安装-net3-5失败" class="headerlink" title="二、安装.net3.5失败"></a>二、安装.net3.5失败</h2><h3 id="1、准备工作，提取sxs"><a href="#1、准备工作，提取sxs" class="headerlink" title="1、准备工作，提取sxs"></a>1、准备工作，提取sxs</h3><p>1.1、准备服务器镜像，可以<strong>通过我上面提到的网址进行获取</strong>。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/af34fbc4dd53c24f7b5bef2d2f3d88da.png"></p>
-<p><strong>1.2、提取sxs</strong></p>
-<p>使用解压缩软件或者iso模拟软件打开镜像包，然后<strong>进入&#x2F;source&#x2F;找到sxs</strong>复制出来。在安装.net3.5时作为备用源使用，安装Oracle11gR2时需要安装.net3.5。</p>
-<p>解压缩软件推荐360zip国际版（旧版1.0几的无广告）或者7z（体积小）。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/d9d976e979fc0b3a2a82c724ea35416b.png"></p>
-<h3 id="2、再次安装-net3-5"><a href="#2、再次安装-net3-5" class="headerlink" title="2、再次安装.net3.5"></a>2、再次安装.net3.5</h3><h4 id="2-1、指定依赖sxs，安装-net3-5"><a href="#2-1、指定依赖sxs，安装-net3-5" class="headerlink" title="2.1、指定依赖sxs，安装.net3.5"></a>2.1、指定依赖sxs，安装.net3.5</h4><p>将之前从<strong>Windows server中提取的sxs</strong>复制到系统盘根目录下，然后在服务器仪表板中添加角色和功能（安装依赖），按照图上的提示<strong>指定我们准备好的sxs源路径</strong>，最终完美解决服务器上.net3.5无法安装的问题。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/05488105c6ea9d4445b2215d20a98450.png"></p>
-<h4 id="2-2、Windows-server仪表板"><a href="#2-2、Windows-server仪表板" class="headerlink" title="2.2、Windows server仪表板"></a>2.2、Windows server仪表板</h4><p>添加角色与功能，选择需要安装的功能时用得上，比如上面安装.net3.5</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/4cb90f5b86f022da71b6d744f580251b.png"></p>
-<h2 id="三、操作小技巧"><a href="#三、操作小技巧" class="headerlink" title="三、操作小技巧"></a>三、操作小技巧</h2><h3 id="1、以Oracle服务为例"><a href="#1、以Oracle服务为例" class="headerlink" title="1、以Oracle服务为例"></a>1、以Oracle服务为例</h3><p>1.1、进入服务快捷命令，<strong>win + r快捷键输入service.msc</strong>，如下图所示</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/efb984d5c170269d208e90314ba3cab3.png"></p>
-<p>1.2、定位Oracle服务，你看到的Oracle服务是双倍的，因为我安装了双实例。实际工作中，并不推荐在单台服务器上部署双实例。不要问我为什么，因为实际中遇到过。内存也耗不起，最终把服务器拖挂掉了，最后通过清理日志解决。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/eee4f790a16f92358d33e61d60db0e33.png"></p>
-<h3 id="2、配置IP地址与DNS"><a href="#2、配置IP地址与DNS" class="headerlink" title="2、配置IP地址与DNS"></a>2、配置IP地址与DNS</h3><p>配置IP地址与DNS与平时使用的win7或者win10是一样的配置方法</p>
-<p>2.1、<strong>进入控制面板找到网络和共享中心</strong></p>
-<p><code>win + r</code> 快捷键运行<code>control</code>命令进入控制面板，下图是VMware搭建的测试环境。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/35fdc2c7fbee80e505a4ba9c18c3beee.png"></p>
-<p><strong>2.2、配置IP地址和DNS</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/8e5ffa0746dadd2f577c4a1824c30b01.png"></p>
-<h3 id="3、磁盘管理"><a href="#3、磁盘管理" class="headerlink" title="3、磁盘管理"></a>3、磁盘管理</h3><p>最后再介绍一个小技巧，关于磁盘管理。当我们并不熟悉仪表板的操作时，或者旧版的服务器压根就没这玩意，如何处理。这是我们可以采用命令方式，先打开计算机管理。</p>
-<p>同样使用<code>win + r</code> 快捷键，然后运行<code>compmgmt.msc</code>命令进入计算机管理，最后定位到磁盘管理。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/faa599a6ac3bc19ebf12cbcd72fc286d.png"></p>
-<p>以上均为实际运维工作中使用到的小技巧，方便我们去管理维护服务器。在实际工作中，更多的是经验的累积。在之前的公司遇到这样一种，服务器的硬盘突然就gg思密达了。结果去查看后简直是让我措手不及，服务器版本那叫一个老，一些命令都不适用。心里真想来句mmp，最后还是硬着头皮上解决问题。</p>
-<p>说实话，当时我在Windows服务器的实施与运维经验还没linux上丰富，现在想来完全是<strong>工作让你不得不去适应</strong>。</p>
-]]></content>
-      <categories>
-        <category>软件实施</category>
-      </categories>
-      <tags>
-        <tag>Oracle</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows10日常使用点滴记录：禁用自动更新</title>
     <url>/2022/04/20/Windows10%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%82%B9%E6%BB%B4%E8%AE%B0%E5%BD%95%EF%BC%9A%E7%A6%81%E7%94%A8%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>win10这个自动下载更新着实很流氓，禁用掉需要尝试各种方法，像极了牛皮膏药。<strong>你更新我并不反感，但请不要耍流氓般的强制性更新，在后台下载偷跑流量这就不厚道了，真是苟的不行。</strong><br><img src="https://img-blog.csdnimg.cn/20210405205100599.png" alt="在这里插入图片描述"></p>
@@ -2281,6 +2347,55 @@
       </categories>
       <tags>
         <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows_server2012服务器部署Oracle11g：.NET和CPU核心数问题解决方案</title>
+    <url>/2022/04/20/Windows-server2012%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2Oracle11g%EF%BC%9A-NET%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<p>主要以Windows server2012R2为主进行介绍，解决实际工作中遇到到的一些问题。<strong>比如服务器CPU核心数过高，导致Oracle数据库安装时卡在2%的情况</strong>。在Windows下，你安装VMware工具模拟使用Windows server达到熟悉的目的。<br><img src="https://img-blog.csdnimg.cn/img_convert/82425eb0cead43315f66a14bec3b6122.png"></p>
+<p>说句心里话，我真没想到过我会在Windows服务器上总结这么多。一分耕耘一分收获，但是血赚不亏。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>第一次接触Windows服务器大约在5年前，那会的活动价我入手了入门级的Windows服务器。第一次安装了Windows server2012，低配版的服务器确实很吃力。<em>用了一段时间熟悉了就弃用了，后来果断换成了linux操作系统（Centos）。centos被（Redhat）红帽收购后，逐渐。。。说白了还是利益二字。感慨了一番，关于centos的这段话可以忽略。</em></p>
+<p>想熟悉Windows server服务器最新版，建议使用VMware配合服务器镜像。</p>
+<p><strong>镜像获取地址</strong>，推荐msdn我告诉你。良心网站，专业收集原版镜像。</p>
+<p><a href="https://msdn.itellyou.cn/">https://msdn.itellyou.cn/</a></p>
+<p><strong>关于想体验最新版的Windows11或者Windows server2022服务器</strong>，可以访问新地址</p>
+<p><a href="https://next.itellyou.cn/">https://next.itellyou.cn</a></p>
+<h2 id="一、Oracle数据库安装卡在2"><a href="#一、Oracle数据库安装卡在2" class="headerlink" title="一、Oracle数据库安装卡在2%"></a>一、Oracle数据库安装卡在2%</h2><h3 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h3><p>1.1、<strong>服务器CPU核心数过高</strong>。在使用Windows server2012或者是其它Windows服务器，可能也会遇到这类问题。</p>
+<h3 id="2、解决问题"><a href="#2、解决问题" class="headerlink" title="2、解决问题"></a>2、解决问题</h3><p>2.1、<strong>解决问题，进入服务器的系统配置</strong>，一次找到引导-&gt;高级选项，<strong>设置处理器的核心数为16，然后重启即可生效</strong>。</p>
+<p>2.2、小技巧</p>
+<p><strong>快捷键win + r，然后输入msconfig</strong>命令即可快速进入系统配置。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0a6139c3d47a8c3e3229fc0304b29443.png"></p>
+<h2 id="二、安装-net3-5失败"><a href="#二、安装-net3-5失败" class="headerlink" title="二、安装.net3.5失败"></a>二、安装.net3.5失败</h2><h3 id="1、准备工作，提取sxs"><a href="#1、准备工作，提取sxs" class="headerlink" title="1、准备工作，提取sxs"></a>1、准备工作，提取sxs</h3><p>1.1、准备服务器镜像，可以<strong>通过我上面提到的网址进行获取</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/af34fbc4dd53c24f7b5bef2d2f3d88da.png"></p>
+<p><strong>1.2、提取sxs</strong></p>
+<p>使用解压缩软件或者iso模拟软件打开镜像包，然后<strong>进入&#x2F;source&#x2F;找到sxs</strong>复制出来。在安装.net3.5时作为备用源使用，安装Oracle11gR2时需要安装.net3.5。</p>
+<p>解压缩软件推荐360zip国际版（旧版1.0几的无广告）或者7z（体积小）。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/d9d976e979fc0b3a2a82c724ea35416b.png"></p>
+<h3 id="2、再次安装-net3-5"><a href="#2、再次安装-net3-5" class="headerlink" title="2、再次安装.net3.5"></a>2、再次安装.net3.5</h3><h4 id="2-1、指定依赖sxs，安装-net3-5"><a href="#2-1、指定依赖sxs，安装-net3-5" class="headerlink" title="2.1、指定依赖sxs，安装.net3.5"></a>2.1、指定依赖sxs，安装.net3.5</h4><p>将之前从<strong>Windows server中提取的sxs</strong>复制到系统盘根目录下，然后在服务器仪表板中添加角色和功能（安装依赖），按照图上的提示<strong>指定我们准备好的sxs源路径</strong>，最终完美解决服务器上.net3.5无法安装的问题。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/05488105c6ea9d4445b2215d20a98450.png"></p>
+<h4 id="2-2、Windows-server仪表板"><a href="#2-2、Windows-server仪表板" class="headerlink" title="2.2、Windows server仪表板"></a>2.2、Windows server仪表板</h4><p>添加角色与功能，选择需要安装的功能时用得上，比如上面安装.net3.5</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/4cb90f5b86f022da71b6d744f580251b.png"></p>
+<h2 id="三、操作小技巧"><a href="#三、操作小技巧" class="headerlink" title="三、操作小技巧"></a>三、操作小技巧</h2><h3 id="1、以Oracle服务为例"><a href="#1、以Oracle服务为例" class="headerlink" title="1、以Oracle服务为例"></a>1、以Oracle服务为例</h3><p>1.1、进入服务快捷命令，<strong>win + r快捷键输入service.msc</strong>，如下图所示</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/efb984d5c170269d208e90314ba3cab3.png"></p>
+<p>1.2、定位Oracle服务，你看到的Oracle服务是双倍的，因为我安装了双实例。实际工作中，并不推荐在单台服务器上部署双实例。不要问我为什么，因为实际中遇到过。内存也耗不起，最终把服务器拖挂掉了，最后通过清理日志解决。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/eee4f790a16f92358d33e61d60db0e33.png"></p>
+<h3 id="2、配置IP地址与DNS"><a href="#2、配置IP地址与DNS" class="headerlink" title="2、配置IP地址与DNS"></a>2、配置IP地址与DNS</h3><p>配置IP地址与DNS与平时使用的win7或者win10是一样的配置方法</p>
+<p>2.1、<strong>进入控制面板找到网络和共享中心</strong></p>
+<p><code>win + r</code> 快捷键运行<code>control</code>命令进入控制面板，下图是VMware搭建的测试环境。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/35fdc2c7fbee80e505a4ba9c18c3beee.png"></p>
+<p><strong>2.2、配置IP地址和DNS</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/8e5ffa0746dadd2f577c4a1824c30b01.png"></p>
+<h3 id="3、磁盘管理"><a href="#3、磁盘管理" class="headerlink" title="3、磁盘管理"></a>3、磁盘管理</h3><p>最后再介绍一个小技巧，关于磁盘管理。当我们并不熟悉仪表板的操作时，或者旧版的服务器压根就没这玩意，如何处理。这是我们可以采用命令方式，先打开计算机管理。</p>
+<p>同样使用<code>win + r</code> 快捷键，然后运行<code>compmgmt.msc</code>命令进入计算机管理，最后定位到磁盘管理。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/faa599a6ac3bc19ebf12cbcd72fc286d.png"></p>
+<p>以上均为实际运维工作中使用到的小技巧，方便我们去管理维护服务器。在实际工作中，更多的是经验的累积。在之前的公司遇到这样一种，服务器的硬盘突然就gg思密达了。结果去查看后简直是让我措手不及，服务器版本那叫一个老，一些命令都不适用。心里真想来句mmp，最后还是硬着头皮上解决问题。</p>
+<p>说实话，当时我在Windows服务器的实施与运维经验还没linux上丰富，现在想来完全是<strong>工作让你不得不去适应</strong>。</p>
+]]></content>
+      <categories>
+        <category>软件实施</category>
+      </categories>
+      <tags>
+        <tag>Oracle</tag>
       </tags>
   </entry>
   <entry>
@@ -5853,7 +5968,7 @@
 <p><strong>主题所在目录</strong>：themes</p>
 <p><strong>获取Next主题</strong>：使用git clone或者直接下载</p>
 <blockquote>
-<p>git clone <a href="mailto:&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a>:next-theme&#x2F;hexo-theme-next.git</p>
+<p>git clone <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>:next-theme&#x2F;hexo-theme-next.git</p>
 <p><a href="https://github.com/next-theme/hexo-theme-next/archive/refs/heads/master.zip">https://github.com/next-theme/hexo-theme-next/archive/refs/heads/master.zip</a></p>
 </blockquote>
 <p>下载后复制到themes目录，然后<strong>修改hexo配置文件</strong>_config.yml：</p>
@@ -7200,6 +7315,25 @@
       </tags>
   </entry>
   <entry>
+    <title>解决eclipse导入项目后Html文件中文乱码问题</title>
+    <url>/2022/02/20/%E8%A7%A3%E5%86%B3eclipse%E5%AF%BC%E5%85%A5%E9%A1%B9%E7%9B%AE%E5%90%8EHtml%E6%96%87%E4%BB%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p> 解决eclipse导入项目后Html文件中文乱码问题，修改字符编码，主要是修改html文件的编码。</p>
+<h1 id="一、修改workspace的默认编码"><a href="#一、修改workspace的默认编码" class="headerlink" title="一、修改workspace的默认编码"></a>一、修改workspace的默认编码</h1><p><img src="https://gitee.com/dywangk/img/raw/master/images/wps8B6E.tmp.jpg" alt="img"></p>
+<h1 id="二、修改Resource默认字符编码"><a href="#二、修改Resource默认字符编码" class="headerlink" title="二、修改Resource默认字符编码"></a>二、修改Resource默认字符编码</h1><p><img src="https://gitee.com/dywangk/img/raw/master/images/wpsE4AB.tmp.jpg" alt="img"></p>
+<p><img src="https://gitee.com/dywangk/img/raw/master/images/wps22BF.tmp.jpg" alt="img"></p>
+<h1 id="三、解决方案"><a href="#三、解决方案" class="headerlink" title="三、解决方案"></a>三、解决方案</h1><p>依次找到路径：</p>
+<p>windows-&gt;perferences-&gt;General-&gt;Content Types-&gt;Text-&gt;HTML</p>
+<p>然后将Default encoding设置为UTF-8即可。</p>
+<p><img src="https://gitee.com/dywangk/img/raw/master/images/wps8B84.tmp.jpg" alt="img"><img src="https://gitee.com/dywangk/img/raw/master/images/wps8B85.tmp.png" alt="img"></p>
+]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>eclipse</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决xshell强制更新的问题</title>
     <url>/2022/02/20/%E8%A7%A3%E5%86%B3xshell%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>解决xshell强制更新的问题。讲道理，软件用起来功能稳定就行。可是某些软件，偏偏强制你更新，感觉流氓属性十足。这时候就得寻求其它方法了，你看xshell也有这尿性，下面给出解决的方法。</p>
@@ -7218,25 +7352,6 @@
       </categories>
       <tags>
         <tag>xshell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决eclipse导入项目后Html文件中文乱码问题</title>
-    <url>/2022/02/20/%E8%A7%A3%E5%86%B3eclipse%E5%AF%BC%E5%85%A5%E9%A1%B9%E7%9B%AE%E5%90%8EHtml%E6%96%87%E4%BB%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p> 解决eclipse导入项目后Html文件中文乱码问题，修改字符编码，主要是修改html文件的编码。</p>
-<h1 id="一、修改workspace的默认编码"><a href="#一、修改workspace的默认编码" class="headerlink" title="一、修改workspace的默认编码"></a>一、修改workspace的默认编码</h1><p><img src="https://gitee.com/dywangk/img/raw/master/images/wps8B6E.tmp.jpg" alt="img"></p>
-<h1 id="二、修改Resource默认字符编码"><a href="#二、修改Resource默认字符编码" class="headerlink" title="二、修改Resource默认字符编码"></a>二、修改Resource默认字符编码</h1><p><img src="https://gitee.com/dywangk/img/raw/master/images/wpsE4AB.tmp.jpg" alt="img"></p>
-<p><img src="https://gitee.com/dywangk/img/raw/master/images/wps22BF.tmp.jpg" alt="img"></p>
-<h1 id="三、解决方案"><a href="#三、解决方案" class="headerlink" title="三、解决方案"></a>三、解决方案</h1><p>依次找到路径：</p>
-<p>windows-&gt;perferences-&gt;General-&gt;Content Types-&gt;Text-&gt;HTML</p>
-<p>然后将Default encoding设置为UTF-8即可。</p>
-<p><img src="https://gitee.com/dywangk/img/raw/master/images/wps8B84.tmp.jpg" alt="img"><img src="https://gitee.com/dywangk/img/raw/master/images/wps8B85.tmp.png" alt="img"></p>
-]]></content>
-      <categories>
-        <category>开发工具</category>
-      </categories>
-      <tags>
-        <tag>eclipse</tag>
       </tags>
   </entry>
   <entry>
@@ -8819,7 +8934,7 @@
 </ul>
 <h3 id="2、前世今生"><a href="#2、前世今生" class="headerlink" title="2、前世今生"></a>2、前世今生</h3><ul>
 <li><p>作者</p>
-<p>Timo Rinne <a href="mailto:&#116;&#x72;&#x69;&#x40;&#105;&#107;&#105;&#x2e;&#x66;&#x69;">&#116;&#x72;&#x69;&#x40;&#105;&#107;&#105;&#x2e;&#x66;&#x69;</a> 和 Tatu Ylonen <a href="mailto:&#121;&#108;&#111;&#x40;&#x63;&#x73;&#x2e;&#104;&#x75;&#116;&#x2e;&#x66;&#105;">&#121;&#108;&#111;&#x40;&#x63;&#x73;&#x2e;&#104;&#x75;&#116;&#x2e;&#x66;&#105;</a></p>
+<p>Timo Rinne <a href="mailto:&#x74;&#114;&#105;&#x40;&#x69;&#x6b;&#105;&#x2e;&#102;&#x69;">&#x74;&#114;&#105;&#x40;&#x69;&#x6b;&#105;&#x2e;&#102;&#x69;</a> 和 Tatu Ylonen <a href="mailto:&#121;&#108;&#x6f;&#64;&#x63;&#x73;&#x2e;&#104;&#x75;&#116;&#46;&#x66;&#105;">&#121;&#108;&#x6f;&#64;&#x63;&#x73;&#x2e;&#104;&#x75;&#116;&#46;&#x66;&#105;</a></p>
 </li>
 <li><p>起源</p>
 <p>scp 基于University of California BSD 的 rcp(1) 源代码</p>
