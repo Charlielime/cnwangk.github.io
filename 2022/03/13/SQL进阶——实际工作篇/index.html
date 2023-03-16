@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="软件（项目）实施面试题（经验），空余时间会总结一些SQL常用的知识并持续更新。  面试这方面，出的题也差不多。如果是医疗行业，也许使用微软的那一套比较多。更注重的是临时应变能力和SQL的运用能力，以及对项目实施布控的周期预估和控制。  SQL进阶——实际工作篇   官方提供的sakila和world数据库，官网下载地址已经提供，可以下载进行参考学习。  给出sakila-db数据库包含三个文件，便">
 <meta property="og:type" content="article">
@@ -229,6 +229,9 @@
               <a href="https://www.wxlzb.top/" title="https:&#x2F;&#x2F;www.wxlzb.top" rel="noopener" target="_blank">arryluo（随想笔记）</a>
             </li>
             <li class="links-of-blogroll-item">
+              <a href="https://www.mintimate.cn/" title="https:&#x2F;&#x2F;www.mintimate.cn&#x2F;" rel="noopener" target="_blank">雨月空间站</a>
+            </li>
+            <li class="links-of-blogroll-item">
               <a href="https://theme-next.js.org/docs/" title="https:&#x2F;&#x2F;theme-next.js.org&#x2F;docs&#x2F;" rel="noopener" target="_blank">Next主题官方文档</a>
             </li>
             <li class="links-of-blogroll-item">
@@ -251,6 +254,9 @@
             </li>
             <li class="links-of-blogroll-item">
               <a href="https://github.com/" title="https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank">github</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://tool.mintimate.cn/gh/" title="https:&#x2F;&#x2F;tool.mintimate.cn&#x2F;gh&#x2F;" rel="noopener" target="_blank">Github文件加速</a>
             </li>
             <li class="links-of-blogroll-item">
               <a href="https://msdn.itellyou.cn/" title="https:&#x2F;&#x2F;msdn.itellyou.cn&#x2F;" rel="noopener" target="_blank">MSDN itellyou</a>
@@ -328,6 +334,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
@@ -354,7 +367,7 @@
     <div class="post-body" itemprop="articleBody">
         <p>﻿﻿﻿软件（项目）实施面试题（经验），空余时间会总结一些SQL常用的知识并持续更新。</p>
 <p>面试这方面，出的题也差不多。如果是医疗行业，也许使用微软的那一套比较多。更注重的是临时应变能力和SQL的运用能力，以及对项目实施布控的周期预估和控制。</p>
-<h1 id="SQL进阶——实际工作篇"><a href="#SQL进阶——实际工作篇" class="headerlink" title="SQL进阶——实际工作篇"></a>SQL进阶——实际工作篇</h1><p><img src="https://img-blog.csdnimg.cn/img_convert/19b7618129633d056d5cd73b318e5c3e.png"></p>
+<h1 id="SQL进阶——实际工作篇"><a href="#SQL进阶——实际工作篇" class="headerlink" title="SQL进阶——实际工作篇"></a>SQL进阶——实际工作篇</h1><p><img data-src="https://img-blog.csdnimg.cn/img_convert/19b7618129633d056d5cd73b318e5c3e.png"></p>
 <p><strong>官方提供的sakila和world数据库</strong>，官网下载地址已经提供，可以下载进行参考学习。</p>
 <p>给出<strong>sakila-db数据库</strong>包含三个文件，便于大家获取与使用：</p>
 <ol>
@@ -386,15 +399,15 @@
 <p><strong>内连接</strong>：统计的内容是table1和table2的重合部分。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> <span class="keyword">on</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/0094fcafeb1371927e88369d3454c273.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/0094fcafeb1371927e88369d3454c273.png"></p>
 <p><strong>左外连接</strong>：可以省略掉<code>outer</code>，统计的内容是以table1为主的部分。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> <span class="keyword">on</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/79e06a1a038ccd0131861a625f48fedd.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/79e06a1a038ccd0131861a625f48fedd.png"></p>
 <p><strong>右外连接</strong>：同样可以省略掉<code>outer</code>，统计的内容是以table2为主的部分。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">right</span> <span class="keyword">outer</span> <span class="keyword">join</span> <span class="keyword">on</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/5d49a6a23a01a4f91caa426d853ec4de.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/5d49a6a23a01a4f91caa426d853ec4de.png"></p>
 <h3 id="1-联结查询"><a href="#1-联结查询" class="headerlink" title="1   联结查询"></a>1   联结查询</h3><h4 id="1-1-MySQL中联结查询示例"><a href="#1-1-MySQL中联结查询示例" class="headerlink" title="1.1    MySQL中联结查询示例"></a>1.1    MySQL中联结查询示例</h4><ul>
 <li>inner join on：内连接</li>
 <li>right join on：右外连接</li>
@@ -403,46 +416,46 @@
 <p>MySQL中的内连接查询关键字：<code>inner join on</code>，只作为演示，就不执行explain执行计划去判断执行效率了。小小的建议，在测试这些个联合查询的时候，可以不用带太多的过滤条件看看三种联合查询的区别。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.`ID`,c.`CountryCode`,cl.`CountryCode`,cl.`<span class="keyword">Language</span>` </span><br><span class="line"><span class="keyword">FROM</span> world.`city` c <span class="keyword">INNER</span> <span class="keyword">JOIN</span> world.`countrylanguage` cl </span><br><span class="line"><span class="keyword">ON</span> c.`CountryCode`<span class="operator">=</span>cl.`CountryCode` <span class="keyword">WHERE</span> c.`ID`<span class="operator">&gt;</span><span class="number">120</span> <span class="keyword">AND</span> c.`ID` LIMIT <span class="number">0</span>,<span class="number">5</span>; </span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/83149ae61fc79f7e201177049c4595b7.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/83149ae61fc79f7e201177049c4595b7.png"></p>
 <p>MySQL中的左外连接查询查询关键字：<code>LEFT OUTER JOIN</code></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.`ID`,c.`Name`,c.`CountryCode`,cl.`IsOfficial`,cl.`CountryCode`,cl.`<span class="keyword">Language</span>` </span><br><span class="line"><span class="keyword">FROM</span> world.`city` c <span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> world.`countrylanguage` cl </span><br><span class="line"><span class="keyword">ON</span> c.`CountryCode`<span class="operator">=</span>cl.`CountryCode` LIMIT <span class="number">0</span>,<span class="number">5</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/573d08f288501ca9c9d43b939681255b.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/573d08f288501ca9c9d43b939681255b.png"></p>
 <p>MySQL中的右外连接查询关键字：<code>RIGHT OUTER JOIN</code></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.`ID`,c.`Name`,c.`CountryCode`,cl.`IsOfficial`,cl.`CountryCode`,cl.`<span class="keyword">Language</span>` </span><br><span class="line"><span class="keyword">FROM</span> world.`city` c <span class="keyword">RIGHT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> world.`countrylanguage` cl </span><br><span class="line"><span class="keyword">ON</span> c.`CountryCode`<span class="operator">=</span>cl.`CountryCode` LIMIT <span class="number">0</span>,<span class="number">5</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/89db919b8e9fa62dd7379153cd7a7e84.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/89db919b8e9fa62dd7379153cd7a7e84.png"></p>
 <h4 id="1-2-Oracle中联结查询示例"><a href="#1-2-Oracle中联结查询示例" class="headerlink" title="1.2    Oracle中联结查询示例"></a>1.2    Oracle中联结查询示例</h4><p>主要以SCOTT用户作为示例，查看SCOTT用户下有哪些表，这种方式需要以dba管理员身份运行SQL语句查询：</p>
 <p>ower代表了用户名，所以直接查找SCOTT用户，TABLE_NAME：代表了表名。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> t.OWNER,t.TABLE_NAME,t.TABLESPACE_NAME <span class="keyword">from</span> dba_tables t <span class="keyword">where</span> t.OWNER<span class="operator">=</span><span class="string">&#x27;SCOTT&#x27;</span>; </span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/f394df7f5bcec2228a8254c5c4534a2a.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/f394df7f5bcec2228a8254c5c4534a2a.png"></p>
 <p>Oracle中的联合查询，同样以员工表（emp）和部门表（dept）进行演示操作。</p>
 <p><strong>Oracle中的内连接</strong>：<code>inner join on</code></p>
 <p>根据部门编号进行关联查询，进行分页查询，每页显示5条数据：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> e.ename,e.empno,d.deptno,d.dname <span class="keyword">from</span> scott.emp e </span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> scott.dept d <span class="keyword">on</span> e.deptno<span class="operator">=</span>d.deptno <span class="keyword">where</span> rownum<span class="operator">&lt;=</span><span class="number">5</span>; </span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/68a7ea62e63449e21a852adef8e0d40c.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/68a7ea62e63449e21a852adef8e0d40c.png"></p>
 <p><strong>左外连接</strong>：<code>left outer join on</code></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> e.ename,e.empno,d.deptno,d.dname <span class="keyword">from</span> scott.emp e </span><br><span class="line"><span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> scott.dept d <span class="keyword">on</span> e.deptno<span class="operator">=</span>d.deptno <span class="keyword">where</span> rownum<span class="operator">&lt;=</span><span class="number">5</span>; </span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/7ceb746a7ed7a7e826ac7052af1119c7.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/7ceb746a7ed7a7e826ac7052af1119c7.png"></p>
 <p><strong>右外连接</strong>：<code>right outer join on</code></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> e.ename,e.empno,d.deptno,d.dname <span class="keyword">from</span> scott.emp e </span><br><span class="line"><span class="keyword">right</span> <span class="keyword">outer</span> <span class="keyword">join</span> scott.dept d <span class="keyword">on</span> e.deptno<span class="operator">=</span>d.deptno <span class="keyword">where</span> rownum<span class="operator">&lt;=</span><span class="number">5</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/928cf31567eaf56ef0256e680e4fb02b.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/928cf31567eaf56ef0256e680e4fb02b.png"></p>
 <p><strong>全连接</strong>：<code>full join on</code></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> e.ename,e.empno,d.deptno,d.dname <span class="keyword">from</span> scott.emp e </span><br><span class="line"><span class="keyword">full</span> <span class="keyword">join</span> scott.dept d <span class="keyword">on</span> e.deptno<span class="operator">=</span>d.deptno <span class="keyword">where</span> rownum<span class="operator">&lt;=</span><span class="number">5</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/f1491deff1ba5ea43dcd3aff1526f078.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/f1491deff1ba5ea43dcd3aff1526f078.png"></p>
 <p><strong>组合查询</strong>：<code>union</code></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> e.ename,e.empno <span class="keyword">from</span> scott.emp e <span class="keyword">where</span> rownum<span class="operator">&lt;=</span><span class="number">5</span> <span class="keyword">union</span> <span class="keyword">select</span> e.ename,e.empno <span class="keyword">from</span> scott.emp e  </span><br><span class="line"><span class="keyword">where</span> e.ename <span class="keyword">like</span> <span class="string">&#x27;%ARC%&#x27;</span>; </span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/79127dc2da8b69b491bc0a5e857cb564.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/79127dc2da8b69b491bc0a5e857cb564.png"></p>
 <p><strong>组合查询</strong>：<code>union all</code></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> e.ename,e.empno <span class="keyword">from</span> scott.emp e <span class="keyword">where</span> rownum<span class="operator">&lt;=</span><span class="number">5</span> <span class="keyword">union</span> <span class="keyword">all</span> <span class="keyword">select</span> e.ename,e.empno <span class="keyword">from</span> scott.emp e  </span><br><span class="line"><span class="keyword">where</span> e.ename <span class="keyword">like</span> <span class="string">&#x27;%ARC%&#x27;</span>; </span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/d54eba75d8aad8b5ad99a838961fe99b.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/d54eba75d8aad8b5ad99a838961fe99b.png"></p>
 <p><strong>union和union all</strong>是有区别的，我列举的例子进行了模糊匹配，没演示出来效果。使用<code>union all</code>后DBMS不会取消重复的行。</p>
 <p><strong>去掉后面的like条件，使用union统计的数据为14行，使用union all统计的数据为19行</strong>，其实不难理解，all就是全部。</p>
 <h3 id="2-分页查询"><a href="#2-分页查询" class="headerlink" title="2   分页查询"></a>2   分页查询</h3><p><strong>tips</strong>：Windows中CMD命令窗口使用<code>color a</code>即可调用出黑色背景绿色字体，<code>color f0</code>则是快速调出白色背景黑色字体哟！</p>
@@ -450,20 +463,20 @@
 <h4 id="2-1-MySQL分页查询"><a href="#2-1-MySQL分页查询" class="headerlink" title="2.1    MySQL分页查询"></a>2.1    MySQL分页查询</h4><p><strong>示例</strong>：使用world数据库中city表进行演示分页查询，<strong>通过desc展示数据结构</strong>，尤其是配合开发进行联调的时候很常用：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">desc</span> world.city;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/c8ba8585220707a935dbce9167f48b9d.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/c8ba8585220707a935dbce9167f48b9d.png"></p>
 <p><strong>查询world数据库中的city表前5条数据</strong>：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> city limit <span class="number">0</span>,<span class="number">5</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/b11632ae1fff57fc8202d7d8b167ce75.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/b11632ae1fff57fc8202d7d8b167ce75.png"></p>
 <h4 id="2-2-Oracle分页查询"><a href="#2-2-Oracle分页查询" class="headerlink" title="2.2    Oracle分页查询"></a>2.2    Oracle分页查询</h4><p>同样使用<code>desc</code>关键字查询emp表结构：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SQL</span><span class="operator">&gt;</span> <span class="keyword">desc</span> scott.emp;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/0e96e46037f1e1a01a0719604ad4dc95.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/0e96e46037f1e1a01a0719604ad4dc95.png"></p>
 <p><strong>分页查询示例</strong>：使用<code>rownum</code>关键字进行演示Oracle中的分页查询。</p>
 <p>查询scott用户中emp（员工表）的员工empno：编号、ename：员工姓名以及伪列rowid，只查询前5条数据：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SQL</span><span class="operator">&gt;</span> <span class="keyword">select</span> t.rowid,t.empno,t.ename <span class="keyword">from</span> scott.emp t <span class="keyword">where</span> rownum <span class="operator">&lt;=</span><span class="number">5</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/857682462d37bad398d9f7c7972823c3.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/857682462d37bad398d9f7c7972823c3.png"></p>
 <p><strong>Oracle进行分页查询常用方式一</strong>，查询第6~11数据通过嵌套子查询，使用到关键字<code>rownum</code>和<code>where</code>：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 统计emp数据总条目数</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> scott.emp;  </span><br><span class="line"><span class="comment">-- 查询第6~11数据通过嵌套子查询，使用到关键字rownum和where</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> (<span class="keyword">select</span> scott.emp.empno,rownum r <span class="keyword">from</span> scott.emp <span class="keyword">Where</span> rownum<span class="operator">&lt;=</span><span class="number">11</span>)<span class="keyword">where</span> r<span class="operator">&gt;=</span><span class="number">6</span>;</span><br></pre></td></tr></table></figure>
 
@@ -487,33 +500,33 @@
 <p><strong>查询出来的结果</strong>：count统计员工总数，sum求和所有员工的薪水总额，avg统计所有员工平均薪水，substr则是截取到小数点后两位数。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- count:统计条目数,sum:求和,substr:截取,avg:取平均值</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>), <span class="built_in">sum</span>(t.sal), substr(<span class="built_in">avg</span>(t.sal), <span class="number">0</span>, <span class="number">7</span>) <span class="keyword">from</span> scott.emp t;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/7f3982368a4f9075d4173243d594e5ed.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/7f3982368a4f9075d4173243d594e5ed.png"></p>
 <h4 id="01-avg求平均值函数"><a href="#01-avg求平均值函数" class="headerlink" title="01 avg求平均值函数"></a>01 avg求平均值函数</h4><p><strong>返回平均值avg</strong>，一般配合substr关键字去截取，通过计算保留小数点后两位。</p>
 <p>统计某公司员工的平均薪资：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- avg:取平均值</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">avg</span>(t.sal) <span class="keyword">from</span> scott.emp t;</span><br><span class="line"><span class="keyword">select</span> substr(<span class="built_in">avg</span>(t.sal), <span class="number">0</span>, <span class="number">7</span>) <span class="keyword">from</span> scott.emp t;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/58d97bfa561b38da52f4963851518441.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/58d97bfa561b38da52f4963851518441.png"></p>
 <h4 id="02-count统计函数"><a href="#02-count统计函数" class="headerlink" title="02 count统计函数"></a>02 count统计函数</h4><p><strong>返回统计行数count</strong></p>
 <p>统计某公司员工总数：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 统计函数count:统计emp表条目数量14</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> scott.emp;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/a549f30f7fef95fa72bec9395b63d4ca.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/a549f30f7fef95fa72bec9395b63d4ca.png"></p>
 <h4 id="03-sum求和函数"><a href="#03-sum求和函数" class="headerlink" title="03 sum求和函数"></a>03 sum求和函数</h4><p><strong>返回总数（求和）sum</strong>，sum函数一般会配合decode函数使用。上面的黑色背景看久了眼睛累，特意换了一种护眼色。字体颜色就没有特意更换，字体稍微点大了一丢丢，看的更舒服。</p>
 <p>统计某公司所有员工薪资总和：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 求和函数sum的使用</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">sum</span>(t.sal) <span class="keyword">from</span> scott.emp t;</span><br><span class="line"><span class="comment">-- 配合decode函数使用</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">sum</span>(decode(ename, <span class="string">&#x27;SMITH&#x27;</span>, sal, <span class="number">0</span>)) SMITH,<span class="built_in">sum</span>(decode(ename, <span class="string">&#x27;ALLEN&#x27;</span>, sal, <span class="number">0</span>)) ALLEN,</span><br><span class="line">       <span class="built_in">sum</span>(decode(ename, <span class="string">&#x27;WARD&#x27;</span>, sal, <span class="number">0</span>)) WARD,<span class="built_in">sum</span>(decode(ename, <span class="string">&#x27;JONES&#x27;</span>, sal, <span class="number">0</span>)) JONES,</span><br><span class="line">       <span class="built_in">sum</span>(decode(ename, <span class="string">&#x27;MARTIN&#x27;</span>, sal, <span class="number">0</span>)) MARTIN,<span class="built_in">sum</span>(decode(ename, <span class="string">&#x27;BLAKE&#x27;</span>, sal, <span class="number">0</span>)) BLAKE,</span><br><span class="line">       <span class="built_in">sum</span>(decode(ename, <span class="string">&#x27;CLARK&#x27;</span>, sal, <span class="number">0</span>)) CLARK,<span class="built_in">sum</span>(decode(ename, <span class="string">&#x27;SCOTT&#x27;</span>, sal, <span class="number">0</span>)) SCOTT,</span><br><span class="line">       <span class="built_in">sum</span>(decode(ename, <span class="string">&#x27;KING&#x27;</span>, sal, <span class="number">0</span>)) KING,<span class="built_in">sum</span>(decode(ename, <span class="string">&#x27;TURNER&#x27;</span>, sal, <span class="number">0</span>)) TURNER</span><br><span class="line"><span class="keyword">from</span> scott.emp;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/a1713c06b4edc434140815cd2a6dd94e.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/a1713c06b4edc434140815cd2a6dd94e.png"></p>
 <p><strong>tips</strong>：count函数在工作中使用的很频繁，你不清楚某张表中有多少条记录，需要统计一下再处理。</p>
 <h4 id="04-max返回最大值函数"><a href="#04-max返回最大值函数" class="headerlink" title="04 max返回最大值函数"></a>04 max返回最大值函数</h4><p><strong>返回最大值max</strong></p>
 <p>查看员工中薪水最高的那一位：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- max函数的使用</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">max</span>(t.sal) <span class="keyword">from</span> scott.emp t;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/d7d3434e4f36c1c95dec832cc5acbb1a.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/d7d3434e4f36c1c95dec832cc5acbb1a.png"></p>
 <h4 id="05-min返回最小值函数"><a href="#05-min返回最小值函数" class="headerlink" title="05 min返回最小值函数"></a>05 min返回最小值函数</h4><p><strong>返回最小值min</strong></p>
 <p>查看员工中薪水最低的那一位：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">min</span>(t.sal) <span class="keyword">from</span> scott.emp t;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/7ccb52a5c09b1c9b62ba360090f69e27.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/7ccb52a5c09b1c9b62ba360090f69e27.png"></p>
 <h3 id="2-着重掌握的函数"><a href="#2-着重掌握的函数" class="headerlink" title="2   着重掌握的函数"></a>2   着重掌握的函数</h3><ul>
 <li>group by函数用于分组；</li>
 <li>having函数用于过滤，对分组后内容进行过滤。</li>
@@ -521,22 +534,22 @@
 <h4 id="01-group-by分组函数"><a href="#01-group-by分组函数" class="headerlink" title="01 group by分组函数"></a>01 group by分组函数</h4><p>配合聚合函数<code>sum</code>使用，查询Oracle中scott用户下的emp表。使用<code>group by</code>进行分组，然后<strong>统计公司各部门员工的薪资</strong>：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.deptno, <span class="built_in">SUM</span>(t.sal) <span class="keyword">AS</span> sals <span class="keyword">FROM</span> scott.emp t <span class="keyword">GROUP</span> <span class="keyword">BY</span> t.deptno;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/20dec113d2f2e3068738c982e405b6b3.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/20dec113d2f2e3068738c982e405b6b3.png"></p>
 <h4 id="02-having过滤函数"><a href="#02-having过滤函数" class="headerlink" title="02 having过滤函数"></a>02 having过滤函数</h4><p><strong>区别</strong>：having和where的区别在于，having是对聚合后的结果进行条件的过滤，而where是在聚合前就对记录进行过滤。如果逻辑允许，应尽可能用where先过滤记录，由于结果集的减小，对聚合的效率明显提升。最后再依据逻辑判断是否用having再次过滤。</p>
 <p>配合聚合函数使用，Oracle中的scott用户下emp与dept表。</p>
 <p>先对部门名称进行分组，然后使用<code>having</code>过滤出薪水总和大于10000的部门：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> d.dname, <span class="built_in">SUM</span>(e.sal) <span class="keyword">AS</span> sals <span class="keyword">FROM</span> scott.emp e</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> scott.dept d <span class="keyword">ON</span> e.deptno<span class="operator">=</span>d.deptno</span><br><span class="line"><span class="keyword">WHERE</span> e.deptno <span class="operator">&lt;</span> <span class="number">30</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> d.dname  <span class="keyword">HAVING</span> <span class="built_in">SUM</span>(e.sal) <span class="operator">&gt;</span> <span class="number">10000</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/5f8539533a13018c4c16e16116e816ce.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/5f8539533a13018c4c16e16116e816ce.png"></p>
 <h2 id="三-Oracle与MySQL各自特色"><a href="#三-Oracle与MySQL各自特色" class="headerlink" title="三    Oracle与MySQL各自特色"></a>三    Oracle与MySQL各自特色</h2><h4 id="01-Oracle中rownum伪列"><a href="#01-Oracle中rownum伪列" class="headerlink" title="01 Oracle中rownum伪列"></a>01 Oracle中rownum伪列</h4><p>统计公司员工中的最后一条记录，通过<code>rownum</code>实现：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> t.sal <span class="keyword">from</span> scott.emp t <span class="keyword">where</span> rownum <span class="operator">&lt;=</span><span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> t.sal <span class="keyword">from</span> scott.emp t <span class="keyword">where</span> rownum <span class="operator">&lt;=</span><span class="number">1</span> <span class="keyword">order</span> <span class="keyword">by</span> t.sal <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/8bef1d288c164e60ae30bf1229ac105c.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/8bef1d288c164e60ae30bf1229ac105c.png"></p>
 <h4 id="02-MySQL中分页limit关键字"><a href="#02-MySQL中分页limit关键字" class="headerlink" title="02 MySQL中分页limit关键字"></a>02 MySQL中分页limit关键字</h4><p>通过<code>limit</code>关键字实现，根据sakila数据库中的actor（演员表）为例子返回最后三条记录，使用actor_id进行排序。</p>
 <p><strong>注意</strong>：<strong>limit属于MySQL扩展SQL92后的语法，在其它数据库中不能通用</strong>。Oracle的分页可以通过rownum来实现，上面也介绍了。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> t.`first_name`,t.`actor_id` <span class="keyword">FROM</span> sakila.`actor` t <span class="keyword">ORDER</span> <span class="keyword">BY</span> t.`actor_id` <span class="keyword">DESC</span> LIMIT <span class="number">0</span>,<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/b4fb2056631ece030dd6777b7e4a2f6d.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/b4fb2056631ece030dd6777b7e4a2f6d.png"></p>
 <h2 id="四-SQL核心知识"><a href="#四-SQL核心知识" class="headerlink" title="四    SQL核心知识"></a>四    SQL核心知识</h2><p>凡事应以实际工作场景而定。个人的以一些理解仅仅是建议，最终的应用还需结合实际应用场景。软件实施对SQL的函数、触发器和存储过程没有太高的要求，但也需要会基本的运用。在某些特殊的场景下，使用这些SQL的核心知识将有助于提高我们的工作效率。</p>
 <h3 id="1-函数"><a href="#1-函数" class="headerlink" title="1   函数"></a>1   函数</h3><p><strong>函数关键字</strong>：<code>FUNCTION</code></p>
 <p>使用第三方客户端工具新建函数，会自动生成一些模板：</p>
@@ -560,7 +573,7 @@
 <h3 id="4-示例sakila数据库"><a href="#4-示例sakila数据库" class="headerlink" title="4   示例sakila数据库"></a>4   示例sakila数据库</h3><p>这是一个MySQL官方提供的拥有存储过程、触发器和函数示例的电影出租信息管理系统数据库。并且官方提供了EER模型，便于理解每张表之间的关联关系，可以使用MySQL workbench打开<code>sakila.mwb</code>进行参考学习。如果你能完整的看完这篇文档，你会发现在一开始我就提供了sakila数据库的官网下载地址。</p>
 <p><strong>sakila数据库视图</strong>：<code>actor_info</code>，演员信息视图</p>
 <p><strong>使用DESC关键字进行查看视图结构</strong>，这个关键字很实用哟。视图和表结构很像，以sakila中<code>actor_info</code>视图进行展示：</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/32c2a7e6f54bc9e4366d58f726c8235a.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/32c2a7e6f54bc9e4366d58f726c8235a.png"></p>
 <p><strong>sakila数据库存储过程</strong>：<code>film_in_stock</code>，电影库存</p>
 <p>官方的一个示例：创建一个存储过程，声明了三个常量字段，然后分别赋值给演示字段，最后将找到的记录复制存到了p_film_count中。这里我为何说是复制呢？是因为使用到了<code>SELECT ... INTO</code>关键字。</p>
 <p>函数、触发器和存储过程最主要的一块在BEGIN {业务逻辑区…} END这一块区域。</p>
@@ -576,7 +589,7 @@
 <p><strong>查询当前session所有统计记录</strong>，如果直接在字符命令界面去查询，共有175条记录</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> status <span class="keyword">LIKE</span> <span class="string">&#x27;com_%&#x27;</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------------------------+-------+</span></span><br><span class="line"><span class="operator">|</span> Variable_name                       <span class="operator">|</span> <span class="keyword">Value</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------------------------+-------+</span></span><br><span class="line"><span class="operator">|</span> Com_commit                          <span class="operator">|</span> <span class="number">0</span>     <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> Com_rollback                        <span class="operator">|</span> <span class="number">0</span>     <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------------------------------+-------+</span></span><br><span class="line">...</span><br><span class="line"><span class="number">175</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/0ea3f1112b5384f1698c01fe6ede527c.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/0ea3f1112b5384f1698c01fe6ede527c.png"></p>
 <p><strong>Com_xx部分参数作用说明</strong>：</p>
 <ol>
 <li>Com_xx：代表某某语句执行次数，一般我们关心的是CURD操作（select、insert、update、delete）。</li>
@@ -588,7 +601,7 @@
 <p>有几个参数<strong>便于用户了解数据库情况</strong>：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> status <span class="keyword">LIKE</span> <span class="string">&#x27;conn%&#x27;</span>;</span><br><span class="line"><span class="keyword">show</span> status <span class="keyword">LIKE</span> <span class="string">&#x27;upti%&#x27;</span>;</span><br><span class="line"><span class="keyword">show</span> status <span class="keyword">LIKE</span> <span class="string">&#x27;slow_q%&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/3eaeaa3973b92053d99ce660a88ab3e8.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/3eaeaa3973b92053d99ce660a88ab3e8.png"></p>
 <ul>
 <li>Connections：试图连接MySQL服务器次数。</li>
 <li>Uptime：服务器工作时间。</li>
@@ -804,6 +817,24 @@
     <span title="站点阅读时长">12:36</span>
   </span>
 </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+</div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
@@ -822,6 +853,8 @@
     <span>0%</span>
   </div>
 
+  <a href="https://github.com/cnwangk" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
@@ -829,6 +862,7 @@
 
   
   <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
@@ -839,6 +873,7 @@
 
 
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="nginx1.21.6测试与使用；nginx下载与安装。nginx作为高性能web服务器配置详解，比较重要的一个参数epoll。nginx静态资源服务器；nginx配置反向代理；nginx配置负载均衡。测试nginx反向代理到Apache（httpd） 和Tomcat。  文末会提供一张nginx学习的思维导图。    正文 初次进入nginx官网，映入眼帘。给人的整体感觉就是简洁干净，一眼就能g">
 <meta property="og:type" content="article">
@@ -214,6 +214,9 @@
               <a href="https://www.wxlzb.top/" title="https:&#x2F;&#x2F;www.wxlzb.top" rel="noopener" target="_blank">arryluo（随想笔记）</a>
             </li>
             <li class="links-of-blogroll-item">
+              <a href="https://www.mintimate.cn/" title="https:&#x2F;&#x2F;www.mintimate.cn&#x2F;" rel="noopener" target="_blank">雨月空间站</a>
+            </li>
+            <li class="links-of-blogroll-item">
               <a href="https://theme-next.js.org/docs/" title="https:&#x2F;&#x2F;theme-next.js.org&#x2F;docs&#x2F;" rel="noopener" target="_blank">Next主题官方文档</a>
             </li>
             <li class="links-of-blogroll-item">
@@ -236,6 +239,9 @@
             </li>
             <li class="links-of-blogroll-item">
               <a href="https://github.com/" title="https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank">github</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://tool.mintimate.cn/gh/" title="https:&#x2F;&#x2F;tool.mintimate.cn&#x2F;gh&#x2F;" rel="noopener" target="_blank">Github文件加速</a>
             </li>
             <li class="links-of-blogroll-item">
               <a href="https://msdn.itellyou.cn/" title="https:&#x2F;&#x2F;msdn.itellyou.cn&#x2F;" rel="noopener" target="_blank">MSDN itellyou</a>
@@ -313,6 +319,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
@@ -339,7 +352,7 @@
     <div class="post-body" itemprop="articleBody">
         <p>nginx1.21.6测试与使用；nginx下载与安装。nginx作为高性能web服务器配置详解，比较重要的一个参数epoll。nginx静态资源服务器；nginx配置反向代理；nginx配置负载均衡。测试nginx反向代理到Apache（httpd） 和Tomcat。</p>
 <p>文末会提供一张nginx学习的思维导图。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/9d2c3cf04cf99372b64fbbc6aa029616.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/9d2c3cf04cf99372b64fbbc6aa029616.png"></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>初次进入nginx官网，映入眼帘。给人的整体感觉就是简洁干净，一眼就能get到自己需要的资源。</p>
 <p>nginx官网：<a target="_blank" rel="noopener" href="http://nginx.org/">http://nginx.org</a></p>
 <p>nginx官方下载地址：<a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">http://nginx.org/en/download.html</a></p>
@@ -433,7 +446,7 @@
 <li>参数-v：nginx -v 命令查看nginx中间件的版本；</li>
 <li>参数-V：nginx -V命令查看nginx版本以及系统使用GCC版本、OpenSSL版本和配置的–prefix参数。</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/a8caf4c5c0ec2732bbcb58716476503b.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/a8caf4c5c0ec2732bbcb58716476503b.png"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[nginx@localhost ~]$ sudo /usr/local/nginx/sbin/nginx -v</span><br><span class="line">nginx version: nginx/1.21.6</span><br><span class="line">[nginx@localhost ~]$ sudo /usr/local/nginx/sbin/nginx -V</span><br><span class="line">nginx version: nginx/1.21.6</span><br><span class="line">built by gcc 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC) </span><br><span class="line">built with OpenSSL 1.0.2k-fips  26 Jan 2017</span><br><span class="line">TLS SNI support enabled</span><br><span class="line">configure arguments: --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_gzip_static_module --with-http_ssl_module</span><br></pre></td></tr></table></figure>
 
 
@@ -455,7 +468,7 @@
 <p><strong>优雅的关闭nginx服务</strong>，实际上找的是nginx.pid文件中存储的pid号。可以通过cat查看&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;logs&#x2F;nginx.pid。在nginx.conf配置文件中去找到相应的设置，将#注释去掉：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pid        logs/nginx.pid;</span><br><span class="line">[root@localhost ~]<span class="comment"># cat /usr/local/nginx/logs/nginx.pid</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/1596e54993fbc883b615248c776615e7.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/1596e54993fbc883b615248c776615e7.png"></p>
 <p><strong>优雅的关闭nginx服务，nginx -s quit</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># /usr/local/nginx/sbin/nginx -s quit</span></span><br><span class="line">[nginx@localhost ~]$ sudo /usr/local/nginx/sbin/nginx -s quit</span><br></pre></td></tr></table></figure>
 
@@ -475,11 +488,11 @@
 <p>使用Chrome浏览器登录nginx，比如我个人使用虚拟环境搭建的，访问即可看到nginx服务启动完毕。即可看到，欢迎访问nginx服务。这个index.html页面默认存放在nginx的安装目录中html目录下。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.245.147/</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/e46d734c6b82b415c0118dd065355170.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/e46d734c6b82b415c0118dd065355170.png"></p>
 <p><strong>访问出现错误页面</strong>则为50x.html静态页面的内容，<strong>直接在url后拼接访问50x.html文件即可进行测试</strong>。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.245.147/50x.html</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/3078706d6856c864148f513cc47e5533.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/3078706d6856c864148f513cc47e5533.png"></p>
 <p>至此，在Windows与Linux服务器上安装nginx服务以及服务的管理介绍完毕。在Linux版本中，我介绍的是比较详细的，这也是为了照顾初学者。</p>
 <h2 id="二、nginx做静态资源web服务器"><a href="#二、nginx做静态资源web服务器" class="headerlink" title="二、nginx做静态资源web服务器"></a>二、nginx做静态资源web服务器</h2><h3 id="1、nginx中常见的错误码"><a href="#1、nginx中常见的错误码" class="headerlink" title="1、nginx中常见的错误码"></a>1、nginx中常见的错误码</h3><table>
 <thead>
@@ -579,16 +592,16 @@
 </ul>
 <p>具体其它平台安装hexo可以参考官网中文文档：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
 <p>在node环境下安装hexo后生成的blog文件目录：</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/853c15888f8692c4aea143b3de51464c.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/853c15888f8692c4aea143b3de51464c.png"></p>
 <p><strong>使用hexo命令</strong>，hexo new命令生成文件，hexo server命令启动服务，通过<a href="http://localhost:4000访问hexo。">http://localhost:4000访问hexo。</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\work\createSpace\hexo\blog&gt;hexo new <span class="string">&quot;你要生成的md文件名&quot;</span></span><br><span class="line">hexo generate <span class="comment">#生成静态文件</span></span><br><span class="line">hexo server <span class="comment">#启动服务</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/ad06dc8a1d969917bbe7017885505a34.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/ad06dc8a1d969917bbe7017885505a34.png"></p>
 <p><strong>2.2、在nginx中访问</strong></p>
 <p>将hexo生成的静态html文件上传到虚拟环境中nginx服务器的html目录下，默认的设置的根目录和和首页配置不变。在虚拟机搭建的nginx静态资源服务器，并且使用了反向代理，代理了默认的80端口开启的nginx服务：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.245.147:8081/archives/2022/02/</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/614735f3262214f8d5d136461fbbafcd.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/614735f3262214f8d5d136461fbbafcd.png"></p>
 <p>如果想看具体效果可以访问我在github上搭建的测试环境：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://cnwangk.github.io/archives/2022/02/</span><br></pre></td></tr></table></figure>
 
@@ -612,7 +625,7 @@
 <li>resolver_timeout：用于设置DNS服务器域名解析超时时间。</li>
 <li>proxy_pass：用于设置代理协议，同时也是配置反向代理的指令。</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/81a3414efad61c1839d775dfdf284a63.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/81a3414efad61c1839d775dfdf284a63.png"></p>
 <p><strong>图1-2</strong>：<strong>反向代理</strong></p>
 <ul>
 <li>proxy_pass：配置反向代理的主要参数，注意指明传输协议。</li>
@@ -623,7 +636,7 @@
 <p>关于反向代理指令就介绍这几个，更多的可以参考ngx_http_proxy_module，<a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html">nginx官网proxy模块</a>。我也列出我在工作中实际应用到配置：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">proxy_pass_header User-Agent;</span><br><span class="line">proxy_set_header Host <span class="variable">$http_host</span>;</span><br><span class="line">proxy_next_upstream error <span class="built_in">timeout</span> invalid_header http_500 http_502 http_503;</span><br><span class="line">proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">proxy_set_header X-Forwarded-Proto https;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/9b22afbe448a79c6aa98e96f4221009b.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/9b22afbe448a79c6aa98e96f4221009b.png"></p>
 <p><strong>代理区别</strong>：形式上服务的对象不一样。</p>
 <ul>
 <li>正向代理代理的对象是客户端，<strong>为客户端服务</strong>；</li>
@@ -631,7 +644,7 @@
 </ul>
 <p>为了演示进行测试，开启了<strong>nginx</strong>服务、<strong>httpd</strong>服务以及<strong>Tomcat</strong>服务。</p>
 <p>在使用nginx代理服时，看看nginx支持哪些代理协议，如图1-3：</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/4564580c02f6614895870be8132f7a42.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/4564580c02f6614895870be8132f7a42.png"></p>
 <p><strong>主要演示工作中一些场景</strong>：</p>
 <ul>
 <li>nginx代理到nginx；</li>
@@ -700,7 +713,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">http&#123;</span><br><span class="line">    server&#123;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://192.168.245.233:88;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>3.1、反向代理到Apache</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/4ae05d5854b71d935561907c085bd9db.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/4ae05d5854b71d935561907c085bd9db.png"></p>
 <p>3.1.1、在Redhat7系列直接使用yum命令安装Apache，通过rpm命令<strong>验证是否安装httpd服务</strong>。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[nginx@localhost ~]$ rpm -qa | grep httpd</span><br><span class="line">httpd-2.4.6-97.el7.centos.4.x86_64</span><br><span class="line">httpd-tools-2.4.6-97.el7.centos.4.x86_64</span><br></pre></td></tr></table></figure>
 
@@ -721,7 +734,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[nginx@localhost ~]$ whereis httpd</span><br><span class="line">httpd: /usr/sbin/httpd /usr/lib64/httpd /etc/httpd /usr/share/httpd /usr/share/man/man8/httpd.8.gz</span><br><span class="line">[nginx@localhost ~]$ ll /usr/sbin/httpd</span><br><span class="line">-rwxr-xr-x. 1 root root 523640  /usr/sbin/httpd</span><br></pre></td></tr></table></figure>
 
 <p>3.1.3、修改Apache服务监听的端口，修改Listen后面的参数为81端口进行测试。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/9503180ded1c2abec9856fa5b37ce089.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/9503180ded1c2abec9856fa5b37ce089.png"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /etc/httpd/conf/httpd.conf</span></span><br><span class="line">Listen 81</span><br></pre></td></tr></table></figure>
 
 <p><strong>访问的html页面</strong>在<code>/usr/share/httpd/noindex</code>目录下：</p>
@@ -734,7 +747,7 @@
 <p>在Chrome浏览器访问。使用upstream配置了负载均衡，访问3次有两次定位Apache页面，一次定位hexo搭建静态页面：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.245.147:8081</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/aea0e04ccd19bc35d5833b7abb86d8d1.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/aea0e04ccd19bc35d5833b7abb86d8d1.png"></p>
 <p><strong>3.2、反向代理到Tomcat</strong></p>
 <p>开启Tomcat服务默认使用端口8080，可以根据实际情况修改。<strong>加入到防火墙规则</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]<span class="comment"># firewall-cmd --zone=public --add-port=8080/tcp --permanent </span></span><br><span class="line">success</span><br></pre></td></tr></table></figure>
@@ -748,7 +761,7 @@
 <p>加入tomcat服务的ip地址到负载均衡。设置访问Apache服务的权重weight&#x3D;2，访问两个站点3次，其中两次会出现Apache页面，第三次则会出现Apache Tomcat页面。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream <span class="built_in">test</span> &#123;</span><br><span class="line">      server 192.168.245.147:81 weight=2;</span><br><span class="line">      <span class="comment">#server 192.168.245.147;</span></span><br><span class="line">      server 192.168.245.147:8080;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/img_convert/b4f8bc08f25ac29281b525f568bd76eb.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/b4f8bc08f25ac29281b525f568bd76eb.png"></p>
 <p>实际上你可以在nginx上再套一层nginx，nginx反向代理nginx，只是没有代理其它中间件来的那么直观。</p>
 <h2 id="四、nginx负载均衡"><a href="#四、nginx负载均衡" class="headerlink" title="四、nginx负载均衡"></a>四、nginx负载均衡</h2><p>其实我在演示上面的反向代理过程中，就已经用到了负载均衡。在测试的过程中，<strong>请加入需要的防火墙规则</strong>，避免造成不必要的麻烦。</p>
 <p>tips：server后面可以接ip，也可以接域名。</p>
@@ -788,7 +801,7 @@
 <p>感兴趣的可以对nginx的Rewrite功能、gzip模块；时间管理、内存管理以及工作进程进行深度学习。</p>
 <p>文末提供一张nginx思维导图，这个链接可以直接访问，就不以大图形式展示了：</p>
 <p><a target="_blank" rel="noopener" href="https://gitee.com/dywangk/img/raw/master/images/nginx%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B501.png">https://gitee.com/dywangk/img/raw/master/images/nginx%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B501.png</a></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上就是本次nginx安装与配置的全部内容，希望能对你的工作与学习有所帮助。感觉写的好，就拿出你的一键三连。在公众号上更新的可能要快一点，公众号目前还在完善中。<strong>能看到这里的，都是帅哥靓妹</strong>。如果感觉总结的不到位，也希望能留下您宝贵的意见，我会在文章中进行调整优化。<br><img src="https://img-blog.csdnimg.cn/img_convert/6fff4cbd50a880b32af0315abc909e04.png"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上就是本次nginx安装与配置的全部内容，希望能对你的工作与学习有所帮助。感觉写的好，就拿出你的一键三连。在公众号上更新的可能要快一点，公众号目前还在完善中。<strong>能看到这里的，都是帅哥靓妹</strong>。如果感觉总结的不到位，也希望能留下您宝贵的意见，我会在文章中进行调整优化。<br><img data-src="https://img-blog.csdnimg.cn/img_convert/6fff4cbd50a880b32af0315abc909e04.png"></p>
 <p>原创不易，转载也请标明出处和作者，尊重原创。不定期上传到github或者gitee。认准龙腾万里sky，如果看见其它平台不是这个ID发出我的文章，就是转载的。<strong>MySQL系列文章</strong>：《<strong>MySQL开发篇，存储引擎的选择真的很重要吗？</strong>》已经上传至github和gitee仓库SQL-study。个人github仓库地址，一般会先更新PDF文件，然后再上传markdown文件。如果访问github太慢，可以使用gitee进行克隆。</p>
 <H5 align=center><a target="_blank" rel="noopener" href="https://github.com/cnwangk/wangk-stick">作者：龙腾万里sky</a></H5>
 
@@ -886,6 +899,24 @@
     <span title="站点阅读时长">12:36</span>
   </span>
 </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+</div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
@@ -904,6 +935,8 @@
     <span>0%</span>
   </div>
 
+  <a href="https://github.com/cnwangk" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
@@ -911,6 +944,7 @@
 
   
   <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
@@ -921,6 +955,7 @@
 
 
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

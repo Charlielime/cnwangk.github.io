@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="一入编程深似海，从此节操是路人。  前段时间由于业务场景需求，不得不近一步学习 vim 使用方法，提高工作效率，就总结了一些常用快捷键使用方法。满足一般需求，掌握基本增、删、改、查就可以了，近一步学习可以了解多屏操作和宏的使用以及自定义插件功能。  Linux发行版服务器基本上是已经配置好 vi 或者 vim，可以使用进行练习，也可以下载vim客户端（支持多个平台：Linux、macOS、Wind">
 <meta property="og:type" content="article">
@@ -215,6 +215,9 @@
               <a href="https://www.wxlzb.top/" title="https:&#x2F;&#x2F;www.wxlzb.top" rel="noopener" target="_blank">arryluo（随想笔记）</a>
             </li>
             <li class="links-of-blogroll-item">
+              <a href="https://www.mintimate.cn/" title="https:&#x2F;&#x2F;www.mintimate.cn&#x2F;" rel="noopener" target="_blank">雨月空间站</a>
+            </li>
+            <li class="links-of-blogroll-item">
               <a href="https://theme-next.js.org/docs/" title="https:&#x2F;&#x2F;theme-next.js.org&#x2F;docs&#x2F;" rel="noopener" target="_blank">Next主题官方文档</a>
             </li>
             <li class="links-of-blogroll-item">
@@ -237,6 +240,9 @@
             </li>
             <li class="links-of-blogroll-item">
               <a href="https://github.com/" title="https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank">github</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://tool.mintimate.cn/gh/" title="https:&#x2F;&#x2F;tool.mintimate.cn&#x2F;gh&#x2F;" rel="noopener" target="_blank">Github文件加速</a>
             </li>
             <li class="links-of-blogroll-item">
               <a href="https://msdn.itellyou.cn/" title="https:&#x2F;&#x2F;msdn.itellyou.cn&#x2F;" rel="noopener" target="_blank">MSDN itellyou</a>
@@ -318,6 +324,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
@@ -347,12 +360,12 @@
 <p>Linux发行版服务器基本上是已经配置好 vi 或者 vim，可以使用进行练习，也可以下载vim客户端（支持多个平台：Linux、macOS、Windows）软件进行练习，当然还使用git bash一样可以进行练习。目前主流IDE工具，基本上是支持安装vim插件，开启插件支持vim相关功能。例如：VSCode、IntelliJ IDEA（社区版与旗舰版均支持）。</p>
 <p>展示一下Windows平台下的vim以及gvim：</p>
 <p>vim：在字符界面进行使用，可以看到初次进入会显示版本信息、维护人以及一些帮助命令。</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CGA1"><img src="https://s1.ax1x.com/2023/02/26/pp9CGA1.png" alt="pp9CGA1.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CGA1"><img data-src="https://s1.ax1x.com/2023/02/26/pp9CGA1.png" alt="pp9CGA1.png"></a></p>
 <p>GVIM：其实是GUI VIM，带有图形操作界面，便于桌面客户端使用。</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CKcF"><img src="https://s1.ax1x.com/2023/02/26/pp9CKcF.png" alt="pp9CKcF.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CKcF"><img data-src="https://s1.ax1x.com/2023/02/26/pp9CKcF.png" alt="pp9CKcF.png"></a></p>
 <p><strong>VSCode使用vim插件，简单介绍一下</strong></p>
 <p>ctrl + shift + p：快速掉出命令行工具，键入vim找到Toggle Vim Mode</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9kna9"><img src="https://s1.ax1x.com/2023/02/26/pp9kna9.png" alt="pp9kna9.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9kna9"><img data-src="https://s1.ax1x.com/2023/02/26/pp9kna9.png" alt="pp9kna9.png"></a></p>
 <h1 id="shell或者其它terminal快速纠错"><a href="#shell或者其它terminal快速纠错" class="headerlink" title="shell或者其它terminal快速纠错"></a>shell或者其它terminal快速纠错</h1><p>掌握常用快捷键提高日常工作效率，某些快捷键并不适用Windows terminal。</p>
 <ul>
 <li>ctrl + h ：删除上一个字符，ctrl + w：删除上一个单词，ctrl + u： 删除一整行；</li>
@@ -364,7 +377,7 @@
 <p>开源仓库：<a target="_blank" rel="noopener" href="https://github.com/vim/vim">https://github.com/vim/vim</a></p>
 <p>插件查找：<a target="_blank" rel="noopener" href="https://vimawesome.com/">https://vimawesome.com/</a></p>
 <p>使用VimAwesome检索自己需要的插件，基本上每个插件列出了源地址。通常个人习惯从github上克隆，比较方便。</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CacD"><img src="https://s1.ax1x.com/2023/02/26/pp9CacD.png" alt="pp9CacD.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CacD"><img data-src="https://s1.ax1x.com/2023/02/26/pp9CacD.png" alt="pp9CacD.png"></a></p>
 <p>唯有多练才能熟练，善用自带帮助文档，如下列举最基本帮助文档以及分屏操作获取方式。<br><strong>注意</strong>：使用格式为英文输入法下的冒号加上help，使用命令亦是如此。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">help</span></span><br><span class="line">:<span class="built_in">help</span> vs</span><br><span class="line">:<span class="built_in">help</span> sp</span><br></pre></td></tr></table></figure>
 
@@ -450,7 +463,7 @@
 <li>:% s&#x2F;word&#x2F;w&#x2F;g：全局替换</li>
 <li>:% s&#x2F;\&lt;word\&gt;&#x2F;w&#x2F;g：精确匹配单词后替换</li>
 </ul>
-<h1 id="vim多屏操作"><a href="#vim多屏操作" class="headerlink" title="vim多屏操作"></a>vim多屏操作</h1><p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CDHA"><img src="https://s1.ax1x.com/2023/02/26/pp9CDHA.png" alt="pp9CDHA.png"></a></p>
+<h1 id="vim多屏操作"><a href="#vim多屏操作" class="headerlink" title="vim多屏操作"></a>vim多屏操作</h1><p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CDHA"><img data-src="https://s1.ax1x.com/2023/02/26/pp9CDHA.png" alt="pp9CDHA.png"></a></p>
 <p><strong>normal模式</strong></p>
 <p><strong>多文件操作，准备多个文件用于测试</strong></p>
 <p>预先准备多个测试文件，使用vim或者touch命令都行</p>
@@ -467,7 +480,7 @@
 <li>:bprevious</li>
 </ul>
 <p>使用 :e 进入编辑模式，不退出当前会话同时编辑多个文件，:ls 查看当前会话缓存文件，:bprevious 查看之前编辑过的文件。</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CJtx"><img src="https://s1.ax1x.com/2023/02/26/pp9CJtx.png" alt="pp9CJtx.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CJtx"><img data-src="https://s1.ax1x.com/2023/02/26/pp9CJtx.png" alt="pp9CJtx.png"></a></p>
 <p><strong>多屏操作</strong></p>
 <ul>
 <li>:vs：水平分割</li>
@@ -475,9 +488,9 @@
 <li>ctrl + w ：移动窗口，配合大写L和hjkl操作</li>
 </ul>
 <p>水平分割效果展示</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9C0nH"><img src="https://s1.ax1x.com/2023/02/26/pp9C0nH.jpg" alt="pp9C0nH.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9C0nH"><img data-src="https://s1.ax1x.com/2023/02/26/pp9C0nH.jpg" alt="pp9C0nH.jpg"></a></p>
 <p>垂直分割效果展示</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CN9K"><img src="https://s1.ax1x.com/2023/02/26/pp9CN9K.jpg" alt="pp9CN9K.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CN9K"><img data-src="https://s1.ax1x.com/2023/02/26/pp9CN9K.jpg" alt="pp9CN9K.jpg"></a></p>
 <p>更多用法，参考帮助文档</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">help</span> vs</span><br><span class="line">:<span class="built_in">help</span> sp</span><br></pre></td></tr></table></figure>
 
@@ -486,7 +499,7 @@
 <p><strong>多个标签页</strong></p>
 <ul>
 <li>:tabnew ：打开新的标签页</li>
-<li>:tabnext：切换标签页<br>还可以使用快捷键 gt 快速切换标签页，同样可以使用简化写法 :tabn 切换标签页。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CU1O"><img src="https://s1.ax1x.com/2023/02/26/pp9CU1O.jpg" alt="pp9CU1O.jpg"></a></li>
+<li>:tabnext：切换标签页<br>还可以使用快捷键 gt 快速切换标签页，同样可以使用简化写法 :tabn 切换标签页。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CU1O"><img data-src="https://s1.ax1x.com/2023/02/26/pp9CU1O.jpg" alt="pp9CU1O.jpg"></a></li>
 </ul>
 <p>更多用法，参考帮助文档</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">help</span> tabnew</span><br><span class="line">:<span class="built_in">help</span> tabnext</span><br></pre></td></tr></table></figure>
@@ -498,7 +511,7 @@
 <li>yiw：复制一个单词</li>
 <li>x删除，p粘贴。</li>
 </ul>
-<p>示例：如果复制一大段内容，可以结合快捷键shift + v 配合 y复制，使用 p 粘贴内容。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9Cdje"><img src="https://s1.ax1x.com/2023/02/26/pp9Cdje.jpg" alt="pp9Cdje.jpg"></a></p>
+<p>示例：如果复制一大段内容，可以结合快捷键shift + v 配合 y复制，使用 p 粘贴内容。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9Cdje"><img data-src="https://s1.ax1x.com/2023/02/26/pp9Cdje.jpg" alt="pp9Cdje.jpg"></a></p>
 <p>打开了多个分屏或者标签页，如何一次性关闭？使用 :qa 命令关闭全部，返回当前终端。</p>
 <h1 id="vim进阶"><a href="#vim进阶" class="headerlink" title="vim进阶"></a>vim进阶</h1><p><strong>normal模式</strong></p>
 <p><strong>vim宏</strong></p>
@@ -533,7 +546,7 @@
 <p>编辑配色方案</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim Hello.java</span><br><span class="line">:colorscheme hybrid</span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9ktVH"><img src="https://s1.ax1x.com/2023/02/26/pp9ktVH.png" alt="pp9ktVH.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9ktVH"><img data-src="https://s1.ax1x.com/2023/02/26/pp9ktVH.png" alt="pp9ktVH.png"></a></p>
 <p>修改配色方案永久生效，设置<code>background=dark</code>为暗色系，默认为light浅色系，默认设置显示行号<code>set number</code></p>
 <p>vim .vimrc</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> background=dark</span><br><span class="line">colorscheme hybrid</span><br><span class="line"><span class="built_in">set</span> number</span><br></pre></td></tr></table></figure>
@@ -560,7 +573,7 @@
 <p>插件安装命令： </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:PlugInstall</span><br></pre></td></tr></table></figure>
 <p>插件安装后，重启vim即可生效。</p>
-<p>安装插件效果展示，最左侧是nerdtree效果，最右侧是tagbar效果。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CYh6"><img src="https://s1.ax1x.com/2023/02/26/pp9CYh6.jpg" alt="pp9CYh6.jpg"></a></p>
+<p>安装插件效果展示，最左侧是nerdtree效果，最右侧是tagbar效果。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CYh6"><img data-src="https://s1.ax1x.com/2023/02/26/pp9CYh6.jpg" alt="pp9CYh6.jpg"></a></p>
 <h2 id="vim无处不在"><a href="#vim无处不在" class="headerlink" title="vim无处不在"></a>vim无处不在</h2><p><strong>vim与Tmux</strong>可以在Linux服务器上安装tmux配合vim使用，效果更加。</p>
 <p>Linux发行版（centos9-stream）安装tmux</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Centos9-Stream ~]# yum list | grep tmuxtmux.x86_64                                          3.2a-4.el9                         baseos[root@Centos9-Stream ~]# yum -y install tmux[root@Centos9-Stream ~]# rpm -qa | grep tmuxtmux-3.2a-4.el9.x86_64</span><br></pre></td></tr></table></figure>
@@ -569,7 +582,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Centos9-Stream ~]# tmux ls0: 1 windows (created Sun Feb 26 15:42:19 2023) (attached)</span><br></pre></td></tr></table></figure>
 
 <p>默认进入tmux，使用tab键可以提示相关命令，使用exit退出tmux。</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9C1B9"><img src="https://s1.ax1x.com/2023/02/26/pp9C1B9.png" alt="pp9C1B9.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9C1B9"><img data-src="https://s1.ax1x.com/2023/02/26/pp9C1B9.png" alt="pp9C1B9.png"></a></p>
 <p><strong>IDE与vim</strong></p>
 <ul>
 <li>VSCode(Visual Studio Code)</li>
@@ -578,13 +591,13 @@
 </ul>
 <p><strong>文初演示了VSCode使用vim插件，此处展示一下STS4使用vim插件：</strong></p>
 <p>01、STS4启动界面</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9ClnJ"><img src="https://s1.ax1x.com/2023/02/26/pp9ClnJ.png" alt="pp9ClnJ.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9ClnJ"><img data-src="https://s1.ax1x.com/2023/02/26/pp9ClnJ.png" alt="pp9ClnJ.png"></a></p>
 <p>02、顶部菜单栏找到help，打开<strong>Eclipse Marketplace</strong></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9Cu1U"><img src="https://s1.ax1x.com/2023/02/26/pp9Cu1U.png" alt="pp9Cu1U.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9Cu1U"><img data-src="https://s1.ax1x.com/2023/02/26/pp9Cu1U.png" alt="pp9Cu1U.png"></a></p>
 <p><strong>03、搜索vim并安装</strong></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CMX4"><img src="https://s1.ax1x.com/2023/02/26/pp9CMX4.png" alt="pp9CMX4.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CMX4"><img data-src="https://s1.ax1x.com/2023/02/26/pp9CMX4.png" alt="pp9CMX4.png"></a></p>
 <p><strong>04、重启开发工具STS4，初始化界面效果</strong></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9C37R"><img src="https://s1.ax1x.com/2023/02/26/pp9C37R.png" alt="pp9C37R.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9C37R"><img data-src="https://s1.ax1x.com/2023/02/26/pp9C37R.png" alt="pp9C37R.png"></a></p>
 <p><strong>vim与neovim</strong><br>与时俱进，竞争产出新特性。<br><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim">https://github.com/neovim/neovim</a></p>
 <p><strong>站在巨人的肩膀上，打造炫酷的vim</strong><br>SpaceVim：<a target="_blank" rel="noopener" href="https://github.com/SpaceVim/SpaceVim">https://github.com/SpaceVim/SpaceVim</a></p>
 <p>个人收藏一些vim相关插件仓库地址：<a target="_blank" rel="noopener" href="https://github.com/stars/cnwangk/lists/vim">https://github.com/stars/cnwangk/lists/vim</a></p>
@@ -674,6 +687,24 @@
     <span title="站点阅读时长">12:36</span>
   </span>
 </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+</div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
@@ -692,6 +723,8 @@
     <span>0%</span>
   </div>
 
+  <a href="https://github.com/cnwangk" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
@@ -699,6 +732,7 @@
 
   
   <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
@@ -709,6 +743,7 @@
 
 
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

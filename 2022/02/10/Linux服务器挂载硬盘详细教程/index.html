@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Linux服务器挂载硬盘详细教程。  前言 本文将带来linux下的磁盘管理中的硬盘挂载，Linux操作系统挂载硬盘需要了解的一些知识。这可能是迄今为止介绍的最最最实用的linux硬盘挂载的文章了，比较详细。由于工作原因，平时使用的比较多。主要目的，只是想让更多人的了解到linux下挂载磁盘也不是那么困难。  有几种常见的文件系统，以前的老牌文件系统ext文件系统(ext2、ext3、ext4)。">
 <meta property="og:type" content="article">
@@ -201,6 +201,9 @@
               <a href="https://www.wxlzb.top/" title="https:&#x2F;&#x2F;www.wxlzb.top" rel="noopener" target="_blank">arryluo（随想笔记）</a>
             </li>
             <li class="links-of-blogroll-item">
+              <a href="https://www.mintimate.cn/" title="https:&#x2F;&#x2F;www.mintimate.cn&#x2F;" rel="noopener" target="_blank">雨月空间站</a>
+            </li>
+            <li class="links-of-blogroll-item">
               <a href="https://theme-next.js.org/docs/" title="https:&#x2F;&#x2F;theme-next.js.org&#x2F;docs&#x2F;" rel="noopener" target="_blank">Next主题官方文档</a>
             </li>
             <li class="links-of-blogroll-item">
@@ -223,6 +226,9 @@
             </li>
             <li class="links-of-blogroll-item">
               <a href="https://github.com/" title="https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank">github</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://tool.mintimate.cn/gh/" title="https:&#x2F;&#x2F;tool.mintimate.cn&#x2F;gh&#x2F;" rel="noopener" target="_blank">Github文件加速</a>
             </li>
             <li class="links-of-blogroll-item">
               <a href="https://msdn.itellyou.cn/" title="https:&#x2F;&#x2F;msdn.itellyou.cn&#x2F;" rel="noopener" target="_blank">MSDN itellyou</a>
@@ -300,6 +306,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
@@ -330,9 +343,9 @@
 <p>在Redhat7系列还是推荐一款优秀的xfs文件系统，在性能上已经超越了ext文件系统。XFS文件系统是硅谷图形公司（Silicon Graphic Inc，简称SGI）开发的用于IRIX（一个Unix操作系统）的文件系统，后来将其移植到Linux操作系统上。XFS是一个高级日志文件系统，其优势是极具伸缩性，同样也极具健壮性。</p>
 <p>还有一款btrfs（B-tree文件系统通常读作Buffer FS、Better FS、B-tree FS）文件系统同样很优秀，Redhat7安装就自带。<br>btrfs具有很多特性。例如：写快照、快照的快照、内建RAID（通常称为磁盘阵列）、子卷（subvolume），其最核心的理念是设计<br>容错、修复以及易于管理。btrfs最大容量卷为16EB，单个最大文件为16EB。</p>
 <p>须知：本文全程使用的是安装选择语言是简体中文版的，所以看到的汉字显示，请不要惊讶。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/5324a76fbd054b60d2769434dc9ef136.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/5324a76fbd054b60d2769434dc9ef136.png"></p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>开局一张图，文章全靠编。开个玩笑，纯属逗大家乐一乐。下面的图片，已经点明了本文的核心内容。</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/06ab3c857d7db1c575a69bc7a1e2ab3c.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/06ab3c857d7db1c575a69bc7a1e2ab3c.png"></p>
 <p><strong>建议：进行测试，可以使用虚拟机配合linux（Redhat系列或者Ubuntu搭建环境）测试</strong>。</p>
 <h2 id="一、查看系统分区情况"><a href="#一、查看系统分区情况" class="headerlink" title="一、查看系统分区情况"></a>一、查看系统分区情况</h2><p>fdisk参数说明<br>删除存在的硬盘分区，此时会提示需要删除的序列号是哪一个。</p>
 <ul>
@@ -469,7 +482,7 @@
 <p><strong>以上就是此次文章的所有内容的，希望能对你的工作有所帮助。感觉写的好，就拿出你的一键三连。如果感觉总结的不到位，也希望能留下您宝贵的意见，我会在文章中进行调整优化。</strong></p>
 <p><strong>原创不易，转载也请标明出处，本文会不定期上传到gitee或者github以及VX公众平台。</strong></p>
 <p>最后给出思维导图，凑合着看看吧，权当有个印象！</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/7a9b5700ab6514c606462bee53c1d837.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/7a9b5700ab6514c606462bee53c1d837.png"></p>
 
     </div>
 
@@ -555,6 +568,24 @@
     <span title="站点阅读时长">12:36</span>
   </span>
 </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+</div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
@@ -573,6 +604,8 @@
     <span>0%</span>
   </div>
 
+  <a href="https://github.com/cnwangk" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
@@ -580,6 +613,7 @@
 
   
   <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
@@ -590,6 +624,7 @@
 
 
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
