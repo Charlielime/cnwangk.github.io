@@ -153,13 +153,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -246,6 +246,380 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/15/nginx%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/15/nginx%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">nginx入门到实践</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-15 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-15T00:00:00+08:00">2022-02-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-16 19:20:52" itemprop="dateModified" datetime="2023-03-16T19:20:52+08:00">2023-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">中间件</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/nginx/" itemprop="url" rel="index"><span itemprop="name">nginx</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>24 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          nginx1.21.6测试与使用；nginx下载与安装。nginx作为高性能web服务器配置详解，比较重要的一个参数epoll。nginx静态资源服务器；nginx配置反向代理；nginx配置负载均衡。测试nginx反向代理到Apache（httpd） 和Tomcat。
+
+文末会提供一张nginx学习的思维导图。
+
+
+
+正文
+初次进入nginx官网，映入眼帘。给人的整体感觉就是简洁干净，一眼就能get到自己需要的资源。
+
+nginx官网：http://nginx.org
+
+nginx官方下载地址：http://nginx.org/en/download.html
+
+在接下来的某些测试中，你可能
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/15/nginx%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/14/MySQL%E8%BF%9E%E6%8E%A5%E5%B7%A5%E5%85%B7%E7%AF%87%E2%80%94%E2%80%94workbench/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/14/MySQL%E8%BF%9E%E6%8E%A5%E5%B7%A5%E5%85%B7%E7%AF%87%E2%80%94%E2%80%94workbench/" class="post-title-link" itemprop="url">MySQL连接工具篇——workbench</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-14 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-14T00:00:00+08:00">2022-02-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-16 19:16:15" itemprop="dateModified" datetime="2023-03-16T19:16:15+08:00">2023-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          MySQL工具篇介绍——workbench。
+
+MySQL的可视化连接工具还是比较丰富的，大家所熟知的有phpMyAdmin（需要php环境支撑，免费的）；再就是MySQL官方提供的MySQL workbench可视化连接工具，虽然界面很简陋，但胜在是官方提供，功能齐全并且是免费的。其它的还有SQLyog，旗舰正版是收费的，我个人比较喜欢这款工具，用的很趁手；Navicat一样支持MySQL连接，但一样是收费的。
+
+MySQL工具篇
+官方提供的sakila和world数据库，官网下载地址已经提供，可以下载进行参考学习。
+
+sakila-db数据库包含三个文件：
+
+ * sakila-schem
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/14/MySQL%E8%BF%9E%E6%8E%A5%E5%B7%A5%E5%85%B7%E7%AF%87%E2%80%94%E2%80%94workbench/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/10/Linux%E4%B8%8Bzabbix%E9%85%8D%E5%90%88MySQL%E6%90%AD%E5%BB%BA%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/10/Linux%E4%B8%8Bzabbix%E9%85%8D%E5%90%88MySQL%E6%90%AD%E5%BB%BA%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Linux下zabbix配合MySQL搭建监控系统使用教程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-10T00:00:00+08:00">2022-02-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-16 19:05:27" itemprop="dateModified" datetime="2023-03-16T19:05:27+08:00">2023-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          前言
+本文主要介绍zabbix4.0在Redhat7系列的入门环境搭建，并记录搭建过程中的注意事项，偏向于实战。
+
+距离我上次使用zabbix大概在3个月之前。当时也工作需要，公司用到了大数据看板需要配合zabbix做后台监控运维。
+
+看过我之前发的文章，其实就会发现我写的基本上都是些与linux服务器相关的。基本上所有的环境都是Windows配合虚拟机使用linux发行版，比如Centos、Ubuntu还有国产化的银河麒麟以及统信UOS。
+
+
+
+正文
+一、安装zabbix前的准备
+1、软件环境
+1.1、linux服务器
+推荐使用虚拟机+linux镜像，其次使用云服务器。我个人倾向Centos
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/10/Linux%E4%B8%8Bzabbix%E9%85%8D%E5%90%88MySQL%E6%90%AD%E5%BB%BA%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/10/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4scp%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -284,7 +658,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-13 19:52:33" itemprop="dateModified" datetime="2023-03-13T19:52:33+08:00">2023-03-13</time>
+      <time title="修改时间：2023-03-16 19:01:54" itemprop="dateModified" datetime="2023-03-16T19:01:54+08:00">2023-03-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -293,6 +667,10 @@
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
         </span>
     </span>
 
@@ -402,7 +780,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-13 19:44:38" itemprop="dateModified" datetime="2023-03-13T19:44:38+08:00">2023-03-13</time>
+      <time title="修改时间：2023-03-16 19:06:00" itemprop="dateModified" datetime="2023-03-16T19:06:00+08:00">2023-03-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -411,6 +789,10 @@
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
         </span>
     </span>
 
@@ -478,364 +860,6 @@ Linux网络文件共享。例如NFS、Sambs、FTP，其中以FTP应用最为广�
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/10/Linux%E4%B8%8Bzabbix%E9%85%8D%E5%90%88MySQL%E6%90%AD%E5%BB%BA%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/10/Linux%E4%B8%8Bzabbix%E9%85%8D%E5%90%88MySQL%E6%90%AD%E5%BB%BA%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Linux下zabbix配合MySQL搭建监控系统使用教程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-10T00:00:00+08:00">2022-02-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-13 19:45:06" itemprop="dateModified" datetime="2023-03-13T19:45:06+08:00">2023-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          前言
-本文主要介绍zabbix4.0在Redhat7系列的入门环境搭建，并记录搭建过程中的注意事项，偏向于实战。
-
-距离我上次使用zabbix大概在3个月之前。当时也工作需要，公司用到了大数据看板需要配合zabbix做后台监控运维。
-
-看过我之前发的文章，其实就会发现我写的基本上都是些与linux服务器相关的。基本上所有的环境都是Windows配合虚拟机使用linux发行版，比如Centos、Ubuntu还有国产化的银河麒麟以及统信UOS。
-
-
-
-正文
-一、安装zabbix前的准备
-1、软件环境
-1.1、linux服务器
-推荐使用虚拟机+linux镜像，其次使用云服务器。我个人倾向Centos
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/10/Linux%E4%B8%8Bzabbix%E9%85%8D%E5%90%88MySQL%E6%90%AD%E5%BB%BA%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/" class="post-title-link" itemprop="url">Linux服务器使用firewalld和iptables</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-10T00:00:00+08:00">2022-02-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-13 19:44:46" itemprop="dateModified" datetime="2023-03-13T19:44:46+08:00">2023-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>12 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          Linux服务器有必要开启iptables防火墙么？其实是使用iptables和firewalld工具进行管理，真正起作用的是Netfilter内核模块。
-
-iptables与firewalld防火墙管理工具在linux发行版Redhat7系列使用较为广泛。
-UFW则是在linux发行版Ubuntu下进行管理防火墙的一款管理工具。
-
-在选用防火墙工具的时候，运维或者是开发人员往往会纠结使用哪个。这里给出建议，使用iptables工具管理就禁用firewalld，使用firewalld工具管理就禁用iptables，二者选其一即可，避免产生混乱。
-
-此篇文章不会在原理上做深究，主要以实用性为主，
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/10/Linux%E7%8E%AF%E5%A2%83%EF%BC%88Redhat7%E7%B3%BB%E5%88%97%EF%BC%89%E2%80%94%E2%80%94%E5%AE%89%E8%A3%85Oracle11g%E5%92%8COracle19c/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/10/Linux%E7%8E%AF%E5%A2%83%EF%BC%88Redhat7%E7%B3%BB%E5%88%97%EF%BC%89%E2%80%94%E2%80%94%E5%AE%89%E8%A3%85Oracle11g%E5%92%8COracle19c/" class="post-title-link" itemprop="url">Linux环境（Redhat7系列）——安装Oracle11g和Oracle19c</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-10T00:00:00+08:00">2022-02-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-05 20:48:12" itemprop="dateModified" datetime="2022-04-05T20:48:12+08:00">2022-04-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.5k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>9 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          前言
-基于linux for centos7.x进行安装部署，分别部署Oracle11g和Oracle19c进行对比。
-
-强调一下Oracle11g基于zip安装包（有图形化界面），如果是rpm包安装（可以参考本文Oracle19c的部署）。
-
-之前一直在Windows上进行安装部署测试的，其实在linux操作系统上部署基本上可以参考Windows的图形界面安装。
-
-图形化安装和Windows配置是差不多的，我安装的时候就是参考以前Windows上部署的经验。
-
-部分安装注意事项还是需要注意，比如不能用root用户直接安装，需要新建普通用户安装。
-
-说明：Oracle11g采用是带有桌面环境的
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/10/Linux%E7%8E%AF%E5%A2%83%EF%BC%88Redhat7%E7%B3%BB%E5%88%97%EF%BC%89%E2%80%94%E2%80%94%E5%AE%89%E8%A3%85Oracle11g%E5%92%8COracle19c/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/14/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -861,14 +885,14 @@ UFW则是在linux发行版Ubuntu下进行管理防火墙的一款管理工具。
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">212k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:36</span>
+    <span title="站点阅读时长">12:51</span>
   </span>
 </div>
 <div class="busuanzi-count">

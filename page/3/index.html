@@ -153,13 +153,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -246,7 +246,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/04/20/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">
+    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/05/11/rocketmq%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -264,7 +264,118 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/20/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">Linux配置全局与当前用户环境变量</a>
+          <a href="/2022/05/11/rocketmq%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">rocketmq消息服务入门笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-05-11 22:22:13 / 修改时间：22:25:27" itemprop="dateCreated datePublished" datetime="2022-05-11T22:22:13+08:00">2022-05-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">中间件</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>948</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          rocketmq日志问题：随着消息服务持续运行，日志量会越来越大，实际工作中可能会达到20G。当日志占用C盘的90%时，消息服务可能会出现警告，无法接收存储消息。此时应该想方法调整日志存储位置，或者给C盘扩容。
+
+以前可视化运维管理界面应用程序在项目rocketmq-externals中rocketmq-console目录下：
+
+https://github.com/apache/rocketmq-externals/tree/master/rocketmq-console
+
+后面再次使用时才发现仓库改成rocketmq-dashboard了，已经找不到rocketmq-console。
+
+r
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/11/rocketmq%E6%B6%88%E6%81%AF%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/04/20/DM8%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9ADTS%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7%E8%AF%A6%E7%BB%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/20/DM8%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9ADTS%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7%E8%AF%A6%E7%BB%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">DM8数据库：DTS迁移工具详细使用教程</a>
         </h2>
 
         <div class="post-meta-container">
@@ -284,7 +395,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-13 19:49:19" itemprop="dateModified" datetime="2023-03-13T19:49:19+08:00">2023-03-13</time>
+      <time title="修改时间：2023-03-16 19:16:25" itemprop="dateModified" datetime="2023-03-16T19:16:25+08:00">2023-03-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -292,7 +403,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
         </span>
     </span>
 
@@ -303,7 +414,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -321,16 +432,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          今天这篇文章，讲解linux系统的全局环境变量以及当前用户环境变量的配置。
+          最近业务上突然有了这种需求，国产化替代，优先选中了国内的噩梦。啊…口误，是国产数据库优秀的代表达梦数据库。寻思着达梦DTS迁移工具的使用，发现具有多种迁移模式。比如支持DM到DM，亦或是Oracle迁移用户数据到DM8。
 
-以前在没有遇到实际问题时，基本忽略掉思考，所有配置的环境变量都配成全局生效。这样是有弊端的，在某一次偶然的机会，我沉思的一小会，意识到全局环境变量与当前用户环境变量还是区分为好，不应一概而论。
 
-直到后来我在linux服务器从Oracle11g过度到Oracle19c时。需要创建普通用户例如oracle才能安装，这时我才恍然大悟。这大概是linux操作系统的魅力所在。
-
-当时遇到的国产银河麒麟操作系统，把不同用户权限区分的明明白白的，三权分立。管理员用户root、安全用户secure、普通用户user，三者之间均无法
+当然，DM8在Windows下安装很简单，图形化界面，基本就是下一步下一步，注意你安装的路径。Linux下安装稍微麻烦一点，万变不离其宗，只要注意安装过程中需要实例化（初始化DATA，类似于MySQL以及MariaDB），以及注册达梦数据库的服务DmServiceDMSERVER。也可以参考达梦官方教程，但是坑很多。这里只是抛砖引玉，linux下达梦数据库的部署教程以及遇
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/04/20/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/#more" rel="contents">
+              <a class="btn" href="/2022/04/20/DM8%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9ADTS%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7%E8%AF%A6%E7%BB%86%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -399,7 +507,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-13 19:49:10" itemprop="dateModified" datetime="2023-03-13T19:49:10+08:00">2023-03-13</time>
+      <time title="修改时间：2023-03-16 19:03:59" itemprop="dateModified" datetime="2023-03-16T19:03:59+08:00">2023-03-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -408,6 +516,10 @@
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
         </span>
     </span>
 
@@ -485,6 +597,125 @@ cat /var/log/secure | awk '/Failed/{print $(NF-3)}' | sort|uniq -c
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/04/20/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/20/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">Linux配置全局与当前用户环境变量</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-20T00:00:00+08:00">2022-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-16 19:03:41" itemprop="dateModified" datetime="2023-03-16T19:03:41+08:00">2023-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          今天这篇文章，讲解linux系统的全局环境变量以及当前用户环境变量的配置。
+
+以前在没有遇到实际问题时，基本忽略掉思考，所有配置的环境变量都配成全局生效。这样是有弊端的，在某一次偶然的机会，我沉思的一小会，意识到全局环境变量与当前用户环境变量还是区分为好，不应一概而论。
+
+直到后来我在linux服务器从Oracle11g过度到Oracle19c时。需要创建普通用户例如oracle才能安装，这时我才恍然大悟。这大概是linux操作系统的魅力所在。
+
+当时遇到的国产银河麒麟操作系统，把不同用户权限区分的明明白白的，三权分立。管理员用户root、安全用户secure、普通用户user，三者之间均无法
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/20/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2DM8%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AARM%E6%9E%B6%E6%9E%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -515,9 +746,15 @@ cat /var/log/secure | awk '/Failed/{print $(NF-3)}' | sort|uniq -c
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-04-20 00:00:00 / 修改时间：16:02:46" itemprop="dateCreated datePublished" datetime="2022-04-20T00:00:00+08:00">2022-04-20</time>
+      <time title="创建时间：2022-04-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-20T00:00:00+08:00">2022-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-16 19:16:46" itemprop="dateModified" datetime="2023-03-16T19:16:46+08:00">2023-03-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -526,6 +763,10 @@ cat /var/log/secure | awk '/Failed/{print $(NF-3)}' | sort|uniq -c
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
         </span>
     </span>
 
@@ -608,249 +849,6 @@ getconf LONG_BIT
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2VNC%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%B9%B6%E4%B8%94%E4%BD%BF%E7%94%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2VNC%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%B9%B6%E4%B8%94%E4%BD%BF%E7%94%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5/" class="post-title-link" itemprop="url">Linux（银河麒麟V10）部署VNC服务端并且使用客户端连接</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-04-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-20T00:00:00+08:00">2022-04-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-13 19:50:09" itemprop="dateModified" datetime="2023-03-13T19:50:09+08:00">2023-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>767</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          注意：这篇文章对于定制版本的系统并不适用，有可能导致系统环境变量被破坏。这里测试用root用户没大多关系，正式环境能不用尽量别用root测试，使用普通用户提权。再提一句，某些定制Linux系统可能做过安全标记，也是不能随便动权限的。
-
-正文
-一、银河麒麟安装VNC服务
-这里我并不推荐使用root用户，尽量用普通用户，通过提取权限即可。我这里用root，只是为了方便使用。赋予权限的宗旨是在最小范围内满足即可。
-
-银河麒麟V10部署vncserver，使用如下yum命令安装：
-
-1
-
-
-yum install tigervnc-server tigervnc-server-module
-
-
-新建v
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2VNC%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%B9%B6%E4%B8%94%E4%BD%BF%E7%94%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/04/20/Oracle11g%E9%83%A8%E7%BD%B2-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/20/Oracle11g%E9%83%A8%E7%BD%B2-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">Oracle11g部署--注意事项</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-04-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-20T00:00:00+08:00">2022-04-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-13 19:57:47" itemprop="dateModified" datetime="2023-03-13T19:57:47+08:00">2023-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD/" itemprop="url" rel="index"><span itemprop="name">软件实施</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>8 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          Oracle重新部署注意事项
-Oracle19c下载地址，无需登录，历史版本下载需要登录
-https://www.oracle.com/cn/database/technologies/oracle-database-software-downloads.html#19c
-
-在此页面可以找到官方说明文档
-https://www.oracle.com/cn/database/technologies/
-
-
-一、Oracle11g安装包的准备下载
-官网找历史版本准备服务端Oracle11g R2以及客户端Oracle11g client。
-
-服务端Oracle11g R2http://downlo
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/04/20/Oracle11g%E9%83%A8%E7%BD%B2-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -876,14 +874,14 @@ https://www.oracle.com/cn/database/technologies/
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">212k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:36</span>
+    <span title="站点阅读时长">12:51</span>
   </span>
 </div>
 <div class="busuanzi-count">

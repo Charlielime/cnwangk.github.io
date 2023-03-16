@@ -153,13 +153,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -246,6 +246,254 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/" class="post-title-link" itemprop="url">Linux服务器使用firewalld和iptables</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-10T00:00:00+08:00">2022-02-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-16 19:05:50" itemprop="dateModified" datetime="2023-03-16T19:05:50+08:00">2023-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Linux服务器有必要开启iptables防火墙么？其实是使用iptables和firewalld工具进行管理，真正起作用的是Netfilter内核模块。
+
+iptables与firewalld防火墙管理工具在linux发行版Redhat7系列使用较为广泛。
+UFW则是在linux发行版Ubuntu下进行管理防火墙的一款管理工具。
+
+在选用防火墙工具的时候，运维或者是开发人员往往会纠结使用哪个。这里给出建议，使用iptables工具管理就禁用firewalld，使用firewalld工具管理就禁用iptables，二者选其一即可，避免产生混乱。
+
+此篇文章不会在原理上做深究，主要以实用性为主，
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/10/Linux%E7%8E%AF%E5%A2%83%EF%BC%88Redhat7%E7%B3%BB%E5%88%97%EF%BC%89%E2%80%94%E2%80%94%E5%AE%89%E8%A3%85Oracle11g%E5%92%8COracle19c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/10/Linux%E7%8E%AF%E5%A2%83%EF%BC%88Redhat7%E7%B3%BB%E5%88%97%EF%BC%89%E2%80%94%E2%80%94%E5%AE%89%E8%A3%85Oracle11g%E5%92%8COracle19c/" class="post-title-link" itemprop="url">Linux环境（Redhat7系列）——安装Oracle11g和Oracle19c</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-10T00:00:00+08:00">2022-02-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-16 19:20:36" itemprop="dateModified" datetime="2023-03-16T19:20:36+08:00">2023-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Oracle/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          前言
+基于linux for centos7.x进行安装部署，分别部署Oracle11g和Oracle19c进行对比。
+
+强调一下Oracle11g基于zip安装包（有图形化界面），如果是rpm包安装（可以参考本文Oracle19c的部署）。
+
+之前一直在Windows上进行安装部署测试的，其实在linux操作系统上部署基本上可以参考Windows的图形界面安装。
+
+图形化安装和Windows配置是差不多的，我安装的时候就是参考以前Windows上部署的经验。
+
+部分安装注意事项还是需要注意，比如不能用root用户直接安装，需要新建普通用户安装。
+
+说明：Oracle11g采用是带有桌面环境的
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/10/Linux%E7%8E%AF%E5%A2%83%EF%BC%88Redhat7%E7%B3%BB%E5%88%97%EF%BC%89%E2%80%94%E2%80%94%E5%AE%89%E8%A3%85Oracle11g%E5%92%8COracle19c/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/10/MySQL%E5%92%8COracle%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E5%8D%83%E4%B8%87%E7%BA%A7%E5%88%AB%E6%95%B0%E6%8D%AE%E5%A4%A7%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -284,7 +532,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-02-24 14:47:25" itemprop="dateModified" datetime="2023-02-24T14:47:25+08:00">2023-02-24</time>
+      <time title="修改时间：2023-03-16 19:15:50" itemprop="dateModified" datetime="2023-03-16T19:15:50+08:00">2023-03-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -405,7 +653,7 @@ MySQL随机生成1kw条数据相对而言麻烦一点，没有rownum这个字段
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-03-08 13:14:34" itemprop="dateModified" datetime="2022-03-08T13:14:34+08:00">2022-03-08</time>
+      <time title="修改时间：2023-03-16 19:22:58" itemprop="dateModified" datetime="2023-03-16T19:22:58+08:00">2023-03-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -414,6 +662,10 @@ MySQL随机生成1kw条数据相对而言麻烦一点，没有rownum这个字段
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span></a>
         </span>
     </span>
 
@@ -546,7 +798,7 @@ SELECT *
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-13 19:35:56" itemprop="dateModified" datetime="2023-03-13T19:35:56+08:00">2023-03-13</time>
+      <time title="修改时间：2023-03-16 19:14:54" itemprop="dateModified" datetime="2023-03-16T19:14:54+08:00">2023-03-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -555,6 +807,10 @@ SELECT *
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E7%BC%96%E8%BE%91%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">编辑器</span></a>
         </span>
     </span>
 
@@ -628,250 +884,6 @@ ctrl + shift + x
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/10/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E7%AE%A1%E7%90%86redis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/10/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E7%AE%A1%E7%90%86redis/" class="post-title-link" itemprop="url">如何优雅的管理redis</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-10T00:00:00+08:00">2022-02-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-05 20:24:34" itemprop="dateModified" datetime="2022-04-05T20:24:34+08:00">2022-04-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NOSQL/" itemprop="url" rel="index"><span itemprop="name">NOSQL</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.9k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>11 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          如何给Redis设置密码，以防止其它未经授权的客户端进行连接呢？怎么知道哪些命令执行的比较慢呢？
-
-本文将带你熟悉Redis管理方面的知识，包含安全和通信协议等等内容。
-与此同时，还会介与之紧密相关的第三方管理工具。
-
-上一篇博客《Redis真的又小又快又持久吗》，其实只能作入门指南来看，并没有多少深度，但是对于面试有不少帮助的。标题有噱头才会引起更多爱好者多Redis的探索，进一步走进Redis这个五彩斑斓的世界，进阶知识只有深入学习才能更快掌握。
-
-
-正文
-本文将带你熟悉Redis管理方面的知识，包含安全和通信协议等等内容。
-与此同时，还会介与之紧密相关的第三方管理工具。
-
-一、安全
-谈到
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/10/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E7%AE%A1%E7%90%86redis/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/02/10/Git%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E4%B8%8E%E7%B4%A2%E5%BC%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/10/Git%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E4%B8%8E%E7%B4%A2%E5%BC%95/" class="post-title-link" itemprop="url">Git文件管理与索引</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-10T00:00:00+08:00">2022-02-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-05 20:52:22" itemprop="dateModified" datetime="2022-04-05T20:52:22+08:00">2022-04-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>7.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>26 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          git文件管理与索引
-
-前言
-这一夜，注定是个不眠之夜，小白和cangls的对话已然进入了白热化。小白孜孜不倦的咨询关于git方面的知识，对索引越来越感兴趣。小白以前存的小电影文件可以进行版本的对比，探索哪个版本画质更好。
-
-小白：cangls，我最近有点疑惑。
-cangls：具体是哪些方面呢？
-
-小白：最近有些需求，我需要对文件进行版本管理控制，但是有些问题百思不得其解。
-cangls：版本管理啊，这个我可熟悉呢，最近也在总结系列文章。看了之后，相信会对你有所帮助。
-
-Linus Torvalds在Git邮件列表里曾说如果不先了解索引的目的，你就不能完全领会Git的强大之处。
-
-本文为个人G
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/10/Git%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E4%B8%8E%E7%B4%A2%E5%BC%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -897,14 +909,14 @@ Linus Torvalds在Git邮件列表里曾说如果不先了解索引的目的，你
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">212k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:36</span>
+    <span title="站点阅读时长">12:51</span>
   </span>
 </div>
 <div class="busuanzi-count">
