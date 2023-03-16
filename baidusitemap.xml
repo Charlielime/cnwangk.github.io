@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://cnwangk.github.io/2023/03/15/MySQL8-0-x-%E7%AE%80%E6%98%93%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2023-03-16</lastmod>
+  </url>
+  <url>
+    <loc>https://cnwangk.github.io/2023/03/16/SQL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/</loc>
+    <lastmod>2023-03-16</lastmod>
+  </url>
+  <url>
     <loc>https://cnwangk.github.io/2022/01/26/hello-world/</loc>
     <lastmod>2023-03-16</lastmod>
   </url>
@@ -307,14 +315,6 @@
   <url>
     <loc>https://cnwangk.github.io/2023/02/26/vim%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/</loc>
     <lastmod>2023-03-16</lastmod>
-  </url>
-  <url>
-    <loc>https://cnwangk.github.io/2023/03/16/SQL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/</loc>
-    <lastmod>2023-03-16</lastmod>
-  </url>
-  <url>
-    <loc>https://cnwangk.github.io/2023/03/15/MySQL8-0-x-%E7%AE%80%E6%98%93%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2023-03-15</lastmod>
   </url>
   <url>
     <loc>https://cnwangk.github.io/2022/04/15/VMware%E4%B8%8B%E8%BD%BD%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/</loc>
