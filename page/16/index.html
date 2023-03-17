@@ -325,12 +325,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          前言
-谁说MySQL查询千万级别的数据很拉跨？我今天就要好好的和你拉拉家常，畅谈到深夜，一起过除夕！这篇文章也是年前的最后一篇，希望能带给大家些许收获，不知不觉查找文档和参考实体书籍就写了这么多，自己都感觉到意外。不禁感慨到，知道的越多，才知道不知道的更多。
-
-开发人员或者是DBA都应该关注MySQL使用的存储引擎，选择合适存储引擎对你的应用性能提升是明显的。在阅读到本文的时候，肯定是有一定的MySQL或者其它数据库基础的，不然有些地方看着会很费劲。重点地方，我都进行了加粗处理，这样更容易获取关键知识点。
-
-关于存储引擎，一篇文章也不可能面面俱到，对个人觉得比较重要、于工作有益的方面进行阐述。
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>谁说MySQL查询千万级别的数据很拉跨？我今天就要好好的和你拉拉家常，畅谈到深夜，一起过除夕！这篇文章也是年前的最后一篇，希望能带给大家些许收获，不知不觉查找文档和参考实体书籍就写了这么多，自己都感觉到意外。不禁感慨到，知道的越多，才知道不知道的更多。</p>
+<p>开发人员或者是DBA都应该关注MySQL使用的存储引擎，选择合适存储引擎对你的应用性能提升是明显的。在阅读到本文的时候，肯定是有一定的MySQL或者其它数据库基础的，不然有些地方看着会很费劲。重点地方，我都进行了加粗处理，这样更容易获取关键知识点。</p>
+<p>关于存储引擎，一篇文章也不可能面面俱到，对个人觉得比较重要、于工作有益的方面进行阐述。如果真的去深挖，估计得一本书的篇幅。顺带还介绍一些数据类型选择、字符集设置、索引的使用；视图、存储过程、函数以及触发器啊等等会在下一篇博文进行详细的描述。但本文不会做太详细的叙述。本篇文章以存储引擎的选择为核心，如果有出现瑕疵的地方，希望您能留下宝贵的建议。</p>
+<p><img data-src="https://gitee.com/dywangk/img/raw/master/images/MyISAM%E4%B8%8EInnoDB%E5%AF%B9%E6%AF%94%E6%9F%A5%E8%AF%A2%E9%80%9F%E5%BA%A6_proc.jpg"></p>
+<p>今天发现了一个<strong>神奇的参数</strong>：<code>-site:xxxx.net</code></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、存储引擎的选择（表类型）"><a href="#一、存储引擎的选择（表类型）" class="headerlink" title="一、存储引擎的选择（表类型）"></a>一、存储引擎的选择（表类型）</h2><h3 id="1、存储引擎的介绍"><a href="#1、存储引擎的介绍" class="headerlink" title="1、存储引擎的介绍"></a>1、存储引擎的介绍</h3><p>与到多数关系型数据库的区别在于MySQL有一个存储引擎的概念，针对不同的存储需求可以选择最合适的存储引擎。MySQL中的插件式的存储引擎是其一大特色，用户可以根据应用的需求选择如何存储、是否索引，是否使用事务。嘿嘿，你也可以根据业务环境去适配最适合自己业务的存储引擎。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/01/30/MySQL%E5%BC%80%E5%8F%91%E7%AF%87%EF%BC%8C%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E7%9A%84%E9%80%89%E6%8B%A9%E7%9C%9F%E7%9A%84%E5%BE%88%E9%87%8D%E8%A6%81%E5%90%97%EF%BC%9F/#more" rel="contents">
@@ -443,10 +443,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          前言
-今天的课题，给各位大佬介绍一款神奇、优美的写作工具markdown编辑器typora。能看到这篇文章的，我默认大家都会基本的编程知识以及markdown基本语法呦！
-
-以前写作使用的工具五花八门，比如传统的office、wps和富文本编辑器，以及editplus、notepad++。自从接触了markdown编辑器，转而使用了sublime text。然而使用sublime text，需要下载插件配合使用，但是那个网速大家都懂得，龟速前行。作为替代记事本做普通编辑器还是很好用的，有时我打开xml、yaml、txt以及java和SQL文件（轻量级的）效果很不错。个人认为sublime te
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天的课题，给各位大佬介绍一款神奇、优美的写作工具markdown编辑器typora。能看到这篇文章的，我默认大家都会基本的编程知识以及markdown基本语法呦！</p>
+<p>以前写作使用的工具五花八门，比如传统的office、wps和富文本编辑器，以及editplus、notepad++。自从接触了markdown编辑器，转而使用了sublime text。然而使用sublime text，需要下载插件配合使用，但是那个网速大家都懂得，龟速前行。作为替代记事本做普通编辑器还是很好用的，有时我打开xml、yaml、txt以及java和SQL文件（轻量级的）效果很不错。个人认为sublime text优势在于体量轻，编辑小的文件优势大。</p>
+<p>某些网站，比如CSDN、简书、掘金社区、博客园或者知乎对markdown的支持也很好，支持多种文件上传适配。GitHub以及gitee两款代码托管平台，对markdown支持很nice。本机部署git，然后配置ssh验证连接服务器。写完文章，提交到GitHub或者gitee。你还可以通过Hugo、Hexo、jekyll这类静态网站生成器搭建个人博客或者站点，发布到github或者gitee。</p>
+<p>后来无意间接触到了微软出的VSCODE编辑器，就毫不犹豫转到了VSCODE。不用下载插件，对markdown格式支持很友好。如果需要预览文章效果，额外下载插件可以很好地预览md文件。优势比sublime text要大的多，下载插件体验很好。</p>
+<p><strong>个人推荐的markdown编辑器typora，有一种相见恨晚的feeling</strong>。在某个阳光明媚惬意的日子，我结识了写作的好友typora这款神奇的markdown编辑器，从此美滋滋。在前段时间，typora出了付费版，功能更强大。支持正版是好事，毕竟作者无私奉献也是需要花money维护的。但是，只要你不升级beta版，同样可以免费使用哟！</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、Typora"><a href="#一、Typora" class="headerlink" title="一、Typora"></a>一、Typora</h2><h3 id="1、typora版本"><a href="#1、typora版本" class="headerlink" title="1、typora版本"></a>1、typora版本</h3><p>1.1、这里个人使用的是0.11.18（beta）版本，依旧够用。<br><img data-src="https://img-blog.csdnimg.cn/605456cf9a9d4fb1b7968b77a1dd4e57.png?x-oss-process=,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_19,color_FFFFFF,t_70,g_se,x_16#"></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/01/27/markdown%E7%BC%96%E8%BE%91%E5%99%A8VSCode%E5%92%8CTypora/#more" rel="contents">
@@ -559,11 +561,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          关于软件实施工程师的面试题，我个人也总结了一些，仅供参考。需要对主流的数据库Oracle、MySQL、SQLserver以及国产数据库DM有所了解，并能够熟练部署使用。最好还能具备一些服务器方面的知识，windous和linux都应该具备，能玩转linux那绝对是加分项。
-
-说实话，软件实施这个行业，目前不仅资料欠缺，人才缺口更大。之前从事Javaweb后端开发，后来转向了软件实施行业，深知这个行业很缺人。目前也有几个项目的现场实施经验，也与许多人打过交道。
-
-面试这方面，出的题也差不多。如果是医疗行业，也许使用微软的那一套比较多。更注重的是临时应变能力和SQL的运用能力，以及对项目实施布控的
+          <p>﻿﻿关于软件实施工程师的面试题，我个人也总结了一些，仅供参考。需要对主流的数据库Oracle、MySQL、SQLserver以及国产数据库DM有所了解，并能够熟练部署使用。最好还能具备一些服务器方面的知识，windous和linux都应该具备，能玩转linux那绝对是加分项。</p>
+<p>说实话，软件实施这个行业，目前不仅资料欠缺，人才缺口更大。之前从事Javaweb后端开发，后来转向了软件实施行业，深知这个行业很缺人。目前也有几个项目的现场实施经验，也与许多人打过交道。</p>
+<p>面试这方面，出的题也差不多。如果是医疗行业，也许使用微软的那一套比较多。更注重的是临时应变能力和SQL的运用能力，以及对项目实施布控的周期预估和控制。</p>
+<p>﻿﻿﻿软件（项目）实施面试题（经验），空余时间会总结一些SQL常用的知识并持续更新。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/a8eb4e995b34b1682cf3447c608e6237.png"></p>
+<h1 id="第一部分《软件实施面试实际方案篇》"><a href="#第一部分《软件实施面试实际方案篇》" class="headerlink" title="第一部分《软件实施面试实际方案篇》"></a>第一部分《软件实施面试实际方案篇》</h1><h2 id="一-软件实施面试专业技能试题"><a href="#一-软件实施面试专业技能试题" class="headerlink" title="一    软件实施面试专业技能试题"></a>一    软件实施面试专业技能试题</h2><h3 id="01-理论思考题"><a href="#01-理论思考题" class="headerlink" title="01  理论思考题"></a>01  理论思考题</h3><p><strong>1、作为一个软件实施工程师你的职责是什么？该岗位需要具备什么样的能力？</strong></p>
+<p><strong>解答</strong>：</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/01/27/%E3%80%90%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E3%80%91%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E9%A2%98%E9%99%84%E5%B8%A6SQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E5%9B%BE%E8%A7%A3/#more" rel="contents">
@@ -676,15 +680,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          你真的了解git、gitee、github吗？本文已经收录github仓库，已做更新。CSDN上的部分内容未更新，请访问github进行查看最新内容。
-
-https://github.com/cnwangk/SQL-study
-
-初学者如何提高学习git的动力。看完这个搭建的示例，相信你一定有前行的动力。
-
-https://cnwangk.github.io/
-
-你真的了解git、gitee、github吗？本文主要围绕git、gitee、github的使用展开介绍，如何一步步通过实践去打造自己的git工作环境。当然你可以作为写作环境，熟悉一门技术的有效方式就是应用实践。顺带会讲一些gitee
+          <p>你真的了解git、gitee、github吗？本文已经收录github仓库，已做更新。CSDN上的部分内容未更新，请访问github进行查看最新内容。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/cnwangk/SQL-study">https://github.com/cnwangk/SQL-study</a></p>
+</blockquote>
+<p><strong>初学者如何提高学习git的动力</strong>。看完这个搭建的示例，相信你一定有前行的动力。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://cnwangk.github.io/">https://cnwangk.github.io/</a></p>
+</blockquote>
+<p>你真的了解git、gitee、github吗？本文主要围绕git、gitee、github的使用展开介绍，如何一步步通过实践去打造自己的git工作环境。当然你可以作为写作环境，熟悉一门技术的有效方式就是应用实践。顺带会讲一些gitee和github的pages服务，搭建自己的个人网站。</p>
+<p>本文主要环境是在Windows下进行的，所以看到桌面或者在某一目录右键可以直接打开Git Bash。<br><img data-src="https://img-blog.csdnimg.cn/img_convert/d9221e03c8bf7fa3eac6131b62be9854.png"><br>@[toc]</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>至于我为什么将git工具放在最前面，是因为通过这个工具可以将gitee与github串联起来。可能有人会说，我可以在虚拟机上或者云服务器上搭建git环境测试。但我想说的是，白嫖她不香吗？直呼真香，小伙子有点东西啊！</p>
+<h2 id="一、git"><a href="#一、git" class="headerlink" title="一、git"></a>一、git</h2><p><strong>背景</strong></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/01/26/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8Bgit%E5%92%8Cgitee%E4%BB%A5%E5%8F%8Agithub/#more" rel="contents">
@@ -797,29 +804,25 @@ https://cnwangk.github.io/
     
     
     <div class="post-body" itemprop="articleBody">
-          hexo的使用
+          <p><strong>hexo的使用</strong></p>
+<p>Windows下首先<a target="_blank" rel="noopener" href="https://nodejs.org/en/">安装node环境</a>，然后使用npm再安装hexo模块。这里只介绍Windows下安装hexo环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 
-Windows下首先安装node环境，然后使用npm再安装hexo模块。这里只介绍Windows下安装hexo环境：
+<ul>
+<li>01、安装node环境；</li>
+<li>02、在node环境下安装hexo，打开cmd命令窗口执行：<code>npm install -g hexo-cli</code></li>
+<li>03、初始化blog：hexo init blog</li>
+<li>04、进入blog目录：cd blog</li>
+<li>05、继续在cmd窗口命令安装：<code>npm install hexo</code></li>
+<li>06、启动服务：hexo server</li>
+</ul>
+<p>具体其它平台安装hexo可以参考官网中文文档：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
+<p>在node环境下安装hexo后生成的blog文件目录：</p>
+<p><img data-src="https://gitee.com/dywangk/img/raw/master/images/%E5%AE%89%E8%A3%85hexo_proc.jpg"></p>
+<p><strong>使用hexo命令</strong>，hexo new命令生成文件，hexo server命令启动服务，通过<a href="http://localhost:4000访问hexo。">http://localhost:4000访问hexo。</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\work\createSpace\hexo\blog&gt;hexo new <span class="string">&quot;你要生成的md文件名&quot;</span></span><br><span class="line">hexo generate <span class="comment">#生成静态文件</span></span><br><span class="line">hexo server <span class="comment">#启动服务</span></span><br></pre></td></tr></table></figure>
 
-1
-2
-3
-4
-5
-
-
-npm install hexo-cli -g
-hexo init blog
-cd blog
-npm install
-hexo server
-
-
- * 01、安装node环境；
- * 02、在node环境下安装hexo，打开cmd命令窗口执行：npm install -g hexo-cli
- * 03、初始化blog：hexo init blog
- * 04、进入blog目录：cd blog
- * 05、继续在cmd窗口命令安装：np
+<p><img data-src="https://gitee.com/dywangk/img/raw/master/images/%E4%BD%BF%E7%94%A8hexo_help_proc50.jpg"></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/01/26/Hello-Hexo/#more" rel="contents">

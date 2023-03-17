@@ -321,14 +321,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          VMware的下载历史版本需要注册与登录，就问骚不骚，不知道是哪一家开始带头的。
+          <p>VMware的下载历史版本需要注册与登录，<strong>就问骚不骚，不知道是哪一家开始带头的</strong>。</p>
+<p><strong>VMware历史版本的下载链接地址：</strong><a target="_blank" rel="noopener" href="https://my.vmware.com/en/group/vmware/downloads/my-downloads">https://my.vmware.com/en/group/vmware/downloads/my-downloads</a></p>
+<p><strong>选择历史版本：</strong><br><img data-src="https://img-blog.csdnimg.cn/0e92b1cc6bff4a2a91fa83ee1dd14ad5.png?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
+<p><strong>仅仅只有距离目前最新的16版本的前两个版本无需注册与登录</strong>，后续需要注册登录才能下载<br><img data-src="https://img-blog.csdnimg.cn/d0943ea15907436dafb3f725c492ad7c.png?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
 
-VMware历史版本的下载链接地址：https://my.vmware.com/en/group/vmware/downloads/my-downloads
-
-选择历史版本：
-
-
-仅仅只有距离目前最新的16版本的前两个版本无需注册与登录，后续需要注册登录才能下载
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/04/15/VMware%E4%B8%8B%E8%BD%BD%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/#more" rel="contents">
@@ -445,26 +442,14 @@ VMware历史版本的下载链接地址：https://my.vmware.com/en/group/vmware/
     
     
     <div class="post-body" itemprop="articleBody">
-          默认情况下，无论是Windows还是linux，一般为动态获取IP地址以及DNS。日常工作中，推荐配置静态IP地址。本文将教你如何在linux下配置IP地址。
+          <p>默认情况下，无论是Windows还是linux，一般为动态获取IP地址以及DNS。日常工作中，推荐配置静态IP地址。本文将教你如何在linux下配置IP地址。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>基于Redhat系列，使用Centos7进行讲解。</p>
+<p>磁盘相关的管理命令，可以参考菜鸟教程<br><a target="_blank" rel="noopener" href="https://www.runoob.com/">https://www.runoob.com/</a>（服务端-&gt;linux-&gt;linux命令大全）</p>
+<h2 id="一、设置静态IP"><a href="#一、设置静态IP" class="headerlink" title="一、设置静态IP"></a>一、设置静态IP</h2><p>在Linux服务器网卡配置文件中新增如下配置</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IPADDR=<span class="number">192.168</span>.<span class="number">245.130</span>  <span class="comment">#静态ip地址</span></span><br><span class="line">NETMASK=<span class="number">255.225</span>.<span class="number">225.0</span>   <span class="comment">#子网掩码</span></span><br><span class="line">GATEWAY=<span class="number">192.168</span>.<span class="number">245.2</span>   <span class="comment">#网关地址</span></span><br><span class="line">DNS1=<span class="number">114.114</span>.<span class="number">114.114</span>    <span class="comment">#配置DNS 可配置多个DNS</span></span><br></pre></td></tr></table></figure>
 
-正文
-基于Redhat系列，使用Centos7进行讲解。
-
-磁盘相关的管理命令，可以参考菜鸟教程
-https://www.runoob.com/（服务端->linux->linux命令大全）
-
-一、设置静态IP
-在Linux服务器网卡配置文件中新增如下配置
-
-1
-2
-3
-4
-
-
-IPADDR=192.168.245.130  #静态ip地址
-NETMASK=255.225.225.0   #子网掩码
-GATEWAY=192.168.2
+<h3 id="1、Centos6设置静态IP"><a href="#1、Centos6设置静态IP" class="headerlink" title="1、Centos6设置静态IP"></a>1、Centos6设置静态IP</h3><p>修改网卡if-eth0，个人使用虚拟机测试。</p>
+<p>使用cat命令只查看ifcfg-eth0网卡配置文件</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/04/15/Linux%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81ip%E5%9C%B0%E5%9D%80/#more" rel="contents">
@@ -577,16 +562,13 @@ GATEWAY=192.168.2
     
     
     <div class="post-body" itemprop="articleBody">
-          以前写过VMware8+Centos6.5的教程，做为经典的入门确实很舒服。
-
-毕竟VMware8已经具备基本的需求，而且对电脑性能配置要求不高。
-
-现在推荐使用VMware12以及Centos7作为测试环境。
-
-正文
-lnmpa（linux服务器 + Nginx服务器（中间件，反向代理） + MySQL（MariaDB）数据库+ php（看需求） + Apache（Tomcat服务器））环境搭建之前，需要准备VMware虚拟机和Linux版本（Centos或者Ubuntu）。个人推荐使用Centos，毕竟主打服务器，基本用不上桌面系统。
-
-如果要使用桌面系统，可以下载Ubuntu系统尝鲜，U
+          <p>﻿以前写过VMware8+Centos6.5的教程，做为经典的入门确实很舒服。</p>
+<p>毕竟VMware8已经具备基本的需求，而且对电脑性能配置要求不高。</p>
+<p>现在推荐使用VMware12以及Centos7作为测试环境。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>lnmpa（linux服务器 + Nginx服务器（中间件，反向代理） + MySQL（MariaDB）数据库+ php（看需求） + Apache（Tomcat服务器））环境搭建之前，需要准备VMware虚拟机和Linux版本（Centos或者Ubuntu）。个人推荐使用Centos，毕竟主打服务器，基本用不上桌面系统。</p>
+<p>如果要使用桌面系统，可以下载Ubuntu系统尝鲜，UI界面越做越耐看。麒麟系统适配做的还可以，很耐看。桌面Ubuntu，服务器兼容Centos。<br>个人开发者尝鲜版：<a target="_blank" rel="noopener" href="https://www.ubuntukylin.com/downloads/">https://www.ubuntukylin.com/downloads/</a></p>
+<h2 id="一、VMware12安装"><a href="#一、VMware12安装" class="headerlink" title="一、VMware12安装"></a>一、VMware12安装</h2><p>这里就不做截图了，绿色版的安装，基本就是下一步下一步。在文章的开头，我提供了VM8和VM12的汁源。其中注册码，也包含在安装包里面，如果没找到可以百度或者谷歌搜索，网上有很多。</p>
+<h2 id="二、VMware12新建虚拟机"><a href="#二、VMware12新建虚拟机" class="headerlink" title="二、VMware12新建虚拟机"></a>二、VMware12新建虚拟机</h2><p>这里推荐新建一个空白的虚拟机，一般来说使用典型的配置就够用。当然可以尝试自定义高级，基于你对虚拟机的使用认知比较熟练。其次，你也可以在新建虚拟机的同时，直接选择需要的操作系统镜像进行直接配置安装。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/04/15/Linux%EF%BC%88Redhat7-or-Centos7%EF%BC%89%E4%BD%BF%E7%94%A8VMware12%E6%90%AD%E5%BB%BA%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83/#more" rel="contents">
@@ -699,16 +681,15 @@ lnmpa（linux服务器 + Nginx服务器（中间件，反向代理） + MySQL（
     
     
     <div class="post-body" itemprop="articleBody">
-          MySQL优化方法——优化数据库对象
-
-如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。官方文档非常具有参考意义。你可以将这篇博文，当成过度到MySQL8.0的参考资料。友情提示：经验是用来参考，不是拿来即用。如果您能看到并分享这篇文章，我很荣幸。如果有误导您的地方，我表示抱歉。
-
-
-
-MySQL优化方法——优化数据库对象
-注意：在某些情况，你自己测试的结果可能与我演示有所不同，我省略了查询结果的部分参数。
-
-本文侧重点在SQL优化流程以及MySQL锁问题（MyISAM和InnoDB存储引擎）。图片可能会挂，演示时尽量使用SQL查询语句返回结果进行示例。篇幅很长，因此使用m
+          <p>﻿﻿﻿MySQL优化方法——优化数据库对象</p>
+<p>如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。官方文档非常具有参考意义。你可以将这篇博文，当成过度到MySQL8.0的参考资料。<strong>友情提示：经验是用来参考，不是拿来即用</strong>。如果您能看到并分享这篇文章，我很荣幸。如果有误导您的地方，我表示抱歉。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/acf1fd88c4b72660309388d03852a999.png"></p>
+<h1 id="MySQL优化方法——优化数据库对象"><a href="#MySQL优化方法——优化数据库对象" class="headerlink" title="MySQL优化方法——优化数据库对象"></a>MySQL优化方法——优化数据库对象</h1><p><strong>注意</strong>：在某些情况，你自己测试的结果可能与我演示有所不同，我省略了查询结果的部分参数。</p>
+<p><strong>本文侧重点在SQL优化流程以及MySQL锁问题</strong>（MyISAM和InnoDB存储引擎）。图片可能会挂，演示时尽量使用SQL查询语句返回结果进行示例。篇幅很长，因此使用markdown语法加了目录。</p>
+<p>起初，也只是想看MySQL8.0.28有哪些变化，后面索性结合书籍和官方文档总结了一篇。花了将近两周，基本是每天完善一点，因为个人只有晚上和周末有时间总结并测试验证。如果有错别字，也请多多担待。如果你能看到并分享这篇文章，我很荣幸。如果有误导你的地方，我表示抱歉。</p>
+<p>如果你是从MySQL5.6或者5.7版本过渡到MySQL8.0。学习之前，建议线看官方文档这一章节：1.3 What Is New MySQL8.0 。在做对比的时候，<strong>文档中带有Note标识是你应该注意的地方</strong>。比如下面这张截图：</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/17d4943de92930dea49aa6fe2eaeac55.png"></p>
+<h2 id="优化数据库对象"><a href="#优化数据库对象" class="headerlink" title="优化数据库对象"></a>优化数据库对象</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95-%E4%BC%98%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E8%B1%A1/#more" rel="contents">
@@ -821,13 +802,15 @@ MySQL优化方法——优化数据库对象
     
     
     <div class="post-body" itemprop="articleBody">
-          主要介绍：MySQL锁、MyISAM表锁、查询表锁互掐、MySQL表锁模式、如何加（显示）表锁、模拟并发插入以及MyISAM锁调度的介绍。
-
-只停留在看上面，提升效果甚微。应该带着思考去测试佐证，或者使用（同类书籍）新版本进行对比，这样带来的效果更好。最重要的一环，养成阅读官方文档，是一个良好的习惯。能编写官方文档，至少证明他们在这个领域是有很高的造诣，对用法足够熟练。
-
-接着上一篇MySQL数据库SQL优化流程。在对MySQL进行举例并使用到示例数据库：大多数情况使用MySQL官方提供的sakila（模拟电影出租信息管理系统）和world数据库，类似于Oracle的scott用户。
-
-如果没
+          <p>主要介绍：MySQL锁、MyISAM表锁、查询表锁互掐、MySQL表锁模式、如何加（显示）表锁、模拟并发插入以及MyISAM锁调度的介绍。</p>
+<p>只停留在看上面，提升效果甚微。应该带着思考去测试佐证，或者使用（同类书籍）新版本进行对比，这样带来的效果更好。最重要的一环，<strong>养成阅读官方文档</strong>，是一个良好的习惯。能编写官方文档，至少证明他们在这个领域是有很高的造诣，对用法足够熟练。</p>
+<p>接着上一篇MySQL数据库SQL优化流程。在对MySQL进行举例并使用到示例数据库：大多数情况使用MySQL官方提供的sakila（模拟电影出租信息管理系统）和world数据库，类似于Oracle的scott用户。</p>
+<p>如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。官方文档非常具有参考意义。你可以将这篇博文，当成过度到MySQL8.0的参考资料。<strong>友情提示:经验是用来参考，但不是拿来即用</strong>。如果你能看到并分享这篇文章，我很荣幸。如果有误导你的地方，我表示抱歉。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/9897445be9ccea40278b7827713ecfa6.png"></p>
+<h1 id="MySQL锁问题——MyISAM表锁"><a href="#MySQL锁问题——MyISAM表锁" class="headerlink" title="MySQL锁问题——MyISAM表锁"></a>MySQL锁问题——MyISAM表锁</h1><p><strong>注意</strong>：在某些情况，你自己测试的结果可能与我演示有所不同，我省略了查询结果的部分参数。</p>
+<p><strong>本文侧重点在SQL优化流程以及MySQL锁问题</strong>（MyISAM和InnoDB存储引擎）。图片可能会挂，演示时尽量使用SQL查询语句返回结果进行示例。篇幅很长，因此使用markdown语法加了目录。</p>
+<p>如果你是从MySQL5.6或者5.7版本过渡到MySQL8.0。学习之前，建议线看官方文档这一章节：1.3 What Is New MySQL8.0 。在做对比的时候，<strong>文档中带有Note标识是你应该注意的地方</strong>。比如下面这张截图：</p>
+<p><img data-src="https://img-blog.csdnimg.cn/7439166f7c74468e8ecb3f25391795ec.png#pic_center" alt="在这里插入图片描述"></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98%EF%BC%9AMyISAM%E5%8A%A0%E8%A1%A8%E9%94%81%E3%80%81%E5%B9%B6%E5%8F%91%E6%8F%92%E5%85%A5%E4%BB%A5%E5%8F%8A%E9%94%81%E8%B0%83%E5%BA%A6/#more" rel="contents">

@@ -325,21 +325,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          注意：这篇文章对于定制版本的系统并不适用，有可能导致系统环境变量被破坏。这里测试用root用户没大多关系，正式环境能不用尽量别用root测试，使用普通用户提权。再提一句，某些定制Linux系统可能做过安全标记，也是不能随便动权限的。
+          <p><em>注意：这篇文章对于定制版本的系统并不适用，有可能导致系统环境变量被破坏。这里测试用root用户没大多关系，正式环境能不用尽量别用root测试，使用普通用户提权。再提一句，某些定制Linux系统可能做过安全标记，也是不能随便动权限的。</em></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、银河麒麟安装VNC服务"><a href="#一、银河麒麟安装VNC服务" class="headerlink" title="一、银河麒麟安装VNC服务"></a>一、银河麒麟安装VNC服务</h2><p>这里我并不推荐使用root用户，尽量用普通用户，通过提取权限即可。我这里用root，只是为了方便使用。<strong>赋予权限的宗旨是在最小范围内满足即可。</strong></p>
+<p>银河麒麟V10部署vncserver，使用如下yum命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install tigervnc-server tigervnc-server-module</span><br></pre></td></tr></table></figure>
 
-正文
-一、银河麒麟安装VNC服务
-这里我并不推荐使用root用户，尽量用普通用户，通过提取权限即可。我这里用root，只是为了方便使用。赋予权限的宗旨是在最小范围内满足即可。
+<p><strong>新建vncserver@.service</strong><br><img data-src="https://img-blog.csdnimg.cn/d5688877690449ef81f28266364814e5.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用vim命令新建vncserver@.service</span></span><br><span class="line"><span class="comment">#执行这个脚本在定制系统上可能会破坏系统环境变量，导致基本命令无法使用。</span></span><br><span class="line">vim /etc/systemd/system/vncserver@.service</span><br></pre></td></tr></table></figure>
 
-银河麒麟V10部署vncserver，使用如下yum命令安装：
-
-1
-
-
-yum install tigervnc-server tigervnc-server-module
-
-
-新建v
+<p><strong>下面为具体配置文件内容</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Remote desktop service (VNC)</span><br><span class="line">After=syslog.target network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"><span class="comment">#必须设置为simple，设置其它的报错</span></span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root/</span><br><span class="line"><span class="comment">#必须为root</span></span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line"></span><br><span class="line"><span class="comment">#ExecStart=/usr/bin/vncserver :1 -geometry 1920x1080</span></span><br><span class="line"><span class="comment">#Clean any existing files in /tmp/.X11-unix environment                                                                    </span></span><br><span class="line">ExecStartPre=/bin/sh -c <span class="string">&#x27;/usr/bin/vncserver -kill %i &gt; /dev/null 2&gt;&amp;1 || :&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#ExecStart=/usr/sbin/runuser -l appadmin -c &quot;/usr/bin/vncserver %i -geometry 1280x1024&quot;  </span></span><br><span class="line"><span class="comment">#必须为root</span></span><br><span class="line">ExecStart=/usr/sbin/runuser -l root -c <span class="string">&quot;/usr/bin/vncserver %i&quot;</span>  </span><br><span class="line"><span class="comment">#必须为root</span></span><br><span class="line">PIDFile=/root/.vnc/%H%i.pid  </span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2VNC%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%B9%B6%E4%B8%94%E4%BD%BF%E7%94%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5/#more" rel="contents">
@@ -452,18 +447,13 @@ yum install tigervnc-server tigervnc-server-module
     
     
     <div class="post-body" itemprop="articleBody">
-          Oracle重新部署注意事项
-Oracle19c下载地址，无需登录，历史版本下载需要登录
-https://www.oracle.com/cn/database/technologies/oracle-database-software-downloads.html#19c
-
-在此页面可以找到官方说明文档
-https://www.oracle.com/cn/database/technologies/
-
-
-一、Oracle11g安装包的准备下载
-官网找历史版本准备服务端Oracle11g R2以及客户端Oracle11g client。
-
-服务端Oracle11g R2http://downlo
+          <h1 id="Oracle重新部署注意事项"><a href="#Oracle重新部署注意事项" class="headerlink" title="Oracle重新部署注意事项"></a>Oracle重新部署注意事项</h1><p>Oracle19c下载地址，无需登录，历史版本下载需要登录<br><a target="_blank" rel="noopener" href="https://www.oracle.com/cn/database/technologies/oracle-database-software-downloads.html#19c">https://www.oracle.com/cn/database/technologies/oracle-database-software-downloads.html#19c</a></p>
+<p><strong>在此页面可以找到官方说明文档</strong><br><a target="_blank" rel="noopener" href="https://www.oracle.com/cn/database/technologies/">https://www.oracle.com/cn/database/technologies/</a><br><img data-src="https://img-blog.csdnimg.cn/20210717232255235.png?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述" style="zoom:50%;"></p>
+<h2 id="一、Oracle11g安装包的准备下载"><a href="#一、Oracle11g安装包的准备下载" class="headerlink" title="一、Oracle11g安装包的准备下载"></a>一、Oracle11g安装包的准备下载</h2><p>官网找历史版本准备服务端<code>Oracle11g R2</code>以及客户端<code>Oracle11g client</code>。<br>　　<br><strong>服务端Oracle11g R2</strong>　　<a target="_blank" rel="noopener" href="http://download.oracle.com/otn/nt/oracle11g/112010/win64_11gR2_database_1of2.zip">http://download.oracle.com/otn/nt/oracle11g/112010/win64_11gR2_database_1of2.zip </a>　　<br>　　<a target="_blank" rel="noopener" href="http://download.oracle.com/otn/nt/oracle11g/112010/win64_11gR2_database_2of2.zip">http://download.oracle.com/otn/nt/oracle11g/112010/win64_11gR2_database_2of2.zip </a></p>
+<p><strong>客户端Oracle11g client</strong><br>客户端文件，就直接从我下面给出的度盘地址获取。　　<br>　　<br>需要下载历史版本，Oracle公司很骚，包括老版本的JDK都需要注册账号登录才能下载。N年前，无需注册登录就可以下载。难道是市场份额少了，开始慌了？下载Oracle数据库历史版本同样需要注册登录，就问骚不骚。懒得吐槽，也无力吐槽，大家都懂得。　<br>　　<br>或者使用我提供的阿里云盘下载地址：<a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/mMV92NTDwNr"><del>https://www.aliyundrive.com/s/mMV92NTDwNr</del> </a></p>
+<p><strong>文件夹虽然可以分享，但读取不到里面的压缩包。目前阿里云盘并不支持zip压缩包以及iso镜像文件的分享，还是给度盘资源。</strong></p>
+<p><strong>度盘资源</strong>：<br>链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/16RjeUCobGveCeqyCrULsyQ">https://pan.baidu.com/s/16RjeUCobGveCeqyCrULsyQ</a><br>提取码: iz9g </p>
+<h2 id="二、Oracle11g的安装"><a href="#二、Oracle11g的安装" class="headerlink" title="二、Oracle11g的安装"></a>二、Oracle11g的安装</h2><p>安装过程很简单，大部分是被系统环境折腾安装不上。就算重装，也受注册表的影响。这里推荐使用虚拟机进行测试，VMware虚拟机的快照功能很强大，任你折腾。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/04/20/Oracle11g%E9%83%A8%E7%BD%B2-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/#more" rel="contents">
@@ -576,55 +566,19 @@ https://www.oracle.com/cn/database/technologies/
     
     
     <div class="post-body" itemprop="articleBody">
-          基于Ubuntu20.04优麒麟系统开启root用户，开启root以及普通用户远程登录
+          <p><strong>基于Ubuntu20.04优麒麟系统开启root用户，开启root以及普通用户远程登录</strong></p>
+<p>1、需要手动修改root用户密码，默认没启动</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo root passwd</span><br></pre></td></tr></table></figure>
 
-1、需要手动修改root用户密码，默认没启动
+<p>2、安装<code>openssh-server</code></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install openssh<span class="literal">-server</span></span><br></pre></td></tr></table></figure>
 
-1
+<p>3、启动<code>sshd</code></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">start</span> sshd</span><br></pre></td></tr></table></figure>
 
-
-sudo root passwd
-
-
-2、安装openssh-server
-
-1
-2
-
-
-sudo apt update
-sudo apt install openssh-server
-
-
-3、启动sshd
-
-1
-
-
-systemctl start sshd
-
-
-4、查看sshd状态
-
-1
-
-
-systemctl status sshd
-
-
-
-
-5、修改启动root远程登录
-
-1
-2
-3
-4
-5
-
-
-#编辑sshd_config
-vim /etc/s
+<p>4、查看sshd状态</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status sshd</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/72ec2971dc4d446a9e29c5a907b6b0bd.png?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/04/20/Ubuntu20-04%E4%BC%98%E9%BA%92%E9%BA%9F%EF%BC%9A%E6%89%8B%E5%8A%A8%E5%BC%80%E5%90%AFroot%E7%94%A8%E6%88%B7/#more" rel="contents">
@@ -741,13 +695,15 @@ vim /etc/s
     
     
     <div class="post-body" itemprop="articleBody">
-          主要以Windows server2012R2为主进行介绍，解决实际工作中遇到到的一些问题。比如服务器CPU核心数过高，导致Oracle数据库安装时卡在2%的情况。在Windows下，你安装VMware工具模拟使用Windows server达到熟悉的目的。
-
-
-说句心里话，我真没想到过我会在Windows服务器上总结这么多。一分耕耘一分收获，但是血赚不亏。
-
-正文
-第一次接触Windows服务器大约在5年前，那会的活动价我入手了入门级的Windows服务器。第一次安装了Windows server2012，低配版的服务器确实很吃力。用了一段时间熟悉了就弃用了，后来果断换成了linux操作系统
+          <p>主要以Windows server2012R2为主进行介绍，解决实际工作中遇到到的一些问题。<strong>比如服务器CPU核心数过高，导致Oracle数据库安装时卡在2%的情况</strong>。在Windows下，你安装VMware工具模拟使用Windows server达到熟悉的目的。<br><img data-src="https://img-blog.csdnimg.cn/img_convert/82425eb0cead43315f66a14bec3b6122.png"></p>
+<p>说句心里话，我真没想到过我会在Windows服务器上总结这么多。一分耕耘一分收获，但是血赚不亏。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>第一次接触Windows服务器大约在5年前，那会的活动价我入手了入门级的Windows服务器。第一次安装了Windows server2012，低配版的服务器确实很吃力。<em>用了一段时间熟悉了就弃用了，后来果断换成了linux操作系统（Centos）。centos被（Redhat）红帽收购后，逐渐。。。说白了还是利益二字。感慨了一番，关于centos的这段话可以忽略。</em></p>
+<p>想熟悉Windows server服务器最新版，建议使用VMware配合服务器镜像。</p>
+<p><strong>镜像获取地址</strong>，推荐msdn我告诉你。良心网站，专业收集原版镜像。</p>
+<p><a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">https://msdn.itellyou.cn/</a></p>
+<p><strong>关于想体验最新版的Windows11或者Windows server2022服务器</strong>，可以访问新地址</p>
+<p><a target="_blank" rel="noopener" href="https://next.itellyou.cn/">https://next.itellyou.cn</a></p>
+<h2 id="一、Oracle数据库安装卡在2"><a href="#一、Oracle数据库安装卡在2" class="headerlink" title="一、Oracle数据库安装卡在2%"></a>一、Oracle数据库安装卡在2%</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/04/20/Windows-server2012%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2Oracle11g%EF%BC%9A-NET%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more" rel="contents">
@@ -781,7 +737,7 @@ vim /etc/s
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/04/20/Windows10%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%82%B9%E6%BB%B4%E8%AE%B0%E5%BD%95%EF%BC%9A%E7%A6%81%E7%94%A8%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/">
+    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/04/20/Windows%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4%E5%B8%B8%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -799,7 +755,7 @@ vim /etc/s
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/20/Windows10%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%82%B9%E6%BB%B4%E8%AE%B0%E5%BD%95%EF%BC%9A%E7%A6%81%E7%94%A8%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/" class="post-title-link" itemprop="url">Windows10日常使用点滴记录：禁用自动更新</a>
+          <a href="/2022/04/20/Windows%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4%E5%B8%B8%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">Windows服务器运维常用小技巧</a>
         </h2>
 
         <div class="post-meta-container">
@@ -819,7 +775,7 @@ vim /etc/s
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-16 19:02:19" itemprop="dateModified" datetime="2023-03-16T19:02:19+08:00">2023-03-16</time>
+      <time title="修改时间：2023-03-16 19:02:36" itemprop="dateModified" datetime="2023-03-16T19:02:36+08:00">2023-03-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -831,7 +787,7 @@ vim /etc/s
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BF%90%E7%BB%B4/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+          <a href="/categories/%E8%BF%90%E7%BB%B4/Windows-server/" itemprop="url" rel="index"><span itemprop="name">Windows server</span></a>
         </span>
     </span>
 
@@ -842,14 +798,14 @@ vim /etc/s
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
+      <span>763</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -860,37 +816,18 @@ vim /etc/s
     
     
     <div class="post-body" itemprop="articleBody">
-          前言
-win10这个自动下载更新着实很流氓，禁用掉需要尝试各种方法，像极了牛皮膏药。你更新我并不反感，但请不要耍流氓般的强制性更新，在后台下载偷跑流量这就不厚道了，真是苟的不行。
+          <p>Windows下常用的以及不常用的运维命令以及小技巧，看了绝对不会后悔。</p>
+<p>总结：不难发现，很多Windows下的命令，基本上以.msc结尾，前缀是程序名称。比如磁盘管理命令：<code>diskmgmt.msc</code></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、远程桌面"><a href="#一、远程桌面" class="headerlink" title="一、远程桌面"></a>一、远程桌面</h2><p>快速进入远程桌面，主要是命令为<code>mstsc</code></p>
+<p><strong>方式一</strong>：win + r打开运行输入<code>mstsc</code><br><img data-src="https://img-blog.csdnimg.cn/2382b87501614ca89f45bc888be647b7.png?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
+<p><strong>方式二</strong>：以管理员身份运行CMD输入以下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mstsc /v: <span class="number">192.168</span>.<span class="number">249.128</span> /console</span><br></pre></td></tr></table></figure>
 
-
-找到设置，建议开启按流量计费
-
-
-这种方式禁用不是长久之计
-
-需要你每天检查一下windows update服务是否被流氓系统自动开启了，长期坚持下来也是一种良好的使用习惯。
-
-
-会死恢复原，老流氓了
-
-
-正文
-win10系统更新存放文件位置
-
-看着自己的C盘越来越臃肿，心里一万个草泥马奔腾而过。
-
-
-1
-
-
-C:\Windows\SoftwareDistribution\Download
-
-
-发现系统盘越来越臃
+<p><img data-src="https://img-blog.csdnimg.cn/089b96b94b7b496cbae7806733b36167.png?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#" alt="在这里插入图片描述"></p>
+<h2 id="二、win-r命令快速打开运行窗口"><a href="#二、win-r命令快速打开运行窗口" class="headerlink" title="二、win + r命令快速打开运行窗口"></a>二、win + r命令快速打开运行窗口</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/04/20/Windows10%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%82%B9%E6%BB%B4%E8%AE%B0%E5%BD%95%EF%BC%9A%E7%A6%81%E7%94%A8%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/#more" rel="contents">
+              <a class="btn" href="/2022/04/20/Windows%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4%E5%B8%B8%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

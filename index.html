@@ -310,15 +310,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          主要发布于github pages，主站访问很慢。
+          <p>主要发布于github pages，主站访问很慢。</p>
+<ol>
+<li>主站地址：<ul>
+<li><a target="_blank" rel="noopener" href="https://cnwangk.github.io/">https://cnwangk.github.io/</a></li>
+<li><a target="_blank" rel="noopener" href="https://wzgy.cnwangk.top/">https://wzgy.cnwangk.top/</a></li>
+</ul>
+</li>
+<li><strong>备用地址</strong>：<ul>
+<li><a href="https://blog.cnwangk.top/">https://blog.cnwangk.top/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnwangk.top/">https://www.cnwangk.top/</a></li>
+<li><a target="_blank" rel="noopener" href="https://cf.cnwangk.top/">https://cf.cnwangk.top/</a></li>
+</ul>
+</li>
+</ol>
 
- 1. 主站地址： * https://cnwangk.github.io/
-     * https://wzgy.cnwangk.top/
-    
-    
- 2. 备用地址： * https://blog.cnwangk.top/
-     * https://www.cnwangk.top/
-     * https://cf.cnwangk.top/
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/03/16/%E6%96%87%E6%AD%A3%E8%80%95%E8%80%98%E5%B0%8F%E7%AB%99%E5%A4%87%E7%94%A8%E5%9C%B0%E5%9D%80/#more" rel="contents">
@@ -425,25 +431,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          此篇总结是对之前发出的 SQL是什么 进行补充。
-
-进入正题之前，我想聊聊其它的知识点，一点点思考。
-
-学习某个技能点或者是新知识点时，可以尝试建立一项知识梳理体系，如下：
-
- 1. 输入：可以照葫芦画瓢，亲自动手实践。
- 2. 分析：有自己独立的分析和思考。
- 3. 输出：产出的内容与预期进行对比。
- 4. 札记：记录收获过程（手写或者以电子文档形式记录）。
-
-这张流程图制作比较粗糙，权当梳理基本知识参考。
-
-上面也谈到了，学习新知识点。善于总结，可以使用流程图或者思维导图构建知识体系。
-
-
-
-SQL & 数据库基础知识扫盲
-一般而言，在日常工作交流中，大家所描述的SQL是标准SQL（Sta
+          <p>此篇总结是对之前发出的 SQL是什么 进行补充。</p>
+<p>进入正题之前，我想聊聊其它的知识点，一点点思考。</p>
+<p>学习某个技能点或者是新知识点时，可以尝试建立一项知识梳理体系，如下：</p>
+<ol>
+<li><strong>输入</strong>：可以照葫芦画瓢，亲自动手实践。</li>
+<li><strong>分析</strong>：有自己独立的分析和思考。</li>
+<li><strong>输出</strong>：产出的内容与预期进行对比。</li>
+<li><strong>札记</strong>：记录收获过程（手写或者以电子文档形式记录）。</li>
+</ol>
+<p>这张流程图制作比较粗糙，权当梳理基本知识参考。</p>
+<p>上面也谈到了，学习新知识点。善于总结，可以使用流程图或者思维导图构建知识体系。</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp8KvDg"><img data-src="https://s1.ax1x.com/2023/03/16/pp8KvDg.png" alt="pp8KvDg.png"></a></p>
+<h1 id="SQL-amp-数据库基础知识扫盲"><a href="#SQL-amp-数据库基础知识扫盲" class="headerlink" title="SQL &amp; 数据库基础知识扫盲"></a>SQL &amp; 数据库基础知识扫盲</h1><p>一般而言，在日常工作交流中，大家所描述的SQL是标准SQL（Standardized SQL），非特指某一数据库厂商（DBMS）专有语言。</p>
+<h3 id="SQL是什么？"><a href="#SQL是什么？" class="headerlink" title="SQL是什么？"></a>SQL是什么？</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/03/16/SQL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%89%AB%E7%9B%B2/#more" rel="contents">
@@ -556,15 +557,29 @@ SQL & 数据库基础知识扫盲
     
     
     <div class="post-body" itemprop="articleBody">
-          Windows平台安装MySQL
-Windows install MySQL8.0.x (Archive zip) 简易安装教程
-注意：x代表使用MySQL8.0具体版本
+          <h3 id="Windows平台安装MySQL"><a href="#Windows平台安装MySQL" class="headerlink" title="Windows平台安装MySQL"></a>Windows平台安装MySQL</h3><p><strong>Windows install MySQL8.0.x (Archive zip) 简易安装教程</strong><br>注意：x代表使用MySQL8.0具体版本</p>
+<ol>
+<li>解压免安装版MySQL：unzip mysql-8.0.x-winx64.zip</li>
+<li>切换到MySQL解压目录：cd mysql-8.0.x-winx64</li>
+<li>新增MySQL配置文件： my.ini</li>
+<li>初始化MySQL：bin\mysqld –initialize-insecure 或者 bin\mysqld –initialize-insecure –console </li>
+<li>注册MySQL服务：bin\mysqld –install MySQL80（将MySQL服务注册到service，可以使用net命令进行管理）</li>
+<li>启动MySQL服务：net start MySQL80 或者 sc start MySQL80</li>
+<li>登录MySQL字符管理界面：mysql -uroot -p</li>
+</ol>
+<p>Windows环境新建my.ini做如下设置，指定基本安装目录与数据存放目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">basedir=D:\\mysql-8.0.32-winx64</span><br><span class="line">datadir=D:\\mysql-8.0.32-winx64\\data</span><br></pre></td></tr></table></figure>
 
- 1. 解压免安装版MySQL：unzip mysql-8.0.x-winx64.zip
- 2. 切换到MySQL解压目录：cd mysql-8.0.x-winx64
- 3. 新增MySQL配置文件： my.ini
- 4. 初始化MySQL：bin\mysqld –initialize-insecure 或者 bin\mysqld –initialize-insecure –console 
- 5. 注册MySQL服务：b
+
+
+<p><strong>tips</strong>：打开CMD或者Powershell时以管理员身份运行，如果没有，安装服务时则会提示权限拒绝，如下所示。</p>
+<p><strong>D:\software\mysql-8.0.32-winx64\bin&gt;mysqld –install MySQL80</strong><br><strong>Install&#x2F;Remove of the Service Denied!</strong></p>
+<p><strong>Windows11操作系统中安装MySQL8.0.32</strong> (noinstall Archive zip)步骤</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">D:\software\mysql-8.0.32-winx64\bin&gt;mysqld --initialize-insecure --console</span><br><span class="line">D:\software\mysql-8.0.32-winx64\bin&gt;mysqld --install MySQL80</span><br><span class="line">Service successfully installed.</span><br><span class="line">D:\software\mysql-8.0.32-winx64\bin&gt;net start mysql80</span><br><span class="line">MySQL80 服务正在启动 .</span><br><span class="line">MySQL80 服务已经启动成功。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>初步使用MySQL：</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/03/15/MySQL8-0-x-%E7%AE%80%E6%98%93%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/#more" rel="contents">
@@ -677,16 +692,15 @@ Windows install MySQL8.0.x (Archive zip) 简易安装教程
     
     
     <div class="post-body" itemprop="articleBody">
-          Linux内核官网：https://www.kernel.org/
-
-一腔热血，亦或是兴趣使然，Linus开发了Linux系统。
-
-这里在谈Linux系统时，加了发行版三个字，避免歧义和误解。一般情况，谈Linux其实是指Linux发行版，而实际Linux是基于内核开发的。
-
-Linux是什么
-Linux是什么？
-
-答：Linux核心是内核。起源与MiniX有一定的联系，起初创始人Linus本人出于个人兴趣爱好所开发，Linux应运而生，随后开源发展迅速。出发点是什么，貌似已经并不重要了，重要的是Linux对开源生态系统做出的卓越贡献，全球将近70%服务器使用Linux发行版，或许Linus本
+          <p><strong>Linux内核官网</strong>：<a target="_blank" rel="noopener" href="https://www.kernel.org/">https://www.kernel.org/</a></p>
+<p>一腔热血，亦或是兴趣使然，Linus开发了Linux系统。</p>
+<p>这里在谈Linux系统时，加了发行版三个字，避免歧义和误解。一般情况，谈Linux其实是指Linux发行版，而实际Linux是基于内核开发的。</p>
+<h3 id="Linux是什么"><a href="#Linux是什么" class="headerlink" title="Linux是什么"></a>Linux是什么</h3><p><strong>Linux是什么？</strong></p>
+<p>答：Linux核心是内核。起源与MiniX有一定的联系，起初创始人Linus本人出于个人兴趣爱好所开发，Linux应运而生，随后开源发展迅速。出发点是什么，貌似已经并不重要了，重要的是Linux对开源生态系统做出的卓越贡献，全球将近70%服务器使用Linux发行版，或许Linus本人也没想到开源后的Linux对如今服务器环境的巨大影响。</p>
+<p>后来基于Linux内核开发的发行版本如雨后春笋，最为突出的是Redhat（有企业服务支撑）系列以及无企业服务支撑的Centos作用于服务器操作系统，以稳定著称，社区活跃，文档丰富。</p>
+<p><strong>注意：centos Linux8 于2021年12月31日停止更新维护，centos Linux7计划于2024年6月30日停止更新维护。</strong></p>
+<p><strong>Linux发行版是什么？</strong></p>
+<p>答：基于Linux内核开发发行的版本统称。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/03/14/Linux%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/#more" rel="contents">
@@ -799,19 +813,23 @@ Linux是什么？
     
     
     <div class="post-body" itemprop="articleBody">
-          关于 hexo 博客优化一点点思考。money & time 寻找平衡。
-
-闲暇时间，想起自己很久没维护的hexo + nextjs打造的静态博客网站。访问速度龟速前进，比看小电影还慢。
-
-一入编程深似海，从此节操是路人。这里是文某人网络三无教程，希望对你有所帮助。
-
-思考
-静态博客网站老生常谈的两大问题：
-
- 1. 加载静态资源耗时长，使用cdn加速、压缩js、css、html文件，提高体验。
- 2. 访问国外网站速度慢，如果科学上网，速度还行。 其实你会发现，优化再优化最终归结到了科学上网，资源在国内访问速度自然没话说。
-
-做完以上测试（压缩、CDN、套皮、科学上网），可以在Chrome浏
+          <p>关于 hexo 博客优化一点点思考。money &amp; time 寻找平衡。</p>
+<p>闲暇时间，想起自己很久没维护的hexo + nextjs打造的静态博客网站。访问速度龟速前进，比看小电影还慢。</p>
+<p>一入编程深似海，从此节操是路人。这里是文某人网络三无教程，希望对你有所帮助。</p>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>静态博客网站老生常谈的两大问题：</p>
+<ol>
+<li>加载静态资源耗时长，使用cdn加速、压缩js、css、html文件，提高体验。</li>
+<li>访问国外网站速度慢，如果科学上网，速度还行。 其实你会发现，优化再优化最终归结到了科学上网，资源在国内访问速度自然没话说。</li>
+</ol>
+<p>做完以上测试（压缩、CDN、套皮、科学上网），可以在Chrome浏览器使用F12进行调试，找到Network，使用快捷键ctrl + r 查看css消耗时间对比，发现main.css加载耗时很长。<br>使用ctrl + f5大刷新：</p>
+<ul>
+<li>套cf（cloudflare）皮：main.css加载时间300ms左右。</li>
+<li>没套皮：main.css加载时间，运气不好，等待超过10s。</li>
+<li>开加速光环：纵享丝滑，同样ms级别，也在300ms左右。</li>
+<li>nginx高性能服务器：访问加载速度一样很丝滑。</li>
+</ul>
+<p><strong>tips</strong>：浏览器有缓存机制，如果f5小刷新没生效，使用ctrl + f5大刷新或者 ctrl + shift + delete清除缓存进行尝试。</p>
+<h2 id="借东风"><a href="#借东风" class="headerlink" title="借东风"></a>借东风</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/03/11/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/#more" rel="contents">

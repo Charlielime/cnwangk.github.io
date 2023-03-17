@@ -325,24 +325,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          之前自学的时候，那会刚到外地找工作，意识到了学习linux的重要性。作为开发人员的基本必备技能，找工作时也是加分项。当时租房没联网，就想到了这种方法。
-
-针对初学入门者来说，做测试或者自学的时候，其实使用本地yum源更方便。当然对于没有联网的情况下，你是用此方法也是极度舒适的，毕竟不用占用你的网络资源。都2020年了，没有网还搞啥编程，当然这是玩笑话，就当乐一乐了。
-
-正文
-一、首先使网络yum源失效
-切换到yum源所在目录：
-
-1
-
-
-cd /etc/yum.repos.d/
-
-
-
-
-查询一下目录：ls
-主要关注我们用到的网络yum源和光盘源：CentOS-Base.repo、CentOS-
+          <p>之前自学的时候，那会刚到外地找工作，意识到了学习<code>linux</code>的重要性。作为开发人员的基本必备技能，找工作时也是加分项。当时租房没联网，就想到了这种方法。</p>
+<p><strong>针对初学入门者</strong>来说，做测试或者自学的时候，其实<strong>使用本地</strong><code>yum</code><strong>源更方便</strong>。当然对于没有联网的情况下，你是用此方法也是极度舒适的，毕竟不用占用你的网络资源。都2020年了，没有网还搞啥编程，当然这是玩笑话，就当乐一乐了。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、首先使网络yum源失效"><a href="#一、首先使网络yum源失效" class="headerlink" title="一、首先使网络yum源失效"></a>一、首先使网络<code>yum</code>源失效</h2><p><strong>切换到yum源所在目录</strong>：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200826204237701.png#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>查询一下目录</strong>：<code>ls</code><br>主要关注我们用到的<strong>网络</strong><code>yum</code><strong>源和光盘源</strong>：<code>CentOS-Base.repo、CentOS-Media.repo</code><br><img data-src="https://img-blog.csdnimg.cn/2020082620430629.png#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>修改</strong><code>yum</code>源文件后缀名<strong>使其失效</strong>。我这里就不做修改了，你们可以自己试试。<br><img data-src="https://img-blog.csdnimg.cn/20200826215149800.png#pic_center" alt="在这里插入图片描述"></p>
+<p>如果担心修改之后忘记怎么修改回来，最好备份一份，使用<code>cp</code>命令即可。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/21/%E3%80%90CentOS%E3%80%91%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0yum%E6%BA%90/#more" rel="contents">
@@ -455,10 +445,15 @@ cd /etc/yum.repos.d/
     
     
     <div class="post-body" itemprop="articleBody">
-          前言
-最近公司有新需求，需要接入大华和海康的项目，优先解决接入海康的SDK。对于我这个之前完全没接触过对接SDK的新手来说，完全是焦头烂额。公司只提供了SDK文档，没有其它文档支持。但是需要使用java进行对接数据。俗话说的好，工欲善其事，必先利其器。海康官方的SDK文档提供了java的demo例子，但是文档说明并不全面（个人感觉，遇到了很多坑，故予以总结）。
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近公司有新需求，需要接入<strong>大华</strong>和<strong>海康</strong>的项目，优先解决接入海康的<code>SDK</code>。对于我这个之前完全没接触过对接SDK的新手来说，完全是<strong>焦头烂额</strong>。公司只提供了<code>SDK</code>文档，没有其它文档支持。但是需要使用<code>java</code>进行对接数据。俗话说的好，<strong>工欲善其事，必先利其器</strong>。海康官方的SDK文档提供了<code>java</code>的demo例子，但是文档说明并不全面（个人感觉，遇到了很多坑，故予以总结）。</p>
+<p><strong>运行demo之前，最好浏览一遍SDK文档，比如操作系统与JDK以及DLL文件保持一致性。而且对你调试代码也颇有帮助，返回一些错误码在官方提供的文档有说明参照</strong>。例如：win64下运行64位JDK和64位DLL文件，也可以运行32位JDK和32位的DLL文件。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p><strong>官方文档直通车</strong>：<a target="_blank" rel="noopener" href="https://www.hikvision.com/cn/download_61.html">https://www.hikvision.com/cn/download_61.html</a><br><img data-src="https://img-blog.csdnimg.cn/20200809222148484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>官方文档</strong>给出的【<strong>注意事项</strong>】</p>
+<p><strong>—————————————————————————————————————————————-</strong><br>一、 更新设备网络<code>SDK</code>时，<code>SDK</code>开发包【<strong>库文件</strong>】里的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HCNetSDK.dll、</span><br><span class="line">HCCore.dll、</span><br><span class="line">PlayCtrl.dll、</span><br><span class="line">SuperRender.dll、</span><br><span class="line">AudioRender.dll、</span><br><span class="line">HCNetSDKCom文件夹、</span><br><span class="line">ssleay32.dll、</span><br><span class="line">libeay32.dll、</span><br><span class="line">hlog.dll、</span><br><span class="line">hpr.dll、</span><br><span class="line">zlib1.dll、</span><br><span class="line">log4cxx.properties</span><br></pre></td></tr></table></figure>
 
-运行demo之前，最好浏览一遍SDK文档，比如操作系统与JDK以及DLL文件保持一致性。而且对你调试代码也颇有帮助，返回一些错误码在官方提供的文档有说明参照。例如：win64下运行64位JDK和64位DLL文件，也可以运行32位JDK
+<p>等文件均要加载到程序里面，【<strong>HCNetSDKCom文件夹</strong>】（包含里面的功能组件<code>dll</code>库文件）需要和<strong>HCNetSDK.dll</strong>、<strong>HCCore.dll</strong>一起加载，放在同一个目录下，<strong>且HCNetSDKCom文件夹名不能修改</strong>。</p>
+<p>二、 如果自行开发软件不能正常实现相应功能，而且程序没有指定加载的dll库路径，请在程序运行的情况下尝试删HCNetSDK.dll。如果可以删除，说明程序可能调用到系统盘Windows-&gt;System32目录下的dll文件，建议删除或者更新该目录下的相关dll文件；如果不能删除，dll文件右键选择属性确认SDK库版本。</p>
+<p>三、如按上述步骤操作后还是不能实现相应功能，请根据<strong>NET_DVR_GetLastError返回的错误号判断原因</strong>。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/21/%E3%80%90%E8%A7%A3%E5%86%B3HCNetSDK-dll%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98%E3%80%91%E6%B5%B7%E5%BA%B7SDK%E5%BC%80%E5%8F%91%E5%AF%B9%E6%8E%A5java%E9%A1%B9%E7%9B%AEdemo%E8%BF%90%E8%A1%8C/#more" rel="contents">
@@ -571,12 +566,16 @@ cd /etc/yum.repos.d/
     
     
     <div class="post-body" itemprop="articleBody">
-          还记得那个某课网的两小时入门springboot的课程吗？某师兄的springboot系列教学视频确实是有点东西的，就是骚了一点。结果可想而知，在N年后被某人给举报了，被强制下架了，原因是引起某女学员不适。这门视频教程还是有可取之处的，通俗易懂。
-
-链接: https://pan.baidu.com/s/1UJFuqEeQ1eAlC3n4SeCmTQ?pwd=syi5 提取码: syi5 
-
-前言
-我最初是2017年年初开始接触springboot的，那会还是看的某编程网站的视频教程入门的（彼时springmvc还是主流，springboot刚刚进入人们的视线）。如今也打算总结一篇，关于快速入
+          <p>还记得那个某课网的两小时入门springboot的课程吗？某师兄的springboot系列教学视频确实是有点东西的，就是骚了一点。结果可想而知，在N年后被某人给举报了，被强制下架了，原因是引起某女学员不适。这门视频教程还是有可取之处的，通俗易懂。</p>
+<blockquote>
+<p>链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1UJFuqEeQ1eAlC3n4SeCmTQ?pwd=syi5">https://pan.baidu.com/s/1UJFuqEeQ1eAlC3n4SeCmTQ?pwd=syi5</a>   提取码: syi5 </p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我最初是2017年年初开始接触springboot的，那会还是看的某编程网站的视频教程入门的（彼时springmvc还是主流，springboot刚刚进入人们的视线）。如今也打算总结一篇，关于快速入门springboot的图文教程。</p>
+<p>其实网上已经有很多类似的教程了。无外乎图文详解，视频教程。当你看此篇教程时肯定是最新的，距离spring-boot崛起已经有4年了。但是，我还是准备写一篇关于spring-boot的详细教程。记录参考官方文档遇到的坑，也是对自己的一次总结。由于是初体验，会描述的很详细，但是不会太过于深入。会包含开发工具篇，也是为了照顾想入坑的，综合性的全面讲解非常有必要。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="开发工具篇"><a href="#开发工具篇" class="headerlink" title="开发工具篇"></a>开发工具篇</h2><h3 id="一、SpringTools官网直通车"><a href="#一、SpringTools官网直通车" class="headerlink" title="一、SpringTools官网直通车"></a>一、SpringTools官网直通车</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://spring.io/tools/">https://spring.io/tools/</a><br>这里就不放项目创建截图了，会在下面的<code>eclipse</code>和<code>IDEA</code>下面放出截图。</p>
+</blockquote>
+<h3 id="二、eclipse官网直通车。"><a href="#二、eclipse官网直通车。" class="headerlink" title="二、eclipse官网直通车。"></a>二、eclipse官网直通车。</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/21/springboot%E5%88%9D%E4%BD%93%E9%AA%8C/#more" rel="contents">
@@ -689,10 +688,12 @@ cd /etc/yum.repos.d/
     
     
     <div class="post-body" itemprop="articleBody">
-          自己之前一直在用jdk6&&7，公司之前也是用jdk7。后来发现更新了jdk8引入了函数式编程，lambda表达式和stream流的概念，再后来发现JDK更新的速度越来越快了。直到有一天逛技术博客的时候发现出到jdk12了，下载后安装了试了下新功能，奇怪的是没有jre，我这里下载的是解压版本。于是乎就搜索的一番，原来后续的版本需要手动来安装jre。顺带吐槽一下，去Oracle官网下载旧版本的jdk还得注册账号，以前可是不需要的。而且最近更新是真的快，jdk14也出来了。
-
-正文
-平时工作环境都是在win上的，只有测试、生产环境在linux下运行的。所以下面尝鲜的时候是在win下进行的。对于想了
+          <p>﻿自己之前一直在用<code>jdk</code>6&amp;&amp;7，公司之前也是用<code>jdk7</code>。后来发现更新了<code>jdk8</code>引入了函数式编程，<code>lambda</code>表达式和<code>stream</code>流的概念，再后来发现<code>JDK</code>更新的速度越来越快了。直到有一天逛技术博客的时候发现出到<code>jdk12</code>了，下载后安装了试了下新功能，奇怪的是没有<code>jre</code>，<strong>我这里下载的是解压版本</strong>。于是乎就搜索的一番，原来后续的版本需要手动来安装jre。顺带吐槽一下，去Oracle官网下载旧版本的jdk还得注册账号，以前可是不需要的。而且最近更新是真的快，<code>jdk14</code>也出来了。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>平时工作环境都是在win上的，只有测试、生产环境在linux下运行的。所以下面尝鲜的时候是在win下进行的。对于想了解jdk最新版本的新特性，还是很有帮助的。</p>
+<h2 id="一、-首先进入你安装jdk的目录"><a href="#一、-首先进入你安装jdk的目录" class="headerlink" title="一、 首先进入你安装jdk的目录"></a>一、 首先进入你安装<code>jdk</code>的目录</h2><p>我这已经是手动执行过命令了，所以生成了<code>jre</code></p>
+<p><img data-src="https://img-blog.csdnimg.cn/2019121710425780.png?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="二、cmd-管理员身份启动"><a href="#二、cmd-管理员身份启动" class="headerlink" title="二、cmd(管理员身份启动)"></a>二、cmd(管理员身份启动)</h2><p>cd 到安装<code>jdk</code>目录，是不是发现没有<code>jre</code>，很诡异，看下面如何操作。<br> <img data-src="https://img-blog.csdnimg.cn/20191217104954801.png" alt="在这里插入图片描述"><br><img data-src="https://img-blog.csdnimg.cn/2019121710442431.png?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="三、执行以下命令生成jre"><a href="#三、执行以下命令生成jre" class="headerlink" title="三、执行以下命令生成jre"></a>三、执行以下命令生成jre</h2><p>当然我自己也做了测试，对于<code>jdk14</code>的版本也同样适用。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/20/windows%E4%B8%8Bjdk%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85jre%E6%95%99%E7%A8%8B/#more" rel="contents">
@@ -805,16 +806,16 @@ cd /etc/yum.repos.d/
     
     
     <div class="post-body" itemprop="articleBody">
-          解决xshell强制更新的问题。讲道理，软件用起来功能稳定就行。可是某些软件，偏偏强制你更新，感觉流氓属性十足。这时候就得寻求其它方法了，你看xshell也有这尿性，下面给出解决的方法。
+          <p>解决xshell强制更新的问题。讲道理，软件用起来功能稳定就行。可是某些软件，偏偏强制你更新，感觉流氓属性十足。这时候就得寻求其它方法了，你看xshell也有这尿性，下面给出解决的方法。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>当你某一天使用xshell时，突然发现，oh fuck，不更新还不让用了，内心一万个曹尼玛奔腾而过。使用一段时间就会提示，确实很艹蛋。下图就是打开xshell软件出现的提示，按照我下面说的方法即可解决。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200331222352239.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>这时不要担心，按照我说的方法，其实无非就是判定系统时间，把自己电脑的系统时间改一下就行了。当然采用脚本的形式更方便。</p>
+<p>首先新建一个文本文档以<code>.bat</code>文件格式保存，然后将下面提供的代码复制到<code>xx.bat</code>文件中然后保存。<br>下面的代码部分位置我用#给出了注释，你复制的时候可以将#部分去掉。</p>
+<p><strong>代码提供</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">%<span class="number">1</span> mshta vbscript:CreateObject(<span class="string">&quot;Shell.Application&quot;</span>).ShellExecute(<span class="string">&quot;cmd.exe&quot;</span>,<span class="string">&quot;/c %~s0 ::&quot;</span>,<span class="string">&quot;&quot;</span>,<span class="string">&quot;runas&quot;</span>,<span class="number">1</span>)(window.close) &amp;&amp; <span class="keyword">exit</span></span><br><span class="line">title Xshell启动器</span><br><span class="line"><span class="built_in">set</span> atime=%date:~<span class="number">0</span>,<span class="number">10</span>%</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置系统时间</span></span><br><span class="line">date <span class="number">2018</span><span class="literal">-12-31</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#改成你的xshell启动路径 </span></span><br><span class="line"><span class="built_in">start</span> D:\work\Xshell6Portable_50151\Xshell6Portable\Xshell6Portable.exe</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 启动软件中...</span><br><span class="line">ping <span class="number">0.0</span>.<span class="number">0.0</span>  <span class="literal">-n</span> <span class="number">6</span> &gt; null</span><br><span class="line"><span class="built_in">echo</span> 同步时间中,完成后自动关闭窗口...</span><br><span class="line"></span><br><span class="line">:reset</span><br><span class="line">w32tm /resync &gt;null</span><br><span class="line"><span class="built_in">set</span> btime=%date:~<span class="number">0</span>,<span class="number">10</span>%</span><br><span class="line"><span class="built_in">echo</span> %atime%|findstr  %btime% &gt;nul</span><br><span class="line"><span class="keyword">if</span> %errorlevel% equ <span class="number">0</span> (</span><br><span class="line"><span class="keyword">exit</span></span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">goto reset</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-正文
-当你某一天使用xshell时，突然发现，oh fuck，不更新还不让用了，内心一万个曹尼玛奔腾而过。使用一段时间就会提示，确实很艹蛋。下图就是打开xshell软件出现的提示，按照我下面说的方法即可解决。
 
-
-
-这时不要担心，按照我说的方法，其实无非就是判定系统时间，把自己电脑的系统时间改一下就行了。当然采用脚本的形式更方便。
-
-首先新建一个文本文档以.bat文件格式保存，然后将下面提供的代码复制到xx
+<h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>记录点点滴滴。善于总结，其乐不穷。好记性不如烂笔头，多收集自己第一次尝试的成果，收获也颇丰。你会发现，自己的知识宝库越来越丰富。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/20/%E8%A7%A3%E5%86%B3xshell%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/#more" rel="contents">

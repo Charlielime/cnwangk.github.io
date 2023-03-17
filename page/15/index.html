@@ -325,20 +325,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          git文件管理与索引
-
-前言
-这一夜，注定是个不眠之夜，小白和cangls的对话已然进入了白热化。小白孜孜不倦的咨询关于git方面的知识，对索引越来越感兴趣。小白以前存的小电影文件可以进行版本的对比，探索哪个版本画质更好。
-
-小白：cangls，我最近有点疑惑。
-cangls：具体是哪些方面呢？
-
-小白：最近有些需求，我需要对文件进行版本管理控制，但是有些问题百思不得其解。
-cangls：版本管理啊，这个我可熟悉呢，最近也在总结系列文章。看了之后，相信会对你有所帮助。
-
-Linus Torvalds在Git邮件列表里曾说如果不先了解索引的目的，你就不能完全领会Git的强大之处。
-
-本文为个人G
+          <p>git文件管理与索引</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这一夜，注定是个不眠之夜，小白和cangls的对话已然进入了白热化。小白孜孜不倦的咨询关于git方面的知识，对索引越来越感兴趣。小白以前存的小电影文件可以进行版本的对比，探索哪个版本画质更好。</p>
+<p><strong>小白</strong>：cangls，我最近有点疑惑。<br><strong>cangls</strong>：具体是哪些方面呢？</p>
+<p><strong>小白</strong>：最近有些需求，我需要对文件进行版本管理控制，但是有些问题百思不得其解。<br><strong>cangls</strong>：版本管理啊，这个我可熟悉呢，最近也在总结系列文章。看了之后，相信会对你有所帮助。</p>
+<p>Linus Torvalds在Git邮件列表里曾说如果不先了解索引的目的，你就不能完全领会Git的强大之处。</p>
+<p>本文为个人Git系列文章第二弹，git进阶内容之不得不了解的文件管理与索引。Git的索引不包含任何文件内容，它仅仅追踪你想要提交的那些内容。当执行git commit命令的时候，Git会通过检查索引而不是工作目录来找到提交的内容。虽然git在底层为了我们处理了很多事情，但记住索引和它的状态也很重要。在任何时候都可以通过git status命令来查询索引的状态。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/71b2fa05c710128c817a75716ea31535.png"></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>VCS的经典问题之一就是文件重命名会导致它们丢失对文件历史记录的追踪。而Git即使经过重命名，也仍然能保留历史信息。在实际的工作使用中，貌似Git系统处理文件重命名的方式更优越一点点。因为啊，git有多种方式处理重命名一个文件（比如：使用git rm配合git add、git mv），而以往的程度还不足以确保SVN知道所有的情况。但是，还没有能完美处理重命名的文件系统。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/10/Git%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E4%B8%8E%E7%B4%A2%E5%BC%95/#more" rel="contents">
@@ -451,14 +445,14 @@ Linus Torvalds在Git邮件列表里曾说如果不先了解索引的目的，你
     
     
     <div class="post-body" itemprop="articleBody">
-          Linux服务器挂载硬盘详细教程。
-
-前言
-本文将带来linux下的磁盘管理中的硬盘挂载，Linux操作系统挂载硬盘需要了解的一些知识。这可能是迄今为止介绍的最最最实用的linux硬盘挂载的文章了，比较详细。由于工作原因，平时使用的比较多。主要目的，只是想让更多人的了解到linux下挂载磁盘也不是那么困难。
-
-有几种常见的文件系统，以前的老牌文件系统ext文件系统(ext2、ext3、ext4)。
-
-在Redhat7系列还是推荐一款优秀的xfs文件系统，在性能上已经超越了ext文件系统。XFS文件系统是硅谷图形公司（Silicon Graphic Inc，简称SGI）开发的用于IRIX（一个U
+          <p>Linux服务器挂载硬盘详细教程。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文将带来linux下的磁盘管理中的硬盘挂载，Linux操作系统挂载硬盘需要了解的一些知识。这可能是迄今为止介绍的最最最实用的linux硬盘挂载的文章了，比较详细。由于工作原因，平时使用的比较多。主要目的，只是想让更多人的了解到linux下挂载磁盘也不是那么困难。</p>
+<p>有几种常见的文件系统，以前的老牌文件系统ext文件系统(ext2、ext3、ext4)。</p>
+<p>在Redhat7系列还是推荐一款优秀的xfs文件系统，在性能上已经超越了ext文件系统。XFS文件系统是硅谷图形公司（Silicon Graphic Inc，简称SGI）开发的用于IRIX（一个Unix操作系统）的文件系统，后来将其移植到Linux操作系统上。XFS是一个高级日志文件系统，其优势是极具伸缩性，同样也极具健壮性。</p>
+<p>还有一款btrfs（B-tree文件系统通常读作Buffer FS、Better FS、B-tree FS）文件系统同样很优秀，Redhat7安装就自带。<br>btrfs具有很多特性。例如：写快照、快照的快照、内建RAID（通常称为磁盘阵列）、子卷（subvolume），其最核心的理念是设计<br>容错、修复以及易于管理。btrfs最大容量卷为16EB，单个最大文件为16EB。</p>
+<p>须知：本文全程使用的是安装选择语言是简体中文版的，所以看到的汉字显示，请不要惊讶。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/5324a76fbd054b60d2769434dc9ef136.png"></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>开局一张图，文章全靠编。开个玩笑，纯属逗大家乐一乐。下面的图片，已经点明了本文的核心内容。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8C%82%E8%BD%BD%E7%A1%AC%E7%9B%98%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/#more" rel="contents">
@@ -575,33 +569,14 @@ Linus Torvalds在Git邮件列表里曾说如果不先了解索引的目的，你
     
     
     <div class="post-body" itemprop="articleBody">
-          前言
-MySQL主从复制实战。以前总听说集群之类的，从来没有好好思考过。如今有空余时间，终于亲自搭建环境得以实现MySQL主从复制。
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>MySQL主从复制实战。以前总听说集群之类的，从来没有好好思考过。如今有空余时间，终于亲自搭建环境得以实现MySQL主从复制。</p>
+<p>从搭建虚拟机环境，以及安装Redhat系列的centos7.5服务器，部署MySQL5.6环境。嘿嘿，测试使用虚拟机搭建美滋滋。当然你也可以花money，多建几台云服务器实现集群环境。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>MySQL主从复制实战</p>
+<h2 id="主要使用到的环境说明"><a href="#主要使用到的环境说明" class="headerlink" title="主要使用到的环境说明"></a>主要使用到的环境说明</h2><p><img data-src="https://img-blog.csdnimg.cn/b4f0f1eb4dae4cc0a6d57b0507ab1fe6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_20,color_FFFFFF,t_70,g_se,x_16#" alt="在这里插入图片描述"></p>
+<p><strong>数据库版本</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用centos7.3初始安装就可选择安装所需基本环境</span></span><br><span class="line"><span class="number">5.6</span>.<span class="number">51</span><span class="literal">-log</span> MySQL Community Server (GPL)</span><br></pre></td></tr></table></figure>
 
-从搭建虚拟机环境，以及安装Redhat系列的centos7.5服务器，部署MySQL5.6环境。嘿嘿，测试使用虚拟机搭建美滋滋。当然你也可以花money，多建几台云服务器实现集群环境。
-
-正文
-MySQL主从复制实战
-
-主要使用到的环境说明
-
-
-数据库版本
-
-1
-2
-
-
-#使用centos7.3初始安装就可选择安装所需基本环境
-5.6.51-log MySQL Community Server (GPL)
-
-
-操作系统
-
-1
-
-
-linux for cento
+<p><strong>操作系统</strong></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/10/Linux%EF%BC%88Redhat7%E7%B3%BB%E5%88%97%EF%BC%89%E6%90%AD%E5%BB%BAMySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/#more" rel="contents">
@@ -714,18 +689,15 @@ linux for cento
     
     
     <div class="post-body" itemprop="articleBody">
-          Linux基本命令大全，Linux初学者如何快速入门，Linux命令学习方法？
-
-前言
-在这个只有cangls和小白两人的小房间中，展开了一次关于学习方法的讨论。
-
-小白：cangls啊，我想请教一个问题，您是如何记住那么多linux命令的。
-
-cangls：我啊，别人都看我的小电影，我也不知道啊！可能是举的例子多了，就记住了一些呗。
-
-此次写作灵感源于一本心理学方面的书籍，对话体的方式运用得当，确实很吸引人。
-
-灵魂拷问？新手如何学linux？如何从新手到熟手？如何玩转linux？linux大神如何掌握那么多命令？趣味学习linux，了解一下。基于实战演练，同时突出重点。2万5千字的长文，是
+          <p>Linux基本命令大全，Linux初学者如何快速入门，Linux命令学习方法？</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在这个只有cangls和小白两人的小房间中，展开了一次关于学习方法的讨论。</p>
+<p><strong>小白</strong>：cangls啊，我想请教一个问题，您是如何记住那么多linux命令的。</p>
+<p><strong>cangls</strong>：我啊，别人都看我的小电影，我也不知道啊！可能是举的例子多了，就记住了一些呗。</p>
+<p>此次写作灵感源于一本心理学方面的书籍，对话体的方式运用得当，确实很吸引人。</p>
+<p>灵魂拷问？新手如何学linux？如何从新手到熟手？如何玩转linux？linux大神如何掌握那么多命令？趣味学习linux，了解一下。基于实战演练，同时突出重点。2万5千字的长文，是否真材实料，不妨先收藏再评论。</p>
+<p>换个角度看待这个问题，<strong>linux大神都是从小白开始的，没有人一开始就是大神</strong>。</p>
+<p>只是别人<strong>运用的比较多</strong>，自然而然记住了更多的命令，<strong>从而更擅长总结学习方法</strong>。</p>
+<p>如果你是Linux运维人员，或者是刚入门的编程人员。根据自己的工作经历以及自学总结的内容，篇幅很长，加入了不少示例代码。但很详细哟！相信你一定有所收获的。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/07/%E5%88%9D%E5%AD%A6%E8%80%85%E5%A6%82%E4%BD%95%E5%85%A5%E9%97%A8linux%EF%BC%8C%E5%8E%9F%E6%9D%A5linux%E8%BF%98%E5%8F%AF%E4%BB%A5%E8%BF%99%E6%A0%B7%E5%AD%A6/#more" rel="contents">
@@ -838,16 +810,17 @@ cangls：我啊，别人都看我的小电影，我也不知道啊！可能是�
     
     
     <div class="post-body" itemprop="articleBody">
-          MySQL8.0.28详细安装教程。Windows10安装MariaDB与MySQL8.0同时共存，Linux发行版Redhat7系列安装MySQL8.0详细教程。Windows10下使用MSI文件安装MySQL8.0.28注意事项，多实例共存解决方法，MySQL官方示例库与文档地址。
-
-如果对你有帮助，我很荣幸。如果有误导你的地方，我表示抱歉。所有总结仅供参考。
-
-本文已收录至github仓库，有个人的Linux以及Windows方面的经验总结，持续更新中：
-
-https://github.com/cnwangk/wangk-stick
-
-前言
-MySQL8.0.28查看创建表语句：看到默认
+          <p><img data-src="https://img-blog.csdnimg.cn/166f81cb3e1c49d78670ad1280aa48cb.jpeg#pic_center" alt="在这里插入图片描述"></p>
+<p>﻿﻿﻿﻿MySQL8.0.28详细安装教程。Windows10安装MariaDB与MySQL8.0同时共存，Linux发行版Redhat7系列安装MySQL8.0详细教程。Windows10下使用MSI文件安装MySQL8.0.28注意事项，多实例共存解决方法，MySQL官方示例库与文档地址。</p>
+<p>如果对你有帮助，我很荣幸。如果有误导你的地方，我表示抱歉。所有总结仅供参考。</p>
+<p>本文已收录至github仓库，有个人的Linux以及Windows方面的经验总结，持续更新中：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/cnwangk/wangk-stick">https://github.com/cnwangk/wangk-stick</a></p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>MySQL8.0.28查看创建表语句</strong>：看到默认CHARSET&#x3D;utf8mb3。当时写这篇博客时，我以为是显示问题，没怎么在意，后来看了官网才知到。<br><img data-src="https://img-blog.csdnimg.cn/0affba846cb244d08733d15c8870556e.png#pic_center" alt="在这里插入图片描述"></p>
+<p>通过下面这个链接可以看到MySQL8.0.29做了哪些改进：<br><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-29.html#mysqld-8-0-29-bug">https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-29.html#mysqld-8-0-29-bug</a></p>
+<p><strong>MySQL8.0.28</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show create table t\G</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">       Table: t</span><br><span class="line">Create Table: CREATE TABLE `t` (</span><br><span class="line">  `i` int DEFAULT NULL</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3</span><br><span class="line">1 row <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/02/MySQL8-0-28%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E5%85%A8%E7%A8%8B%E5%8F%82%E8%80%83MySQL%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/#more" rel="contents">
