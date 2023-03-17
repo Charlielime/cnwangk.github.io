@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="关于软件实施工程师的面试题，我个人也总结了一些，仅供参考。需要对主流的数据库Oracle、MySQL、SQLserver以及国产数据库DM有所了解，并能够熟练部署使用。最好还能具备一些服务器方面的知识，windous和linux都应该具备，能玩转linux那绝对是加分项。  说实话，软件实施这个行业，目前不仅资料欠缺，人才缺口更大。之前从事Javaweb后端开发，后来转向了软件实施行业，深知这个行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【软件实施面试】软件实施面试题附带SQL联合查询图解">
-<meta property="og:url" content="https://cnwangk.github.io/2022/01/27/%E3%80%90%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E3%80%91%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E9%A2%98%E9%99%84%E5%B8%A6SQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E5%9B%BE%E8%A7%A3/index.html">
+<meta property="og:url" content="https://blog.cnwangk.top/2022/01/27/%E3%80%90%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E3%80%91%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E9%A2%98%E9%99%84%E5%B8%A6SQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E5%9B%BE%E8%A7%A3/index.html">
 <meta property="og:site_name" content="养得胸中一种恬静">
 <meta property="og:description" content="关于软件实施工程师的面试题，我个人也总结了一些，仅供参考。需要对主流的数据库Oracle、MySQL、SQLserver以及国产数据库DM有所了解，并能够熟练部署使用。最好还能具备一些服务器方面的知识，windous和linux都应该具备，能玩转linux那绝对是加分项。  说实话，软件实施这个行业，目前不仅资料欠缺，人才缺口更大。之前从事Javaweb后端开发，后来转向了软件实施行业，深知这个行">
 <meta property="og:locale" content="zh_CN">
@@ -75,11 +75,11 @@
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/a8eb4e995b34b1682cf3447c608e6237.png">
 
 
-<link rel="canonical" href="https://cnwangk.github.io/2022/01/27/%E3%80%90%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E3%80%91%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E9%A2%98%E9%99%84%E5%B8%A6SQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E5%9B%BE%E8%A7%A3/">
+<link rel="canonical" href="https://blog.cnwangk.top/2022/01/27/%E3%80%90%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E3%80%91%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E9%A2%98%E9%99%84%E5%B8%A6SQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E5%9B%BE%E8%A7%A3/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://cnwangk.github.io/2022/01/27/%E3%80%90%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E3%80%91%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E9%A2%98%E9%99%84%E5%B8%A6SQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E5%9B%BE%E8%A7%A3/","path":"2022/01/27/【软件实施面试】软件实施面试题附带SQL联合查询图解/","title":"【软件实施面试】软件实施面试题附带SQL联合查询图解"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.cnwangk.top/2022/01/27/%E3%80%90%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E3%80%91%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E9%A2%98%E9%99%84%E5%B8%A6SQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E5%9B%BE%E8%A7%A3/","path":"2022/01/27/【软件实施面试】软件实施面试题附带SQL联合查询图解/","title":"【软件实施面试】软件实施面试题附带SQL联合查询图解"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>【软件实施面试】软件实施面试题附带SQL联合查询图解 | 养得胸中一种恬静</title>
@@ -292,7 +292,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/01/27/%E3%80%90%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E3%80%91%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E9%A2%98%E9%99%84%E5%B8%A6SQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E5%9B%BE%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/01/27/%E3%80%90%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E3%80%91%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD%E9%9D%A2%E8%AF%95%E9%A2%98%E9%99%84%E5%B8%A6SQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E5%9B%BE%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">

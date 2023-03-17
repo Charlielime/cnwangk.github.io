@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="一入编程深似海，从此节操是路人。  最近使用podman，就想着写一篇总结性的笔记，以备后续参考。就如同写代码，不写注释，过了一段时间可能会想这是我写的吗？不会吧，还要理一下逻辑才能读懂，不利于后期维护。  感觉整体体验下来，镜像获取、容器创建、容器监控、容器移除，和docker差不多，感觉可以作为替代品。  什么是podman？  Podman is a utility provided as">
 <meta property="og:type" content="article">
 <meta property="og:title" content="podman入门实战">
-<meta property="og:url" content="https://cnwangk.github.io/2023/03/08/podman%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:url" content="https://blog.cnwangk.top/2023/03/08/podman%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/index.html">
 <meta property="og:site_name" content="养得胸中一种恬静">
 <meta property="og:description" content="一入编程深似海，从此节操是路人。  最近使用podman，就想着写一篇总结性的笔记，以备后续参考。就如同写代码，不写注释，过了一段时间可能会想这是我写的吗？不会吧，还要理一下逻辑才能读懂，不利于后期维护。  感觉整体体验下来，镜像获取、容器创建、容器监控、容器移除，和docker差不多，感觉可以作为替代品。  什么是podman？  Podman is a utility provided as">
 <meta property="og:locale" content="zh_CN">
@@ -41,11 +41,11 @@
 <meta name="twitter:image" content="https://s1.ax1x.com/2023/03/08/ppma2p6.png">
 
 
-<link rel="canonical" href="https://cnwangk.github.io/2023/03/08/podman%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/">
+<link rel="canonical" href="https://blog.cnwangk.top/2023/03/08/podman%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://cnwangk.github.io/2023/03/08/podman%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/","path":"2023/03/08/podman入门实战/","title":"podman入门实战"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.cnwangk.top/2023/03/08/podman%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/","path":"2023/03/08/podman入门实战/","title":"podman入门实战"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>podman入门实战 | 养得胸中一种恬静</title>
@@ -258,7 +258,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2023/03/08/podman%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/">
+    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2023/03/08/podman%E5%85%A5%E9%97%A8%E5%AE%9E%E6%88%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">

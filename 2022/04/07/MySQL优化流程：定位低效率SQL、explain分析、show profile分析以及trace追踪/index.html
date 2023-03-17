@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="MySQL优化流程SQL优化流程：show status查询SQL执行频率、explain分析、show profile分析和trace追踪。  MySQL优化流程——SQL优化流程。MySQL优化篇（基于MySQL8.0.28测试验证）。  只停留在看上面，提升效果甚微。应该带着思考去测试佐证，或者使用（同类书籍）新版本进行对比，这样带来的效果更好。最重要的一环，养成阅读官方文档，是一个良好的习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪">
-<meta property="og:url" content="https://cnwangk.github.io/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/index.html">
+<meta property="og:url" content="https://blog.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/index.html">
 <meta property="og:site_name" content="养得胸中一种恬静">
 <meta property="og:description" content="MySQL优化流程SQL优化流程：show status查询SQL执行频率、explain分析、show profile分析和trace追踪。  MySQL优化流程——SQL优化流程。MySQL优化篇（基于MySQL8.0.28测试验证）。  只停留在看上面，提升效果甚微。应该带着思考去测试佐证，或者使用（同类书籍）新版本进行对比，这样带来的效果更好。最重要的一环，养成阅读官方文档，是一个良好的习">
 <meta property="og:locale" content="zh_CN">
@@ -49,11 +49,11 @@
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/c31371bb6fe54667a734649308365ddd.png?x-oss-process=,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_18,color_FFFFFF,t_70,g_se,x_16#pic_center">
 
 
-<link rel="canonical" href="https://cnwangk.github.io/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/">
+<link rel="canonical" href="https://blog.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://cnwangk.github.io/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/","path":"2022/04/07/MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪/","title":"MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/","path":"2022/04/07/MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪/","title":"MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪 | 养得胸中一种恬静</title>
@@ -266,7 +266,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/">
+    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">

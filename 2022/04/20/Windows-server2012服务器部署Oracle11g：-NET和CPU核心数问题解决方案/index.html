@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cnwangk.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="主要以Windows server2012R2为主进行介绍，解决实际工作中遇到到的一些问题。比如服务器CPU核心数过高，导致Oracle数据库安装时卡在2%的情况。在Windows下，你安装VMware工具模拟使用Windows server达到熟悉的目的。   说句心里话，我真没想到过我会在Windows服务器上总结这么多。一分耕耘一分收获，但是血赚不亏。  正文 第一次接触Windows服务器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows_server2012服务器部署Oracle11g：.NET和CPU核心数问题解决方案">
-<meta property="og:url" content="https://cnwangk.github.io/2022/04/20/Windows-server2012%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2Oracle11g%EF%BC%9A-NET%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:url" content="https://blog.cnwangk.top/2022/04/20/Windows-server2012%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2Oracle11g%EF%BC%9A-NET%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="养得胸中一种恬静">
 <meta property="og:description" content="主要以Windows server2012R2为主进行介绍，解决实际工作中遇到到的一些问题。比如服务器CPU核心数过高，导致Oracle数据库安装时卡在2%的情况。在Windows下，你安装VMware工具模拟使用Windows server达到熟悉的目的。   说句心里话，我真没想到过我会在Windows服务器上总结这么多。一分耕耘一分收获，但是血赚不亏。  正文 第一次接触Windows服务器">
 <meta property="og:locale" content="zh_CN">
@@ -46,11 +46,11 @@
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/82425eb0cead43315f66a14bec3b6122.png">
 
 
-<link rel="canonical" href="https://cnwangk.github.io/2022/04/20/Windows-server2012%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2Oracle11g%EF%BC%9A-NET%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+<link rel="canonical" href="https://blog.cnwangk.top/2022/04/20/Windows-server2012%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2Oracle11g%EF%BC%9A-NET%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://cnwangk.github.io/2022/04/20/Windows-server2012%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2Oracle11g%EF%BC%9A-NET%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/","path":"2022/04/20/Windows-server2012服务器部署Oracle11g：-NET和CPU核心数问题解决方案/","title":"Windows_server2012服务器部署Oracle11g：.NET和CPU核心数问题解决方案"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.cnwangk.top/2022/04/20/Windows-server2012%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2Oracle11g%EF%BC%9A-NET%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/","path":"2022/04/20/Windows-server2012服务器部署Oracle11g：-NET和CPU核心数问题解决方案/","title":"Windows_server2012服务器部署Oracle11g：.NET和CPU核心数问题解决方案"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Windows_server2012服务器部署Oracle11g：.NET和CPU核心数问题解决方案 | 养得胸中一种恬静</title>
@@ -263,7 +263,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cnwangk.github.io/2022/04/20/Windows-server2012%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2Oracle11g%EF%BC%9A-NET%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/04/20/Windows-server2012%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2Oracle11g%EF%BC%9A-NET%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
