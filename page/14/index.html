@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"changyan":{"order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="莫问收获，但问耕耘。">
 <meta property="og:type" content="website">
@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-count">59</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -237,6 +237,145 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/" class="post-title-link" itemprop="url">Linux服务器使用firewalld和iptables</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-10T00:00:00+08:00">2022-02-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-20 19:03:43" itemprop="dateModified" datetime="2023-03-20T19:03:43+08:00">2023-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/iptables/" itemprop="url" rel="index"><span itemprop="name">iptables</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/firewall/" itemprop="url" rel="index"><span itemprop="name">firewall</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Linux服务器有必要开启iptables防火墙么？其实是使用iptables和firewalld工具进行管理，真正起作用的是Netfilter内核模块。</p>
+<p>iptables与firewalld防火墙管理工具在linux发行版Redhat7系列使用较为广泛。<br>UFW则是在linux发行版Ubuntu下进行管理防火墙的一款管理工具。</p>
+<p>在选用防火墙工具的时候，运维或者是开发人员往往会纠结使用哪个。这里给出建议，使用iptables工具管理就禁用firewalld，使用firewalld工具管理就禁用iptables，二者选其一即可，避免产生混乱。</p>
+<p>此篇文章不会在原理上做深究，主要以实用性为主，原理可以阅读相关书籍慢慢品味。<br>@[toc]</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、Netfilter内核模块"><a href="#一、Netfilter内核模块" class="headerlink" title="一、Netfilter内核模块"></a>一、Netfilter内核模块</h2><p>无论是使用<code>iptables</code>还是<code>firewalld</code>，不妨先了解一下<strong>Netfilter内核模块</strong><br><strong>什么是Netfilter</strong>：linux操作系统核心层内部的一个数据包处理模块。<br><strong>Hook point</strong>：数据包在Netfilter中的挂载点。（PRE_ROUTING INPUT OUTPUT FORWORD POST_ROUTING）</p>
+<h3 id="1、netfilter的体系结构"><a href="#1、netfilter的体系结构" class="headerlink" title="1、netfilter的体系结构"></a>1、netfilter的体系结构</h3><p>网络数据包的的统信主要通过以下相关步骤，对应netfilter定义的钩子函数，具体可以参考源码介绍。</p>
+<ul>
+<li><p><strong>NF_IP_PRE_ROUTING</strong>：</p>
+<p>网络数据包进入系统，经过简单检测后，数据包转交给改函数进行处理，然后根据系统设置的规则对数据包进行处理，如果数据包不被丢弃则交给路由函数进行处理。<strong>在该函数中可以替换IP包的目的地址，及DNAT</strong>。</p>
+</li>
+<li><p>NF_IP_LOCAL_IN：</p>
+<p>所有发送给本机的数据包都要通过该函数进行处理，该函数根据系统设置的系统规则对数据包进行处理，如果数据包不被丢弃则交给本地的应用程序。</p>
+</li>
+<li><p>NF_IP_FORWARD：</p>
+<p>所有不是发送给本机的数据包都要通过该函数进行处理，该函数会根据系统设置的规则对数据包进行处理，如数据包不被丢弃则转给NF_IP_POST_ROUTING处理。</p>
+</li>
+<li><p>NF_IP_LOCAL_OUT：</p>
+<p>所有从本地应用程序出来的数据包必须通过该函数进行处理，该函数会根据系统设置的规则对数据包进行处理，如数据包不被丢弃则交给路由函数进行处理。</p>
+</li>
+<li><p><strong>NF_IP_POST_ROUTING</strong>：</p>
+<p>所有数据包在发送给其它主机之前需要通过该函数进行处理，该函数会根据系统设置的规则对数据包进行处理，如数据包不被丢弃，将数据包发给数据链路层。<strong>在该函数中可以替换IP包的源地址，即SNAT</strong>。</p>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -732,126 +871,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/02/10/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E7%AE%A1%E7%90%86redis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/10/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E7%AE%A1%E7%90%86redis/" class="post-title-link" itemprop="url">如何优雅的管理redis</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-10T00:00:00+08:00">2022-02-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:07:19" itemprop="dateModified" datetime="2023-03-20T18:07:19+08:00">2023-03-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NOSQL/" itemprop="url" rel="index"><span itemprop="name">NOSQL</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NOSQL/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.9k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>11 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>如何给Redis设置密码，以防止其它未经授权的客户端进行连接呢？怎么知道哪些命令执行的比较慢呢？</p>
-<p>本文将带你熟悉Redis管理方面的知识，包含安全和通信协议等等内容。<br>与此同时，还会介与之紧密相关的第三方管理工具。</p>
-<p>上一篇博客《<a target="_blank" rel="noopener" href="https://blog.csdn.net/Tolove_dream/article/details/122373433">Redis真的又小又快又持久吗</a>》，其实只能作入门指南来看，并没有多少深度，但是对于面试有不少帮助的。标题有噱头才会引起更多爱好者多Redis的探索，进一步走进Redis这个五彩斑斓的世界，进阶知识只有深入学习才能更快掌握。<br><img data-src="https://img-blog.csdnimg.cn/img_convert/436293c527de9e67229f219aa0531e82.png"></p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>本文将带你熟悉Redis管理方面的知识，包含安全和通信协议等等内容。<br>与此同时，还会介与之紧密相关的第三方管理工具。</p>
-<h2 id="一、安全"><a href="#一、安全" class="headerlink" title="一、安全"></a>一、安全</h2><p>谈到安全，我们会联想到些什么？<br>比如，可信任的环境会给我们带来安全感，陌生的环境则会让你感到未知的恐惧和孤独。<br>再比如，国产化替代信创项目（安可替代），这里我简称为国创项目，就是要达到信任、安全可靠以及自主可控的的目的。</p>
-<p>上面谈了这么多（瞎扯了很多，我黔驴尽穷了），只是为了提升我们的安全意识。</p>
-<p>Redis以简洁为美，创始人曾这么描述过。但同样在安全层面也没做过多的工作。</p>
-<p>这里补充一点，上次没有讲到如何<strong>优雅的关闭Redis服务</strong>。虽然可以杀掉进程来控制，但推荐使用如下方式关闭：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/10/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E7%AE%A1%E7%90%86redis/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -877,14 +896,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">212k</span>
+    <span title="站点总字数">213k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:52</span>
+    <span title="站点阅读时长">12:54</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -968,6 +987,8 @@ const darkmode = new Darkmode(options);
 window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvYahXgE","appkey":"e8a1b5a07c194290dcb3394f450e7fba"}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
 
 </body>
 </html>
