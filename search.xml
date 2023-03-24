@@ -500,7 +500,7 @@
 </ul>
 <h3 id="2、前世今生"><a href="#2、前世今生" class="headerlink" title="2、前世今生"></a>2、前世今生</h3><ul>
 <li><p>作者</p>
-<p>Timo Rinne <a href="mailto:&#116;&#x72;&#105;&#64;&#x69;&#107;&#105;&#46;&#102;&#105;">&#116;&#x72;&#105;&#64;&#x69;&#107;&#105;&#46;&#102;&#105;</a> 和 Tatu Ylonen <a href="mailto:&#121;&#x6c;&#111;&#64;&#99;&#x73;&#x2e;&#x68;&#117;&#116;&#x2e;&#102;&#x69;">&#121;&#x6c;&#111;&#64;&#99;&#x73;&#x2e;&#x68;&#117;&#116;&#x2e;&#102;&#x69;</a></p>
+<p>Timo Rinne <a href="mailto:&#x74;&#114;&#105;&#x40;&#105;&#107;&#x69;&#46;&#x66;&#105;">&#x74;&#114;&#105;&#x40;&#105;&#107;&#x69;&#46;&#x66;&#105;</a> 和 Tatu Ylonen <a href="mailto:&#x79;&#x6c;&#111;&#x40;&#x63;&#x73;&#x2e;&#104;&#x75;&#x74;&#46;&#x66;&#105;">&#x79;&#x6c;&#111;&#x40;&#x63;&#x73;&#x2e;&#104;&#x75;&#x74;&#46;&#x66;&#105;</a></p>
 </li>
 <li><p>起源</p>
 <p>scp 基于University of California BSD 的 rcp(1) 源代码</p>
@@ -2324,6 +2324,147 @@
       </tags>
   </entry>
   <entry>
+    <title>MySQL等主流数据库厂商（DBMS）--官方文档地址</title>
+    <url>/2022/03/17/MySQL%E7%AD%89%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%82%E5%95%86%EF%BC%88DBMS%EF%BC%89-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E5%9C%B0%E5%9D%80/</url>
+    <content><![CDATA[<p>介绍各种主流数据库（DBMS）厂商官方文档地址，便于下载参考。</p>
+<p>源于今晚在自己仓库看到的一则Issues，便整理了一些。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/78a357af4ff5ceec25c5730626de20aa.png"></p>
+<p>主要介绍：</p>
+<ol>
+<li>MySQL or MariaDB</li>
+<li>Oracle</li>
+<li>SQL server</li>
+<li>达梦数据库</li>
+<li>PostgreSQL</li>
+<li>SQLite</li>
+</ol>
+<h2 id="一MySQL（MariaDB）官方文档"><a href="#一MySQL（MariaDB）官方文档" class="headerlink" title="一	MySQL（MariaDB）官方文档"></a>一	MySQL（MariaDB）官方文档</h2><p>左侧导航栏有个Download this Manual：MySQL文档下载地址</p>
+<h3 id="01MySQL8-0"><a href="#01MySQL8-0" class="headerlink" title="01	MySQL8.0"></a>01	MySQL8.0</h3><p>1.1. MySQL8.0在线文档</p>
+<blockquote>
+<p><a href="https://dev.mysql.com/doc/refman/8.0/en">https://dev.mysql.com/doc/refman/8.0/en</a></p>
+</blockquote>
+<p>1.2. MySQL8.0文档PDF文件下载地址</p>
+<blockquote>
+<p><a href="https://downloads.mysql.com/docs/refman-8.0-en.a4.pdf">https://downloads.mysql.com/docs/refman-8.0-en.a4.pdf</a></p>
+</blockquote>
+<h3 id="02MySQL5-7"><a href="#02MySQL5-7" class="headerlink" title="02	MySQL5.7"></a>02	MySQL5.7</h3><p> 2.1. MySQL5.7在线文档</p>
+<blockquote>
+<p><a href="https://dev.mysql.com/doc/refman/5.7/en/">https://dev.mysql.com/doc/refman/5.7/en/</a></p>
+</blockquote>
+<p>2.2. MySQL5.7文档PDF文件下载地址</p>
+<blockquote>
+<p><a href="https://downloads.mysql.com/docs/refman-5.7-en.a4.pdf">https://downloads.mysql.com/docs/refman-5.7-en.a4.pdf</a></p>
+</blockquote>
+<h3 id="03MySQL5-6"><a href="#03MySQL5-6" class="headerlink" title="03	MySQL5.6"></a>03	MySQL5.6</h3><p>3.1. MySQL5.6在线文档</p>
+<blockquote>
+<p><a href="https://dev.mysql.com/doc/refman/5.6/en/">https://dev.mysql.com/doc/refman/5.6/en/</a></p>
+</blockquote>
+<p>3.2. MySQL5.6文档PDF文件下载地址</p>
+<blockquote>
+<p><a href="https://downloads.mysql.com/docs/refman-5.6-en.a4.pdf">https://downloads.mysql.com/docs/refman-5.6-en.a4.pdf</a></p>
+</blockquote>
+<h3 id="04MariaDB官方文档地址"><a href="#04MariaDB官方文档地址" class="headerlink" title="04	MariaDB官方文档地址"></a>04	MariaDB官方文档地址</h3><p>4.1. MariaDB官方文档地址</p>
+<blockquote>
+<p><a href="https://mariadb.com/docs/">https://mariadb.com/docs/</a></p>
+</blockquote>
+<p>4.2. MariaDB reference</p>
+<blockquote>
+<p><a href="https://mariadb.com/docs/reference">https://mariadb.com/docs/reference</a></p>
+</blockquote>
+<h2 id="二Oracle官方文档"><a href="#二Oracle官方文档" class="headerlink" title="二	Oracle官方文档"></a>二	Oracle官方文档</h2><h3 id="01Oracle11g"><a href="#01Oracle11g" class="headerlink" title="01	Oracle11g"></a>01	Oracle11g</h3><p>1.1. 文档首页（分类）</p>
+<blockquote>
+<p><a href="https://docs.oracle.com/cd/E11882_01/index.htm">https://docs.oracle.com/cd/E11882_01&#x2F;index.htm</a><br>1.2. 文档列表（主要下载reference）</p>
+</blockquote>
+<blockquote>
+<p><a href="https://docs.oracle.com/cd/E11882_01/nav/portal_booklist.htm">https://docs.oracle.com/cd/E11882_01&#x2F;nav&#x2F;portal_booklist.htm</a></p>
+</blockquote>
+<h3 id="02Oracle19c"><a href="#02Oracle19c" class="headerlink" title="02	Oracle19c"></a>02	Oracle19c</h3><p>2.1. 文档首页（分类）</p>
+<blockquote>
+<p><a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/index.html">https://docs.oracle.com/en/database/oracle/oracle-database/19/index.html</a></p>
+</blockquote>
+<p>2.2. 文档列表</p>
+<blockquote>
+<p><a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/books.html">https://docs.oracle.com/en/database/oracle/oracle-database/19/books.html</a></p>
+</blockquote>
+<h2 id="三SQL-Server官方文档"><a href="#三SQL-Server官方文档" class="headerlink" title="三	SQL Server官方文档"></a>三	SQL Server官方文档</h2><p>SQL server有三个版本：</p>
+<ol>
+<li><p>付费版，商（企）业版。</p>
+</li>
+<li><p>Developer：Developer开发版，是一个全功能免费版本，许可在非生产环境下用作开发和测试数据库。</p>
+</li>
+<li><p>Express：Express 是 SQL Server 的一个免费版本，非常适合用于桌面、Web 和小型服务器应用程序的开发和生产。</p>
+</li>
+</ol>
+<p><strong>tips</strong>：将en-us换成zh-cn即可看到中文文档</p>
+<p><strong>SQL server文档首页</strong></p>
+<blockquote>
+<p><a href="https://docs.microsoft.com/en-us/sql/?view=sql-server-ver15">https://docs.microsoft.com/en-us/sql/?view=sql-server-ver15</a></p>
+</blockquote>
+<p><strong>SQL server历史版本文档</strong></p>
+<blockquote>
+<p><a href="https://docs.microsoft.com/en-us/previous-versions/sql/">https://docs.microsoft.com/en-us/previous-versions/sql/</a></p>
+</blockquote>
+<h2 id="四达梦数据库官方文档"><a href="#四达梦数据库官方文档" class="headerlink" title="四	达梦数据库官方文档"></a>四	达梦数据库官方文档</h2><p>下载数据库和docs需要注册登录。</p>
+<p>安装达梦数据库后，在doc目录下存放着非常全面的最新版数据库文档。</p>
+<ol>
+<li>DM8数据库</li>
+</ol>
+<blockquote>
+<p> <a href="https://www.dameng.com/view_61.html">https://www.dameng.com/view_61.html</a></p>
+</blockquote>
+<ol start="2">
+<li>DM8产品手册地址</li>
+</ol>
+<blockquote>
+<p><a href="https://eco.dameng.com/docs/zh-cn/pm/index.html?source_url=https://www.dameng.com/list_103.html">https://eco.dameng.com/docs/zh-cn/pm/index.html?source_url&#x3D;https://www.dameng.com/list_103.html</a></p>
+</blockquote>
+<h2 id="五PostgreSQL官方文档"><a href="#五PostgreSQL官方文档" class="headerlink" title="五	PostgreSQL官方文档"></a>五	PostgreSQL官方文档</h2><p>PostgreSQL进入文档默认显示有10、11、12、13、14这五个版本。</p>
+<p>其余历史版本找一下Manual archive。</p>
+<ol>
+<li>PostgreSQL文档地址</li>
+</ol>
+<blockquote>
+<p><a href="https://www.postgresql.org/docs/">https://www.postgresql.org/docs/</a></p>
+</blockquote>
+<ol start="2">
+<li>最新版本14的PDF下载地址</li>
+</ol>
+<blockquote>
+<p><a href="https://www.postgresql.org/files/documentation/pdf/14/postgresql-14-A4.pdf">https://www.postgresql.org/files/documentation/pdf/14/postgresql-14-A4.pdf</a></p>
+</blockquote>
+<ol start="3">
+<li>books地址</li>
+</ol>
+<blockquote>
+<p><a href="https://www.postgresql.org/docs/books/">https://www.postgresql.org/docs/books/</a></p>
+</blockquote>
+<h2 id="六SQLite官方文档"><a href="#六SQLite官方文档" class="headerlink" title="六	SQLite官方文档"></a>六	SQLite官方文档</h2><ol>
+<li>SQLite官方文档地址</li>
+</ol>
+<blockquote>
+<p><a href="https://www.sqlite.org/docs.html">https://www.sqlite.org/docs.html</a></p>
+</blockquote>
+<ol start="2">
+<li>SQLite文档列表</li>
+</ol>
+<blockquote>
+<p><a href="https://www.sqlite.org/doclist.html">https://www.sqlite.org/doclist.html</a></p>
+</blockquote>
+<ol start="3">
+<li>数据库下载地址</li>
+</ol>
+<blockquote>
+<p><a href="https://www.sqlite.org/docs.html">https://www.sqlite.org/docs.html</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL连接工具篇——workbench</title>
     <url>/2022/02/14/MySQL%E8%BF%9E%E6%8E%A5%E5%B7%A5%E5%85%B7%E7%AF%87%E2%80%94%E2%80%94workbench/</url>
     <content><![CDATA[<p>MySQL工具篇介绍——workbench。</p>
@@ -2561,147 +2702,6 @@
       </categories>
       <tags>
         <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL等主流数据库厂商（DBMS）--官方文档地址</title>
-    <url>/2022/03/17/MySQL%E7%AD%89%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%82%E5%95%86%EF%BC%88DBMS%EF%BC%89-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E5%9C%B0%E5%9D%80/</url>
-    <content><![CDATA[<p>介绍各种主流数据库（DBMS）厂商官方文档地址，便于下载参考。</p>
-<p>源于今晚在自己仓库看到的一则Issues，便整理了一些。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/78a357af4ff5ceec25c5730626de20aa.png"></p>
-<p>主要介绍：</p>
-<ol>
-<li>MySQL or MariaDB</li>
-<li>Oracle</li>
-<li>SQL server</li>
-<li>达梦数据库</li>
-<li>PostgreSQL</li>
-<li>SQLite</li>
-</ol>
-<h2 id="一MySQL（MariaDB）官方文档"><a href="#一MySQL（MariaDB）官方文档" class="headerlink" title="一	MySQL（MariaDB）官方文档"></a>一	MySQL（MariaDB）官方文档</h2><p>左侧导航栏有个Download this Manual：MySQL文档下载地址</p>
-<h3 id="01MySQL8-0"><a href="#01MySQL8-0" class="headerlink" title="01	MySQL8.0"></a>01	MySQL8.0</h3><p>1.1. MySQL8.0在线文档</p>
-<blockquote>
-<p><a href="https://dev.mysql.com/doc/refman/8.0/en">https://dev.mysql.com/doc/refman/8.0/en</a></p>
-</blockquote>
-<p>1.2. MySQL8.0文档PDF文件下载地址</p>
-<blockquote>
-<p><a href="https://downloads.mysql.com/docs/refman-8.0-en.a4.pdf">https://downloads.mysql.com/docs/refman-8.0-en.a4.pdf</a></p>
-</blockquote>
-<h3 id="02MySQL5-7"><a href="#02MySQL5-7" class="headerlink" title="02	MySQL5.7"></a>02	MySQL5.7</h3><p> 2.1. MySQL5.7在线文档</p>
-<blockquote>
-<p><a href="https://dev.mysql.com/doc/refman/5.7/en/">https://dev.mysql.com/doc/refman/5.7/en/</a></p>
-</blockquote>
-<p>2.2. MySQL5.7文档PDF文件下载地址</p>
-<blockquote>
-<p><a href="https://downloads.mysql.com/docs/refman-5.7-en.a4.pdf">https://downloads.mysql.com/docs/refman-5.7-en.a4.pdf</a></p>
-</blockquote>
-<h3 id="03MySQL5-6"><a href="#03MySQL5-6" class="headerlink" title="03	MySQL5.6"></a>03	MySQL5.6</h3><p>3.1. MySQL5.6在线文档</p>
-<blockquote>
-<p><a href="https://dev.mysql.com/doc/refman/5.6/en/">https://dev.mysql.com/doc/refman/5.6/en/</a></p>
-</blockquote>
-<p>3.2. MySQL5.6文档PDF文件下载地址</p>
-<blockquote>
-<p><a href="https://downloads.mysql.com/docs/refman-5.6-en.a4.pdf">https://downloads.mysql.com/docs/refman-5.6-en.a4.pdf</a></p>
-</blockquote>
-<h3 id="04MariaDB官方文档地址"><a href="#04MariaDB官方文档地址" class="headerlink" title="04	MariaDB官方文档地址"></a>04	MariaDB官方文档地址</h3><p>4.1. MariaDB官方文档地址</p>
-<blockquote>
-<p><a href="https://mariadb.com/docs/">https://mariadb.com/docs/</a></p>
-</blockquote>
-<p>4.2. MariaDB reference</p>
-<blockquote>
-<p><a href="https://mariadb.com/docs/reference">https://mariadb.com/docs/reference</a></p>
-</blockquote>
-<h2 id="二Oracle官方文档"><a href="#二Oracle官方文档" class="headerlink" title="二	Oracle官方文档"></a>二	Oracle官方文档</h2><h3 id="01Oracle11g"><a href="#01Oracle11g" class="headerlink" title="01	Oracle11g"></a>01	Oracle11g</h3><p>1.1. 文档首页（分类）</p>
-<blockquote>
-<p><a href="https://docs.oracle.com/cd/E11882_01/index.htm">https://docs.oracle.com/cd/E11882_01&#x2F;index.htm</a><br>1.2. 文档列表（主要下载reference）</p>
-</blockquote>
-<blockquote>
-<p><a href="https://docs.oracle.com/cd/E11882_01/nav/portal_booklist.htm">https://docs.oracle.com/cd/E11882_01&#x2F;nav&#x2F;portal_booklist.htm</a></p>
-</blockquote>
-<h3 id="02Oracle19c"><a href="#02Oracle19c" class="headerlink" title="02	Oracle19c"></a>02	Oracle19c</h3><p>2.1. 文档首页（分类）</p>
-<blockquote>
-<p><a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/index.html">https://docs.oracle.com/en/database/oracle/oracle-database/19/index.html</a></p>
-</blockquote>
-<p>2.2. 文档列表</p>
-<blockquote>
-<p><a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/books.html">https://docs.oracle.com/en/database/oracle/oracle-database/19/books.html</a></p>
-</blockquote>
-<h2 id="三SQL-Server官方文档"><a href="#三SQL-Server官方文档" class="headerlink" title="三	SQL Server官方文档"></a>三	SQL Server官方文档</h2><p>SQL server有三个版本：</p>
-<ol>
-<li><p>付费版，商（企）业版。</p>
-</li>
-<li><p>Developer：Developer开发版，是一个全功能免费版本，许可在非生产环境下用作开发和测试数据库。</p>
-</li>
-<li><p>Express：Express 是 SQL Server 的一个免费版本，非常适合用于桌面、Web 和小型服务器应用程序的开发和生产。</p>
-</li>
-</ol>
-<p><strong>tips</strong>：将en-us换成zh-cn即可看到中文文档</p>
-<p><strong>SQL server文档首页</strong></p>
-<blockquote>
-<p><a href="https://docs.microsoft.com/en-us/sql/?view=sql-server-ver15">https://docs.microsoft.com/en-us/sql/?view=sql-server-ver15</a></p>
-</blockquote>
-<p><strong>SQL server历史版本文档</strong></p>
-<blockquote>
-<p><a href="https://docs.microsoft.com/en-us/previous-versions/sql/">https://docs.microsoft.com/en-us/previous-versions/sql/</a></p>
-</blockquote>
-<h2 id="四达梦数据库官方文档"><a href="#四达梦数据库官方文档" class="headerlink" title="四	达梦数据库官方文档"></a>四	达梦数据库官方文档</h2><p>下载数据库和docs需要注册登录。</p>
-<p>安装达梦数据库后，在doc目录下存放着非常全面的最新版数据库文档。</p>
-<ol>
-<li>DM8数据库</li>
-</ol>
-<blockquote>
-<p> <a href="https://www.dameng.com/view_61.html">https://www.dameng.com/view_61.html</a></p>
-</blockquote>
-<ol start="2">
-<li>DM8产品手册地址</li>
-</ol>
-<blockquote>
-<p><a href="https://eco.dameng.com/docs/zh-cn/pm/index.html?source_url=https://www.dameng.com/list_103.html">https://eco.dameng.com/docs/zh-cn/pm/index.html?source_url&#x3D;https://www.dameng.com/list_103.html</a></p>
-</blockquote>
-<h2 id="五PostgreSQL官方文档"><a href="#五PostgreSQL官方文档" class="headerlink" title="五	PostgreSQL官方文档"></a>五	PostgreSQL官方文档</h2><p>PostgreSQL进入文档默认显示有10、11、12、13、14这五个版本。</p>
-<p>其余历史版本找一下Manual archive。</p>
-<ol>
-<li>PostgreSQL文档地址</li>
-</ol>
-<blockquote>
-<p><a href="https://www.postgresql.org/docs/">https://www.postgresql.org/docs/</a></p>
-</blockquote>
-<ol start="2">
-<li>最新版本14的PDF下载地址</li>
-</ol>
-<blockquote>
-<p><a href="https://www.postgresql.org/files/documentation/pdf/14/postgresql-14-A4.pdf">https://www.postgresql.org/files/documentation/pdf/14/postgresql-14-A4.pdf</a></p>
-</blockquote>
-<ol start="3">
-<li>books地址</li>
-</ol>
-<blockquote>
-<p><a href="https://www.postgresql.org/docs/books/">https://www.postgresql.org/docs/books/</a></p>
-</blockquote>
-<h2 id="六SQLite官方文档"><a href="#六SQLite官方文档" class="headerlink" title="六	SQLite官方文档"></a>六	SQLite官方文档</h2><ol>
-<li>SQLite官方文档地址</li>
-</ol>
-<blockquote>
-<p><a href="https://www.sqlite.org/docs.html">https://www.sqlite.org/docs.html</a></p>
-</blockquote>
-<ol start="2">
-<li>SQLite文档列表</li>
-</ol>
-<blockquote>
-<p><a href="https://www.sqlite.org/doclist.html">https://www.sqlite.org/doclist.html</a></p>
-</blockquote>
-<ol start="3">
-<li>数据库下载地址</li>
-</ol>
-<blockquote>
-<p><a href="https://www.sqlite.org/docs.html">https://www.sqlite.org/docs.html</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -3600,7 +3600,7 @@
 <p><strong>主题所在目录</strong>：themes</p>
 <p><strong>获取Next主题</strong>：使用git clone或者直接下载</p>
 <blockquote>
-<p>git clone <a href="mailto:&#103;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#103;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>:next-theme&#x2F;hexo-theme-next.git</p>
+<p>git clone <a href="mailto:&#x67;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#x2e;&#99;&#111;&#109;">&#x67;&#105;&#x74;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#x2e;&#99;&#111;&#109;</a>:next-theme&#x2F;hexo-theme-next.git</p>
 <p><a href="https://github.com/next-theme/hexo-theme-next/archive/refs/heads/master.zip">https://github.com/next-theme/hexo-theme-next/archive/refs/heads/master.zip</a></p>
 </blockquote>
 <p>下载后复制到themes目录，然后<strong>修改hexo配置文件</strong>_config.yml：</p>
@@ -3701,6 +3701,185 @@
       </tags>
   </entry>
   <entry>
+    <title>Windows与Linux安装JDK17</title>
+    <url>/2022/02/27/Windows%E4%B8%8ELinux%E5%AE%89%E8%A3%85JDK17/</url>
+    <content><![CDATA[<p>JDK最新版JDK17下载与安装；Windows版本与Linux（Redhat7系列安装配置JDK17），在Windows平台下Eclipse IDE配置JDK17。历史版本需要注册账号登录才能下载，真的太骚了，看着那个锁标志是锁住的。</p>
+<p>前段时间，在某平台看到有人吐槽CSDN下载JDK17还需要付费。官方免费提供下载，CSDN欺负萌新不懂吗？</p>
+<p>顺带一提目前使用比较广泛的两个JDK版本JDK8和JDK11最新版，需要登录账号才能下载哟：</p>
+<ol>
+<li>JDK8最新版本：JDK8u321。</li>
+<li>JDK11最新版本：JDK11.0.14。</li>
+</ol>
+<p>@[toc]</p>
+<h1 id="BEGIN-JDK17下载与安装"><a href="#BEGIN-JDK17下载与安装" class="headerlink" title="BEGIN JDK17下载与安装"></a>BEGIN JDK17下载与安装</h1><h2 id="一、JDK17下载地址"><a href="#一、JDK17下载地址" class="headerlink" title="一、JDK17下载地址"></a>一、JDK17下载地址</h2><p>JDK官网提供三大平台下载地址：</p>
+<ol>
+<li>Linux版本JDK下载地址（ARM64和x64）。</li>
+<li>macOS版本JDK下载地址（ARM64和x64）。</li>
+<li>Windows版本JDK下载地址（x64）。</li>
+</ol>
+<h3 id="01-Windows版本JDK17"><a href="#01-Windows版本JDK17" class="headerlink" title="01 Windows版本JDK17"></a>01 Windows版本JDK17</h3><blockquote>
+<p><a href="https://www.oracle.com/java/technologies/downloads/#jdk17-windows">https://www.oracle.com/java/technologies/downloads/#jdk17-windows</a></p>
+</blockquote>
+<ol>
+<li>Compressed Archive：被压缩的归档包文件，其实是JDK归档压缩包，需要手动安装JRE。</li>
+<li>x64 installer：x64架构exe安装包文件。</li>
+<li>x64 msi installer：x64架构msi安装包文件。</li>
+</ol>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/d94f4c4cc7463d16ef2b996f4c14f567.png"></p>
+<p><strong>Windows版本zip压缩包JDK17.0.2下载地址</strong>：</p>
+<blockquote>
+<p><a href="https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.zip">https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.zip</a></p>
+</blockquote>
+<p>Windows版本x64安装包exe文件安装包文件JDK17下载地址：</p>
+<blockquote>
+<p><a href="https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe">https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe</a></p>
+</blockquote>
+<p>Windows版本x64安装包msi安装包文件JDK17下载地址：</p>
+<blockquote>
+<p><a href="https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.msi">https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.msi</a></p>
+</blockquote>
+<h3 id="02-Linux版本JDK17"><a href="#02-Linux版本JDK17" class="headerlink" title="02 Linux版本JDK17"></a>02 Linux版本JDK17</h3><p>Linux版JDK17.0.2下载：分为ARM64和x64架构</p>
+<ol>
+<li>ARM64 Compressed Archive：被压缩的归档包文件，其实是JDK归档压缩包。</li>
+<li>ARM64 RPM Packages：ARM64架构rpm包。</li>
+<li><strong>x64 Compressed Archive</strong>：被压缩的归档包文件，其实是JDK归档压缩包，编译后的二进制包。</li>
+<li>x64 Debian Packages：x64架构deb包，在某版本之后同样适用于Ubuntu系列、中标麒麟以及银河麒麟。</li>
+<li>x64 RPM Packages：x64架构rpm包。</li>
+</ol>
+<blockquote>
+<p><a href="https://www.oracle.com/java/technologies/downloads/#jdk17-linux">https://www.oracle.com/java/technologies/downloads/#jdk17-linux</a></p>
+</blockquote>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/1e54cdae9e37be028d8526de78baecdd.png"></p>
+<p>JDK源码包下载地址：</p>
+<blockquote>
+<p><a href="https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz">https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz</a></p>
+</blockquote>
+<h3 id="03-MacOS版本JDK17"><a href="#03-MacOS版本JDK17" class="headerlink" title="03 MacOS版本JDK17"></a>03 MacOS版本JDK17</h3><p>MAC版本JDK17下载地址：</p>
+<blockquote>
+<p><a href="https://www.oracle.com/java/technologies/downloads/#jdk17-mac">https://www.oracle.com/java/technologies/downloads/#jdk17-mac</a></p>
+</blockquote>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/3a7e6ab587c3c985eb2cfb96a30d32ce.png"></p>
+<h2 id="二、Windows安装JDK17（Archive）"><a href="#二、Windows安装JDK17（Archive）" class="headerlink" title="二、Windows安装JDK17（Archive）"></a>二、Windows安装JDK17（Archive）</h2><p>介绍zip包的使用，不用点那个烦人的下一步下一步，比较自由，得自己控制。</p>
+<p><strong>注意</strong>：有可能存在配置环境变量后没有及时生效，重启就好了。</p>
+<h3 id="01-zip包JDK手动安装JRE"><a href="#01-zip包JDK手动安装JRE" class="headerlink" title="01 zip包JDK手动安装JRE"></a>01 zip包JDK手动安装JRE</h3><p>当然我自己也做了测试，对于<code>jdk12</code>、<code>jdk14</code>、<code>jdk17</code>都适用。其它版本，没测试过。</p>
+<ol>
+<li>切换至jdk解压目录：D:\work\JavaEE\jdk17.0.2</li>
+<li>查看当前JDK版本，切换至jdk17.0.2\bin目录执行：<code>java -version</code>，看下面代码示例就很清晰。</li>
+<li>执行命令：bin\jlink.exe –module-path jmods –add-modules java.desktop –output jre，<strong>注意我执行命令的目录</strong>。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> D:\work\JavaEE\jdk17.0.2\bin</span><br><span class="line"><span class="comment">#1.查看jdk版本</span></span><br><span class="line">java -version</span><br><span class="line">java version <span class="string">&quot;17.0.2&quot;</span> 2022-01-18 LTS</span><br><span class="line">Java(TM) SE Runtime Environment (build 17.0.2+8-LTS-86)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)</span><br><span class="line"><span class="comment">#2.生成jre,注意我执行命令的目录</span></span><br><span class="line">D:\work\JavaEE\jdk17.0.2&gt;bin\jlink.exe --module-path jmods --add-modules java.desktop --output jre</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="02-Eclipse-IDE添加JDK17"><a href="#02-Eclipse-IDE添加JDK17" class="headerlink" title="02 Eclipse IDE添加JDK17"></a>02 Eclipse IDE添加JDK17</h3><ol>
+<li>找到Eclipse IDE状态栏的Windows选项。</li>
+<li>点击Windows然后打开Preferences。</li>
+<li>搜索<code>jres</code>，选中<code>Installed JREs</code>，点击右侧add添加JDK17。</li>
+<li>添加完JDK选apply and close：应用并退出。</li>
+</ol>
+<p>Eclipse IDE添加JDK17第一步：<strong>选择Add添加</strong></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/46b3699e169fe1969bbb836c9623ea65.png"></p>
+<p>Eclipse IDE添加JDK17第二步：<strong>选择VM点击next进行下一步</strong></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/635f7e2f692034c543bd8959a98b44d5.png"></p>
+<p>Eclipse IDE添加JDK17第三步：<strong>选择Directory添加JDK安装目录，然后点击finish完成</strong>。</p>
+<p> <img data-src="https://img-blog.csdnimg.cn/img_convert/742e118c4bd9868301426dce8a6fc3c2.png"></p>
+<p><strong>完成添加JDK17，点击apply and close应用并提出当前窗口</strong>：</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/9ba43cb7f475baced5318fdc9d1fd3a5.png"></p>
+<h3 id="03-Windows下配置JDK环境变量"><a href="#03-Windows下配置JDK环境变量" class="headerlink" title="03 Windows下配置JDK环境变量"></a>03 Windows下配置JDK环境变量</h3><p>根据自己需求来，为了方便，建议配置一个经常使用的版本作为当前用户或者全局环境变量。</p>
+<p>在实际工作中，我可以有多种方式去给自己测试的web应用配置JDK，一般情况是<strong>startup.bat或者catalina.bat</strong>文件中指定，<strong>比如tomcat中指定JDK目录</strong>，或者在rocketmq中也可以指定JDK目录：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">JAVA_HOME=D:\work\JavaEE\jdk17.0.2</span><br></pre></td></tr></table></figure>
+
+<p><strong>开始配置环境变量</strong>：</p>
+<ol>
+<li>编辑当前用户或者系统环境变量加入如下配置：D:\work\JavaEE\jdk17.0.2</li>
+<li>编辑当前用户或者系统PATH环境变量加入如下配置：D:\work\JavaEE\jdk17.0.2\bin</li>
+<li>编辑当前用户或者系统CLASS_PATH环境变量加入如下配置：.;%JAVA_HOME%\bin;%JAVA_HOME%\lib\dt.jar;%Java_Home%\lib\tools.jar;%SystemRoot%&#x2F;system32;%SystemRoot%;，<strong>注意结尾英文分号隔开</strong>，在JDK5以后是可以不用配置这一选项。</li>
+</ol>
+<p>编辑当前用户或者系统环境变量：<strong>添加JAVA_HOME</strong></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/dcddc9686691b52695804d069ca4dd95.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">变量名:JAVA_HOME</span><br><span class="line">变量值:D:\work\JavaEE\jdk17.0.2</span><br></pre></td></tr></table></figure>
+
+<p>配置JAVA_HOME后的效果：</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/4ebf346824c82027d374dbdca36f5948.png"></p>
+<p>编辑当前用户或者系统环境变量：<strong>添加PATH</strong></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/8fa361711ae04248141699459c73d076.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">变量名:PATH</span><br><span class="line">变量值:D:\work\JavaEE\jdk17.0.2\bin</span><br></pre></td></tr></table></figure>
+
+<p><strong>添加后的path环境变量</strong>，个人测试配置了很多，其实大部分是系统自动生成的：</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/7154927140f25deec45a18a4233985da.png"></p>
+<p>编辑当前用户或者系统环境变量：<strong>添加CLASS_PATH</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">变量名:CLASS_PATH</span><br><span class="line">变量值:.;%JAVA_HOME%\bin;%JAVA_HOME%\lib\dt.jar;%Java_Home%\lib\tools.jar;%SystemRoot%/system32;%SystemRoot%;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、Linux（Redhat7系列）安装JDK17"><a href="#三、Linux（Redhat7系列）安装JDK17" class="headerlink" title="三、Linux（Redhat7系列）安装JDK17"></a>三、Linux（Redhat7系列）安装JDK17</h2><p>安利一款实用多终端管理工具tabby，其实也不用我安利，在github上已经快30K的star（星标）。最新版可以设置中文模式。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/c1cea421255b93fc526c8a061b1e2ced.png"></p>
+<p>如同Windows下配置环境变量一样，Linux下也有当前用户和全局用户（root）环境变量两种配置方式。</p>
+<p>以下均作为演示，仅供参考，不喜勿喷。</p>
+<h3 id="01-Linux（Redhat7系列）安装JDK17"><a href="#01-Linux（Redhat7系列）安装JDK17" class="headerlink" title="01 Linux（Redhat7系列）安装JDK17"></a>01 Linux（Redhat7系列）安装JDK17</h3><ol>
+<li>解压jdk17安装包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@cnwangk work]<span class="comment"># tar -zxvf jdk-17_linux-x64_bin.tar.gz</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>修改名称为jdk17，为后面配置环境变量JAVA_HOM做准备</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@cnwangk work]<span class="comment"># mv jdk-17.0.2 jdk17 </span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>剪切jdk17到其它目录方便自己管理</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@cnwangk work]<span class="comment"># mv jdk17/ /usr/local/</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>查看JDK版本，在没配置JAVA_HOME环境变量之前一样可以查看版本</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@cnwangk bin]<span class="comment"># ls</span></span><br><span class="line">jar        javac    jcmd      jdeprscan  jhsdb   jlink  jpackage    jshell  jstatd       serialver</span><br><span class="line">jarsigner  javadoc  jconsole  jdeps      jimage  jmap   jps         jstack  keytool</span><br><span class="line">java       javap    jdb       jfr        jinfo   jmod   jrunscript  jstat   rmiregistry</span><br><span class="line">[root@cnwangk bin]<span class="comment"># ./java -version</span></span><br><span class="line">java version <span class="string">&quot;17.0.2&quot;</span> 2022-01-18 LTS</span><br><span class="line">Java(TM) SE Runtime Environment (build 17.0.2+8-LTS-86)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>安装JRE，主要是利用<code>jlink</code>去生成，在解压后jdk17的bin目录下</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@cnwangk jdk17]<span class="comment"># ./bin/jlink --module-path jmods --add-modules java.desktop --output jre</span></span><br><span class="line">[root@cnwangk jdk17]<span class="comment"># ls</span></span><br><span class="line">bin  conf  include  jmods  jre  legal  lib  LICENSE  man  README  release</span><br></pre></td></tr></table></figure>
+
+<p>能贴代码做演示的，我一般不愿意贴图，因为图片可能会因为各种原因挂掉。</p>
+<h3 id="02-Linux（Redhat7系列）配置JDK环境变量"><a href="#02-Linux（Redhat7系列）配置JDK环境变量" class="headerlink" title="02 Linux（Redhat7系列）配置JDK环境变量"></a>02 Linux（Redhat7系列）配置JDK环境变量</h3><ol>
+<li>全局环境变量，<strong>需要root用户权限</strong></li>
+<li>编辑<code>profile</code>文件：<code>vim /etc/profile</code>，加入如下配置：</li>
+</ol>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/146ce95aa5e8e98fbe77e86d6f36b872.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#JAVA environment</span></span><br><span class="line">JAVA_HOME=/usr/local/jdk17</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>配置jdk环境变量在当前用户test生效</li>
+<li>编辑<code>.bash_profile</code>文件：<code>vim /home/test/.bash_profile</code></li>
+<li>在<code>.bashrc</code>和<code>.bash_profile</code>都有可以看到环境变量，个人一般编辑.bash_profile</li>
+</ol>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/acb1355ed068ce1f592ba3330f714da7.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#JAVA environment</span></span><br><span class="line">JAVA_HOME=/usr/local/jdk17</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><strong>因为上面配置了全局的</strong>，所以我在test用户下一样可以查看jdk版本</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[<span class="built_in">test</span>@cnwangk jdk17]$ java -version</span><br><span class="line">java version <span class="string">&quot;17.0.2&quot;</span> 2022-01-18 LTS</span><br><span class="line">Java(TM) SE Runtime Environment (build 17.0.2+8-LTS-86)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>关于JDK17的下载与安装就介绍到这里，<strong>能看到这里的都是帅哥靓妹</strong>。</p>
+<h1 id="END-向阳而生"><a href="#END-向阳而生" class="headerlink" title="END 向阳而生"></a>END 向阳而生</h1><p>向阳而生，生而向阳。</p>
+<p>静下来心才好做事，思路更清晰。每天进步一点，进步一小点那也是进步。</p>
+<p>引用晚清中兴第一名臣，曾国藩家训中的一句名言，颇为受用：</p>
+<blockquote>
+<p>养得胸中一种恬静。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>开发工具</category>
+        <category>Java</category>
+        <category>JDK17</category>
+      </categories>
+      <tags>
+        <tag>JDK</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows服务器运维常用小技巧</title>
     <url>/2022/04/20/Windows%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E7%BB%B4%E5%B8%B8%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<p>Windows下常用的以及不常用的运维命令以及小技巧，看了绝对不会后悔。</p>
@@ -3770,6 +3949,65 @@
       </tags>
   </entry>
   <entry>
+    <title>centos下使用国内的镜像yum源地址</title>
+    <url>/2022/02/21/centos%E4%B8%8B%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E7%9A%84%E9%95%9C%E5%83%8Fyum%E6%BA%90%E5%9C%B0%E5%9D%80/</url>
+    <content><![CDATA[<p><strong>国内镜像源</strong></p>
+<p>aliyun镜像</p>
+<blockquote>
+<p><a href="http://mirrors.163.com/">http://mirrors.aliyun.com</a></p>
+</blockquote>
+<p>163镜像源</p>
+<blockquote>
+<p>  <a href="http://mirrors.163.com/">http://mirrors.163.com</a></p>
+</blockquote>
+<p>中国科技大学</p>
+<blockquote>
+<p><a href="http://mirrors.ustc.edu.cn/">http://mirrors.ustc.edu.cn</a></p>
+</blockquote>
+<p><strong>centos官方站点</strong></p>
+<blockquote>
+<p><a href="http://mirrorlist.centos.org/">http://mirrorlist.centos.org	</a></p>
+</blockquote>
+<p>centos6.5的CentOS-Base.repo配置，修改的时候可以备份一份。</p>
+<p><strong>使用cp命令备份</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> CentOS-Base.repo  /etc/yum.repos.d/CentOS-Base.repo.bak</span><br></pre></td></tr></table></figure>
+
+<p>将$releasever 替换为版本号7，原因镜像源$releasever识别不了版本，6的版本无了，手动改为7</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[base]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Base</span><br><span class="line"><span class="comment">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os</span></span><br><span class="line">baseurl=http://mirrors.163.com/centos/7/os/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-7</span><br><span class="line"></span><br><span class="line"><span class="comment">#released updates </span></span><br><span class="line">[updates]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Updates </span><br><span class="line"><span class="comment">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates</span></span><br><span class="line">baseurl=http://mirrors.163.com/centos/7/updates/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-7</span><br><span class="line"></span><br><span class="line"><span class="comment">#additional packages that may be useful</span></span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Extras </span><br><span class="line"><span class="comment">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras</span></span><br><span class="line">baseurl=http://mirrors.163.com/centos/7/extras/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-7</span><br><span class="line"></span><br><span class="line"><span class="comment">#additional packages that extend functionality of existing packages</span></span><br><span class="line">[centosplus]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Plus </span><br><span class="line"><span class="comment">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus</span></span><br><span class="line">baseurl=http://mirrors.163.com/centos/7/centosplus/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-7</span><br><span class="line"></span><br><span class="line"><span class="comment">#contrib - packages by Centos Users</span></span><br><span class="line">[contrib]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Contrib </span><br><span class="line"><span class="comment">#mirrorlist=http://mirrorlist.centos.org/?release=releasever$&amp;arch=$basearch&amp;repo=contrib</span></span><br><span class="line">baseurl=http://mirrors.163.com/centos/7/contrib/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-7</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>清除缓存</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum clean all </span><br></pre></td></tr></table></figure>
+
+<p><strong>更新缓存</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>运维</category>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hello Java</title>
+    <url>/2022/01/26/hello-Java/</url>
+    <content><![CDATA[<p>hello world！！！</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		helloWorld();</span><br><span class="line">		printNoBug();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">helloWorld</span><span class="params">()</span>&#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span><span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printNoBug</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">		<span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot; ......................我佛慈悲......................&quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">b</span> <span class="operator">=</span> <span class="string">&quot;                       _oo0oo_                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&quot;                      o8888888o                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">d</span> <span class="operator">=</span> <span class="string">&quot;                      88\&quot; . \&quot;88                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">e</span> <span class="operator">=</span> <span class="string">&quot;                      (| -_- |)                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">f</span> <span class="operator">=</span> <span class="string">&quot;                      0\\  =  /0                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">g</span> <span class="operator">=</span> <span class="string">&quot;                    ___/‘---’\\___                   &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">h</span> <span class="operator">=</span> <span class="string">&quot;                  .&#x27; \\|       |/ &#x27;.                 &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">i</span> <span class="operator">=</span> <span class="string">&quot;                 / \\\\|||  :  |||// \\                &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">j</span> <span class="operator">=</span> <span class="string">&quot;                / _||||| -卍-|||||_ \\               &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">k</span> <span class="operator">=</span> <span class="string">&quot;               |   | \\\\\\  -  /// |   |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">l</span> <span class="operator">=</span> <span class="string">&quot;               | \\_|  &#x27;&#x27;\\---/&#x27;&#x27;  |_/ |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">m</span> <span class="operator">=</span> <span class="string">&quot;               \\  .-\\__  &#x27;-&#x27;  ___/-. /              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">n</span> <span class="operator">=</span> <span class="string">&quot;             ___&#x27;. .&#x27;  /--.--\\  &#x27;. .&#x27;___            &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">o</span> <span class="operator">=</span> <span class="string">&quot;          .\&quot;\&quot; ‘&lt;  ‘.___\\_&lt;|&gt;_/___.’ &gt;’ \&quot;\&quot;.          &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">p</span> <span class="operator">=</span> <span class="string">&quot;         | | :  ‘- \\‘.;‘\\ _ /’;.’/ - ’ : | |        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">q</span> <span class="operator">=</span> <span class="string">&quot;         \\  \\ ‘_.   \\_ __\\ /__ _/   .-’ /  /        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">r</span> <span class="operator">=</span> <span class="string">&quot;     =====‘-.____‘.___ \\_____/___.-’___.-’=====     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;                       ‘=---=’                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">t</span> <span class="operator">=</span> <span class="string">&quot;                                                    &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">u</span> <span class="operator">=</span> <span class="string">&quot;....................佛祖开光 ,永无BUG...................&quot;</span>;</span><br><span class="line">		sb = sb.append(a).append(<span class="string">&quot;\n&quot;</span>).append(b).append(<span class="string">&quot;\n&quot;</span>).append(c).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">				.append(d).append(<span class="string">&quot;\n&quot;</span>).append(e).append(<span class="string">&quot;\n&quot;</span>).append(f).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(g).append(<span class="string">&quot;\n&quot;</span>).append(h).append(<span class="string">&quot;\n&quot;</span>).append(i).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(j).append(<span class="string">&quot;\n&quot;</span>).append(k).append(<span class="string">&quot;\n&quot;</span>).append(l).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(m).append(<span class="string">&quot;\n&quot;</span>).append(n).append(<span class="string">&quot;\n&quot;</span>).append(o).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(p).append(<span class="string">&quot;\n&quot;</span>).append(q).append(<span class="string">&quot;\n&quot;</span>).append(r).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(s).append(<span class="string">&quot;\n&quot;</span>).append(t).append(<span class="string">&quot;\n&quot;</span>).append(u);</span><br><span class="line">		System.out.println(sb);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>web后端</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git清除版本控制</title>
     <url>/2022/02/28/git%E6%B8%85%E9%99%A4%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/</url>
     <content><![CDATA[<p>如果不想让别人看到自己的提交记录，可以使用私有仓库+公有仓库配合使用。</p>
@@ -3835,65 +4073,6 @@
       </categories>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>centos下使用国内的镜像yum源地址</title>
-    <url>/2022/02/21/centos%E4%B8%8B%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E7%9A%84%E9%95%9C%E5%83%8Fyum%E6%BA%90%E5%9C%B0%E5%9D%80/</url>
-    <content><![CDATA[<p><strong>国内镜像源</strong></p>
-<p>aliyun镜像</p>
-<blockquote>
-<p><a href="http://mirrors.163.com/">http://mirrors.aliyun.com</a></p>
-</blockquote>
-<p>163镜像源</p>
-<blockquote>
-<p>  <a href="http://mirrors.163.com/">http://mirrors.163.com</a></p>
-</blockquote>
-<p>中国科技大学</p>
-<blockquote>
-<p><a href="http://mirrors.ustc.edu.cn/">http://mirrors.ustc.edu.cn</a></p>
-</blockquote>
-<p><strong>centos官方站点</strong></p>
-<blockquote>
-<p><a href="http://mirrorlist.centos.org/">http://mirrorlist.centos.org	</a></p>
-</blockquote>
-<p>centos6.5的CentOS-Base.repo配置，修改的时候可以备份一份。</p>
-<p><strong>使用cp命令备份</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> CentOS-Base.repo  /etc/yum.repos.d/CentOS-Base.repo.bak</span><br></pre></td></tr></table></figure>
-
-<p>将$releasever 替换为版本号7，原因镜像源$releasever识别不了版本，6的版本无了，手动改为7</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[base]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Base</span><br><span class="line"><span class="comment">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os</span></span><br><span class="line">baseurl=http://mirrors.163.com/centos/7/os/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-7</span><br><span class="line"></span><br><span class="line"><span class="comment">#released updates </span></span><br><span class="line">[updates]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Updates </span><br><span class="line"><span class="comment">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates</span></span><br><span class="line">baseurl=http://mirrors.163.com/centos/7/updates/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-7</span><br><span class="line"></span><br><span class="line"><span class="comment">#additional packages that may be useful</span></span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Extras </span><br><span class="line"><span class="comment">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras</span></span><br><span class="line">baseurl=http://mirrors.163.com/centos/7/extras/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-7</span><br><span class="line"></span><br><span class="line"><span class="comment">#additional packages that extend functionality of existing packages</span></span><br><span class="line">[centosplus]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Plus </span><br><span class="line"><span class="comment">#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus</span></span><br><span class="line">baseurl=http://mirrors.163.com/centos/7/centosplus/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-7</span><br><span class="line"></span><br><span class="line"><span class="comment">#contrib - packages by Centos Users</span></span><br><span class="line">[contrib]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Contrib </span><br><span class="line"><span class="comment">#mirrorlist=http://mirrorlist.centos.org/?release=releasever$&amp;arch=$basearch&amp;repo=contrib</span></span><br><span class="line">baseurl=http://mirrors.163.com/centos/7/contrib/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-7</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>清除缓存</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum clean all </span><br></pre></td></tr></table></figure>
-
-<p><strong>更新缓存</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>运维</category>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hello Java</title>
-    <url>/2022/01/26/hello-Java/</url>
-    <content><![CDATA[<p>hello world！！！</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		helloWorld();</span><br><span class="line">		printNoBug();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">helloWorld</span><span class="params">()</span>&#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span><span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printNoBug</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">		<span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot; ......................我佛慈悲......................&quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">b</span> <span class="operator">=</span> <span class="string">&quot;                       _oo0oo_                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&quot;                      o8888888o                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">d</span> <span class="operator">=</span> <span class="string">&quot;                      88\&quot; . \&quot;88                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">e</span> <span class="operator">=</span> <span class="string">&quot;                      (| -_- |)                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">f</span> <span class="operator">=</span> <span class="string">&quot;                      0\\  =  /0                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">g</span> <span class="operator">=</span> <span class="string">&quot;                    ___/‘---’\\___                   &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">h</span> <span class="operator">=</span> <span class="string">&quot;                  .&#x27; \\|       |/ &#x27;.                 &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">i</span> <span class="operator">=</span> <span class="string">&quot;                 / \\\\|||  :  |||// \\                &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">j</span> <span class="operator">=</span> <span class="string">&quot;                / _||||| -卍-|||||_ \\               &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">k</span> <span class="operator">=</span> <span class="string">&quot;               |   | \\\\\\  -  /// |   |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">l</span> <span class="operator">=</span> <span class="string">&quot;               | \\_|  &#x27;&#x27;\\---/&#x27;&#x27;  |_/ |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">m</span> <span class="operator">=</span> <span class="string">&quot;               \\  .-\\__  &#x27;-&#x27;  ___/-. /              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">n</span> <span class="operator">=</span> <span class="string">&quot;             ___&#x27;. .&#x27;  /--.--\\  &#x27;. .&#x27;___            &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">o</span> <span class="operator">=</span> <span class="string">&quot;          .\&quot;\&quot; ‘&lt;  ‘.___\\_&lt;|&gt;_/___.’ &gt;’ \&quot;\&quot;.          &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">p</span> <span class="operator">=</span> <span class="string">&quot;         | | :  ‘- \\‘.;‘\\ _ /’;.’/ - ’ : | |        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">q</span> <span class="operator">=</span> <span class="string">&quot;         \\  \\ ‘_.   \\_ __\\ /__ _/   .-’ /  /        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">r</span> <span class="operator">=</span> <span class="string">&quot;     =====‘-.____‘.___ \\_____/___.-’___.-’=====     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;                       ‘=---=’                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">t</span> <span class="operator">=</span> <span class="string">&quot;                                                    &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">u</span> <span class="operator">=</span> <span class="string">&quot;....................佛祖开光 ,永无BUG...................&quot;</span>;</span><br><span class="line">		sb = sb.append(a).append(<span class="string">&quot;\n&quot;</span>).append(b).append(<span class="string">&quot;\n&quot;</span>).append(c).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">				.append(d).append(<span class="string">&quot;\n&quot;</span>).append(e).append(<span class="string">&quot;\n&quot;</span>).append(f).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(g).append(<span class="string">&quot;\n&quot;</span>).append(h).append(<span class="string">&quot;\n&quot;</span>).append(i).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(j).append(<span class="string">&quot;\n&quot;</span>).append(k).append(<span class="string">&quot;\n&quot;</span>).append(l).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(m).append(<span class="string">&quot;\n&quot;</span>).append(n).append(<span class="string">&quot;\n&quot;</span>).append(o).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(p).append(<span class="string">&quot;\n&quot;</span>).append(q).append(<span class="string">&quot;\n&quot;</span>).append(r).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(s).append(<span class="string">&quot;\n&quot;</span>).append(t).append(<span class="string">&quot;\n&quot;</span>).append(u);</span><br><span class="line">		System.out.println(sb);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>web后端</category>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -4135,185 +4314,6 @@
       </categories>
       <tags>
         <tag>编辑器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows与Linux安装JDK17</title>
-    <url>/2022/02/27/Windows%E4%B8%8ELinux%E5%AE%89%E8%A3%85JDK17/</url>
-    <content><![CDATA[<p>JDK最新版JDK17下载与安装；Windows版本与Linux（Redhat7系列安装配置JDK17），在Windows平台下Eclipse IDE配置JDK17。历史版本需要注册账号登录才能下载，真的太骚了，看着那个锁标志是锁住的。</p>
-<p>前段时间，在某平台看到有人吐槽CSDN下载JDK17还需要付费。官方免费提供下载，CSDN欺负萌新不懂吗？</p>
-<p>顺带一提目前使用比较广泛的两个JDK版本JDK8和JDK11最新版，需要登录账号才能下载哟：</p>
-<ol>
-<li>JDK8最新版本：JDK8u321。</li>
-<li>JDK11最新版本：JDK11.0.14。</li>
-</ol>
-<p>@[toc]</p>
-<h1 id="BEGIN-JDK17下载与安装"><a href="#BEGIN-JDK17下载与安装" class="headerlink" title="BEGIN JDK17下载与安装"></a>BEGIN JDK17下载与安装</h1><h2 id="一、JDK17下载地址"><a href="#一、JDK17下载地址" class="headerlink" title="一、JDK17下载地址"></a>一、JDK17下载地址</h2><p>JDK官网提供三大平台下载地址：</p>
-<ol>
-<li>Linux版本JDK下载地址（ARM64和x64）。</li>
-<li>macOS版本JDK下载地址（ARM64和x64）。</li>
-<li>Windows版本JDK下载地址（x64）。</li>
-</ol>
-<h3 id="01-Windows版本JDK17"><a href="#01-Windows版本JDK17" class="headerlink" title="01 Windows版本JDK17"></a>01 Windows版本JDK17</h3><blockquote>
-<p><a href="https://www.oracle.com/java/technologies/downloads/#jdk17-windows">https://www.oracle.com/java/technologies/downloads/#jdk17-windows</a></p>
-</blockquote>
-<ol>
-<li>Compressed Archive：被压缩的归档包文件，其实是JDK归档压缩包，需要手动安装JRE。</li>
-<li>x64 installer：x64架构exe安装包文件。</li>
-<li>x64 msi installer：x64架构msi安装包文件。</li>
-</ol>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/d94f4c4cc7463d16ef2b996f4c14f567.png"></p>
-<p><strong>Windows版本zip压缩包JDK17.0.2下载地址</strong>：</p>
-<blockquote>
-<p><a href="https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.zip">https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.zip</a></p>
-</blockquote>
-<p>Windows版本x64安装包exe文件安装包文件JDK17下载地址：</p>
-<blockquote>
-<p><a href="https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe">https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe</a></p>
-</blockquote>
-<p>Windows版本x64安装包msi安装包文件JDK17下载地址：</p>
-<blockquote>
-<p><a href="https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.msi">https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.msi</a></p>
-</blockquote>
-<h3 id="02-Linux版本JDK17"><a href="#02-Linux版本JDK17" class="headerlink" title="02 Linux版本JDK17"></a>02 Linux版本JDK17</h3><p>Linux版JDK17.0.2下载：分为ARM64和x64架构</p>
-<ol>
-<li>ARM64 Compressed Archive：被压缩的归档包文件，其实是JDK归档压缩包。</li>
-<li>ARM64 RPM Packages：ARM64架构rpm包。</li>
-<li><strong>x64 Compressed Archive</strong>：被压缩的归档包文件，其实是JDK归档压缩包，编译后的二进制包。</li>
-<li>x64 Debian Packages：x64架构deb包，在某版本之后同样适用于Ubuntu系列、中标麒麟以及银河麒麟。</li>
-<li>x64 RPM Packages：x64架构rpm包。</li>
-</ol>
-<blockquote>
-<p><a href="https://www.oracle.com/java/technologies/downloads/#jdk17-linux">https://www.oracle.com/java/technologies/downloads/#jdk17-linux</a></p>
-</blockquote>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/1e54cdae9e37be028d8526de78baecdd.png"></p>
-<p>JDK源码包下载地址：</p>
-<blockquote>
-<p><a href="https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz">https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz</a></p>
-</blockquote>
-<h3 id="03-MacOS版本JDK17"><a href="#03-MacOS版本JDK17" class="headerlink" title="03 MacOS版本JDK17"></a>03 MacOS版本JDK17</h3><p>MAC版本JDK17下载地址：</p>
-<blockquote>
-<p><a href="https://www.oracle.com/java/technologies/downloads/#jdk17-mac">https://www.oracle.com/java/technologies/downloads/#jdk17-mac</a></p>
-</blockquote>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/3a7e6ab587c3c985eb2cfb96a30d32ce.png"></p>
-<h2 id="二、Windows安装JDK17（Archive）"><a href="#二、Windows安装JDK17（Archive）" class="headerlink" title="二、Windows安装JDK17（Archive）"></a>二、Windows安装JDK17（Archive）</h2><p>介绍zip包的使用，不用点那个烦人的下一步下一步，比较自由，得自己控制。</p>
-<p><strong>注意</strong>：有可能存在配置环境变量后没有及时生效，重启就好了。</p>
-<h3 id="01-zip包JDK手动安装JRE"><a href="#01-zip包JDK手动安装JRE" class="headerlink" title="01 zip包JDK手动安装JRE"></a>01 zip包JDK手动安装JRE</h3><p>当然我自己也做了测试，对于<code>jdk12</code>、<code>jdk14</code>、<code>jdk17</code>都适用。其它版本，没测试过。</p>
-<ol>
-<li>切换至jdk解压目录：D:\work\JavaEE\jdk17.0.2</li>
-<li>查看当前JDK版本，切换至jdk17.0.2\bin目录执行：<code>java -version</code>，看下面代码示例就很清晰。</li>
-<li>执行命令：bin\jlink.exe –module-path jmods –add-modules java.desktop –output jre，<strong>注意我执行命令的目录</strong>。</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> D:\work\JavaEE\jdk17.0.2\bin</span><br><span class="line"><span class="comment">#1.查看jdk版本</span></span><br><span class="line">java -version</span><br><span class="line">java version <span class="string">&quot;17.0.2&quot;</span> 2022-01-18 LTS</span><br><span class="line">Java(TM) SE Runtime Environment (build 17.0.2+8-LTS-86)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)</span><br><span class="line"><span class="comment">#2.生成jre,注意我执行命令的目录</span></span><br><span class="line">D:\work\JavaEE\jdk17.0.2&gt;bin\jlink.exe --module-path jmods --add-modules java.desktop --output jre</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="02-Eclipse-IDE添加JDK17"><a href="#02-Eclipse-IDE添加JDK17" class="headerlink" title="02 Eclipse IDE添加JDK17"></a>02 Eclipse IDE添加JDK17</h3><ol>
-<li>找到Eclipse IDE状态栏的Windows选项。</li>
-<li>点击Windows然后打开Preferences。</li>
-<li>搜索<code>jres</code>，选中<code>Installed JREs</code>，点击右侧add添加JDK17。</li>
-<li>添加完JDK选apply and close：应用并退出。</li>
-</ol>
-<p>Eclipse IDE添加JDK17第一步：<strong>选择Add添加</strong></p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/46b3699e169fe1969bbb836c9623ea65.png"></p>
-<p>Eclipse IDE添加JDK17第二步：<strong>选择VM点击next进行下一步</strong></p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/635f7e2f692034c543bd8959a98b44d5.png"></p>
-<p>Eclipse IDE添加JDK17第三步：<strong>选择Directory添加JDK安装目录，然后点击finish完成</strong>。</p>
-<p> <img data-src="https://img-blog.csdnimg.cn/img_convert/742e118c4bd9868301426dce8a6fc3c2.png"></p>
-<p><strong>完成添加JDK17，点击apply and close应用并提出当前窗口</strong>：</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/9ba43cb7f475baced5318fdc9d1fd3a5.png"></p>
-<h3 id="03-Windows下配置JDK环境变量"><a href="#03-Windows下配置JDK环境变量" class="headerlink" title="03 Windows下配置JDK环境变量"></a>03 Windows下配置JDK环境变量</h3><p>根据自己需求来，为了方便，建议配置一个经常使用的版本作为当前用户或者全局环境变量。</p>
-<p>在实际工作中，我可以有多种方式去给自己测试的web应用配置JDK，一般情况是<strong>startup.bat或者catalina.bat</strong>文件中指定，<strong>比如tomcat中指定JDK目录</strong>，或者在rocketmq中也可以指定JDK目录：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">JAVA_HOME=D:\work\JavaEE\jdk17.0.2</span><br></pre></td></tr></table></figure>
-
-<p><strong>开始配置环境变量</strong>：</p>
-<ol>
-<li>编辑当前用户或者系统环境变量加入如下配置：D:\work\JavaEE\jdk17.0.2</li>
-<li>编辑当前用户或者系统PATH环境变量加入如下配置：D:\work\JavaEE\jdk17.0.2\bin</li>
-<li>编辑当前用户或者系统CLASS_PATH环境变量加入如下配置：.;%JAVA_HOME%\bin;%JAVA_HOME%\lib\dt.jar;%Java_Home%\lib\tools.jar;%SystemRoot%&#x2F;system32;%SystemRoot%;，<strong>注意结尾英文分号隔开</strong>，在JDK5以后是可以不用配置这一选项。</li>
-</ol>
-<p>编辑当前用户或者系统环境变量：<strong>添加JAVA_HOME</strong></p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/dcddc9686691b52695804d069ca4dd95.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">变量名:JAVA_HOME</span><br><span class="line">变量值:D:\work\JavaEE\jdk17.0.2</span><br></pre></td></tr></table></figure>
-
-<p>配置JAVA_HOME后的效果：</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/4ebf346824c82027d374dbdca36f5948.png"></p>
-<p>编辑当前用户或者系统环境变量：<strong>添加PATH</strong></p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/8fa361711ae04248141699459c73d076.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">变量名:PATH</span><br><span class="line">变量值:D:\work\JavaEE\jdk17.0.2\bin</span><br></pre></td></tr></table></figure>
-
-<p><strong>添加后的path环境变量</strong>，个人测试配置了很多，其实大部分是系统自动生成的：</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/7154927140f25deec45a18a4233985da.png"></p>
-<p>编辑当前用户或者系统环境变量：<strong>添加CLASS_PATH</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">变量名:CLASS_PATH</span><br><span class="line">变量值:.;%JAVA_HOME%\bin;%JAVA_HOME%\lib\dt.jar;%Java_Home%\lib\tools.jar;%SystemRoot%/system32;%SystemRoot%;</span><br></pre></td></tr></table></figure>
-
-<h2 id="三、Linux（Redhat7系列）安装JDK17"><a href="#三、Linux（Redhat7系列）安装JDK17" class="headerlink" title="三、Linux（Redhat7系列）安装JDK17"></a>三、Linux（Redhat7系列）安装JDK17</h2><p>安利一款实用多终端管理工具tabby，其实也不用我安利，在github上已经快30K的star（星标）。最新版可以设置中文模式。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/c1cea421255b93fc526c8a061b1e2ced.png"></p>
-<p>如同Windows下配置环境变量一样，Linux下也有当前用户和全局用户（root）环境变量两种配置方式。</p>
-<p>以下均作为演示，仅供参考，不喜勿喷。</p>
-<h3 id="01-Linux（Redhat7系列）安装JDK17"><a href="#01-Linux（Redhat7系列）安装JDK17" class="headerlink" title="01 Linux（Redhat7系列）安装JDK17"></a>01 Linux（Redhat7系列）安装JDK17</h3><ol>
-<li>解压jdk17安装包</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@cnwangk work]<span class="comment"># tar -zxvf jdk-17_linux-x64_bin.tar.gz</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>修改名称为jdk17，为后面配置环境变量JAVA_HOM做准备</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@cnwangk work]<span class="comment"># mv jdk-17.0.2 jdk17 </span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>剪切jdk17到其它目录方便自己管理</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@cnwangk work]<span class="comment"># mv jdk17/ /usr/local/</span></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>查看JDK版本，在没配置JAVA_HOME环境变量之前一样可以查看版本</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@cnwangk bin]<span class="comment"># ls</span></span><br><span class="line">jar        javac    jcmd      jdeprscan  jhsdb   jlink  jpackage    jshell  jstatd       serialver</span><br><span class="line">jarsigner  javadoc  jconsole  jdeps      jimage  jmap   jps         jstack  keytool</span><br><span class="line">java       javap    jdb       jfr        jinfo   jmod   jrunscript  jstat   rmiregistry</span><br><span class="line">[root@cnwangk bin]<span class="comment"># ./java -version</span></span><br><span class="line">java version <span class="string">&quot;17.0.2&quot;</span> 2022-01-18 LTS</span><br><span class="line">Java(TM) SE Runtime Environment (build 17.0.2+8-LTS-86)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>安装JRE，主要是利用<code>jlink</code>去生成，在解压后jdk17的bin目录下</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@cnwangk jdk17]<span class="comment"># ./bin/jlink --module-path jmods --add-modules java.desktop --output jre</span></span><br><span class="line">[root@cnwangk jdk17]<span class="comment"># ls</span></span><br><span class="line">bin  conf  include  jmods  jre  legal  lib  LICENSE  man  README  release</span><br></pre></td></tr></table></figure>
-
-<p>能贴代码做演示的，我一般不愿意贴图，因为图片可能会因为各种原因挂掉。</p>
-<h3 id="02-Linux（Redhat7系列）配置JDK环境变量"><a href="#02-Linux（Redhat7系列）配置JDK环境变量" class="headerlink" title="02 Linux（Redhat7系列）配置JDK环境变量"></a>02 Linux（Redhat7系列）配置JDK环境变量</h3><ol>
-<li>全局环境变量，<strong>需要root用户权限</strong></li>
-<li>编辑<code>profile</code>文件：<code>vim /etc/profile</code>，加入如下配置：</li>
-</ol>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/146ce95aa5e8e98fbe77e86d6f36b872.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#JAVA environment</span></span><br><span class="line">JAVA_HOME=/usr/local/jdk17</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>配置jdk环境变量在当前用户test生效</li>
-<li>编辑<code>.bash_profile</code>文件：<code>vim /home/test/.bash_profile</code></li>
-<li>在<code>.bashrc</code>和<code>.bash_profile</code>都有可以看到环境变量，个人一般编辑.bash_profile</li>
-</ol>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/acb1355ed068ce1f592ba3330f714da7.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#JAVA environment</span></span><br><span class="line">JAVA_HOME=/usr/local/jdk17</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
-
-<ol start="6">
-<li><strong>因为上面配置了全局的</strong>，所以我在test用户下一样可以查看jdk版本</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[<span class="built_in">test</span>@cnwangk jdk17]$ java -version</span><br><span class="line">java version <span class="string">&quot;17.0.2&quot;</span> 2022-01-18 LTS</span><br><span class="line">Java(TM) SE Runtime Environment (build 17.0.2+8-LTS-86)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>关于JDK17的下载与安装就介绍到这里，<strong>能看到这里的都是帅哥靓妹</strong>。</p>
-<h1 id="END-向阳而生"><a href="#END-向阳而生" class="headerlink" title="END 向阳而生"></a>END 向阳而生</h1><p>向阳而生，生而向阳。</p>
-<p>静下来心才好做事，思路更清晰。每天进步一点，进步一小点那也是进步。</p>
-<p>引用晚清中兴第一名臣，曾国藩家训中的一句名言，颇为受用：</p>
-<blockquote>
-<p>养得胸中一种恬静。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>开发工具</category>
-        <category>Java</category>
-        <category>JDK17</category>
-      </categories>
-      <tags>
-        <tag>JDK</tag>
       </tags>
   </entry>
   <entry>
@@ -4951,68 +4951,55 @@
       </tags>
   </entry>
   <entry>
-    <title>【解决HCNetSDK.dll无法加载问题】海康SDK开发对接java项目demo运行</title>
-    <url>/2022/02/21/%E3%80%90%E8%A7%A3%E5%86%B3HCNetSDK-dll%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98%E3%80%91%E6%B5%B7%E5%BA%B7SDK%E5%BC%80%E5%8F%91%E5%AF%B9%E6%8E%A5java%E9%A1%B9%E7%9B%AEdemo%E8%BF%90%E8%A1%8C/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近公司有新需求，需要接入<strong>大华</strong>和<strong>海康</strong>的项目，优先解决接入海康的<code>SDK</code>。对于我这个之前完全没接触过对接SDK的新手来说，完全是<strong>焦头烂额</strong>。公司只提供了<code>SDK</code>文档，没有其它文档支持。但是需要使用<code>java</code>进行对接数据。俗话说的好，<strong>工欲善其事，必先利其器</strong>。海康官方的SDK文档提供了<code>java</code>的demo例子，但是文档说明并不全面（个人感觉，遇到了很多坑，故予以总结）。</p>
-<p><strong>运行demo之前，最好浏览一遍SDK文档，比如操作系统与JDK以及DLL文件保持一致性。而且对你调试代码也颇有帮助，返回一些错误码在官方提供的文档有说明参照</strong>。例如：win64下运行64位JDK和64位DLL文件，也可以运行32位JDK和32位的DLL文件。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p><strong>官方文档直通车</strong>：<a href="https://www.hikvision.com/cn/download_61.html">https://www.hikvision.com/cn/download_61.html</a><br><img data-src="https://img-blog.csdnimg.cn/20200809222148484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>官方文档</strong>给出的【<strong>注意事项</strong>】</p>
-<p><strong>—————————————————————————————————————————————-</strong><br>一、 更新设备网络<code>SDK</code>时，<code>SDK</code>开发包【<strong>库文件</strong>】里的</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">HCNetSDK.dll、</span><br><span class="line">HCCore.dll、</span><br><span class="line">PlayCtrl.dll、</span><br><span class="line">SuperRender.dll、</span><br><span class="line">AudioRender.dll、</span><br><span class="line">HCNetSDKCom文件夹、</span><br><span class="line">ssleay32.dll、</span><br><span class="line">libeay32.dll、</span><br><span class="line">hlog.dll、</span><br><span class="line">hpr.dll、</span><br><span class="line">zlib1.dll、</span><br><span class="line">log4cxx.properties</span><br></pre></td></tr></table></figure>
+    <title>【CentOS】搭建本地yum源</title>
+    <url>/2022/02/21/%E3%80%90CentOS%E3%80%91%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0yum%E6%BA%90/</url>
+    <content><![CDATA[<p>之前自学的时候，那会刚到外地找工作，意识到了学习<code>linux</code>的重要性。作为开发人员的基本必备技能，找工作时也是加分项。当时租房没联网，就想到了这种方法。</p>
+<p><strong>针对初学入门者</strong>来说，做测试或者自学的时候，其实<strong>使用本地</strong><code>yum</code><strong>源更方便</strong>。当然对于没有联网的情况下，你是用此方法也是极度舒适的，毕竟不用占用你的网络资源。都2020年了，没有网还搞啥编程，当然这是玩笑话，就当乐一乐了。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、首先使网络yum源失效"><a href="#一、首先使网络yum源失效" class="headerlink" title="一、首先使网络yum源失效"></a>一、首先使网络<code>yum</code>源失效</h2><p><strong>切换到yum源所在目录</strong>：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200826204237701.png#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>查询一下目录</strong>：<code>ls</code><br>主要关注我们用到的<strong>网络</strong><code>yum</code><strong>源和光盘源</strong>：<code>CentOS-Base.repo、CentOS-Media.repo</code><br><img data-src="https://img-blog.csdnimg.cn/2020082620430629.png#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>修改</strong><code>yum</code>源文件后缀名<strong>使其失效</strong>。我这里就不做修改了，你们可以自己试试。<br><img data-src="https://img-blog.csdnimg.cn/20200826215149800.png#pic_center" alt="在这里插入图片描述"></p>
+<p>如果担心修改之后忘记怎么修改回来，最好备份一份，使用<code>cp</code>命令即可。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#备份到root目录下的backup下，这个目录你也可以自己定，备份更加保险</span></span><br><span class="line"><span class="built_in">cp</span> CentOS<span class="literal">-Base</span>.repo  /root/backup/</span><br></pre></td></tr></table></figure>
 
-<p>等文件均要加载到程序里面，【<strong>HCNetSDKCom文件夹</strong>】（包含里面的功能组件<code>dll</code>库文件）需要和<strong>HCNetSDK.dll</strong>、<strong>HCCore.dll</strong>一起加载，放在同一个目录下，<strong>且HCNetSDKCom文件夹名不能修改</strong>。</p>
-<p>二、 如果自行开发软件不能正常实现相应功能，而且程序没有指定加载的dll库路径，请在程序运行的情况下尝试删HCNetSDK.dll。如果可以删除，说明程序可能调用到系统盘Windows-&gt;System32目录下的dll文件，建议删除或者更新该目录下的相关dll文件；如果不能删除，dll文件右键选择属性确认SDK库版本。</p>
-<p>三、如按上述步骤操作后还是不能实现相应功能，请根据<strong>NET_DVR_GetLastError返回的错误号判断原因</strong>。</p>
-<p><strong>—————————————————————————————————————————————–</strong></p>
-<br/>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mv</span> CentOS<span class="literal">-Base</span>.repo CentOS<span class="literal">-Base</span>.repo.bak</span><br></pre></td></tr></table></figure>
 
-<p><strong>基于海康</strong><code>SDK</code>开发提供的<code>demo</code>之<code>java</code>版运行，基于<code>HCNetSDKV6.1.4.42</code>版本写的，<strong>此时是官方提供的最新版本</strong>。<br><img data-src="https://img-blog.csdnimg.cn/20200809222437800.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="一、环境的确认"><a href="#一、环境的确认" class="headerlink" title="一、环境的确认"></a>一、环境的确认</h2><p><strong>注意</strong>：<strong>我下载的是64位的SDK，操作系统win10_x64，jdk_x64</strong>，<strong>熟读官方文档真的很重要，会少走很多弯路</strong>。<strong>JDK和SDK版本必须一致，同是32位或者64位</strong>。如果不统一，遇到问题我也没辙。<br><img data-src="https://img-blog.csdnimg.cn/20200809222501713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="二、引入项目到编辑器"><a href="#二、引入项目到编辑器" class="headerlink" title="二、引入项目到编辑器"></a>二、引入项目到编辑器</h2><p>使用<code>eclipse for javaee</code>或者<code>IDEA</code>都行，看个人喜好嘛。注意必须要将<code>jar</code>包和库文件<code>build path</code>怎么引入我相信大家肯定知道，<code>example.jar</code>和<code>jna.jar</code>引入后代码就不会报红了。<strong>引入这里面指定的</strong>也能运行起来<code>demo</code>，没必要将整个库文件引入。</p>
-<p><strong>eclipse引入项目的目录结构，我直接新建了sdk文件夹放入指定的库文件</strong><br><img data-src="https://img-blog.csdnimg.cn/20200810210111366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><strong>IDEA引入项目的目录结构，这是将整个库文件完全引入时做的测试</strong><br><img data-src="https://img-blog.csdnimg.cn/20200809232643937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="三、遇到问题并解析问题"><a href="#三、遇到问题并解析问题" class="headerlink" title="三、遇到问题并解析问题"></a>三、遇到问题并解析问题</h2><p><strong>最开始你会看到这个不友好的警告，一个很严重的java异常</strong>：<br><img data-src="https://img-blog.csdnimg.cn/20200809225617225.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><strong>运行java版demo遇到的问题一</strong>：<code>Unable to load library &#39;HCNetSDK&#39;: ÕҲ»µ½ָ¶¨</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.UnsatisfiedLinkError: Unable to load library <span class="string">&#x27;HCNetSDK&#x27;</span>: ÕҲ»µ½ָ¶¨</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://img-blog.csdnimg.cn/20200809222547563.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>解析问题一</strong>：不难看出来，无法去加载库文件<code>HCNetSDK.dll</code>。<strong>这时你分析一下这个报错的代码提示</strong>，可以看出来定位到<code>ClientDemo.java</code>这个类的第<strong>66</strong>行，那肯定是找不到<code>HCNetSDK</code>接口里提供的<code>HCNetSDK</code>的<strong>实例</strong>。再向上看定位分析，找不到<code>HCNetSDK.dll</code>的<strong>路径</strong>，定位到第<strong>36</strong>行。<strong>遇到报错不要怕，重要的是学会分析问题所在并去解决掉</strong>，领导也喜欢善于解决问题的。</p>
-<br/>
 
-<p><strong>运行java版demo遇到的问题二</strong>：<code>Unable to load library &#39;PlayCtrl&#39;: ÕҲ»µ½ָ¶¨</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.UnsatisfiedLinkError: Unable to load library <span class="string">&#x27;PlayCtrl&#x27;</span>: ÕҲ»µ½ָ¶¨</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://img-blog.csdnimg.cn/20200809222628320.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>解析问题二</strong>：不难看出来，无法去加载库文件<code>PlayCtrl.dll</code>。<strong>这时你分析一下这个报错的代码提示</strong>，可以看出来定位到<code>ClientDemo.java</code>这个类的第<strong>67</strong>行，那肯定是找不到<code>PlayCtrl</code>接口里提供的<code>PlayCtrl</code>的<strong>实例</strong>。再向上看定位分析，找不到<code>PlayCtrl.dll</code>的<strong>路径</strong>，定位到第<strong>3069</strong>行。<strong>遇到报错不要怕，重要的是学会分析问题所在并去解决掉</strong>，领导也喜欢善于解决问题的。</p>
-<h2 id="四、工具类编写"><a href="#四、工具类编写" class="headerlink" title="四、工具类编写"></a>四、工具类编写</h2><p><strong>解析完问题后</strong>，我们了解到<strong>无法加载</strong><code>HCNetSDK.dll、PlayCtrl.dll</code>这个两个<strong>库文件</strong>，下面给出<strong>解决方案</strong>：我采用的是编写<strong>工具类</strong><code>GetDLLPath()</code>方法来解决找不到<strong>路径</strong>的问题。</p>
-<p><strong>代码如下</strong>：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取DLL文件路径</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GetDLLPath</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//路径</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> String DLL_PATH;</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		<span class="comment">//通过getPath方法去拿路径</span></span><br><span class="line">		<span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> GetDLLPath.class.getResource(<span class="string">&quot;/&quot;</span>).getPath()</span><br><span class="line">				.replaceAll(<span class="string">&quot;20%&quot;</span>, <span class="string">&quot; &quot;</span>).substring(<span class="number">1</span>);</span><br><span class="line">				</span><br><span class="line"><span class="comment">//		这个是解决打包找不到路径的写法，但是目前引入demo运行用不上，我就注释掉了</span></span><br><span class="line"><span class="comment">//		String[] ph = path.split(&quot;/&quot;);		</span></span><br><span class="line"><span class="comment">//		StringBuilder sb = new StringBuilder();</span></span><br><span class="line"><span class="comment">//		for(int i= 0;i &lt; ph.length-2;i++)&#123;</span></span><br><span class="line"><span class="comment">//			sb.append(&quot;/&quot;).append(ph[i]);</span></span><br><span class="line"><span class="comment">//		&#125;	</span></span><br><span class="line"><span class="comment">//		//解决打包加载类找不到路径的问题,这里编写你自己存放的路径</span></span><br><span class="line"><span class="comment">//		sb.append(&quot;/src/main/resource/sdk&quot;);</span></span><br><span class="line"><span class="comment">//		path = sb.toString();</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//设置编码为UTF-8，这样设置转码会出一个问题，一旦遇到+号这种就会转成空格</span></span><br><span class="line">			DLL_PATH = java.net.URLDecoder.decode(path,<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">			</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="comment">//测试	</span></span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<br/>
+<h2 id="二、让光盘yum源生效"><a href="#二、让光盘yum源生效" class="headerlink" title="二、让光盘yum源生效"></a>二、让光盘<code>yum</code>源生效</h2><p><strong>tips：善用TAB键进行补全，很方便哟</strong></p>
+<p>进入<code>yum</code>源目录</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200826215523923.png#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="修改光盘源，使其生效：vim-CentOS-Media-repo"><a href="#修改光盘源，使其生效：vim-CentOS-Media-repo" class="headerlink" title="修改光盘源，使其生效：vim CentOS-Media.repo"></a>修改光盘源，使其生效：vim CentOS-Media.repo</h3><p><strong>修改centos6的光盘源</strong>，考虑到还是一部分是用<code>centos6</code>作为入门的，所以也记录了。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">[<span class="type">c6</span>-<span class="type">media</span>] </span><br><span class="line">name=CentOS-<span class="variable">$releaserver</span> - Media</span><br><span class="line">baseurl=file:///mnt/cdrom <span class="comment">#此地址为你自己光盘挂载的地址</span></span><br><span class="line"><span class="comment">#file:///media/cdrom #注释掉不存在的地址</span></span><br><span class="line"><span class="comment">#file:///media/cdrecorder #注释掉不存在的地址</span></span><br><span class="line">gpgcheck=<span class="number">1</span></span><br><span class="line">enable=<span class="number">1</span> <span class="comment">#将enable由0改为1，yum配置文件生效</span></span><br><span class="line">gpgkey=file:///etc/pki/rpm<span class="literal">-gpg</span>/RPM<span class="literal">-GPG-KEY-CentOS-6</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>上面的工具类写好后</strong>，就可以<strong>修改</strong><code>HCNetSDK.java</code>类，我给出原始文档写法和改良后的写法。修改<code>HCNetSDK</code>对象，引入<code>GetDLLPath</code><strong>工具类</strong>，下面的代码给出<strong>解决方案</strong>：</p>
-<br/>
 
-<p><strong>建议多手动敲代码，不要一味的复制粘贴</strong>。不然你会生疏的，除非是达到了一定的技术后，可以偷偷懒也是可以的嘛，当然这是玩笑话，活跃下气氛。</p>
-<br/>
+<p><strong>修改centos7的光盘源</strong></p>
+<p>使用<code>cat</code>命令可以查看到<strong>光盘源的配置</strong><br><img data-src="https://img-blog.csdnimg.cn/2020082621150672.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>对比c6和c7版本，你会发现区别不大，基本上都是操作命令有些变动。</strong></p>
+<p><strong>这里是修改后的配置，vim CentOS-Media.repo</strong><br><img data-src="https://img-blog.csdnimg.cn/20200826211758191.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">[<span class="type">c7</span>-<span class="type">media</span>]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Media</span><br><span class="line">baseurl=file:///mnt/CentOS/</span><br><span class="line"><span class="comment">#file:///media/cdrom/</span></span><br><span class="line"><span class="comment">#file:///media/cdrecorder/</span></span><br><span class="line">gpgcheck=<span class="number">1</span></span><br><span class="line">enabled=<span class="number">1</span> <span class="comment">#将enable由0改为1，yum配置文件生效</span></span><br><span class="line">gpgkey=file:///etc/pki/rpm<span class="literal">-gpg</span>/RPM<span class="literal">-GPG-KEY-CentOS-7</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="五、引入工具类"><a href="#五、引入工具类" class="headerlink" title="五、引入工具类"></a>五、引入工具类</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//原始写法</span></span><br><span class="line"><span class="comment">//    HCNetSDK INSTANCE = (HCNetSDK) Native.loadLibrary(&quot;HCNetSDK&quot;,</span></span><br><span class="line"><span class="comment">//            HCNetSDK.class);</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//改完后的写法:通过GetDLLPath工具类去找dll绝对路径</span></span><br><span class="line">    <span class="type">HCNetSDK</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> (HCNetSDK) Native.loadLibrary(GetDLLPath.DLL_PATH </span><br><span class="line">    + <span class="string">&quot;HCNetSDK.dll&quot;</span>,HCNetSDK.class);</span><br><span class="line">			</span><br><span class="line"><span class="comment">//原始写法</span></span><br><span class="line"><span class="comment">//	 PlayCtrl INSTANCE = (PlayCtrl) Native.loadLibrary(&quot;PlayCtrl&quot;,</span></span><br><span class="line"><span class="comment">//	            PlayCtrl.class);</span></span><br><span class="line">	<span class="comment">//改良后写法:通过GetDLLPath工具类去找dll绝对路径</span></span><br><span class="line">    <span class="type">PlayCtrl</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> (PlayCtrl) Native.loadLibrary(GetDLLPath.DLL_PATH </span><br><span class="line">    					+<span class="string">&quot;PlayCtrl.dll&quot;</span>,PlayCtrl.class);</span><br></pre></td></tr></table></figure>
 
-<p><br/><br/></p>
-<h2 id="六、运行成功后的界面"><a href="#六、运行成功后的界面" class="headerlink" title="六、运行成功后的界面"></a>六、运行成功后的界面</h2><p><strong>做完以上步骤后，终于可以运行起来了</strong>。<code>demo</code>起飞，开启征程。<strong>工欲善其事，必先利其器</strong>。<br><img data-src="https://img-blog.csdnimg.cn/20200809225428266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>当然这是<strong>官方文档基于</strong><code>java</code>的<code>swing</code>写出的<code>demo</code>。如果项目需要引入，基本是用<code>web</code>开发的模式，网上找一找海康<code>web3.0</code>也是可行的。当然你自己写个出来，也是可行的，最终你还是要在自己的项目中编写接口拿到数据。</p>
-<br/>
 
-<h2 id="七、分析接口"><a href="#七、分析接口" class="headerlink" title="七、分析接口"></a>七、分析接口</h2><p>其实不难发现，最重要的就是<code>HCNetSDK</code>这个<strong>接口</strong>里面提供的类容。比如定义了一些常量和全局错误代码可供快速查询，具体还是看你需要用到那一部分。下面<strong>截取部分代码</strong>：<br><img data-src="https://img-blog.csdnimg.cn/20200809230532598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img data-src="https://img-blog.csdnimg.cn/20200809230625986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>最后点击注册时<strong>遇到了报错提示</strong>，可以使用<code>hCNetSDK.NET_DVR_GetLastError()</code>方法，获取错误<code>code</code>码，在<code>HCNetSDK</code><strong>类中有提示</strong>。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(hCNetSDK.NET_DVR_GetLastError());</span><br></pre></td></tr></table></figure>
-<p>注册失败，通过错误code码定位原因。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20201219164229216.png#pic_center" alt="在这里插入图片描述"></p>
-<br/>
-
-<p><strong>定位错误可以参考官方给出的PDF帮助文档</strong></p>
-<p><img data-src="https://img-blog.csdnimg.cn/20201219164414475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p><strong>说不定后续还会继续更新如何去拿数据的文章，未完待续</strong>…</p>
+<h3 id="挂载光盘"><a href="#挂载光盘" class="headerlink" title="挂载光盘"></a>挂载光盘</h3><p><strong>建立挂载点</strong>：<code>mkdir  /mnt/cdrom</code></p>
+<p><strong>这个可加可不加</strong>：<code>-t iso9660</code>，指定挂载类型</p>
+<p><strong>挂载光盘</strong>：<code>mount  -t iso9660 /dev/cdrom /mnt/cdrom</code>，我这里已经挂载了。<br><strong>挂载成功后</strong>：<code>ls /mnt/cdrom</code><br><img data-src="https://img-blog.csdnimg.cn/20200826214707744.png#pic_center" alt="在这里插入图片描述"></p>
+<p>遇到<strong>mount: 在 &#x2F;dev&#x2F;sr0 上找不到媒体</strong>，这种问题需要设置一下你的虚拟机，如下图设置。<br><img data-src="https://img-blog.csdnimg.cn/20200826211336417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>卸载命令</strong><br><img data-src="https://img-blog.csdnimg.cn/20200826220326374.png#pic_center" alt="在这里插入图片描述"></p>
+<ul>
+<li><code>umount</code> [接设备文件名或者挂载点]</li>
+<li>例如卸载光盘：<code>umount /mnt/cdrom/</code></li>
+</ul>
+<h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>好了，<strong>到此为止就是此篇文章的全部内容了，能看到这的都是帅哥靓妹啊！！！</strong> 善于总结，其乐不穷。好记性不如烂笔头，多收集自己第一次尝试的成果，收获也颇丰。<strong>你会发现，自己的知识宝库越来越丰富。</strong></p>
 ]]></content>
       <categories>
-        <category>web后端</category>
-        <category>Java</category>
+        <category>运维</category>
+        <category>CentOS</category>
       </categories>
       <tags>
-        <tag>Java</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -5105,55 +5092,68 @@
       </tags>
   </entry>
   <entry>
-    <title>【CentOS】搭建本地yum源</title>
-    <url>/2022/02/21/%E3%80%90CentOS%E3%80%91%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0yum%E6%BA%90/</url>
-    <content><![CDATA[<p>之前自学的时候，那会刚到外地找工作，意识到了学习<code>linux</code>的重要性。作为开发人员的基本必备技能，找工作时也是加分项。当时租房没联网，就想到了这种方法。</p>
-<p><strong>针对初学入门者</strong>来说，做测试或者自学的时候，其实<strong>使用本地</strong><code>yum</code><strong>源更方便</strong>。当然对于没有联网的情况下，你是用此方法也是极度舒适的，毕竟不用占用你的网络资源。都2020年了，没有网还搞啥编程，当然这是玩笑话，就当乐一乐了。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、首先使网络yum源失效"><a href="#一、首先使网络yum源失效" class="headerlink" title="一、首先使网络yum源失效"></a>一、首先使网络<code>yum</code>源失效</h2><p><strong>切换到yum源所在目录</strong>：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://img-blog.csdnimg.cn/20200826204237701.png#pic_center" alt="在这里插入图片描述"></p>
-<p><strong>查询一下目录</strong>：<code>ls</code><br>主要关注我们用到的<strong>网络</strong><code>yum</code><strong>源和光盘源</strong>：<code>CentOS-Base.repo、CentOS-Media.repo</code><br><img data-src="https://img-blog.csdnimg.cn/2020082620430629.png#pic_center" alt="在这里插入图片描述"></p>
-<p><strong>修改</strong><code>yum</code>源文件后缀名<strong>使其失效</strong>。我这里就不做修改了，你们可以自己试试。<br><img data-src="https://img-blog.csdnimg.cn/20200826215149800.png#pic_center" alt="在这里插入图片描述"></p>
-<p>如果担心修改之后忘记怎么修改回来，最好备份一份，使用<code>cp</code>命令即可。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#备份到root目录下的backup下，这个目录你也可以自己定，备份更加保险</span></span><br><span class="line"><span class="built_in">cp</span> CentOS<span class="literal">-Base</span>.repo  /root/backup/</span><br></pre></td></tr></table></figure>
+    <title>【解决HCNetSDK.dll无法加载问题】海康SDK开发对接java项目demo运行</title>
+    <url>/2022/02/21/%E3%80%90%E8%A7%A3%E5%86%B3HCNetSDK-dll%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E9%97%AE%E9%A2%98%E3%80%91%E6%B5%B7%E5%BA%B7SDK%E5%BC%80%E5%8F%91%E5%AF%B9%E6%8E%A5java%E9%A1%B9%E7%9B%AEdemo%E8%BF%90%E8%A1%8C/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近公司有新需求，需要接入<strong>大华</strong>和<strong>海康</strong>的项目，优先解决接入海康的<code>SDK</code>。对于我这个之前完全没接触过对接SDK的新手来说，完全是<strong>焦头烂额</strong>。公司只提供了<code>SDK</code>文档，没有其它文档支持。但是需要使用<code>java</code>进行对接数据。俗话说的好，<strong>工欲善其事，必先利其器</strong>。海康官方的SDK文档提供了<code>java</code>的demo例子，但是文档说明并不全面（个人感觉，遇到了很多坑，故予以总结）。</p>
+<p><strong>运行demo之前，最好浏览一遍SDK文档，比如操作系统与JDK以及DLL文件保持一致性。而且对你调试代码也颇有帮助，返回一些错误码在官方提供的文档有说明参照</strong>。例如：win64下运行64位JDK和64位DLL文件，也可以运行32位JDK和32位的DLL文件。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p><strong>官方文档直通车</strong>：<a href="https://www.hikvision.com/cn/download_61.html">https://www.hikvision.com/cn/download_61.html</a><br><img data-src="https://img-blog.csdnimg.cn/20200809222148484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>官方文档</strong>给出的【<strong>注意事项</strong>】</p>
+<p><strong>—————————————————————————————————————————————-</strong><br>一、 更新设备网络<code>SDK</code>时，<code>SDK</code>开发包【<strong>库文件</strong>】里的</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">HCNetSDK.dll、</span><br><span class="line">HCCore.dll、</span><br><span class="line">PlayCtrl.dll、</span><br><span class="line">SuperRender.dll、</span><br><span class="line">AudioRender.dll、</span><br><span class="line">HCNetSDKCom文件夹、</span><br><span class="line">ssleay32.dll、</span><br><span class="line">libeay32.dll、</span><br><span class="line">hlog.dll、</span><br><span class="line">hpr.dll、</span><br><span class="line">zlib1.dll、</span><br><span class="line">log4cxx.properties</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mv</span> CentOS<span class="literal">-Base</span>.repo CentOS<span class="literal">-Base</span>.repo.bak</span><br></pre></td></tr></table></figure>
+<p>等文件均要加载到程序里面，【<strong>HCNetSDKCom文件夹</strong>】（包含里面的功能组件<code>dll</code>库文件）需要和<strong>HCNetSDK.dll</strong>、<strong>HCCore.dll</strong>一起加载，放在同一个目录下，<strong>且HCNetSDKCom文件夹名不能修改</strong>。</p>
+<p>二、 如果自行开发软件不能正常实现相应功能，而且程序没有指定加载的dll库路径，请在程序运行的情况下尝试删HCNetSDK.dll。如果可以删除，说明程序可能调用到系统盘Windows-&gt;System32目录下的dll文件，建议删除或者更新该目录下的相关dll文件；如果不能删除，dll文件右键选择属性确认SDK库版本。</p>
+<p>三、如按上述步骤操作后还是不能实现相应功能，请根据<strong>NET_DVR_GetLastError返回的错误号判断原因</strong>。</p>
+<p><strong>—————————————————————————————————————————————–</strong></p>
+<br/>
 
+<p><strong>基于海康</strong><code>SDK</code>开发提供的<code>demo</code>之<code>java</code>版运行，基于<code>HCNetSDKV6.1.4.42</code>版本写的，<strong>此时是官方提供的最新版本</strong>。<br><img data-src="https://img-blog.csdnimg.cn/20200809222437800.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="一、环境的确认"><a href="#一、环境的确认" class="headerlink" title="一、环境的确认"></a>一、环境的确认</h2><p><strong>注意</strong>：<strong>我下载的是64位的SDK，操作系统win10_x64，jdk_x64</strong>，<strong>熟读官方文档真的很重要，会少走很多弯路</strong>。<strong>JDK和SDK版本必须一致，同是32位或者64位</strong>。如果不统一，遇到问题我也没辙。<br><img data-src="https://img-blog.csdnimg.cn/20200809222501713.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="二、引入项目到编辑器"><a href="#二、引入项目到编辑器" class="headerlink" title="二、引入项目到编辑器"></a>二、引入项目到编辑器</h2><p>使用<code>eclipse for javaee</code>或者<code>IDEA</code>都行，看个人喜好嘛。注意必须要将<code>jar</code>包和库文件<code>build path</code>怎么引入我相信大家肯定知道，<code>example.jar</code>和<code>jna.jar</code>引入后代码就不会报红了。<strong>引入这里面指定的</strong>也能运行起来<code>demo</code>，没必要将整个库文件引入。</p>
+<p><strong>eclipse引入项目的目录结构，我直接新建了sdk文件夹放入指定的库文件</strong><br><img data-src="https://img-blog.csdnimg.cn/20200810210111366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>IDEA引入项目的目录结构，这是将整个库文件完全引入时做的测试</strong><br><img data-src="https://img-blog.csdnimg.cn/20200809232643937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="三、遇到问题并解析问题"><a href="#三、遇到问题并解析问题" class="headerlink" title="三、遇到问题并解析问题"></a>三、遇到问题并解析问题</h2><p><strong>最开始你会看到这个不友好的警告，一个很严重的java异常</strong>：<br><img data-src="https://img-blog.csdnimg.cn/20200809225617225.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>运行java版demo遇到的问题一</strong>：<code>Unable to load library &#39;HCNetSDK&#39;: ÕҲ»µ½ָ¶¨</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.UnsatisfiedLinkError: Unable to load library <span class="string">&#x27;HCNetSDK&#x27;</span>: ÕҲ»µ½ָ¶¨</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200809222547563.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>解析问题一</strong>：不难看出来，无法去加载库文件<code>HCNetSDK.dll</code>。<strong>这时你分析一下这个报错的代码提示</strong>，可以看出来定位到<code>ClientDemo.java</code>这个类的第<strong>66</strong>行，那肯定是找不到<code>HCNetSDK</code>接口里提供的<code>HCNetSDK</code>的<strong>实例</strong>。再向上看定位分析，找不到<code>HCNetSDK.dll</code>的<strong>路径</strong>，定位到第<strong>36</strong>行。<strong>遇到报错不要怕，重要的是学会分析问题所在并去解决掉</strong>，领导也喜欢善于解决问题的。</p>
+<br/>
 
+<p><strong>运行java版demo遇到的问题二</strong>：<code>Unable to load library &#39;PlayCtrl&#39;: ÕҲ»µ½ָ¶¨</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Exception in thread <span class="string">&quot;main&quot;</span> java.lang.UnsatisfiedLinkError: Unable to load library <span class="string">&#x27;PlayCtrl&#x27;</span>: ÕҲ»µ½ָ¶¨</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20200809222628320.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>解析问题二</strong>：不难看出来，无法去加载库文件<code>PlayCtrl.dll</code>。<strong>这时你分析一下这个报错的代码提示</strong>，可以看出来定位到<code>ClientDemo.java</code>这个类的第<strong>67</strong>行，那肯定是找不到<code>PlayCtrl</code>接口里提供的<code>PlayCtrl</code>的<strong>实例</strong>。再向上看定位分析，找不到<code>PlayCtrl.dll</code>的<strong>路径</strong>，定位到第<strong>3069</strong>行。<strong>遇到报错不要怕，重要的是学会分析问题所在并去解决掉</strong>，领导也喜欢善于解决问题的。</p>
+<h2 id="四、工具类编写"><a href="#四、工具类编写" class="headerlink" title="四、工具类编写"></a>四、工具类编写</h2><p><strong>解析完问题后</strong>，我们了解到<strong>无法加载</strong><code>HCNetSDK.dll、PlayCtrl.dll</code>这个两个<strong>库文件</strong>，下面给出<strong>解决方案</strong>：我采用的是编写<strong>工具类</strong><code>GetDLLPath()</code>方法来解决找不到<strong>路径</strong>的问题。</p>
+<p><strong>代码如下</strong>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取DLL文件路径</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GetDLLPath</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//路径</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> String DLL_PATH;</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		<span class="comment">//通过getPath方法去拿路径</span></span><br><span class="line">		<span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> GetDLLPath.class.getResource(<span class="string">&quot;/&quot;</span>).getPath()</span><br><span class="line">				.replaceAll(<span class="string">&quot;20%&quot;</span>, <span class="string">&quot; &quot;</span>).substring(<span class="number">1</span>);</span><br><span class="line">				</span><br><span class="line"><span class="comment">//		这个是解决打包找不到路径的写法，但是目前引入demo运行用不上，我就注释掉了</span></span><br><span class="line"><span class="comment">//		String[] ph = path.split(&quot;/&quot;);		</span></span><br><span class="line"><span class="comment">//		StringBuilder sb = new StringBuilder();</span></span><br><span class="line"><span class="comment">//		for(int i= 0;i &lt; ph.length-2;i++)&#123;</span></span><br><span class="line"><span class="comment">//			sb.append(&quot;/&quot;).append(ph[i]);</span></span><br><span class="line"><span class="comment">//		&#125;	</span></span><br><span class="line"><span class="comment">//		//解决打包加载类找不到路径的问题,这里编写你自己存放的路径</span></span><br><span class="line"><span class="comment">//		sb.append(&quot;/src/main/resource/sdk&quot;);</span></span><br><span class="line"><span class="comment">//		path = sb.toString();</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//设置编码为UTF-8，这样设置转码会出一个问题，一旦遇到+号这种就会转成空格</span></span><br><span class="line">			DLL_PATH = java.net.URLDecoder.decode(path,<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">			</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="comment">//测试	</span></span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="二、让光盘yum源生效"><a href="#二、让光盘yum源生效" class="headerlink" title="二、让光盘yum源生效"></a>二、让光盘<code>yum</code>源生效</h2><p><strong>tips：善用TAB键进行补全，很方便哟</strong></p>
-<p>进入<code>yum</code>源目录</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://img-blog.csdnimg.cn/20200826215523923.png#pic_center" alt="在这里插入图片描述"></p>
-<h3 id="修改光盘源，使其生效：vim-CentOS-Media-repo"><a href="#修改光盘源，使其生效：vim-CentOS-Media-repo" class="headerlink" title="修改光盘源，使其生效：vim CentOS-Media.repo"></a>修改光盘源，使其生效：vim CentOS-Media.repo</h3><p><strong>修改centos6的光盘源</strong>，考虑到还是一部分是用<code>centos6</code>作为入门的，所以也记录了。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">[<span class="type">c6</span>-<span class="type">media</span>] </span><br><span class="line">name=CentOS-<span class="variable">$releaserver</span> - Media</span><br><span class="line">baseurl=file:///mnt/cdrom <span class="comment">#此地址为你自己光盘挂载的地址</span></span><br><span class="line"><span class="comment">#file:///media/cdrom #注释掉不存在的地址</span></span><br><span class="line"><span class="comment">#file:///media/cdrecorder #注释掉不存在的地址</span></span><br><span class="line">gpgcheck=<span class="number">1</span></span><br><span class="line">enable=<span class="number">1</span> <span class="comment">#将enable由0改为1，yum配置文件生效</span></span><br><span class="line">gpgkey=file:///etc/pki/rpm<span class="literal">-gpg</span>/RPM<span class="literal">-GPG-KEY-CentOS-6</span></span><br></pre></td></tr></table></figure>
+<br/>
 
+<p><strong>上面的工具类写好后</strong>，就可以<strong>修改</strong><code>HCNetSDK.java</code>类，我给出原始文档写法和改良后的写法。修改<code>HCNetSDK</code>对象，引入<code>GetDLLPath</code><strong>工具类</strong>，下面的代码给出<strong>解决方案</strong>：</p>
+<br/>
 
-<p><strong>修改centos7的光盘源</strong></p>
-<p>使用<code>cat</code>命令可以查看到<strong>光盘源的配置</strong><br><img data-src="https://img-blog.csdnimg.cn/2020082621150672.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p><strong>对比c6和c7版本，你会发现区别不大，基本上都是操作命令有些变动。</strong></p>
-<p><strong>这里是修改后的配置，vim CentOS-Media.repo</strong><br><img data-src="https://img-blog.csdnimg.cn/20200826211758191.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">[<span class="type">c7</span>-<span class="type">media</span>]</span><br><span class="line">name=CentOS-<span class="variable">$releasever</span> - Media</span><br><span class="line">baseurl=file:///mnt/CentOS/</span><br><span class="line"><span class="comment">#file:///media/cdrom/</span></span><br><span class="line"><span class="comment">#file:///media/cdrecorder/</span></span><br><span class="line">gpgcheck=<span class="number">1</span></span><br><span class="line">enabled=<span class="number">1</span> <span class="comment">#将enable由0改为1，yum配置文件生效</span></span><br><span class="line">gpgkey=file:///etc/pki/rpm<span class="literal">-gpg</span>/RPM<span class="literal">-GPG-KEY-CentOS-7</span></span><br></pre></td></tr></table></figure>
+<p><strong>建议多手动敲代码，不要一味的复制粘贴</strong>。不然你会生疏的，除非是达到了一定的技术后，可以偷偷懒也是可以的嘛，当然这是玩笑话，活跃下气氛。</p>
+<br/>
 
+<h2 id="五、引入工具类"><a href="#五、引入工具类" class="headerlink" title="五、引入工具类"></a>五、引入工具类</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//原始写法</span></span><br><span class="line"><span class="comment">//    HCNetSDK INSTANCE = (HCNetSDK) Native.loadLibrary(&quot;HCNetSDK&quot;,</span></span><br><span class="line"><span class="comment">//            HCNetSDK.class);</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//改完后的写法:通过GetDLLPath工具类去找dll绝对路径</span></span><br><span class="line">    <span class="type">HCNetSDK</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> (HCNetSDK) Native.loadLibrary(GetDLLPath.DLL_PATH </span><br><span class="line">    + <span class="string">&quot;HCNetSDK.dll&quot;</span>,HCNetSDK.class);</span><br><span class="line">			</span><br><span class="line"><span class="comment">//原始写法</span></span><br><span class="line"><span class="comment">//	 PlayCtrl INSTANCE = (PlayCtrl) Native.loadLibrary(&quot;PlayCtrl&quot;,</span></span><br><span class="line"><span class="comment">//	            PlayCtrl.class);</span></span><br><span class="line">	<span class="comment">//改良后写法:通过GetDLLPath工具类去找dll绝对路径</span></span><br><span class="line">    <span class="type">PlayCtrl</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> (PlayCtrl) Native.loadLibrary(GetDLLPath.DLL_PATH </span><br><span class="line">    					+<span class="string">&quot;PlayCtrl.dll&quot;</span>,PlayCtrl.class);</span><br></pre></td></tr></table></figure>
 
+<p><br/><br/></p>
+<h2 id="六、运行成功后的界面"><a href="#六、运行成功后的界面" class="headerlink" title="六、运行成功后的界面"></a>六、运行成功后的界面</h2><p><strong>做完以上步骤后，终于可以运行起来了</strong>。<code>demo</code>起飞，开启征程。<strong>工欲善其事，必先利其器</strong>。<br><img data-src="https://img-blog.csdnimg.cn/20200809225428266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>当然这是<strong>官方文档基于</strong><code>java</code>的<code>swing</code>写出的<code>demo</code>。如果项目需要引入，基本是用<code>web</code>开发的模式，网上找一找海康<code>web3.0</code>也是可行的。当然你自己写个出来，也是可行的，最终你还是要在自己的项目中编写接口拿到数据。</p>
+<br/>
 
-<h3 id="挂载光盘"><a href="#挂载光盘" class="headerlink" title="挂载光盘"></a>挂载光盘</h3><p><strong>建立挂载点</strong>：<code>mkdir  /mnt/cdrom</code></p>
-<p><strong>这个可加可不加</strong>：<code>-t iso9660</code>，指定挂载类型</p>
-<p><strong>挂载光盘</strong>：<code>mount  -t iso9660 /dev/cdrom /mnt/cdrom</code>，我这里已经挂载了。<br><strong>挂载成功后</strong>：<code>ls /mnt/cdrom</code><br><img data-src="https://img-blog.csdnimg.cn/20200826214707744.png#pic_center" alt="在这里插入图片描述"></p>
-<p>遇到<strong>mount: 在 &#x2F;dev&#x2F;sr0 上找不到媒体</strong>，这种问题需要设置一下你的虚拟机，如下图设置。<br><img data-src="https://img-blog.csdnimg.cn/20200826211336417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p><strong>卸载命令</strong><br><img data-src="https://img-blog.csdnimg.cn/20200826220326374.png#pic_center" alt="在这里插入图片描述"></p>
-<ul>
-<li><code>umount</code> [接设备文件名或者挂载点]</li>
-<li>例如卸载光盘：<code>umount /mnt/cdrom/</code></li>
-</ul>
-<h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>好了，<strong>到此为止就是此篇文章的全部内容了，能看到这的都是帅哥靓妹啊！！！</strong> 善于总结，其乐不穷。好记性不如烂笔头，多收集自己第一次尝试的成果，收获也颇丰。<strong>你会发现，自己的知识宝库越来越丰富。</strong></p>
+<h2 id="七、分析接口"><a href="#七、分析接口" class="headerlink" title="七、分析接口"></a>七、分析接口</h2><p>其实不难发现，最重要的就是<code>HCNetSDK</code>这个<strong>接口</strong>里面提供的类容。比如定义了一些常量和全局错误代码可供快速查询，具体还是看你需要用到那一部分。下面<strong>截取部分代码</strong>：<br><img data-src="https://img-blog.csdnimg.cn/20200809230532598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img data-src="https://img-blog.csdnimg.cn/20200809230625986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>最后点击注册时<strong>遇到了报错提示</strong>，可以使用<code>hCNetSDK.NET_DVR_GetLastError()</code>方法，获取错误<code>code</code>码，在<code>HCNetSDK</code><strong>类中有提示</strong>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(hCNetSDK.NET_DVR_GetLastError());</span><br></pre></td></tr></table></figure>
+<p>注册失败，通过错误code码定位原因。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/20201219164229216.png#pic_center" alt="在这里插入图片描述"></p>
+<br/>
+
+<p><strong>定位错误可以参考官方给出的PDF帮助文档</strong></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20201219164414475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>说不定后续还会继续更新如何去拿数据的文章，未完待续</strong>…</p>
 ]]></content>
       <categories>
-        <category>运维</category>
-        <category>CentOS</category>
+        <category>web后端</category>
+        <category>Java</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -5179,67 +5179,6 @@
       </categories>
       <tags>
         <tag>Oracle</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用护眼色</title>
-    <url>/2022/02/17/%E5%B8%B8%E7%94%A8%E6%8A%A4%E7%9C%BC%E8%89%B2/</url>
-    <content><![CDATA[<h1 id="常用护眼色"><a href="#常用护眼色" class="headerlink" title="常用护眼色"></a>常用护眼色</h1><p>就算看文档，也要要养成护眼的好习惯哟，毕竟往后余生还长着了。</p>
-<table>
-<thead>
-<tr>
-<th>颜色</th>
-<th>RGB</th>
-<th>16进制</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>常用护眼色</strong></td>
-<td>R：181   G：230   B：181</td>
-<td>#B5E6B5</td>
-</tr>
-<tr>
-<td><strong>黄</strong></td>
-<td>R：250   G：249   B：222</td>
-<td>#FAF9DE</td>
-</tr>
-<tr>
-<td><strong>褐</strong></td>
-<td>R：250   G：242   B：226</td>
-<td>#FFF2E2</td>
-</tr>
-<tr>
-<td>红</td>
-<td>R：253   G：230   B：224</td>
-<td>#FDE6E0</td>
-</tr>
-<tr>
-<td>绿</td>
-<td>R：227   G：237   B：205</td>
-<td>#E3EDCD</td>
-</tr>
-<tr>
-<td><strong>海天蓝</strong></td>
-<td>R：220   G：226   B：241</td>
-<td>#DCE2F1</td>
-</tr>
-<tr>
-<td>紫</td>
-<td>R：233   G：235   B：154</td>
-<td>#E9EBFE</td>
-</tr>
-<tr>
-<td>灰</td>
-<td>R：234   G：234   B：239</td>
-<td>#EAEAEF</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>实用工具</category>
-      </categories>
-      <tags>
-        <tag>护眼色</tag>
       </tags>
   </entry>
   <entry>
@@ -5394,21 +5333,65 @@
       </tags>
   </entry>
   <entry>
-    <title>开源镜像站地址</title>
-    <url>/2022/06/30/%E5%BC%80%E6%BA%90%E9%95%9C%E5%83%8F%E7%AB%99%E5%9C%B0%E5%9D%80/</url>
-    <content><![CDATA[<h3 id="开源软件镜像站"><a href="#开源软件镜像站" class="headerlink" title="开源软件镜像站"></a>开源软件镜像站</h3><p><strong>腾讯软件源</strong><br><a href="https://mirrors.cloud.tencent.com/">https://mirrors.cloud.tencent.com/</a></p>
-<p><strong>华为开源镜像站</strong><br><a href="https://mirrors.huaweicloud.com/home">https://mirrors.huaweicloud.com/home</a></p>
-<p><strong>阿里巴巴开源镜像站</strong><br><a href="https://developer.aliyun.com/mirror/">https://developer.aliyun.com/mirror/</a></p>
-<p><strong>网易开源镜像站</strong><br><a href="https://mirrors.163.com/">https://mirrors.163.com/</a></p>
-<p><strong>清华大学开源软件镜像站</strong><br><a href="https://mirrors.tuna.tsinghua.edu.cn/">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
-<p><strong>中国科学技术大学</strong><br><a href="https://mirrors.ustc.edu.cn/">https://mirrors.ustc.edu.cn/</a></p>
-<p><strong>浙江大学开源软件镜像站</strong><br><a href="https://mirrors.zju.edu.cn/">https://mirrors.zju.edu.cn/</a></p>
-<h3 id="学术镜像网站"><a href="#学术镜像网站" class="headerlink" title="学术镜像网站"></a>学术镜像网站</h3><p><strong>谷歌学术镜像</strong></p>
-<p><a href="https://ac.scmor.com/">https://ac.scmor.com/</a></p>
+    <title>常用护眼色</title>
+    <url>/2022/02/17/%E5%B8%B8%E7%94%A8%E6%8A%A4%E7%9C%BC%E8%89%B2/</url>
+    <content><![CDATA[<h1 id="常用护眼色"><a href="#常用护眼色" class="headerlink" title="常用护眼色"></a>常用护眼色</h1><p>就算看文档，也要要养成护眼的好习惯哟，毕竟往后余生还长着了。</p>
+<table>
+<thead>
+<tr>
+<th>颜色</th>
+<th>RGB</th>
+<th>16进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>常用护眼色</strong></td>
+<td>R：181   G：230   B：181</td>
+<td>#B5E6B5</td>
+</tr>
+<tr>
+<td><strong>黄</strong></td>
+<td>R：250   G：249   B：222</td>
+<td>#FAF9DE</td>
+</tr>
+<tr>
+<td><strong>褐</strong></td>
+<td>R：250   G：242   B：226</td>
+<td>#FFF2E2</td>
+</tr>
+<tr>
+<td>红</td>
+<td>R：253   G：230   B：224</td>
+<td>#FDE6E0</td>
+</tr>
+<tr>
+<td>绿</td>
+<td>R：227   G：237   B：205</td>
+<td>#E3EDCD</td>
+</tr>
+<tr>
+<td><strong>海天蓝</strong></td>
+<td>R：220   G：226   B：241</td>
+<td>#DCE2F1</td>
+</tr>
+<tr>
+<td>紫</td>
+<td>R：233   G：235   B：154</td>
+<td>#E9EBFE</td>
+</tr>
+<tr>
+<td>灰</td>
+<td>R：234   G：234   B：239</td>
+<td>#EAEAEF</td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>实用工具</category>
       </categories>
+      <tags>
+        <tag>护眼色</tag>
+      </tags>
   </entry>
   <entry>
     <title>文正耕耘小站备用地址</title>
@@ -5429,6 +5412,23 @@
 </li>
 </ol>
 ]]></content>
+  </entry>
+  <entry>
+    <title>开源镜像站地址</title>
+    <url>/2022/06/30/%E5%BC%80%E6%BA%90%E9%95%9C%E5%83%8F%E7%AB%99%E5%9C%B0%E5%9D%80/</url>
+    <content><![CDATA[<h3 id="开源软件镜像站"><a href="#开源软件镜像站" class="headerlink" title="开源软件镜像站"></a>开源软件镜像站</h3><p><strong>腾讯软件源</strong><br><a href="https://mirrors.cloud.tencent.com/">https://mirrors.cloud.tencent.com/</a></p>
+<p><strong>华为开源镜像站</strong><br><a href="https://mirrors.huaweicloud.com/home">https://mirrors.huaweicloud.com/home</a></p>
+<p><strong>阿里巴巴开源镜像站</strong><br><a href="https://developer.aliyun.com/mirror/">https://developer.aliyun.com/mirror/</a></p>
+<p><strong>网易开源镜像站</strong><br><a href="https://mirrors.163.com/">https://mirrors.163.com/</a></p>
+<p><strong>清华大学开源软件镜像站</strong><br><a href="https://mirrors.tuna.tsinghua.edu.cn/">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
+<p><strong>中国科学技术大学</strong><br><a href="https://mirrors.ustc.edu.cn/">https://mirrors.ustc.edu.cn/</a></p>
+<p><strong>浙江大学开源软件镜像站</strong><br><a href="https://mirrors.zju.edu.cn/">https://mirrors.zju.edu.cn/</a></p>
+<h3 id="学术镜像网站"><a href="#学术镜像网站" class="headerlink" title="学术镜像网站"></a>学术镜像网站</h3><p><strong>谷歌学术镜像</strong></p>
+<p><a href="https://ac.scmor.com/">https://ac.scmor.com/</a></p>
+]]></content>
+      <categories>
+        <category>实用工具</category>
+      </categories>
   </entry>
   <entry>
     <title>浏览器搜索过滤参数-site:csdn.net</title>
@@ -5501,29 +5501,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决xshell强制更新的问题</title>
-    <url>/2022/02/20/%E8%A7%A3%E5%86%B3xshell%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>解决xshell强制更新的问题。讲道理，软件用起来功能稳定就行。可是某些软件，偏偏强制你更新，感觉流氓属性十足。这时候就得寻求其它方法了，你看xshell也有这尿性，下面给出解决的方法。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>当你某一天使用xshell时，突然发现，oh fuck，不更新还不让用了，内心一万个曹尼玛奔腾而过。使用一段时间就会提示，确实很艹蛋。下图就是打开xshell软件出现的提示，按照我下面说的方法即可解决。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200331222352239.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>这时不要担心，按照我说的方法，其实无非就是判定系统时间，把自己电脑的系统时间改一下就行了。当然采用脚本的形式更方便。</p>
-<p>首先新建一个文本文档以<code>.bat</code>文件格式保存，然后将下面提供的代码复制到<code>xx.bat</code>文件中然后保存。<br>下面的代码部分位置我用#给出了注释，你复制的时候可以将#部分去掉。</p>
-<p><strong>代码提供</strong></p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">%<span class="number">1</span> mshta vbscript:CreateObject(<span class="string">&quot;Shell.Application&quot;</span>).ShellExecute(<span class="string">&quot;cmd.exe&quot;</span>,<span class="string">&quot;/c %~s0 ::&quot;</span>,<span class="string">&quot;&quot;</span>,<span class="string">&quot;runas&quot;</span>,<span class="number">1</span>)(window.close) &amp;&amp; <span class="keyword">exit</span></span><br><span class="line">title Xshell启动器</span><br><span class="line"><span class="built_in">set</span> atime=%date:~<span class="number">0</span>,<span class="number">10</span>%</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置系统时间</span></span><br><span class="line">date <span class="number">2018</span><span class="literal">-12-31</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#改成你的xshell启动路径 </span></span><br><span class="line"><span class="built_in">start</span> D:\work\Xshell6Portable_50151\Xshell6Portable\Xshell6Portable.exe</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 启动软件中...</span><br><span class="line">ping <span class="number">0.0</span>.<span class="number">0.0</span>  <span class="literal">-n</span> <span class="number">6</span> &gt; null</span><br><span class="line"><span class="built_in">echo</span> 同步时间中,完成后自动关闭窗口...</span><br><span class="line"></span><br><span class="line">:reset</span><br><span class="line">w32tm /resync &gt;null</span><br><span class="line"><span class="built_in">set</span> btime=%date:~<span class="number">0</span>,<span class="number">10</span>%</span><br><span class="line"><span class="built_in">echo</span> %atime%|findstr  %btime% &gt;nul</span><br><span class="line"><span class="keyword">if</span> %errorlevel% equ <span class="number">0</span> (</span><br><span class="line"><span class="keyword">exit</span></span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">goto reset</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>记录点点滴滴。善于总结，其乐不穷。好记性不如烂笔头，多收集自己第一次尝试的成果，收获也颇丰。你会发现，自己的知识宝库越来越丰富。</p>
-]]></content>
-      <categories>
-        <category>运维</category>
-        <category>终端工具</category>
-        <category>xshell</category>
-      </categories>
-      <tags>
-        <tag>xshell</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决sublime-text打开txt文件乱码以及被墙并禁止更新提示</title>
     <url>/2022/04/15/%E8%A7%A3%E5%86%B3sublime-text%E6%89%93%E5%BC%80txt%E6%96%87%E4%BB%B6%E4%B9%B1%E7%A0%81%E4%BB%A5%E5%8F%8A%E8%A2%AB%E5%A2%99%E5%B9%B6%E7%A6%81%E6%AD%A2%E6%9B%B4%E6%96%B0%E6%8F%90%E7%A4%BA/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>原因： <a href="https://packagecontrol.io/">https://packagecontrol.io</a>这个网址被墙了，没法安装一些需要的插件。如果不信邪，嘿嘿，你可以试一下直接访问的效果。</p>
@@ -5569,6 +5546,29 @@
       </categories>
       <tags>
         <tag>sublime text</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决xshell强制更新的问题</title>
+    <url>/2022/02/20/%E8%A7%A3%E5%86%B3xshell%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>解决xshell强制更新的问题。讲道理，软件用起来功能稳定就行。可是某些软件，偏偏强制你更新，感觉流氓属性十足。这时候就得寻求其它方法了，你看xshell也有这尿性，下面给出解决的方法。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>当你某一天使用xshell时，突然发现，oh fuck，不更新还不让用了，内心一万个曹尼玛奔腾而过。使用一段时间就会提示，确实很艹蛋。下图就是打开xshell软件出现的提示，按照我下面说的方法即可解决。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200331222352239.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>这时不要担心，按照我说的方法，其实无非就是判定系统时间，把自己电脑的系统时间改一下就行了。当然采用脚本的形式更方便。</p>
+<p>首先新建一个文本文档以<code>.bat</code>文件格式保存，然后将下面提供的代码复制到<code>xx.bat</code>文件中然后保存。<br>下面的代码部分位置我用#给出了注释，你复制的时候可以将#部分去掉。</p>
+<p><strong>代码提供</strong></p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">%<span class="number">1</span> mshta vbscript:CreateObject(<span class="string">&quot;Shell.Application&quot;</span>).ShellExecute(<span class="string">&quot;cmd.exe&quot;</span>,<span class="string">&quot;/c %~s0 ::&quot;</span>,<span class="string">&quot;&quot;</span>,<span class="string">&quot;runas&quot;</span>,<span class="number">1</span>)(window.close) &amp;&amp; <span class="keyword">exit</span></span><br><span class="line">title Xshell启动器</span><br><span class="line"><span class="built_in">set</span> atime=%date:~<span class="number">0</span>,<span class="number">10</span>%</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置系统时间</span></span><br><span class="line">date <span class="number">2018</span><span class="literal">-12-31</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#改成你的xshell启动路径 </span></span><br><span class="line"><span class="built_in">start</span> D:\work\Xshell6Portable_50151\Xshell6Portable\Xshell6Portable.exe</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 启动软件中...</span><br><span class="line">ping <span class="number">0.0</span>.<span class="number">0.0</span>  <span class="literal">-n</span> <span class="number">6</span> &gt; null</span><br><span class="line"><span class="built_in">echo</span> 同步时间中,完成后自动关闭窗口...</span><br><span class="line"></span><br><span class="line">:reset</span><br><span class="line">w32tm /resync &gt;null</span><br><span class="line"><span class="built_in">set</span> btime=%date:~<span class="number">0</span>,<span class="number">10</span>%</span><br><span class="line"><span class="built_in">echo</span> %atime%|findstr  %btime% &gt;nul</span><br><span class="line"><span class="keyword">if</span> %errorlevel% equ <span class="number">0</span> (</span><br><span class="line"><span class="keyword">exit</span></span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">goto reset</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>记录点点滴滴。善于总结，其乐不穷。好记性不如烂笔头，多收集自己第一次尝试的成果，收获也颇丰。你会发现，自己的知识宝库越来越丰富。</p>
+]]></content>
+      <categories>
+        <category>运维</category>
+        <category>终端工具</category>
+        <category>xshell</category>
+      </categories>
+      <tags>
+        <tag>xshell</tag>
       </tags>
   </entry>
   <entry>
