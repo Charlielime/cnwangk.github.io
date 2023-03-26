@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"changyan":{"order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.cnwangk.top","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"changyan":{"order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="前言本文，主要以vsftp软件为主进行讲解，版本为3.0.2。以介绍设置虚拟用户、权限验证为主，linux权限知识默认大家都有所了解。vsftpd设置有两种模式：主动模式、被动模式。 Linux网络文件共享。例如NFS、Sambs、FTP，其中以FTP应用最为广泛，成为了当下linux文件系统中主流的网络文件共享工具。介绍FTP主要有几种常见的工具vsftp、proftp、wu-ftp、puref">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux服务器vsftpd安装与配置">
-<meta property="og:url" content="https://blog.cnwangk.top/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8vsftpd%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:url" content="https://www.cnwangk.top/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8vsftpd%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="养得胸中一种恬静">
 <meta property="og:description" content="前言本文，主要以vsftp软件为主进行讲解，版本为3.0.2。以介绍设置虚拟用户、权限验证为主，linux权限知识默认大家都有所了解。vsftpd设置有两种模式：主动模式、被动模式。 Linux网络文件共享。例如NFS、Sambs、FTP，其中以FTP应用最为广泛，成为了当下linux文件系统中主流的网络文件共享工具。介绍FTP主要有几种常见的工具vsftp、proftp、wu-ftp、puref">
 <meta property="og:locale" content="zh_CN">
@@ -36,11 +36,11 @@
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/fb197ba8c54400818254253c8c0c1f6e.png">
 
 
-<link rel="canonical" href="https://blog.cnwangk.top/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8vsftpd%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
+<link rel="canonical" href="https://www.cnwangk.top/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8vsftpd%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.cnwangk.top/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8vsftpd%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/","path":"2022/02/10/Linux服务器vsftpd安装与配置/","title":"Linux服务器vsftpd安装与配置"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.cnwangk.top/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8vsftpd%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/","path":"2022/02/10/Linux服务器vsftpd安装与配置/","title":"Linux服务器vsftpd安装与配置"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Linux服务器vsftpd安装与配置 | 养得胸中一种恬静</title>
@@ -253,7 +253,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8vsftpd%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/02/10/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8vsftpd%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
