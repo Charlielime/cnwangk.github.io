@@ -246,7 +246,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/04/20/Linux%E9%A2%84%E9%98%B2%E5%88%A9%E7%94%A8ssh%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E7%94%A8%E6%88%B7%EF%BC%9A%E8%BF%87%E6%BB%A4%E8%AF%95%E5%9B%BE%E9%9D%9E%E6%B3%95%E7%99%BB%E5%BD%95IP/">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/04/20/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -264,7 +264,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/20/Linux%E9%A2%84%E9%98%B2%E5%88%A9%E7%94%A8ssh%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E7%94%A8%E6%88%B7%EF%BC%9A%E8%BF%87%E6%BB%A4%E8%AF%95%E5%9B%BE%E9%9D%9E%E6%B3%95%E7%99%BB%E5%BD%95IP/" class="post-title-link" itemprop="url">Linux预防利用ssh暴力破解用户：过滤试图非法登录IP</a>
+          <a href="/2022/04/20/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">Linux配置全局与当前用户环境变量</a>
         </h2>
 
         <div class="post-meta-container">
@@ -284,7 +284,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 19:05:13" itemprop="dateModified" datetime="2023-03-20T19:05:13+08:00">2023-03-20</time>
+      <time title="修改时间：2023-03-20 19:04:05" itemprop="dateModified" datetime="2023-03-20T19:04:05+08:00">2023-03-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -307,14 +307,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>843</span>
+      <span>1.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -325,19 +325,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>之前买的腾讯云服务器，总是收到提醒被其它的<code>ip</code>攻击试图破解。实在是忍无可忍，自己在网上参考了一篇教程，就总结了下，防止<code>ssh</code>暴力破解<code>linux</code>用户，将试图入侵的ip达到一定次数就放入黑名单中。</p>
-<p>分配文件基本权限时核心原则：<strong>在最小权限情况下能实现要求即可</strong>。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、通过awk命令记录黑名单"><a href="#一、通过awk命令记录黑名单" class="headerlink" title="一、通过awk命令记录黑名单"></a>一、通过awk命令记录黑名单</h2><p>awk命令的使用可以参考菜鸟教程，下面给出链接。</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-awk.html">https://www.runoob.com/linux/linux-comm-awk.html</a></p>
-</blockquote>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /var/log/secure | awk <span class="string">&#x27;/Failed/&#123;print $(NF-3)&#125;&#x27;</span> | <span class="built_in">sort</span>|uniq <span class="literal">-c</span></span><br><span class="line">| awk <span class="string">&#x27;&#123;print $2&quot;=&quot;$1;&#125;&#x27;</span> &gt; /opt/black_ip/black.list</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、过滤出登录错误超过指定次数的ip"><a href="#二、过滤出登录错误超过指定次数的ip" class="headerlink" title="二、过滤出登录错误超过指定次数的ip"></a>二、过滤出登录错误超过指定次数的ip</h2><p>编辑脚本：<code>vim /usr/local/bin/secure_ssh.sh</code></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /bin/bash</span></span><br><span class="line"><span class="built_in">cat</span> /var/log/secure | awk <span class="string">&#x27;/Failed/&#123;print $(NF-3)&#125;&#x27;</span> | <span class="built_in">sort</span>|uniq <span class="literal">-c</span></span><br><span class="line">| awk <span class="string">&#x27;&#123;print $2&quot;=&quot;$1;&#125;&#x27;</span> &gt; /opt/black_ip/black.list</span><br><span class="line"><span class="comment"># DEFINE=1，代表你设置的允许尝试登录次数为1次，根据自己的需求设置</span></span><br><span class="line">DEFINE=<span class="string">&quot;1&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `cat /opt/black_ip/black.list`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">   IP=`echo <span class="variable">$i</span>|awk <span class="operator">-F</span>= <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>` <span class="comment"># 过滤的ip地址</span></span><br><span class="line">   NUM=`echo <span class="variable">$i</span>|awk <span class="operator">-F</span>= <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>` <span class="comment"># 过滤的ip尝试登录的次数</span></span><br><span class="line">   <span class="keyword">if</span> [[ <span class="variable">$</span>&#123;<span class="type">NUM</span>&#125; -<span class="type">gt</span> <span class="variable">$</span>&#123;<span class="type">DEFINE</span>&#125; ]]; then</span><br><span class="line">        grep <span class="variable">$IP</span> /etc/hosts.deny &gt; /dev/null </span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$</span>? -<span class="type">gt</span> <span class="number">0</span> ];then</span><br><span class="line">        	 <span class="comment"># 你可以把你常用的ip放入host.allow文件白名单，hosts.deny对应的就是黑名单</span></span><br><span class="line">             <span class="built_in">echo</span> <span class="string">&quot;sshd:<span class="variable">$IP:deny</span>&quot;</span> &gt;&gt; /etc/hosts.deny </span><br><span class="line">        fi</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+          <p>今天这篇文章，讲解linux系统的全局环境变量以及当前用户环境变量的配置。</p>
+<p>以前在没有遇到实际问题时，基本忽略掉思考，所有配置的环境变量都配成全局生效。这样是有弊端的，在某一次偶然的机会，我沉思的一小会，意识到全局环境变量与当前用户环境变量还是区分为好，不应一概而论。</p>
+<p>直到后来我在linux服务器从Oracle11g过度到Oracle19c时。需要创建普通用户例如oracle才能安装，这时我才恍然大悟。这大概是linux操作系统的魅力所在。</p>
+<p>当时遇到的国产银河麒麟操作系统，把不同用户权限区分的明明白白的，三权分立。管理员用户root、安全用户secure、普通用户user，三者之间均无法访问别人的home目录，这时我才明白原来那个root用户是假的。泾渭分明，这样做当然有优势。好处在于运维人员只需要分心维护管路员用户和安全用户。普通用户权限比较小，相对来说不会造成较为严重的后果。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>配置环境变量，并不一定需要非得配置成所有用全局的或者当前用户全局的。如果使用的中间件有配置文件，你甚至可以在当前的中间件配置文件中指定JDK安装的路径，我做测试时一般会这样配置，为了不干扰原有的环境配置而做出让步。这样会显得繁琐一些，配置全局则更为方便管理。</p>
+<h2 id="一、配置全局环境变量"><a href="#一、配置全局环境变量" class="headerlink" title="一、配置全局环境变量"></a>一、配置全局环境变量</h2><h3 id="1、Redhat系列配置环境变量"><a href="#1、Redhat系列配置环境变量" class="headerlink" title="1、Redhat系列配置环境变量"></a>1、Redhat系列配置环境变量</h3><p>注意：<strong>需要root用户权限</strong>，才能编辑<code>/etc/profile</code>文件，默认配置如下图所示</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/bd1db81b028ca8354d6ae09175e5db32.png"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/04/20/Linux%E9%A2%84%E9%98%B2%E5%88%A9%E7%94%A8ssh%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E7%94%A8%E6%88%B7%EF%BC%9A%E8%BF%87%E6%BB%A4%E8%AF%95%E5%9B%BE%E9%9D%9E%E6%B3%95%E7%99%BB%E5%BD%95IP/#more" rel="contents">
+              <a class="btn" href="/2022/04/20/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
