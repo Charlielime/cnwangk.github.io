@@ -154,18 +154,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-count">61</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -238,6 +238,141 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2023/03/15/MySQL8-0-x-%E7%AE%80%E6%98%93%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/15/MySQL8-0-x-%E7%AE%80%E6%98%93%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">MySQL8.0.x 简易安装教程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-03-15 21:58:20" itemprop="dateCreated datePublished" datetime="2023-03-15T21:58:20+08:00">2023-03-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-21 20:10:44" itemprop="dateModified" datetime="2023-03-21T20:10:44+08:00">2023-03-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="Windows平台安装MySQL"><a href="#Windows平台安装MySQL" class="headerlink" title="Windows平台安装MySQL"></a>Windows平台安装MySQL</h3><p><strong>Windows install MySQL8.0.x (Archive zip) 简易安装教程</strong><br>注意：x代表使用MySQL8.0具体版本</p>
+<ol>
+<li>解压免安装版MySQL：unzip mysql-8.0.x-winx64.zip</li>
+<li>切换到MySQL解压目录：cd mysql-8.0.x-winx64</li>
+<li>新增MySQL配置文件： my.ini</li>
+<li>初始化MySQL：bin\mysqld –initialize-insecure 或者 bin\mysqld –initialize-insecure –console </li>
+<li>注册MySQL服务：bin\mysqld –install MySQL80（将MySQL服务注册到service，可以使用net命令进行管理）</li>
+<li>启动MySQL服务：net start MySQL80 或者 sc start MySQL80</li>
+<li>登录MySQL字符管理界面：mysql -uroot -p</li>
+</ol>
+<p>Windows环境新建my.ini做如下设置，指定基本安装目录与数据存放目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">basedir=D:\\mysql-8.0.32-winx64</span><br><span class="line">datadir=D:\\mysql-8.0.32-winx64\\data</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>tips</strong>：打开CMD或者Powershell时以管理员身份运行，如果没有，安装服务时则会提示权限拒绝，如下所示。</p>
+<p><strong>D:\software\mysql-8.0.32-winx64\bin&gt;mysqld –install MySQL80</strong><br><strong>Install&#x2F;Remove of the Service Denied!</strong></p>
+<p><strong>Windows11操作系统中安装MySQL8.0.32</strong> (noinstall Archive zip)步骤</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">D:\software\mysql-8.0.32-winx64\bin&gt;mysqld --initialize-insecure --console</span><br><span class="line">D:\software\mysql-8.0.32-winx64\bin&gt;mysqld --install MySQL80</span><br><span class="line">Service successfully installed.</span><br><span class="line">D:\software\mysql-8.0.32-winx64\bin&gt;net start mysql80</span><br><span class="line">MySQL80 服务正在启动 .</span><br><span class="line">MySQL80 服务已经启动成功。</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>初步使用MySQL</strong></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/15/MySQL8-0-x-%E7%AE%80%E6%98%93%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -735,133 +870,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2023/02/15/SQL%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/02/15/SQL%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/" class="post-title-link" itemprop="url">SQL是什么？如何选择</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-02-15 00:00:00" itemprop="dateCreated datePublished" datetime="2023-02-15T00:00:00+08:00">2023-02-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:00:50" itemprop="dateModified" datetime="2023-03-20T18:00:50+08:00">2023-03-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD/" itemprop="url" rel="index"><span itemprop="name">软件实施</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>11k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>38 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>MySQL、Oracle、达梦数据库？还是SQL server？为什么要学SQL，入门选择哪款关系型数据库(RDBMS)最合适？</p>
-<p>学习某个技能点或者是知识点时，可以尝试建立一项知识梳理体系，如下：</p>
-<ol>
-<li><strong>输入</strong>：可以照葫芦画瓢，亲自动手实践。</li>
-<li><strong>分析</strong>：有自己独立的分析和思考。</li>
-<li><strong>输出</strong>：产出的内容与预期进行对比。</li>
-<li><strong>札记</strong>：记录收获过程（手写或者以电子文档形式记录）。</li>
-</ol>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>我</strong>：菲菲，听说你对Linux命令、Java以及数据库SQL方面的知识比较熟悉，公司业务主要也是基于Java开发的web项目。</p>
-<p><strong>菲菲</strong>：是的，以前学过一点Java方面的知识，用过一段时间的Linux命令，会一点数据库操作。</p>
-<p>本文已经收录到github仓库：<a target="_blank" rel="noopener" href="https://github.com/cnwangk/wangk-stick">https://github.com/cnwangk/wangk-stick</a></p>
-<h3 id="构思缘起"><a href="#构思缘起" class="headerlink" title="构思缘起"></a>构思缘起</h3><p>这篇文章的构思来源：前段时间公司新招了一名驻场运维人员，基础有点薄弱，SQL方面的知识需要辅导。在我的上一篇文章<a target="_blank" rel="noopener" href="https://www.cnblogs.com/cnwangk/p/15829648.html">《初学者如何入门linux，原来linux还可以这样学》</a>其实也是基于这种想法编写的。我寻思着，如何快速带他先入个门，至少得教会工作中最常用的（select、insert、update、delete）增删改查。我就在思考着，是不是要出一篇文章好好地辅导一下。当然写的很基础，基于给想入门SQL语言的初学者一点小小的建议。</p>
-<p>虽然菲菲基础知识不是很牢靠，但是好学，这点值得肯定。我也经常对他说，多用你的小本本做记录，久而久之你就会积累很多知识。当然，这也是在实际工作中才发现的。起初，通过交谈认为他至少会一点基础，这也是后话了。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/02/15/SQL%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -885,14 +895,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">213k</span>
+    <span title="站点总字数">218k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:54</span>
+    <span title="站点阅读时长">13:12</span>
   </span>
 </div>
 <div class="busuanzi-count">
