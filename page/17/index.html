@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">85</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -490,137 +490,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/01/26/Hello-Hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/01/26/Hello-Hexo/" class="post-title-link" itemprop="url">Hello Hexo</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-26 00:00:00" itemprop="dateCreated datePublished" datetime="2022-01-26T00:00:00+08:00">2022-01-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 17:59:27" itemprop="dateModified" datetime="2023-03-20T17:59:27+08:00">2023-03-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">静态博客</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>217</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>hexo的使用</strong></p>
-<p>Windows下首先<a target="_blank" rel="noopener" href="https://nodejs.org/en/">安装node环境</a>，然后使用npm再安装hexo模块。这里只介绍Windows下安装hexo环境：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>01、安装node环境；</li>
-<li>02、在node环境下安装hexo，打开cmd命令窗口执行：<code>npm install -g hexo-cli</code></li>
-<li>03、初始化blog：hexo init blog</li>
-<li>04、进入blog目录：cd blog</li>
-<li>05、继续在cmd窗口命令安装：<code>npm install hexo</code></li>
-<li>06、启动服务：hexo server</li>
-</ul>
-<p>具体其它平台安装hexo可以参考官网中文文档：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
-<p>在node环境下安装hexo后生成的blog文件目录：</p>
-<p><img data-src="https://gitee.com/dywangk/img/raw/master/images/%E5%AE%89%E8%A3%85hexo_proc.jpg"></p>
-<p><strong>使用hexo命令</strong>，hexo new命令生成文件，hexo server命令启动服务，通过<a href="http://localhost:4000访问hexo。">http://localhost:4000访问hexo。</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\work\createSpace\hexo\blog&gt;hexo new <span class="string">&quot;你要生成的md文件名&quot;</span></span><br><span class="line">hexo generate <span class="comment">#生成静态文件</span></span><br><span class="line">hexo server <span class="comment">#启动服务</span></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://gitee.com/dywangk/img/raw/master/images/%E4%BD%BF%E7%94%A8hexo_help_proc50.jpg"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/01/26/Hello-Hexo/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/01/26/hello-Java/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -639,7 +508,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/01/26/hello-Java/" class="post-title-link" itemprop="url">hello Java</a>
+          <a href="/2022/01/26/hello-Java/" class="post-title-link" itemprop="url">程序人生：人生中的第一个Java应用程序 hello java！</a>
         </h2>
 
         <div class="post-meta-container">
@@ -659,7 +528,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:17:51" itemprop="dateModified" datetime="2023-03-20T18:17:51+08:00">2023-03-20</time>
+      <time title="修改时间：2023-03-31 14:58:30" itemprop="dateModified" datetime="2023-03-31T14:58:30+08:00">2023-03-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -682,7 +551,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>179</span>
+      <span>313</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -700,9 +569,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>hello world！！！</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		helloWorld();</span><br><span class="line">		printNoBug();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">helloWorld</span><span class="params">()</span>&#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span><span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">printNoBug</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">		<span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot; ......................我佛慈悲......................&quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">b</span> <span class="operator">=</span> <span class="string">&quot;                       _oo0oo_                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&quot;                      o8888888o                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">d</span> <span class="operator">=</span> <span class="string">&quot;                      88\&quot; . \&quot;88                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">e</span> <span class="operator">=</span> <span class="string">&quot;                      (| -_- |)                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">f</span> <span class="operator">=</span> <span class="string">&quot;                      0\\  =  /0                     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">g</span> <span class="operator">=</span> <span class="string">&quot;                    ___/‘---’\\___                   &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">h</span> <span class="operator">=</span> <span class="string">&quot;                  .&#x27; \\|       |/ &#x27;.                 &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">i</span> <span class="operator">=</span> <span class="string">&quot;                 / \\\\|||  :  |||// \\                &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">j</span> <span class="operator">=</span> <span class="string">&quot;                / _||||| -卍-|||||_ \\               &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">k</span> <span class="operator">=</span> <span class="string">&quot;               |   | \\\\\\  -  /// |   |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">l</span> <span class="operator">=</span> <span class="string">&quot;               | \\_|  &#x27;&#x27;\\---/&#x27;&#x27;  |_/ |              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">m</span> <span class="operator">=</span> <span class="string">&quot;               \\  .-\\__  &#x27;-&#x27;  ___/-. /              &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">n</span> <span class="operator">=</span> <span class="string">&quot;             ___&#x27;. .&#x27;  /--.--\\  &#x27;. .&#x27;___            &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">o</span> <span class="operator">=</span> <span class="string">&quot;          .\&quot;\&quot; ‘&lt;  ‘.___\\_&lt;|&gt;_/___.’ &gt;’ \&quot;\&quot;.          &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">p</span> <span class="operator">=</span> <span class="string">&quot;         | | :  ‘- \\‘.;‘\\ _ /’;.’/ - ’ : | |        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">q</span> <span class="operator">=</span> <span class="string">&quot;         \\  \\ ‘_.   \\_ __\\ /__ _/   .-’ /  /        &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">r</span> <span class="operator">=</span> <span class="string">&quot;     =====‘-.____‘.___ \\_____/___.-’___.-’=====     &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;                       ‘=---=’                      &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">t</span> <span class="operator">=</span> <span class="string">&quot;                                                    &quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">u</span> <span class="operator">=</span> <span class="string">&quot;....................佛祖开光 ,永无BUG...................&quot;</span>;</span><br><span class="line">		sb = sb.append(a).append(<span class="string">&quot;\n&quot;</span>).append(b).append(<span class="string">&quot;\n&quot;</span>).append(c).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">				.append(d).append(<span class="string">&quot;\n&quot;</span>).append(e).append(<span class="string">&quot;\n&quot;</span>).append(f).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(g).append(<span class="string">&quot;\n&quot;</span>).append(h).append(<span class="string">&quot;\n&quot;</span>).append(i).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(j).append(<span class="string">&quot;\n&quot;</span>).append(k).append(<span class="string">&quot;\n&quot;</span>).append(l).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(m).append(<span class="string">&quot;\n&quot;</span>).append(n).append(<span class="string">&quot;\n&quot;</span>).append(o).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(p).append(<span class="string">&quot;\n&quot;</span>).append(q).append(<span class="string">&quot;\n&quot;</span>).append(r).append(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">		.append(s).append(<span class="string">&quot;\n&quot;</span>).append(t).append(<span class="string">&quot;\n&quot;</span>).append(u);</span><br><span class="line">		System.out.println(sb);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+          <p>程序人生：人生中的第一个Java应用程序 hello java！</p>
+<h3 id="hello-java"><a href="#hello-java" class="headerlink" title="hello java"></a>hello java</h3><p><strong>准备环境</strong></p>
+<ul>
+<li>JDK</li>
+<li>STS4(Spring Tool Suit4)</li>
+</ul>
+<p><strong>安装JDK17</strong><br>Windows平台：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip jdk-17.0.4.1_windows-x64_bin.zip</span><br><span class="line"><span class="built_in">mv</span> jdk-17.0.4.1 jdk17</span><br></pre></td></tr></table></figure>
+<p>加入环境变量：</p>
+<ol>
+<li>win + x + y：找到高级系统设置</li>
+<li>编辑用户环境变量：新增JAVA_HOME 引入JDK安装目录，例如：D:\jdk17</li>
+<li>编辑用户环境变量：找到 Path 加入 %JAVA_HOME%;</li>
+</ol>
+<p>Linux平台：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-17.0.4.1_linux-x64_bin.tar.gz</span><br><span class="line"><span class="built_in">mv</span> jdk-17.0.4.1 jdk17</span><br><span class="line"><span class="built_in">mkdir</span> -p /usr/java</span><br><span class="line"><span class="built_in">mv</span> jdk17  /usr/java/</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/01/26/hello-Java/#more" rel="contents">
@@ -848,8 +730,136 @@
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2017/06/26/%E8%A7%A3%E5%86%B3eclipse%E5%AF%BC%E5%85%A5%E9%A1%B9%E7%9B%AE%E5%90%8EHtml%E6%96%87%E4%BB%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/06/26/%E8%A7%A3%E5%86%B3eclipse%E5%AF%BC%E5%85%A5%E9%A1%B9%E7%9B%AE%E5%90%8EHtml%E6%96%87%E4%BB%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决eclipse导入项目后Html文件中文乱码问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-06-26 00:00:00" itemprop="dateCreated datePublished" datetime="2017-06-26T00:00:00+08:00">2017-06-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-20 17:56:36" itemprop="dateModified" datetime="2023-03-20T17:56:36+08:00">2023-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>170</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>几年前，刚毕业不久，接触到eclipse for JavaEE开发工具，当时不知道默认编码为GBK，或者是ISO-8859-1。</p>
+<p>解决eclipse导入项目后Html文件中文乱码问题，修改字符编码，主要是修改html文件的编码。</p>
+<h3 id="一、修改workspace的默认编码"><a href="#一、修改workspace的默认编码" class="headerlink" title="一、修改workspace的默认编码"></a>一、修改workspace的默认编码</h3><ol>
+<li>依次找到：windows-&gt;General-&gt;Workspace</li>
+<li>全局生效：将 Text file encoding 的other选项改为 UTF-8</li>
+</ol>
+<h3 id="二、修改Resource默认字符编码"><a href="#二、修改Resource默认字符编码" class="headerlink" title="二、修改Resource默认字符编码"></a>二、修改Resource默认字符编码</h3><ol>
+<li>单项目生效：右键项目找到Text file encoding</li>
+<li>将other选项改为 UTF-8</li>
+</ol>
+<h3 id="三、解决方案"><a href="#三、解决方案" class="headerlink" title="三、解决方案"></a>三、解决方案</h3><p>依次找到路径：</p>
+<ol>
+<li>windows-&gt;perferences-&gt;General-&gt;Content Types-&gt;Text-&gt;HTML</li>
+<li>然后将Default encoding设置为UTF-8即可。</li>
+</ol>
+<p>——END——</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/06/26/%E8%A7%A3%E5%86%B3eclipse%E5%AF%BC%E5%85%A5%E9%A1%B9%E7%9B%AE%E5%90%8EHtml%E6%96%87%E4%BB%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/16/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/18/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/16/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span>
   </nav>
 
 </div>
