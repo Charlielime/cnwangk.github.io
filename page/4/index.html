@@ -488,6 +488,127 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2DM8%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AARM%E6%9E%B6%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2DM8%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AARM%E6%9E%B6%E6%9E%84/" class="post-title-link" itemprop="url">Linux（银河麒麟V10）部署DM8数据库：ARM架构</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-20T00:00:00+08:00">2022-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-20 18:11:33" itemprop="dateModified" datetime="2023-03-20T18:11:33+08:00">2023-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>国产适配linux银河麒麟V10下部署DM8（arm版本）</p>
+<p>tips：安装过程仅供参考，具体因你的实际部署路径而定</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、下载好对应的Linux版本的达梦数据库"><a href="#一、下载好对应的Linux版本的达梦数据库" class="headerlink" title="一、下载好对应的Linux版本的达梦数据库"></a>一、下载好对应的Linux版本的达梦数据库</h2><p>DM8官网直通车：<a target="_blank" rel="noopener" href="https://www.dameng.com/view_61.html">https://www.dameng.com/view_61.html</a></p>
+<p>下载中心，需要注册登录<br><a target="_blank" rel="noopener" href="https://www.dameng.com/ucenter/docs.html">https://www.dameng.com/ucenter/docs.html</a><br><img data-src="https://img-blog.csdnimg.cn/3eabbe2a2f6c4210860e28496d0b6037.png?x-oss-process=,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_20,color_FFFFFF,t_70,g_se,x_16#" alt="在这里插入图片描述"></p>
+<p><strong>系统检测，参考官网技术文档，一般而言可以忽略这一步</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#获取系统位数</span><br><span class="line">getconf LONG_BIT</span><br></pre></td></tr></table></figure>
+
+<p>查询操作系统 release 信息，Redhat系列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#如果没安装对应的服务包，无法使用该命令</span><br><span class="line">lsb_release <span class="operator">-</span>a</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2DM8%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AARM%E6%9E%B6%E6%9E%84/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2VNC%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%B9%B6%E4%B8%94%E4%BD%BF%E7%94%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -580,127 +701,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2VNC%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%B9%B6%E4%B8%94%E4%BD%BF%E7%94%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2DM8%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AARM%E6%9E%B6%E6%9E%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2DM8%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AARM%E6%9E%B6%E6%9E%84/" class="post-title-link" itemprop="url">Linux（银河麒麟V10）部署DM8数据库：ARM架构</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-04-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-20T00:00:00+08:00">2022-04-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:11:33" itemprop="dateModified" datetime="2023-03-20T18:11:33+08:00">2023-03-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.5k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>9 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>国产适配linux银河麒麟V10下部署DM8（arm版本）</p>
-<p>tips：安装过程仅供参考，具体因你的实际部署路径而定</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、下载好对应的Linux版本的达梦数据库"><a href="#一、下载好对应的Linux版本的达梦数据库" class="headerlink" title="一、下载好对应的Linux版本的达梦数据库"></a>一、下载好对应的Linux版本的达梦数据库</h2><p>DM8官网直通车：<a target="_blank" rel="noopener" href="https://www.dameng.com/view_61.html">https://www.dameng.com/view_61.html</a></p>
-<p>下载中心，需要注册登录<br><a target="_blank" rel="noopener" href="https://www.dameng.com/ucenter/docs.html">https://www.dameng.com/ucenter/docs.html</a><br><img data-src="https://img-blog.csdnimg.cn/3eabbe2a2f6c4210860e28496d0b6037.png?x-oss-process=,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_20,color_FFFFFF,t_70,g_se,x_16#" alt="在这里插入图片描述"></p>
-<p><strong>系统检测，参考官网技术文档，一般而言可以忽略这一步</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#获取系统位数</span><br><span class="line">getconf LONG_BIT</span><br></pre></td></tr></table></figure>
-
-<p>查询操作系统 release 信息，Redhat系列</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#如果没安装对应的服务包，无法使用该命令</span><br><span class="line">lsb_release <span class="operator">-</span>a</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/04/20/Linux%EF%BC%88%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9FV10%EF%BC%89%E9%83%A8%E7%BD%B2DM8%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9AARM%E6%9E%B6%E6%9E%84/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
