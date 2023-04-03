@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -247,7 +247,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/02/18/%E5%8D%B8%E8%BD%BDOracle11g-%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4oci-dll/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -265,7 +265,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/" class="post-title-link" itemprop="url">MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪</a>
+          <a href="/2022/02/18/%E5%8D%B8%E8%BD%BDOracle11g-%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4oci-dll/" class="post-title-link" itemprop="url">卸载Oracle11g--解决无法删除oci.dll</a>
         </h2>
 
         <div class="post-meta-container">
@@ -278,14 +278,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-07T00:00:00+08:00">2022-04-07</time>
+      <time title="创建时间：2022-02-18 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-18T00:00:00+08:00">2022-02-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:10:46" itemprop="dateModified" datetime="2023-03-20T18:10:46+08:00">2023-03-20</time>
+      <time title="修改时间：2023-04-03 21:27:08" itemprop="dateModified" datetime="2023-04-03T21:27:08+08:00">2023-04-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -293,11 +293,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD/" itemprop="url" rel="index"><span itemprop="name">软件实施</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E4%BC%98%E5%8C%96%E7%AF%87/" itemprop="url" rel="index"><span itemprop="name">MySQL优化篇</span></a>
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span></a>
         </span>
     </span>
 
@@ -308,14 +308,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.2k</span>
+      <span>271</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>15 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -326,19 +326,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>MySQL优化流程SQL优化流程：show status查询SQL执行频率、explain分析、show profile分析和trace追踪。</p>
-<p>﻿<strong>MySQL优化流程——SQL优化流程</strong>。MySQL优化篇（基于MySQL8.0.28测试验证）。</p>
-<p>只停留在看上面，提升效果甚微。应该带着思考去测试佐证，或者使用（同类书籍）新版本进行对比，这样带来的效果更好。最重要的一环，<strong>养成阅读官方文档</strong>，是一个良好的习惯。能编写官方文档，至少证明他们在这个领域是有很高的造诣，对用法足够熟练。</p>
-<p><strong>我</strong>：我可以和您多聊几句吗？<br><strong>面试官</strong>：就你那点小心思，我还不知道吗？面试官微微一笑：一样揍得你鼻青脸肿。</p>
-<p><strong>我</strong>：只是想借点技能过来，多学点总归没坏处。<br><strong>面试官</strong>：小伙子，真不错，年纪轻轻，挺有觉悟的。</p>
-<p><strong>面试官</strong>：对SQL语句优化流程，你了解多少。<br><strong>我</strong>：会那么一丢丢，也总结了一些。</p>
-<p><strong>面试官</strong>：请开始你的表演。<br><strong>我</strong>：很荣幸与你展开讨论，请看继续往下看。</p>
-<p>在对MySQL进行举例并使用到数据库表，大多数情况使用MySQL官方提供的sakila（模拟电影出租信息管理系统）和world数据库，类似于Oracle的scott用户。</p>
-<p>你可以将这篇博文，当成过度到MySQL8.0的参考资料。<strong>友情提示：经验是用来参考，不是拿来即用</strong>。如果您能看到并分享这篇文章，我很荣幸。如果有误导您的地方，我表示抱歉。</p>
-<p>如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。官方文档非常具有参考意义。目前市面上针对MySQL8.0书籍还比较少，部分停留在5.6.x和5.7.x版本，但仍然具有借鉴意义。</p>
+          <h2 id="卸载Oracle11g——解决无法删除oci-dll"><a href="#卸载Oracle11g——解决无法删除oci-dll" class="headerlink" title="卸载Oracle11g——解决无法删除oci.dll"></a>卸载Oracle11g——解决无法删除oci.dll</h2><p>﻿最近用虚拟机安装Oracle11g测试，遇到了各种问题，就总结了一下。用Google搜索，遇到OCI.DLL无法删除，查到被msdtc服务占用。解决方案，先停止该服务，然后删除OCI.DLL即可。</p>
+<p>Oracle安装不易，卸载更不容易。</p>
+<p>如果感觉没卸载干净，CSDN上有不少文章写了如何删除Oracle卸载后残留的注册表。卸载的时候，首先停止与Oracle相关的几个服务。</p>
+<p>卸载Oracle11g R2客户端的时候，找到如下路径执行命令，这里对应你安装时的路径（<strong>以管理员运行cmd</strong>）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\app\product\11.2.0\client_1\deinstall\deinstall.bat</span><br></pre></td></tr></table></figure>
+
+<p>如果遇到无法删除oci.dll文件，显示被以下程序占用</p>
+<blockquote>
+<p>Distributed Transaction Coordinator Service</p>
+</blockquote>
+<p><strong>究其原因，是msdtc这个服务的启动了，无法删除oci.dll</strong></p>
+<p><strong>以管理员运行cmd</strong></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/#more" rel="contents">
+              <a class="btn" href="/2022/02/18/%E5%8D%B8%E8%BD%BDOracle11g-%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4oci-dll/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -369,7 +371,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95%EF%BC%9Aoptimize%E3%80%81INSERT%E3%80%81ORDER%20BY%E3%80%81GROUP%20BY%E5%92%8COR%20%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5%E5%92%8C%E5%B5%8C%E5%A5%97%E6%9F%A5%E8%AF%A2/">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/02/18/%E8%A7%A3%E5%86%B3Oracle%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4oci-dll/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -387,7 +389,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95%EF%BC%9Aoptimize%E3%80%81INSERT%E3%80%81ORDER%20BY%E3%80%81GROUP%20BY%E5%92%8COR%20%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5%E5%92%8C%E5%B5%8C%E5%A5%97%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">MySQL优化方法：optimize、INSERT、ORDER BY、GROUP BY和OR 以及分页和嵌套查询</a>
+          <a href="/2022/02/18/%E8%A7%A3%E5%86%B3Oracle%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4oci-dll/" class="post-title-link" itemprop="url">解决Oracle无法删除oci.dll</a>
         </h2>
 
         <div class="post-meta-container">
@@ -400,14 +402,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-07T00:00:00+08:00">2022-04-07</time>
+      <time title="创建时间：2022-02-18 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-18T00:00:00+08:00">2022-02-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:10:53" itemprop="dateModified" datetime="2023-03-20T18:10:53+08:00">2023-03-20</time>
+      <time title="修改时间：2023-04-03 20:30:52" itemprop="dateModified" datetime="2023-04-03T20:30:52+08:00">2023-04-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -419,7 +421,7 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E4%BC%98%E5%8C%96%E7%AF%87/" itemprop="url" rel="index"><span itemprop="name">MySQL优化篇</span></a>
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span></a>
         </span>
     </span>
 
@@ -430,14 +432,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>7.4k</span>
+      <span>196</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>27 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -448,19 +450,31 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>主要介绍：MySQL定期分析表、定期优化表；批量（大量）插入数据优化技巧；优化 INSERT、ORDER BY、GROUP BY 语句、优化 OR 条件；优化嵌套查询、分页查询；使用SQL提示。</p>
-<p>只停留在看上面，提升效果甚微。应该带着思考去测试佐证，或者使用（同类书籍）新版本进行对比，这样带来的效果更好。最重要的一环，<strong>养成阅读官方文档</strong>，是一个良好的习惯。能编写官方文档，至少证明他们在这个领域是有很高的造诣，对用法足够熟练。</p>
-<p>[toc]</p>
-<p>示例数据库使用MySQL官方提供的sakila（模拟电影出租信息管理系统）和world数据库，类似于Oracle的scott用户。</p>
-<p>你可以将这篇博文，当成过度到MySQL8.0的参考资料。<strong>友情提示：经验是用来参考，不是拿来即用</strong>。如果您能看到并分享这篇文章，我很荣幸。如果有误导您的地方，我表示抱歉。</p>
-<p>如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。官方文档非常具有参考意义。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/acf1fd88c4b72660309388d03852a999.png"></p>
-<p><strong>注意</strong>：在某些情况，你自己测试的结果可能与我演示有所不同，我省略了查询结果的部分参数。</p>
-<p>如果你是从MySQL5.6或者5.7版本过渡到MySQL8.0。学习之前，建议线看官方文档这一章节：1.3 What Is New MySQL8.0 。在做对比的时候，<strong>文档中带有Note标识是你应该注意的地方</strong>。比如下面这张截图：</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/17d4943de92930dea49aa6fe2eaeac55.png"></p>
+          <p>最近用虚拟机安装Oracle11g测试，遇到了各种问题，就总结了一下。用Google搜索，遇到OCI.DLL无法删除，查到被msdtc服务占用。解决方案，先停止该服务，然后删除OCI.DLL即可。</p>
+<ol>
+<li>卸载的时候，首先停止与Oracle相关的几个服务。</li>
+</ol>
+<p>卸载Oracle11g R2客户端的时候，找到如下路径执行命令，这里对应你安装时的路径（<strong>以管理员运行cmd</strong>）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\app\product\11.2.0\client_1\deinstall\deinstall.bat</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>如果遇到无法删除oci.dll文件，显示被以下程序占用</li>
+</ol>
+<blockquote>
+<p>Distributed Transaction Coordinator Service</p>
+</blockquote>
+<p><strong>究其原因，是msdtc这个服务的启动了，无法删除oci.dll</strong></p>
+<ol start="3">
+<li><p>关闭msdtc服务，<strong>以管理员运行cmd</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop msdtc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>恢复服务msdtc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start msdtc</span><br></pre></td></tr></table></figure></li>
+</ol>
+
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95%EF%BC%9Aoptimize%E3%80%81INSERT%E3%80%81ORDER%20BY%E3%80%81GROUP%20BY%E5%92%8COR%20%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5%E5%92%8C%E5%B5%8C%E5%A5%97%E6%9F%A5%E8%AF%A2/#more" rel="contents">
+              <a class="btn" href="/2022/02/18/%E8%A7%A3%E5%86%B3Oracle%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4oci-dll/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -491,7 +505,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98InnoDB%E9%94%81%EF%BC%9A%E8%A1%8C%E9%94%81%E3%80%81lock%E4%B8%8Elatch%E3%80%81%E5%A4%96%E9%94%AE%E4%B8%8E%E9%94%81%E3%80%81%E9%94%81%E7%AE%97%E6%B3%95%E4%BB%A5%E5%8F%8A%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/02/18/MySQL%E5%92%8COracle%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E4%BB%A5%E5%8F%8A%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -509,7 +523,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98InnoDB%E9%94%81%EF%BC%9A%E8%A1%8C%E9%94%81%E3%80%81lock%E4%B8%8Elatch%E3%80%81%E5%A4%96%E9%94%AE%E4%B8%8E%E9%94%81%E3%80%81%E9%94%81%E7%AE%97%E6%B3%95%E4%BB%A5%E5%8F%8A%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">MySQL锁问题InnoDB锁：行锁、lock与latch、外键与锁、锁算法以及死锁问题</a>
+          <a href="/2022/02/18/MySQL%E5%92%8COracle%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E4%BB%A5%E5%8F%8A%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">MySQL和Oracle联合查询以及聚合函数</a>
         </h2>
 
         <div class="post-meta-container">
@@ -522,14 +536,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-07T00:00:00+08:00">2022-04-07</time>
+      <time title="创建时间：2022-02-18 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-18T00:00:00+08:00">2022-02-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:11:16" itemprop="dateModified" datetime="2023-03-20T18:11:16+08:00">2023-03-20</time>
+      <time title="修改时间：2023-03-20 17:56:56" itemprop="dateModified" datetime="2023-03-20T17:56:56+08:00">2023-03-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -537,11 +551,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD/" itemprop="url" rel="index"><span itemprop="name">软件实施</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E4%BC%98%E5%8C%96%E7%AF%87/" itemprop="url" rel="index"><span itemprop="name">MySQL优化篇</span></a>
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
         </span>
     </span>
 
@@ -552,14 +566,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>13k</span>
+      <span>3.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>48 分钟</span>
+      <span>14 分钟</span>
     </span>
 </div>
 
@@ -570,19 +584,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>主要介绍内容有：MySQL锁介绍、InnoDB行锁、lock与latch区别、锁类型、一致性非锁（锁）定读；自增长与锁；外键与锁；锁的算法；阻塞、死锁以及锁升级。</p>
-<p>我可以和面试官多聊几句吗？只是想…<br><strong>MySQL锁介绍以及InnoDB锁问题</strong>。﻿<strong>养成阅读官方文档</strong>，是一个良好的习惯。能编写官方文档，至少证明他们在这个领域是有很高的造诣，对用法足够熟练。</p>
-<p><strong>面试官</strong>：咦，小伙子，又来啦。</p>
-<p><strong>我</strong>：面试官，您好，又见面了。前面确实收获不少，我想……想获取更多的经验。</p>
-<p><strong>面试官</strong>：不错，不错，不错，年纪轻轻，有我当年一半的风范，挺有觉悟。接着上次的话题，继续MySQL锁问题。</p>
-<p><strong>我</strong>：好呀，这次我准备了InnoDB锁一些总结，希望您多多指教。</p>
-<p><strong>面试官</strong>：那，让我们进入今天的话题，一起讨论MySQL锁问题。</p>
-<p><strong>我</strong>：好的，请接着往下看。</p>
-<p>[toc]</p>
-<p>如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。</p>
+          <p>软件实施面试系列文章第二弹，MySQL和Oracle联合查询以及聚合函数的面试总结。放眼望去全是MySQL，就不能来点Oracle吗？之前面过不少公司，也做过不少笔试题，现在已经很少做笔试题了。你肚子有多少墨水，有经验的面试官一问基本上就知道个大概了。趁着还有点微薄的记忆，就彻底分享出来啦。</p>
+<p>系列文章已收录至github仓库:</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/cnwangk/wangk-stick">https://github.com/cnwangk/wangk-stick</a></p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>那个用心作题图，用脚写文档的就是我龙腾万里sky啦。</p>
+<p>如果不想自己去新建示例，也想找一个完整的示例进行测试练习，MySQL官网有提供示例数据库。</p>
+<p><strong>官方提供的sakila和world数据库</strong>，官网下载地址已经提供，可以下载进行参考学习。</p>
+<p><strong>sakila-db数据库包含三个文件</strong>：</p>
+<ul>
+<li>sakila-schema.sql：数据库表结构</li>
+<li>sakila-data.sql：数据库示例模拟数据</li>
+<li>sakila.mwb：数据库物理模型，在MySQL workbench中可以打开查看。</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://downloads.mysql.com/docs/sakila-db.zip">https://downloads.mysql.com/docs/sakila-db.zip</a></p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98InnoDB%E9%94%81%EF%BC%9A%E8%A1%8C%E9%94%81%E3%80%81lock%E4%B8%8Elatch%E3%80%81%E5%A4%96%E9%94%AE%E4%B8%8E%E9%94%81%E3%80%81%E9%94%81%E7%AE%97%E6%B3%95%E4%BB%A5%E5%8F%8A%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98/#more" rel="contents">
+              <a class="btn" href="/2022/02/18/MySQL%E5%92%8COracle%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E4%BB%A5%E5%8F%8A%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -613,7 +634,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/03/27/%E3%80%90%E6%B2%B9%E7%8C%B4%E5%92%8CiGuge%E3%80%91%E5%8A%A0%E9%80%9F%E8%AE%BF%E9%97%AE%E5%AD%A6%E6%9C%AF%E7%BD%91%E7%AB%99/">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/02/17/%E5%B8%B8%E7%94%A8%E6%8A%A4%E7%9C%BC%E8%89%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -631,7 +652,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/27/%E3%80%90%E6%B2%B9%E7%8C%B4%E5%92%8CiGuge%E3%80%91%E5%8A%A0%E9%80%9F%E8%AE%BF%E9%97%AE%E5%AD%A6%E6%9C%AF%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">【油猴和iGuge】加速访问学术网站</a>
+          <a href="/2022/02/17/%E5%B8%B8%E7%94%A8%E6%8A%A4%E7%9C%BC%E8%89%B2/" class="post-title-link" itemprop="url">常用护眼色</a>
         </h2>
 
         <div class="post-meta-container">
@@ -644,14 +665,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-03-27 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-27T00:00:00+08:00">2022-03-27</time>
+      <time title="创建时间：2022-02-17 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-17T00:00:00+08:00">2022-02-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:18:20" itemprop="dateModified" datetime="2023-03-20T18:18:20+08:00">2023-03-20</time>
+      <time title="修改时间：2023-03-20 18:27:26" itemprop="dateModified" datetime="2023-03-20T18:27:26+08:00">2023-03-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -661,14 +682,6 @@
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">实用工具</span></a>
         </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/%E6%8F%92%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">插件</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/%E6%8F%92%E4%BB%B6/%E6%B2%B9%E7%8C%B4/" itemprop="url" rel="index"><span itemprop="name">油猴</span></a>
-        </span>
     </span>
 
   
@@ -678,14 +691,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>729</span>
+      <span>108</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -696,19 +709,60 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>【油猴和iGuge】加速访问学术网站，好好学习，天天向上。</p>
-<p>如果在某csdn搜索到我的博客，请在搜索的参数后加上：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">检索内容加上后面的参数 -site:csdn.net</span><br></pre></td></tr></table></figure>
+          <h1 id="常用护眼色"><a href="#常用护眼色" class="headerlink" title="常用护眼色"></a>常用护眼色</h1><p>就算看文档，也要要养成护眼的好习惯哟，毕竟往后余生还长着了。</p>
+<table>
+<thead>
+<tr>
+<th>颜色</th>
+<th>RGB</th>
+<th>16进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>常用护眼色</strong></td>
+<td>R：181   G：230   B：181</td>
+<td>#B5E6B5</td>
+</tr>
+<tr>
+<td><strong>黄</strong></td>
+<td>R：250   G：249   B：222</td>
+<td>#FAF9DE</td>
+</tr>
+<tr>
+<td><strong>褐</strong></td>
+<td>R：250   G：242   B：226</td>
+<td>#FFF2E2</td>
+</tr>
+<tr>
+<td>红</td>
+<td>R：253   G：230   B：224</td>
+<td>#FDE6E0</td>
+</tr>
+<tr>
+<td>绿</td>
+<td>R：227   G：237   B：205</td>
+<td>#E3EDCD</td>
+</tr>
+<tr>
+<td><strong>海天蓝</strong></td>
+<td>R：220   G：226   B：241</td>
+<td>#DCE2F1</td>
+</tr>
+<tr>
+<td>紫</td>
+<td>R：233   G：235   B：154</td>
+<td>#E9EBFE</td>
+</tr>
+<tr>
+<td>灰</td>
+<td>R：234   G：234   B：239</td>
+<td>#EAEAEF</td>
+</tr>
+</tbody></table>
 
-<p>iGuge作为一款免费访问Google的插件，挺好用（偶尔会抽风），当然也有付费的。</p>
-<p>最开始用谷歌服务助手（已经暴毙），后来用过Ghelper谷歌上网助手（gg思密达，偶尔还能用）。</p>
-<p>iGuge谷歌访问助手，是我目前为止用过最稳定的一款插件，作为免费版使用相当可以了，能访问维基百科。</p>
-<p><img data-src="https://article.biliimg.com/bfs/article/5c670f0d61dd84ae76080122de3fb075ef289a9e.png"></p>
-<p>[toc]</p>
-<h1 id="【iGuge插件】：加速访问谷歌"><a href="#【iGuge插件】：加速访问谷歌" class="headerlink" title="【iGuge插件】：加速访问谷歌"></a>【iGuge插件】：加速访问谷歌</h1><h2 id="一、获取插件iGuge"><a href="#一、获取插件iGuge" class="headerlink" title="一、获取插件iGuge"></a>一、获取插件iGuge</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/03/27/%E3%80%90%E6%B2%B9%E7%8C%B4%E5%92%8CiGuge%E3%80%91%E5%8A%A0%E9%80%9F%E8%AE%BF%E9%97%AE%E5%AD%A6%E6%9C%AF%E7%BD%91%E7%AB%99/#more" rel="contents">
+              <a class="btn" href="/2022/02/17/%E5%B8%B8%E7%94%A8%E6%8A%A4%E7%9C%BC%E8%89%B2/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -739,7 +793,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/03/27/Redis%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%EF%BC%8C%E7%94%B1%E6%8C%81%E4%B9%85%E5%8C%96%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/02/12/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8git%E9%81%87%E5%88%B0fatal-remote-origin-already-exists/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -757,7 +811,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/27/Redis%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%EF%BC%8C%E7%94%B1%E6%8C%81%E4%B9%85%E5%8C%96%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/" class="post-title-link" itemprop="url">Redis入门到实践，由持久化引发的思考</a>
+          <a href="/2022/02/12/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8git%E9%81%87%E5%88%B0fatal-remote-origin-already-exists/" class="post-title-link" itemprop="url">解决使用git遇到fatal remote origin already exists</a>
         </h2>
 
         <div class="post-meta-container">
@@ -770,14 +824,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-03-27 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-27T00:00:00+08:00">2022-03-27</time>
+      <time title="创建时间：2022-02-12 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-12T00:00:00+08:00">2022-02-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:07:37" itemprop="dateModified" datetime="2023-03-20T18:07:37+08:00">2023-03-20</time>
+      <time title="修改时间：2023-04-03 21:21:40" itemprop="dateModified" datetime="2023-04-03T21:21:40+08:00">2023-04-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -785,11 +839,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NOSQL/" itemprop="url" rel="index"><span itemprop="name">NOSQL</span></a>
+          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NOSQL/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
         </span>
     </span>
 
@@ -800,14 +854,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.1k</span>
+      <span>393</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>15 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -818,17 +872,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>redis6.0入门详细教程，redis持久化、redis复制原理、redis高可用哨兵监控以及集群搭建。<br>@[toc]</p>
-<h1 id="一本正经"><a href="#一本正经" class="headerlink" title="一本正经"></a>一本正经</h1><p><strong>面试官</strong>：小伙子，谈谈对Redis的看法。<br><strong>我</strong>：啊，看法呀，坐着看还是躺着看。Redis很小？很快？但很持久？</p>
-<p><strong>面试官</strong>：一本正经的说，我怀疑你在开车，不仅开开车还搞颜色。<br><strong>我</strong>：。。。</p>
-<p><strong>面试官</strong>：去去去，我时间有限，别瞎扯淡。回到正题，你对Redis了解有多少。<br><strong>我</strong>：轻量体积小、基于内存非常快、RDB配合AOF持久化让其一样坚挺持久。</p>
-<p><strong>面试官</strong>：说点具体的。<br><strong>我</strong>：请看正文。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/a663249cdfe4fc9f604bbdc538c50530.png"></p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p><strong>简介</strong><br>Redis是一个开源的、高性能的、基于键值对的缓存与存储系统，通过提供多种键值数据类型来适应不同场景下的缓存与存储需求。与此同时，Redis的诸多高层级功能让其可以胜任消息队列、任务队列等不同的角色。除此之外，Redis还支持外部模块扩展，在某些特定的场景下可以作为主数据库使用。</p>
-<p>由于内存的读写速度远快于硬盘，就算现在的固态盘思维估计也是朝着内存那个思维模式发展的，大概也许我是个外行，但是长久存储还是使用机械盘。所以Redis数据库中的所有数据都存储在内存中那是相当快的。也有一定的风险，会导致丢失数据，但配合RDB以及AOF持久化会减少风险。</p>
+          <p>git解决使用命令遇到fatal: remote origin already exists</p>
+<p>从字面意思上进行分析，连接上远程仓库已经退出。看不懂英文是啥意思也没关系，咱有有道词典借鉴学习。<br>至于为何退出，80%的原因是已经连上远程仓库。当你再次执行远程连接命令时，会出现以上的报错信息，小部分原因是其它问题导致的。</p>
+<p><strong>问题展示</strong><br>【git】使用git遇到<code>fatal: remote origin already exists</code><br><img data-src="https://img-blog.csdnimg.cn/576b13a4d5974f089f33d60679d2c79a.png?x-oss-process=,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_20,color_FFFFFF,t_70,g_se,x_16#" alt="在这里插入图片描述"></p>
+<p><strong>1、输入如下命令</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输入如下命令 </span></span><br><span class="line">git remote add origin  https://github.com/(user_name)/(app_name).git</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、如果遇到</strong><br>从字面意思上进行分析，连接上远程仓库已经退出。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: remote origin already exists</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、可尝试</strong><br>释放远程仓库连接</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">rm</span> origin </span><br></pre></td></tr></table></figure>
+
+<p><strong>4、再输入 如下命令就不会报错了！</strong><br> 执行远程仓库连接命令</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/03/27/Redis%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%EF%BC%8C%E7%94%B1%E6%8C%81%E4%B9%85%E5%8C%96%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/#more" rel="contents">
+              <a class="btn" href="/2022/02/12/%E8%A7%A3%E5%86%B3%E4%BD%BF%E7%94%A8git%E9%81%87%E5%88%B0fatal-remote-origin-already-exists/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -852,7 +911,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -876,14 +935,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">218k</span>
+    <span title="站点总字数">219k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:12</span>
+    <span title="站点阅读时长">13:17</span>
   </span>
 </div>
 <div class="busuanzi-count">

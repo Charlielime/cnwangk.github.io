@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -247,7 +247,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/02/21/springboot%E5%88%9D%E4%BD%93%E9%AA%8C/">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/01/05/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -265,7 +265,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/21/springboot%E5%88%9D%E4%BD%93%E9%AA%8C/" class="post-title-link" itemprop="url">springboot初体验</a>
+          <a href="/2022/01/05/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">Linux配置全局与当前用户环境变量</a>
         </h2>
 
         <div class="post-meta-container">
@@ -278,258 +278,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-02-21 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-21T00:00:00+08:00">2022-02-21</time>
+      <time title="创建时间：2022-01-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-01-05T00:00:00+08:00">2022-01-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:14:51" itemprop="dateModified" datetime="2023-03-20T18:14:51+08:00">2023-03-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">web框架</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E6%A1%86%E6%9E%B6/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E6%A1%86%E6%9E%B6/Java/springboot/" itemprop="url" rel="index"><span itemprop="name">springboot</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.9k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>14 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>还记得那个某课网的两小时入门springboot的课程吗？某师兄的springboot系列教学视频确实是有点东西的，就是骚了一点。结果可想而知，在N年后被某人给举报了，被强制下架了，原因是引起某女学员不适。这门视频教程还是有可取之处的，通俗易懂。</p>
-<blockquote>
-<p>链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1UJFuqEeQ1eAlC3n4SeCmTQ?pwd=syi5">https://pan.baidu.com/s/1UJFuqEeQ1eAlC3n4SeCmTQ?pwd=syi5</a>   提取码: syi5 </p>
-</blockquote>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我最初是2017年年初开始接触springboot的，那会还是看的某编程网站的视频教程入门的（彼时springmvc还是主流，springboot刚刚进入人们的视线）。如今也打算总结一篇，关于快速入门springboot的图文教程。</p>
-<p>其实网上已经有很多类似的教程了。无外乎图文详解，视频教程。当你看此篇教程时肯定是最新的，距离spring-boot崛起已经有4年了。但是，我还是准备写一篇关于spring-boot的详细教程。记录参考官方文档遇到的坑，也是对自己的一次总结。由于是初体验，会描述的很详细，但是不会太过于深入。会包含开发工具篇，也是为了照顾想入坑的，综合性的全面讲解非常有必要。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="开发工具篇"><a href="#开发工具篇" class="headerlink" title="开发工具篇"></a>开发工具篇</h2><h3 id="一、SpringTools官网直通车"><a href="#一、SpringTools官网直通车" class="headerlink" title="一、SpringTools官网直通车"></a>一、SpringTools官网直通车</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://spring.io/tools/">https://spring.io/tools/</a><br>这里就不放项目创建截图了，会在下面的<code>eclipse</code>和<code>IDEA</code>下面放出截图。</p>
-</blockquote>
-<h3 id="二、eclipse官网直通车。"><a href="#二、eclipse官网直通车。" class="headerlink" title="二、eclipse官网直通车。"></a>二、eclipse官网直通车。</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/21/springboot%E5%88%9D%E4%BD%93%E9%AA%8C/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/02/20/windows%E4%B8%8Bjdk%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85jre%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/20/windows%E4%B8%8Bjdk%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85jre%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">windows下jdk手动安装jre教程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-02-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-20T00:00:00+08:00">2022-02-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:13:23" itemprop="dateModified" datetime="2023-03-20T18:13:23+08:00">2023-03-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>477</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>﻿自己之前一直在用<code>jdk</code>6&amp;&amp;7，公司之前也是用<code>jdk7</code>。后来发现更新了<code>jdk8</code>引入了函数式编程，<code>lambda</code>表达式和<code>stream</code>流的概念，再后来发现<code>JDK</code>更新的速度越来越快了。直到有一天逛技术博客的时候发现出到<code>jdk12</code>了，下载后安装了试了下新功能，奇怪的是没有<code>jre</code>，<strong>我这里下载的是解压版本</strong>。于是乎就搜索的一番，原来后续的版本需要手动来安装jre。顺带吐槽一下，去Oracle官网下载旧版本的jdk还得注册账号，以前可是不需要的。而且最近更新是真的快，<code>jdk14</code>也出来了。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>平时工作环境都是在win上的，只有测试、生产环境在linux下运行的。所以下面尝鲜的时候是在win下进行的。对于想了解jdk最新版本的新特性，还是很有帮助的。</p>
-<h2 id="一、-首先进入你安装jdk的目录"><a href="#一、-首先进入你安装jdk的目录" class="headerlink" title="一、 首先进入你安装jdk的目录"></a>一、 首先进入你安装<code>jdk</code>的目录</h2><p>我这已经是手动执行过命令了，所以生成了<code>jre</code></p>
-<p><img data-src="https://img-blog.csdnimg.cn/2019121710425780.png?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="二、cmd-管理员身份启动"><a href="#二、cmd-管理员身份启动" class="headerlink" title="二、cmd(管理员身份启动)"></a>二、cmd(管理员身份启动)</h2><p>cd 到安装<code>jdk</code>目录，是不是发现没有<code>jre</code>，很诡异，看下面如何操作。<br> <img data-src="https://img-blog.csdnimg.cn/20191217104954801.png" alt="在这里插入图片描述"><br><img data-src="https://img-blog.csdnimg.cn/2019121710442431.png?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="三、执行以下命令生成jre"><a href="#三、执行以下命令生成jre" class="headerlink" title="三、执行以下命令生成jre"></a>三、执行以下命令生成jre</h2><p>当然我自己也做了测试，对于<code>jdk14</code>的版本也同样适用。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/20/windows%E4%B8%8Bjdk%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85jre%E6%95%99%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/02/20/%E8%A7%A3%E5%86%B3xshell%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/20/%E8%A7%A3%E5%86%B3xshell%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决xshell强制更新的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-02-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-20T00:00:00+08:00">2022-02-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:16:54" itemprop="dateModified" datetime="2023-03-20T18:16:54+08:00">2023-03-20</time>
+      <time title="修改时间：2023-04-03 21:06:06" itemprop="dateModified" datetime="2023-04-03T21:06:06+08:00">2023-04-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -541,11 +297,7 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BF%90%E7%BB%B4/%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">终端工具</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BF%90%E7%BB%B4/%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7/xshell/" itemprop="url" rel="index"><span itemprop="name">xshell</span></a>
+          <a href="/categories/%E8%BF%90%E7%BB%B4/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a>
         </span>
     </span>
 
@@ -556,14 +308,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>441</span>
+      <span>1.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -574,19 +326,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>解决xshell强制更新的问题。讲道理，软件用起来功能稳定就行。可是某些软件，偏偏强制你更新，感觉流氓属性十足。这时候就得寻求其它方法了，你看xshell也有这尿性，下面给出解决的方法。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>当你某一天使用xshell时，突然发现，oh fuck，不更新还不让用了，内心一万个曹尼玛奔腾而过。使用一段时间就会提示，确实很艹蛋。下图就是打开xshell软件出现的提示，按照我下面说的方法即可解决。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20200331222352239.jpg?x-oss-process=,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>这时不要担心，按照我说的方法，其实无非就是判定系统时间，把自己电脑的系统时间改一下就行了。当然采用脚本的形式更方便。</p>
-<p>首先新建一个文本文档以<code>.bat</code>文件格式保存，然后将下面提供的代码复制到<code>xx.bat</code>文件中然后保存。<br>下面的代码部分位置我用#给出了注释，你复制的时候可以将#部分去掉。</p>
-<p><strong>代码提供</strong></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">%<span class="number">1</span> mshta vbscript:CreateObject(<span class="string">&quot;Shell.Application&quot;</span>).ShellExecute(<span class="string">&quot;cmd.exe&quot;</span>,<span class="string">&quot;/c %~s0 ::&quot;</span>,<span class="string">&quot;&quot;</span>,<span class="string">&quot;runas&quot;</span>,<span class="number">1</span>)(window.close) &amp;&amp; <span class="keyword">exit</span></span><br><span class="line">title Xshell启动器</span><br><span class="line"><span class="built_in">set</span> atime=%date:~<span class="number">0</span>,<span class="number">10</span>%</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置系统时间</span></span><br><span class="line">date <span class="number">2018</span><span class="literal">-12-31</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#改成你的xshell启动路径 </span></span><br><span class="line"><span class="built_in">start</span> D:\work\Xshell6Portable_50151\Xshell6Portable\Xshell6Portable.exe</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 启动软件中...</span><br><span class="line">ping <span class="number">0.0</span>.<span class="number">0.0</span>  <span class="literal">-n</span> <span class="number">6</span> &gt; null</span><br><span class="line"><span class="built_in">echo</span> 同步时间中,完成后自动关闭窗口...</span><br><span class="line"></span><br><span class="line">:reset</span><br><span class="line">w32tm /resync &gt;null</span><br><span class="line"><span class="built_in">set</span> btime=%date:~<span class="number">0</span>,<span class="number">10</span>%</span><br><span class="line"><span class="built_in">echo</span> %atime%|findstr  %btime% &gt;nul</span><br><span class="line"><span class="keyword">if</span> %errorlevel% equ <span class="number">0</span> (</span><br><span class="line"><span class="keyword">exit</span></span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">goto reset</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>记录点点滴滴。善于总结，其乐不穷。好记性不如烂笔头，多收集自己第一次尝试的成果，收获也颇丰。你会发现，自己的知识宝库越来越丰富。</p>
+          <p>今天这篇文章，讲解linux系统的全局环境变量以及当前用户环境变量的配置。</p>
+<p>以前在没有遇到实际问题时，基本忽略掉思考，所有配置的环境变量都配成全局生效。这样是有弊端的，在某一次偶然的机会，我沉思的一小会，意识到全局环境变量与当前用户环境变量还是区分为好，不应一概而论。</p>
+<p>直到后来我在linux服务器从Oracle11g过度到Oracle19c时。需要创建普通用户例如oracle才能安装，这时我才恍然大悟。这大概是linux操作系统的魅力所在。</p>
+<p>当时遇到的国产银河麒麟操作系统，把不同用户权限区分的明明白白的，三权分立。管理员用户root、安全用户secure、普通用户user，三者之间均无法访问别人的home目录，这时我才明白原来那个root用户是假的。泾渭分明，这样做当然有优势。好处在于运维人员只需要分心维护管路员用户和安全用户。普通用户权限比较小，相对来说不会造成较为严重的后果。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>配置环境变量，并不一定需要非得配置成所有用全局的或者当前用户全局的。如果使用的中间件有配置文件，你甚至可以在当前的中间件配置文件中指定JDK安装的路径，我做测试时一般会这样配置，为了不干扰原有的环境配置而做出让步。这样会显得繁琐一些，配置全局则更为方便管理。</p>
+<h2 id="一、配置全局环境变量"><a href="#一、配置全局环境变量" class="headerlink" title="一、配置全局环境变量"></a>一、配置全局环境变量</h2><h3 id="1、Redhat系列配置环境变量"><a href="#1、Redhat系列配置环境变量" class="headerlink" title="1、Redhat系列配置环境变量"></a>1、Redhat系列配置环境变量</h3><p>注意：<strong>需要root用户权限</strong>，才能编辑<code>/etc/profile</code>文件，默认配置如下图所示</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/bd1db81b028ca8354d6ae09175e5db32.png"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/02/20/%E8%A7%A3%E5%86%B3xshell%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/#more" rel="contents">
+              <a class="btn" href="/2022/01/05/Linux%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E4%B8%8E%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -617,7 +366,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/02/18/hexo%E8%BF%9B%E9%98%B6%E7%8E%A9%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/01/04/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4scp%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -635,7 +384,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/18/hexo%E8%BF%9B%E9%98%B6%E7%8E%A9%E6%B3%95/" class="post-title-link" itemprop="url">hexo进阶玩法</a>
+          <a href="/2022/01/04/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4scp%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Linux基本命令scp详细教程</a>
         </h2>
 
         <div class="post-meta-container">
@@ -648,14 +397,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-02-18 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-18T00:00:00+08:00">2022-02-18</time>
+      <time title="创建时间：2022-01-04 00:00:00" itemprop="dateCreated datePublished" datetime="2022-01-04T00:00:00+08:00">2022-01-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 17:59:38" itemprop="dateModified" datetime="2023-03-20T17:59:38+08:00">2023-03-20</time>
+      <time title="修改时间：2023-04-03 20:55:20" itemprop="dateModified" datetime="2023-04-03T20:55:20+08:00">2023-04-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -663,11 +412,265 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">静态博客</span></a>
+          <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+          <a href="/categories/%E8%BF%90%E7%BB%B4/scp/" itemprop="url" rel="index"><span itemprop="name">scp</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天给大家带来的是linux中比较实用的命令scp。善用小技巧，解决工作中的痛点。<br>掌握一门好的技术或者说一门好的艺术，最快捷的方式就是融入到工作中。</p>
+<p>在工作的不断鞭策之下，我其实也想偷偷懒，有时候觉得怎样简单快捷怎样来。在某种特定的工作环境下，有些操作被限制死了，只能用传统的方式传输（比如定制的商业加密U盘、光盘刻录）。当你了解实际情况后，可能有更优解，你会寻求其它的突破口或者折中方案。</p>
+<p>夸张的说法，我用了1分钟熟悉了scp的用法，并直接运用于工作当中。然而，我教同事使用，他却花了远远不止10倍的时间。其中的小窍门，你知道是为啥吗？我的回答是：善用系统提供的帮助工具或者提示。<br><img data-src="https://img-blog.csdnimg.cn/img_convert/86f00e907ac0dc393af8a29d971e5e44.png"></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、SCP命令简介"><a href="#一、SCP命令简介" class="headerlink" title="一、SCP命令简介"></a>一、SCP命令简介</h2><p>在Redhat系列可以使用帮助命令：<code>man scp</code>，快速上手，掌握使用方法。</p>
+<p>如下图使用<code>scp</code>或者<code>man scp</code>命令：</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/c17370f5b672e835c61b27fc911367c5.png"></p>
+<h3 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h3><ul>
+<li><p><strong>NAME</strong>：scp — 安全复制(远程文件复制程序)</p>
+</li>
+<li><p>scp 在网络中的主机间进行文件复制。 它用 ssh(1) 来传输及验证数据，提供与 ssh(1)相同的安全保护。 它不象 rcp(1), scp 会根据需要询问口令。 在任何文件名中都可以包含主机名和用户名，用来指定从&#x2F;向该主机复制此文件。</p>
+</li>
+<li><p>Linux scp 命令主要用于 Linux 之间复制文件和目录。</p>
+</li>
+<li><p>scp 是 secure copy 的缩写, scp 是 linux 系统下基于 ssh 登陆进行安全的远程文件拷贝命令。</p>
+</li>
+<li><p>scp 是加密的，rcp 是不加密的，scp 是 rcp 的加强版。</p>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/04/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4scp%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/01/02/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8Bgit%E5%92%8Cgitee%E4%BB%A5%E5%8F%8Agithub/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/01/02/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8Bgit%E5%92%8Cgitee%E4%BB%A5%E5%8F%8Agithub/" class="post-title-link" itemprop="url">快速上手git和gitee以及github</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-02 19:48:45" itemprop="dateCreated datePublished" datetime="2022-01-02T19:48:45+08:00">2022-01-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-03 21:31:46" itemprop="dateModified" datetime="2023-04-03T21:31:46+08:00">2023-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>13 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>你真的了解git、gitee、github吗？本文已经收录github仓库，已做更新。CSDN上的部分内容未更新，请访问github进行查看最新内容。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/cnwangk/SQL-study">https://github.com/cnwangk/SQL-study</a></p>
+</blockquote>
+<p><strong>初学者如何提高学习git的动力</strong>。看完这个搭建的示例，相信你一定有前行的动力。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://cnwangk.github.io/">https://cnwangk.github.io/</a></p>
+</blockquote>
+<p>你真的了解git、gitee、github吗？本文主要围绕git、gitee、github的使用展开介绍，如何一步步通过实践去打造自己的git工作环境。当然你可以作为写作环境，熟悉一门技术的有效方式就是应用实践。顺带会讲一些gitee和github的pages服务，搭建自己的个人网站。</p>
+<p>本文主要环境是在Windows下进行的，所以看到桌面或者在某一目录右键可以直接打开Git Bash。<br><img data-src="https://img-blog.csdnimg.cn/img_convert/d9221e03c8bf7fa3eac6131b62be9854.png"><br>@[toc]</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>至于我为什么将git工具放在最前面，是因为通过这个工具可以将gitee与github串联起来。可能有人会说，我可以在虚拟机上或者云服务器上搭建git环境测试。但我想说的是，白嫖她不香吗？直呼真香，小伙子有点东西啊！</p>
+<h2 id="一、git"><a href="#一、git" class="headerlink" title="一、git"></a>一、git</h2><p><strong>背景</strong></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/02/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8Bgit%E5%92%8Cgitee%E4%BB%A5%E5%8F%8Agithub/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2021/12/28/Oracle%E8%BF%90%E7%BB%B4%E5%AE%9E%E6%88%98%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/12/28/Oracle%E8%BF%90%E7%BB%B4%E5%AE%9E%E6%88%98%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">Oracle运维实战小技巧</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-12-28T00:00:00+08:00">2021-12-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-03 20:31:59" itemprop="dateModified" datetime="2023-04-03T20:31:59+08:00">2023-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span></a>
         </span>
     </span>
 
@@ -696,22 +699,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>目前个人主要以使用Next主题为主，Next主题比较活跃、更新频繁，升级完成后记录过程。</p>
-<p>关于hexo一些问题，基本上可以在官网找到解决方案，如果找不到可以在插件github issues寻找解决方案。<br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/troubleshooting">https://hexo.io/zh-cn/docs/troubleshooting</a></p>
-<h1 id="hexo-nextjs主题"><a href="#hexo-nextjs主题" class="headerlink" title="hexo nextjs主题"></a>hexo nextjs主题</h1><p>个人已经更新到最新环境：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo: 6.3.0</span><br><span class="line">hexo-cli: 4.3.0</span><br><span class="line">os: win32 10.0.22000</span><br><span class="line">node: 14.16.1</span><br><span class="line">nextjs：NexT version 8.14.2</span><br></pre></td></tr></table></figure>
-<p>插件使用：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;hexo&quot;</span>: <span class="string">&quot;^6.3.0&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-auto-excerpt&quot;</span>: <span class="string">&quot;^1.1.2&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-bilibili-bangumi&quot;</span>: <span class="string">&quot;^1.8.2&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-clean-css&quot;</span>: <span class="string">&quot;^2.0.0&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-generator-archive&quot;</span>: <span class="string">&quot;^2.0.0&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-generator-baidu-sitemap&quot;</span>: <span class="string">&quot;^0.1.9&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-generator-category&quot;</span>: <span class="string">&quot;^2.0.0&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-generator-index&quot;</span>: <span class="string">&quot;^3.0.0&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-generator-index-pin-top&quot;</span>: <span class="string">&quot;^0.2.2&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-generator-search&quot;</span>: <span class="string">&quot;^2.4.3&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-generator-searchdb&quot;</span>: <span class="string">&quot;^1.4.1&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-generator-sitemap&quot;</span>: <span class="string">&quot;^3.0.1&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-generator-tag&quot;</span>: <span class="string">&quot;^2.0.0&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-next-darkmode&quot;</span>: <span class="string">&quot;^0.1.10&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-renderer-ejs&quot;</span>: <span class="string">&quot;^2.0.0&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-renderer-marked&quot;</span>: <span class="string">&quot;^6.0.0&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-renderer-stylus&quot;</span>: <span class="string">&quot;^2.1.0&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-server&quot;</span>: <span class="string">&quot;^3.0.0&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-theme-landscape&quot;</span>: <span class="string">&quot;^0.0.3&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-uglify&quot;</span>: <span class="string">&quot;^2.0.0&quot;</span>,</span><br><span class="line"><span class="string">&quot;hexo-word-counter&quot;</span>: <span class="string">&quot;^0.1.0&quot;</span>,</span><br><span class="line"><span class="string">&quot;html-minifier-terser&quot;</span>: <span class="string">&quot;^7.1.0&quot;</span></span><br></pre></td></tr></table></figure>
+          <p>实际运维中，不仅仅是掌握SQL语句的使用以及优化。你会遇到各式各样的问题，此时往往不知如何下手。思考的方向不好确定，但是可以通过日志分析。常用的动态参数以及数据字典掌握尤为重要，辅助我们排查问题。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、基础优化篇"><a href="#一、基础优化篇" class="headerlink" title="一、基础优化篇"></a>一、基础优化篇</h2><h3 id="1、密码过期处理"><a href="#1、密码过期处理" class="headerlink" title="1、密码过期处理"></a>1、密码过期处理</h3><p>1.1、登录到sqlplus</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 登陆sys</span><br><span class="line">sqlplus /nolog</span><br><span class="line">-- 连接数据库</span><br><span class="line">conn sys/password@orcl as sysdba</span><br></pre></td></tr></table></figure>
 
-<p>每安装一款插件，测试一下，暂时没发现冲突。</p>
-<p>建议新建多个目录进行初始化：</p>
-<ul>
-<li>测试环境：blog-hexo-test</li>
-<li>生产环境：blog-hexo-prod<br>测试正常后，备份到生产环境使用。</li>
-</ul>
+<p>1.2、执行SQL语句查询密码期限，修改密码期限为UNLIMITED。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查询密码期限</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">  <span class="keyword">FROM</span> dba_profiles s</span><br><span class="line"> <span class="keyword">WHERE</span> s.profile <span class="operator">=</span> <span class="string">&#x27;DEFAULT&#x27;</span></span><br><span class="line">   <span class="keyword">AND</span> resource_name <span class="operator">=</span> <span class="string">&#x27;PASSWORD_LIFE_TIME&#x27;</span></span><br><span class="line"><span class="comment">-- 修改密码期限为无限制</span></span><br><span class="line"> <span class="keyword">ALTER</span> PROFILE <span class="keyword">DEFAULT</span> LIMIT PASSWORD_LIFE_TIME UNLIMITED;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、空表无法导出"><a href="#2、空表无法导出" class="headerlink" title="2、空表无法导出"></a>2、空表无法导出</h3><p>2.1、新增createsql.sql文件</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/02/18/hexo%E8%BF%9B%E9%98%B6%E7%8E%A9%E6%B3%95/#more" rel="contents">
+              <a class="btn" href="/2021/12/28/Oracle%E8%BF%90%E7%BB%B4%E5%AE%9E%E6%88%98%E5%B0%8F%E6%8A%80%E5%B7%A7/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -742,7 +740,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/02/18/MySQL%E5%92%8COracle%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E4%BB%A5%E5%8F%8A%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2021/12/26/markdown%E7%BC%96%E8%BE%91%E5%99%A8VSCode%E5%92%8CTypora/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -760,7 +758,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/18/MySQL%E5%92%8COracle%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E4%BB%A5%E5%8F%8A%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">MySQL和Oracle联合查询以及聚合函数</a>
+          <a href="/2021/12/26/markdown%E7%BC%96%E8%BE%91%E5%99%A8VSCode%E5%92%8CTypora/" class="post-title-link" itemprop="url">markdown编辑器VSCode和Typora</a>
         </h2>
 
         <div class="post-meta-container">
@@ -773,14 +771,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-02-18 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-18T00:00:00+08:00">2022-02-18</time>
+      <time title="创建时间：2021-12-26 00:00:00" itemprop="dateCreated datePublished" datetime="2021-12-26T00:00:00+08:00">2021-12-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 17:56:56" itemprop="dateModified" datetime="2023-03-20T17:56:56+08:00">2023-03-20</time>
+      <time title="修改时间：2023-04-03 21:25:10" itemprop="dateModified" datetime="2023-04-03T21:25:10+08:00">2023-04-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -788,11 +786,19 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD/" itemprop="url" rel="index"><span itemprop="name">软件实施</span></a>
+          <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">实用工具</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%9E%E6%96%BD/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+          <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/%E7%BC%96%E8%BE%91%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">编辑器</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/%E7%BC%96%E8%BE%91%E5%99%A8/Typora/" itemprop="url" rel="index"><span itemprop="name">Typora</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/%E7%BC%96%E8%BE%91%E5%99%A8/VSCode/" itemprop="url" rel="index"><span itemprop="name">VSCode</span></a>
         </span>
     </span>
 
@@ -803,14 +809,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.9k</span>
+      <span>871</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>14 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -821,26 +827,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>软件实施面试系列文章第二弹，MySQL和Oracle联合查询以及聚合函数的面试总结。放眼望去全是MySQL，就不能来点Oracle吗？之前面过不少公司，也做过不少笔试题，现在已经很少做笔试题了。你肚子有多少墨水，有经验的面试官一问基本上就知道个大概了。趁着还有点微薄的记忆，就彻底分享出来啦。</p>
-<p>系列文章已收录至github仓库:</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://github.com/cnwangk/wangk-stick">https://github.com/cnwangk/wangk-stick</a></p>
-</blockquote>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>那个用心作题图，用脚写文档的就是我龙腾万里sky啦。</p>
-<p>如果不想自己去新建示例，也想找一个完整的示例进行测试练习，MySQL官网有提供示例数据库。</p>
-<p><strong>官方提供的sakila和world数据库</strong>，官网下载地址已经提供，可以下载进行参考学习。</p>
-<p><strong>sakila-db数据库包含三个文件</strong>：</p>
-<ul>
-<li>sakila-schema.sql：数据库表结构</li>
-<li>sakila-data.sql：数据库示例模拟数据</li>
-<li>sakila.mwb：数据库物理模型，在MySQL workbench中可以打开查看。</li>
-</ul>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://downloads.mysql.com/docs/sakila-db.zip">https://downloads.mysql.com/docs/sakila-db.zip</a></p>
-</blockquote>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天的课题，给各位大佬介绍一款神奇、优美的写作工具markdown编辑器typora。能看到这篇文章的，我默认大家都会基本的编程知识以及markdown基本语法呦！</p>
+<p>以前写作使用的工具五花八门，比如传统的office、wps和富文本编辑器，以及editplus、notepad++。自从接触了markdown编辑器，转而使用了sublime text。然而使用sublime text，需要下载插件配合使用，但是那个网速大家都懂得，龟速前行。作为替代记事本做普通编辑器还是很好用的，有时我打开xml、yaml、txt以及java和SQL文件（轻量级的）效果很不错。个人认为sublime text优势在于体量轻，编辑小的文件优势大。</p>
+<p>某些网站，比如CSDN、简书、掘金社区、博客园或者知乎对markdown的支持也很好，支持多种文件上传适配。GitHub以及gitee两款代码托管平台，对markdown支持很nice。本机部署git，然后配置ssh验证连接服务器。写完文章，提交到GitHub或者gitee。你还可以通过Hugo、Hexo、jekyll这类静态网站生成器搭建个人博客或者站点，发布到github或者gitee。</p>
+<p>后来无意间接触到了微软出的VSCODE编辑器，就毫不犹豫转到了VSCODE。不用下载插件，对markdown格式支持很友好。如果需要预览文章效果，额外下载插件可以很好地预览md文件。优势比sublime text要大的多，下载插件体验很好。</p>
+<p><strong>个人推荐的markdown编辑器typora，有一种相见恨晚的feeling</strong>。在某个阳光明媚惬意的日子，我结识了写作的好友typora这款神奇的markdown编辑器，从此美滋滋。在前段时间，typora出了付费版，功能更强大。支持正版是好事，毕竟作者无私奉献也是需要花money维护的。但是，只要你不升级beta版，同样可以免费使用哟！</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、Typora"><a href="#一、Typora" class="headerlink" title="一、Typora"></a>一、Typora</h2><h3 id="1、typora版本"><a href="#1、typora版本" class="headerlink" title="1、typora版本"></a>1、typora版本</h3><p>1.1、这里个人使用的是0.11.18（beta）版本，依旧够用。<br><img data-src="https://img-blog.csdnimg.cn/605456cf9a9d4fb1b7968b77a1dd4e57.png?x-oss-process=,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_19,color_FFFFFF,t_70,g_se,x_16#"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/02/18/MySQL%E5%92%8COracle%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E4%BB%A5%E5%8F%8A%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/#more" rel="contents">
+              <a class="btn" href="/2021/12/26/markdown%E7%BC%96%E8%BE%91%E5%99%A8VSCode%E5%92%8CTypora/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -864,7 +859,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -888,14 +883,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">218k</span>
+    <span title="站点总字数">219k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:12</span>
+    <span title="站点阅读时长">13:17</span>
   </span>
 </div>
 <div class="busuanzi-count">
