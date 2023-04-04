@@ -385,7 +385,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/01/12/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/" class="post-title-link" itemprop="url">Linux服务器使用firewalld和iptables</a>
+          <a href="/2022/01/12/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/" class="post-title-link" itemprop="url">Linux服务器使用firewalld与iptables命令管理防火墙规则</a>
         </h2>
 
         <div class="post-meta-container">
@@ -405,7 +405,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-04-03 22:31:05" itemprop="dateModified" datetime="2023-04-03T22:31:05+08:00">2023-04-03</time>
+      <time title="修改时间：2023-04-04 16:10:11" itemprop="dateModified" datetime="2023-04-04T16:10:11+08:00">2023-04-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -450,29 +450,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Linux服务器有必要开启iptables防火墙么？其实是使用iptables和firewalld工具进行管理，真正起作用的是Netfilter内核模块。</p>
-<p>iptables与firewalld防火墙管理工具在linux发行版Redhat7系列使用较为广泛。<br>UFW则是在linux发行版Ubuntu下进行管理防火墙的一款管理工具。</p>
-<p>在选用防火墙工具的时候，运维或者是开发人员往往会纠结使用哪个。这里给出建议，使用iptables工具管理就禁用firewalld，使用firewalld工具管理就禁用iptables，二者选其一即可，避免产生混乱。</p>
-<p>此篇文章不会在原理上做深究，主要以实用性为主，原理可以阅读相关书籍慢慢品味。<br>@[toc]</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、Netfilter内核模块"><a href="#一、Netfilter内核模块" class="headerlink" title="一、Netfilter内核模块"></a>一、Netfilter内核模块</h2><p>无论是使用<code>iptables</code>还是<code>firewalld</code>，不妨先了解一下<strong>Netfilter内核模块</strong><br><strong>什么是Netfilter</strong>：linux操作系统核心层内部的一个数据包处理模块。<br><strong>Hook point</strong>：数据包在Netfilter中的挂载点。（PRE_ROUTING INPUT OUTPUT FORWORD POST_ROUTING）</p>
-<h3 id="1、netfilter的体系结构"><a href="#1、netfilter的体系结构" class="headerlink" title="1、netfilter的体系结构"></a>1、netfilter的体系结构</h3><p>网络数据包的的统信主要通过以下相关步骤，对应netfilter定义的钩子函数，具体可以参考源码介绍。</p>
-<ul>
-<li><p><strong>NF_IP_PRE_ROUTING</strong>：</p>
-<p>网络数据包进入系统，经过简单检测后，数据包转交给改函数进行处理，然后根据系统设置的规则对数据包进行处理，如果数据包不被丢弃则交给路由函数进行处理。<strong>在该函数中可以替换IP包的目的地址，及DNAT</strong>。</p>
-</li>
-<li><p>NF_IP_LOCAL_IN：</p>
-<p>所有发送给本机的数据包都要通过该函数进行处理，该函数根据系统设置的系统规则对数据包进行处理，如果数据包不被丢弃则交给本地的应用程序。</p>
-</li>
-<li><p>NF_IP_FORWARD：</p>
-<p>所有不是发送给本机的数据包都要通过该函数进行处理，该函数会根据系统设置的规则对数据包进行处理，如数据包不被丢弃则转给NF_IP_POST_ROUTING处理。</p>
-</li>
-<li><p>NF_IP_LOCAL_OUT：</p>
-<p>所有从本地应用程序出来的数据包必须通过该函数进行处理，该函数会根据系统设置的规则对数据包进行处理，如数据包不被丢弃则交给路由函数进行处理。</p>
-</li>
-<li><p><strong>NF_IP_POST_ROUTING</strong>：</p>
-<p>所有数据包在发送给其它主机之前需要通过该函数进行处理，该函数会根据系统设置的规则对数据包进行处理，如数据包不被丢弃，将数据包发给数据链路层。<strong>在该函数中可以替换IP包的源地址，即SNAT</strong>。</p>
-</li>
-</ul>
+          <p>Linux服务器使用 firewalld 与 iptables 命令管理防火墙规则：通俗来讲，用于管理开放相应端口，甚至可以通过管理工具进行限流。</p>
+<p><strong>许多不了解的人，认为RHEL7中的防火墙从iptables变成了firewalld。其实不然，无论是iptables还是firewalld都无法提供防火墙功能。他们都只是linux系统中的一个防火墙管理工具，负责生成防火墙规则与内核模块netfilter进行“交流”，真正实现防火墙功能的是内核模块netfilter。</strong></p>
+<p><img data-src="https://s1.ax1x.com/2023/04/04/pp448cq.png" alt="https://s1.ax1x.com/2023/04/04/pp448cq.png"></p>
+<p>iptables与firewalld防火墙管理工具在linux发行版Redhat7系列使用较为广泛。UFW则是在linux发行版Ubuntu下进行管理防火墙的一款管理工具。在选用防火墙工具的时候，运维或者是开发人员往往会纠结使用哪个。这里给出建议，使用iptables工具管理就禁用firewalld，使用firewalld工具管理就禁用iptables，二者选其一即可，避免产生混乱。</p>
+<p>此篇文章不会在原理上做深究，主要以实用性为主，原理可以阅读相关书籍慢慢品味。</p>
+<h2 id="一、Netfilter内核模块"><a href="#一、Netfilter内核模块" class="headerlink" title="一、Netfilter内核模块"></a>一、Netfilter内核模块</h2><p>无论是使用<code>iptables</code>还是<code>firewalld</code>，不妨先了解一下<strong>Netfilter内核模块</strong>。</p>
+<p><strong>什么是Netfilter</strong>：linux操作系统核心层内部的一个数据包处理模块。</p>
+<p><strong>Hook point</strong>：数据包在Netfilter中的挂载点。（PRE_ROUTING INPUT OUTPUT FORWORD POST_ROUTING）</p>
+<h3 id="1、netfilter的体系结构"><a href="#1、netfilter的体系结构" class="headerlink" title="1、netfilter的体系结构"></a>1、netfilter的体系结构</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/01/12/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8firewalld%E5%92%8Ciptables/#more" rel="contents">
