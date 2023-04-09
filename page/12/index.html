@@ -154,18 +154,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">88</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -238,6 +238,126 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/01/07/Redis%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%EF%BC%8C%E7%94%B1%E6%8C%81%E4%B9%85%E5%8C%96%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/01/07/Redis%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%EF%BC%8C%E7%94%B1%E6%8C%81%E4%B9%85%E5%8C%96%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/" class="post-title-link" itemprop="url">Redis入门到实践，由持久化引发的思考</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-07 00:00:00" itemprop="dateCreated datePublished" datetime="2022-01-07T00:00:00+08:00">2022-01-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-03 21:43:50" itemprop="dateModified" datetime="2023-04-03T21:43:50+08:00">2023-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NOSQL/" itemprop="url" rel="index"><span itemprop="name">NOSQL</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NOSQL/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>15 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>redis6.0入门详细教程，redis持久化、redis复制原理、redis高可用哨兵监控以及集群搭建。<br>@[toc]</p>
+<h1 id="一本正经"><a href="#一本正经" class="headerlink" title="一本正经"></a>一本正经</h1><p><strong>面试官</strong>：小伙子，谈谈对Redis的看法。<br><strong>我</strong>：啊，看法呀，坐着看还是躺着看。Redis很小？很快？但很持久？</p>
+<p><strong>面试官</strong>：一本正经的说，我怀疑你在开车，不仅开开车还搞颜色。<br><strong>我</strong>：。。。</p>
+<p><strong>面试官</strong>：去去去，我时间有限，别瞎扯淡。回到正题，你对Redis了解有多少。<br><strong>我</strong>：轻量体积小、基于内存非常快、RDB配合AOF持久化让其一样坚挺持久。</p>
+<p><strong>面试官</strong>：说点具体的。<br><strong>我</strong>：请看正文。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/a663249cdfe4fc9f604bbdc538c50530.png"></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p><strong>简介</strong><br>Redis是一个开源的、高性能的、基于键值对的缓存与存储系统，通过提供多种键值数据类型来适应不同场景下的缓存与存储需求。与此同时，Redis的诸多高层级功能让其可以胜任消息队列、任务队列等不同的角色。除此之外，Redis还支持外部模块扩展，在某些特定的场景下可以作为主数据库使用。</p>
+<p>由于内存的读写速度远快于硬盘，就算现在的固态盘思维估计也是朝着内存那个思维模式发展的，大概也许我是个外行，但是长久存储还是使用机械盘。所以Redis数据库中的所有数据都存储在内存中那是相当快的。也有一定的风险，会导致丢失数据，但配合RDB以及AOF持久化会减少风险。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/07/Redis%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%EF%BC%8C%E7%94%B1%E6%8C%81%E4%B9%85%E5%8C%96%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -731,126 +851,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2021/12/28/Oracle%E8%BF%90%E7%BB%B4%E5%AE%9E%E6%88%98%E5%B0%8F%E6%8A%80%E5%B7%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/12/28/Oracle%E8%BF%90%E7%BB%B4%E5%AE%9E%E6%88%98%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">Oracle运维实战小技巧</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-12-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-12-28T00:00:00+08:00">2021-12-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-04-03 20:31:59" itemprop="dateModified" datetime="2023-04-03T20:31:59+08:00">2023-04-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Oracle/" itemprop="url" rel="index"><span itemprop="name">Oracle</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>实际运维中，不仅仅是掌握SQL语句的使用以及优化。你会遇到各式各样的问题，此时往往不知如何下手。思考的方向不好确定，但是可以通过日志分析。常用的动态参数以及数据字典掌握尤为重要，辅助我们排查问题。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="一、基础优化篇"><a href="#一、基础优化篇" class="headerlink" title="一、基础优化篇"></a>一、基础优化篇</h2><h3 id="1、密码过期处理"><a href="#1、密码过期处理" class="headerlink" title="1、密码过期处理"></a>1、密码过期处理</h3><p>1.1、登录到sqlplus</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 登陆sys</span><br><span class="line">sqlplus /nolog</span><br><span class="line">-- 连接数据库</span><br><span class="line">conn sys/password@orcl as sysdba</span><br></pre></td></tr></table></figure>
-
-<p>1.2、执行SQL语句查询密码期限，修改密码期限为UNLIMITED。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查询密码期限</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">  <span class="keyword">FROM</span> dba_profiles s</span><br><span class="line"> <span class="keyword">WHERE</span> s.profile <span class="operator">=</span> <span class="string">&#x27;DEFAULT&#x27;</span></span><br><span class="line">   <span class="keyword">AND</span> resource_name <span class="operator">=</span> <span class="string">&#x27;PASSWORD_LIFE_TIME&#x27;</span></span><br><span class="line"><span class="comment">-- 修改密码期限为无限制</span></span><br><span class="line"> <span class="keyword">ALTER</span> PROFILE <span class="keyword">DEFAULT</span> LIMIT PASSWORD_LIFE_TIME UNLIMITED;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、空表无法导出"><a href="#2、空表无法导出" class="headerlink" title="2、空表无法导出"></a>2、空表无法导出</h3><p>2.1、新增createsql.sql文件</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/28/Oracle%E8%BF%90%E7%BB%B4%E5%AE%9E%E6%88%98%E5%B0%8F%E6%8A%80%E5%B7%A7/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -876,14 +876,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">219k</span>
+    <span title="站点总字数">223k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:17</span>
+    <span title="站点阅读时长">13:31</span>
   </span>
 </div>
 <div class="busuanzi-count">

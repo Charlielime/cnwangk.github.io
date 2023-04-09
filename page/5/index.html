@@ -154,18 +154,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">88</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -238,6 +238,128 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/" class="post-title-link" itemprop="url">MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-07T00:00:00+08:00">2022-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-20 18:10:46" itemprop="dateModified" datetime="2023-03-20T18:10:46+08:00">2023-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E4%BC%98%E5%8C%96%E7%AF%87/" itemprop="url" rel="index"><span itemprop="name">MySQL优化篇</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>15 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>MySQL优化流程SQL优化流程：show status查询SQL执行频率、explain分析、show profile分析和trace追踪。</p>
+<p>﻿<strong>MySQL优化流程——SQL优化流程</strong>。MySQL优化篇（基于MySQL8.0.28测试验证）。</p>
+<p>只停留在看上面，提升效果甚微。应该带着思考去测试佐证，或者使用（同类书籍）新版本进行对比，这样带来的效果更好。最重要的一环，<strong>养成阅读官方文档</strong>，是一个良好的习惯。能编写官方文档，至少证明他们在这个领域是有很高的造诣，对用法足够熟练。</p>
+<p><strong>我</strong>：我可以和您多聊几句吗？<br><strong>面试官</strong>：就你那点小心思，我还不知道吗？面试官微微一笑：一样揍得你鼻青脸肿。</p>
+<p><strong>我</strong>：只是想借点技能过来，多学点总归没坏处。<br><strong>面试官</strong>：小伙子，真不错，年纪轻轻，挺有觉悟的。</p>
+<p><strong>面试官</strong>：对SQL语句优化流程，你了解多少。<br><strong>我</strong>：会那么一丢丢，也总结了一些。</p>
+<p><strong>面试官</strong>：请开始你的表演。<br><strong>我</strong>：很荣幸与你展开讨论，请看继续往下看。</p>
+<p>在对MySQL进行举例并使用到数据库表，大多数情况使用MySQL官方提供的sakila（模拟电影出租信息管理系统）和world数据库，类似于Oracle的scott用户。</p>
+<p>你可以将这篇博文，当成过度到MySQL8.0的参考资料。<strong>友情提示：经验是用来参考，不是拿来即用</strong>。如果您能看到并分享这篇文章，我很荣幸。如果有误导您的地方，我表示抱歉。</p>
+<p>如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。官方文档非常具有参考意义。目前市面上针对MySQL8.0书籍还比较少，部分停留在5.6.x和5.7.x版本，但仍然具有借鉴意义。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -729,137 +851,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/03/15/Windows%E4%B8%8B%E4%BD%BF%E7%94%A8hexo-%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="养得胸中一种恬静">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 养得胸中一种恬静">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/15/Windows%E4%B8%8B%E4%BD%BF%E7%94%A8hexo-%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">Windows下使用hexo--搭建私人博客</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-15 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-15T00:00:00+08:00">2022-03-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:19:08" itemprop="dateModified" datetime="2023-03-20T18:19:08+08:00">2023-03-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">静态博客</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>10 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Windows中使用hexo搭建个人博客。</p>
-<p>既学了git和github的用法，也熟悉了nodejs。</p>
-<p>又多了一项打发业余时间的软技能。慢慢地变成硬技能，何乐而不为？</p>
-<p>@[toc]</p>
-<h1 id="Windows中使用hexo搭建私人博客"><a href="#Windows中使用hexo搭建私人博客" class="headerlink" title="Windows中使用hexo搭建私人博客"></a>Windows中使用hexo搭建私人博客</h1><p><strong>必备环境（Windows）</strong>：</p>
-<ul>
-<li><p>Nodejs：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a>（hexo官方建议：Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本。）</p>
-</li>
-<li><p><strong>提醒</strong>：Node.js 14.0版本在运行hexo服务时会出现警告，<strong>但不影响使用</strong>。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INFO  Start processing    <span class="comment"># 使用nodejs 14.0出现警告，搜索后发现基本是让降版本至nodejs 12.0</span></span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br><span class="line">(node:4464) Warning: Accessing non-existent property <span class="string">&#x27;lineno&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(Use `node --trace-warnings ...` to show <span class="built_in">where</span> the warning was created)</span><br><span class="line">(node:4464) Warning: Accessing non-existent property <span class="string">&#x27;column&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:4464) Warning: Accessing non-existent property <span class="string">&#x27;filename&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:4464) Warning: Accessing non-existent property <span class="string">&#x27;lineno&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:4464) Warning: Accessing non-existent property <span class="string">&#x27;column&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:4464) Warning: Accessing non-existent property <span class="string">&#x27;filename&#x27;</span> of module exports inside circular dependency</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Git：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>（个人使用版本：git version 2.31.1.windows.1）</p>
-</li>
-<li><p>Hexo：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">https://hexo.io/zh-cn/docs/github-pages</a>（个人使用版本：5.4.1）</p>
-</li>
-</ul>
-<p><strong>建议</strong>：如果只是想简单发点私人博客，使用landscape主题完全可以满足。</p>
-<p><strong>如果想弄点花里胡哨的功能，那就使用Next主题</strong>。</p>
-<h2 id="一-安装hexo"><a href="#一-安装hexo" class="headerlink" title="一  安装hexo"></a>一  安装hexo</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/03/15/Windows%E4%B8%8B%E4%BD%BF%E7%94%A8hexo-%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -885,14 +876,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">219k</span>
+    <span title="站点总字数">223k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:17</span>
+    <span title="站点阅读时长">13:31</span>
   </span>
 </div>
 <div class="busuanzi-count">
