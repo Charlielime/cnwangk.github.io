@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.cnwangk.top","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"changyan":{"order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.cnwangk.top","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"changyan":{"order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="今天给大家带来的是linux中比较实用的命令scp。善用小技巧，解决工作中的痛点。掌握一门好的技术或者说一门好的艺术，最快捷的方式就是融入到工作中。 在工作的不断鞭策之下，我其实也想偷偷懒，有时候觉得怎样简单快捷怎样来。在某种特定的工作环境下，有些操作被限制死了，只能用传统的方式传输（比如定制的商业加密U盘、光盘刻录）。当你了解实际情况后，可能有更优解，你会寻求其它的突破口或者折中方案。 夸张的说">
 <meta property="og:type" content="article">
@@ -104,7 +104,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-globe fa-fw fa-fw"></i>友情链接</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li><li class="menu-item menu-item-bangumis"><a href="/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>番剧</a></li><li class="menu-item menu-item-cinemas"><a href="/cinemas/" rel="section"><i class="fa fa-th fa-fw"></i>电视剧</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-globe fa-fw fa-fw"></i>友情链接</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-bangumis"><a href="/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>番剧</a></li><li class="menu-item menu-item-cinemas"><a href="/cinemas/" rel="section"><i class="fa fa-th fa-fw"></i>电视剧</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -170,18 +170,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">90</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -200,36 +200,6 @@
     </div>
 
     
-    <div class="sidebar-inner sidebar-blogroll">
-      <div class="links-of-blogroll animated">
-        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
-          友情链接
-        </div>
-        <ul class="links-of-blogroll-list">
-            <li class="links-of-blogroll-item">
-              <a href="https://www.wxlzb.top/" title="https:&#x2F;&#x2F;www.wxlzb.top" rel="noopener" target="_blank">arryluo（随想笔记）</a>
-            </li>
-            <li class="links-of-blogroll-item">
-              <a href="https://www.mintimate.cn/" title="https:&#x2F;&#x2F;www.mintimate.cn&#x2F;" rel="noopener" target="_blank">雨月空间站</a>
-            </li>
-            <li class="links-of-blogroll-item">
-              <a href="https://theme-next.js.org/docs/" title="https:&#x2F;&#x2F;theme-next.js.org&#x2F;docs&#x2F;" rel="noopener" target="_blank">Next主题官方文档</a>
-            </li>
-            <li class="links-of-blogroll-item">
-              <a href="https://dict.youdao.com/" title="https:&#x2F;&#x2F;dict.youdao.com&#x2F;" rel="noopener" target="_blank">有道词典</a>
-            </li>
-            <li class="links-of-blogroll-item">
-              <a href="https://developer.mozilla.org/zh-CN/" title="https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;" rel="noopener" target="_blank">MDN</a>
-            </li>
-            <li class="links-of-blogroll-item">
-              <a href="https://tool.mintimate.cn/gh/" title="https:&#x2F;&#x2F;tool.mintimate.cn&#x2F;gh&#x2F;" rel="noopener" target="_blank">Github文件加速</a>
-            </li>
-            <li class="links-of-blogroll-item">
-              <a href="https://msdn.itellyou.cn/" title="https:&#x2F;&#x2F;msdn.itellyou.cn&#x2F;" rel="noopener" target="_blank">MSDN itellyou</a>
-            </li>
-        </ul>
-      </div>
-    </div>
   </aside>
 
 
@@ -352,7 +322,7 @@
 </ul>
 <h3 id="2、前世今生"><a href="#2、前世今生" class="headerlink" title="2、前世今生"></a>2、前世今生</h3><ul>
 <li><p>作者</p>
-<p>Timo Rinne <a href="mailto:&#x74;&#x72;&#105;&#64;&#105;&#x6b;&#105;&#46;&#102;&#x69;">&#x74;&#x72;&#105;&#64;&#105;&#x6b;&#105;&#46;&#102;&#x69;</a> 和 Tatu Ylonen <a href="mailto:&#121;&#108;&#x6f;&#x40;&#99;&#x73;&#x2e;&#104;&#x75;&#116;&#46;&#102;&#105;">&#121;&#108;&#x6f;&#x40;&#99;&#x73;&#x2e;&#104;&#x75;&#116;&#46;&#102;&#105;</a></p>
+<p>Timo Rinne <a href="mailto:&#x74;&#114;&#x69;&#64;&#105;&#x6b;&#105;&#x2e;&#x66;&#105;">&#x74;&#114;&#x69;&#64;&#105;&#x6b;&#105;&#x2e;&#x66;&#105;</a> 和 Tatu Ylonen <a href="mailto:&#121;&#x6c;&#111;&#64;&#99;&#x73;&#46;&#104;&#117;&#x74;&#46;&#x66;&#105;">&#121;&#x6c;&#111;&#64;&#99;&#x73;&#46;&#104;&#117;&#x74;&#46;&#x66;&#105;</a></p>
 </li>
 <li><p>起源</p>
 <p>scp 基于University of California BSD 的 rcp(1) 源代码</p>
@@ -631,7 +601,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:34</span>
+    <span title="站点阅读时长">13:36</span>
   </span>
 </div>
 <div class="busuanzi-count">
