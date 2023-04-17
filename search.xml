@@ -21,6 +21,94 @@
 ]]></content>
   </entry>
   <entry>
+    <title>rockyLinux镜像源下载地址</title>
+    <url>/2023/04/17/rockyLinux%E9%95%9C%E5%83%8F%E6%BA%90%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/</url>
+    <content><![CDATA[<h3 id="rockylinux-官网获取"><a href="#rockylinux-官网获取" class="headerlink" title="rockylinux 官网获取"></a>rockylinux 官网获取</h3><p>官网：<a href="https://rockylinux.org/download">https://rockylinux.org/download</a></p>
+<p>如果速度比较慢，请前往第三方开源镜像站获取，比如：阿里云、网易、中国科技大学以及浙江大学。</p>
+<p>如下是个人整理的一些开源镜像站地址，可供参考：</p>
+<ul>
+<li>阿里巴巴开源镜像站：<a href="https://developer.aliyun.com/mirror/">https://developer.aliyun.com/mirror/</a></li>
+<li>网易开源镜像站：<a href="https://mirrors.163.com/">https://mirrors.163.com/</a></li>
+<li>腾讯软件源：<a href="https://mirrors.cloud.tencent.com/">https://mirrors.cloud.tencent.com/</a></li>
+<li>华为开源镜像站：<a href="https://mirrors.huaweicloud.com/home">https://mirrors.huaweicloud.com/home</a></li>
+<li>清华大学开源软件镜像站：<a href="https://mirrors.tuna.tsinghua.edu.cn/">https://mirrors.tuna.tsinghua.edu.cn/</a></li>
+<li>中国科学技术大学：<a href="https://mirrors.ustc.edu.cn/">https://mirrors.ustc.edu.cn/</a></li>
+<li>浙江大学开源软件镜像站：<a href="https://mirrors.zju.edu.cn/">https://mirrors.zju.edu.cn/</a></li>
+</ul>
+<p>公共资源，请适度使用！资源最丰富的还属阿里云开源镜像站。</p>
+<h3 id="rockylinux-开源镜像站获取"><a href="#rockylinux-开源镜像站获取" class="headerlink" title="rockylinux 开源镜像站获取"></a>rockylinux 开源镜像站获取</h3><p><strong>tips</strong>：如何获取？进入目录结构 rocky 或者 rockylinux，选择数字版本（比如9.1），再次选择目录 isos，根据你的场景需求选择操作平台（支持的处理器，请看下面的简单介绍）。</p>
+<p><strong>rockylinux阿里云镜像仓库</strong><br><a href="https://mirrors.aliyun.com/rockylinux/">https://mirrors.aliyun.com/rockylinux/</a></p>
+<p>8.7 &amp; 9.1 直达：</p>
+<ul>
+<li>rockylinux 8.7：<a href="https://mirrors.aliyun.com/rockylinux/8.7/isos/">https://mirrors.aliyun.com/rockylinux/8.7/isos/</a></li>
+<li>rockylinux 9.1：<a href="https://mirrors.aliyun.com/rockylinux/9.1/isos/">https://mirrors.aliyun.com/rockylinux/9.1/isos/</a></li>
+</ul>
+<p><strong>rockylinux网易镜像仓库</strong><br><a href="https://mirrors.163.com/rocky/">https://mirrors.163.com/rocky/</a></p>
+<p><strong>rockylinux中国科技大学镜像仓库</strong><br><a href="https://mirrors.ustc.edu.cn/rocky/">https://mirrors.ustc.edu.cn/rocky/</a></p>
+<p><strong>rockylinux浙江大学镜像仓库</strong><br><a href="https://mirrors.zju.edu.cn/rocky/">https://mirrors.zju.edu.cn/rocky/</a></p>
+<p>访问上面提供的链接，根据你的场景需求选择操作平台：</p>
+<ul>
+<li>aarch64</li>
+<li>ppc64le</li>
+<li>s390x</li>
+<li>x86_64：适用于x86架构64位处理器，个人PC大多数使用x86_64。</li>
+</ul>
+<p><strong>aarch64 是什么</strong>？<br>AArch64（Advanced ARM64）是一种64位精简指令集（RISC）处理器（计算机体系）架构。旨在提供高性能和低功耗的处理器，设计用于嵌入式系统、物联网设备和高性能计算应用。它是由ARM公司开发的，ARM处理器家族的一部分，由ARM公司开发并于2014年推出。并且是64位ARM处理器的一种，具有四个ARMv8-A核心和四个ARMv8-M核心。</p>
+<p>AArch64处理器具有以下特点：</p>
+<ul>
+<li>四个ARMv8-A核心：这些核心具有64个执行单元，可以同时执行多个任务。</li>
+<li>四个ARMv8-M核心：这些核心具有32个执行单元，适用于需要较少执行单元的应用程序。</li>
+<li>内存管理：AArch64处理器具有独立的三级页式内存管理，可以提高内存访问速度和内存带宽。</li>
+<li>高性能：AArch64处理器具有高时钟频率和大缓存，可以执行高性能计算和浮点运算。</li>
+<li>低功耗：AArch64处理器通过优化功耗管理实现了低功耗运行，适用于需要长时间运行但不需要高性能的应用程序。</li>
+<li>安全性：AArch64处理器具有安全特性，包括硬件安全模块（HSM）和安全单元（SA），可以提高系统的安全性。</li>
+<li>精简指令集：AArch64处理器采用了精简指令集（RISC）设计，具有较低的指令执行时间和较少的指令数量，从而提高了处理器的效率。</li>
+</ul>
+<p>AArch64处理器主要应用于物联网、汽车、医疗、工控、高性能计算、嵌入式系统和云计算等领域，如智能家居、智能穿戴、物联网传感器、嵌入式系统等。由于其高性能和低功耗的特点，AArch64处理器在许多领域中具有广泛的应用前景。</p>
+<p><strong>ppc64le 是什么</strong>？<br>ppc64le是一个已经推出了纯小端模式，POWER8作为首要目标，OpenPower基金会基础的技术，试图使基于x86的Linux软件的移植工作以最小的工作量进行。它是一款64位的处理器，采用了AMD64（x86-64）指令集架构，具有64个64位寄存器、8个64位通用寄存器、32个32位寄存器和两个64位指令寄存器。它支持IEEE 754标准的双精度浮点运算，具有较低的时钟频率和功耗，适用于需要高性能和低功耗的应用领域。</p>
+<p>ppc64le处理器采用了小端模式，这意味着它具有较低的总线速度，但是能够在较小的空间内实现较高的性能。这使得它适用于需要高性能计算和存储系统的应用领域，如高性能计算机、网络处理器和存储控制器等。此外，ppc64le处理器还支持动态调整指令缓存大小和数据缓存大小，进一步提高了其性能和效率。</p>
+<p>总的来说，ppc64le是一款功能强大的处理器，适用于需要高性能计算和存储系统的应用领域</p>
+<p><strong>s390x 是什么</strong>？<br>S390X（Series 300）是IBM公司推出的64位桌面和服务器处理器系列，旨在提供高性能和可靠性。该系列处理器基于IBM Power7处理器技术，采用Socket 7接口，具有多个处理器核心和高达128个线程。<br>S390X是一种64位精简指令集计算机体系结构，旨在提供高性能和低功耗的处理器。它是由IBM公司开发的，并且是64位Intel处理器的一种，具有四个Intel 64核心和四个Intel 32核心。</p>
+<p>S390X处理器系列具有以下特点：</p>
+<ul>
+<li>多个处理器核心：该系列处理器包含多个处理器核心，可以同时执行多个任务。<ul>
+<li>四个Intel 64核心：这些核心具有64个执行单元，可以同时执行多个任务。</li>
+<li>四个Intel 32核心：这些核心具有32个执行单元，适用于需要较少执行单元的应用程序。</li>
+</ul>
+</li>
+<li>高性能：S390X处理器采用Power7技术，具有高时钟频率和大缓存，可以执行高性能计算和浮点运算。</li>
+<li>低功耗：S390X处理器通过优化功耗管理实现了低功耗运行，适用于需要长时间运行但不需要高性能的应用程序。</li>
+<li>精简指令集：S390X处理器采用了精简指令集（RISC）设计，具有较低的指令执行时间和较少的指令数量，从而提高了处理器的效率。</li>
+<li>可靠性：S390X处理器采用冗余设计，包括两个核心和两个时钟域，可以在一个核心出现故障时保持服务器运行。</li>
+<li>安全性：S390X处理器采用安全加密技术，包括AES技术和SHA-256技术，可以保护数据安全。</li>
+<li>多媒体性能：S390X处理器支持高清视频播放和图形处理，适用于多媒体应用。</li>
+</ul>
+<p>S390X处理器主要应用于企业服务器、高性能计算、虚拟化和高清视频播放等领域。由于其高性能和低功耗的特点，S390X处理器在许多领域中具有广泛的应用前景，包括数据中心、云计算和高性能计算服务器等。</p>
+<p><strong>x86_64 是什么</strong>？</p>
+<p><strong>AMD64与Intel64 颇有争议。毕竟AMD率先发布，普遍认为AMD率先推出x86_64，也称AMD64。所以，你在某开源仓库下载安装包时看到后缀名通常带有amd64字样</strong>。</p>
+<p>在x86-64出现以前，英特尔与惠普联合设计出IA-64架构；惟IA-64并不与x86兼容，且市场反应较冷淡，同时受制于多个专利权，使其他厂商不能模仿，规模没有很大。</p>
+<p>x86_64架构于1999年由AMD设计，并首次公开64位集以扩展给x86，称为“AMD64”。其后也为英特尔所采用，现时英特尔称之为“Intel 64”，在之前曾使用过“Clackamas Technology” (CT)、“IA-32e”及“EM64T”。苹果公司和RPM包管理员以“x86-64”或“x86_64”称呼此64位架构。甲骨文公司及Microsoft称之为“x64”。BSD家族及其他Linux发行版则使用“x64-64”，32位版本则称为“i386”（或 i486&#x2F;586&#x2F;686），Arch Linux用x86_64称呼此64位架构。</p>
+<p>x86_64（64-bit extended）是x86架构的64位拓展，是向后兼容于16位和32位的x86架构的64位计算机体系结构。它于1999年由AMD公司设计，并于2000年8月作为AMD64首次发布。AMD64架构包括两个处理器插槽（Socket A和Socket F）和一个64位的数据总线。</p>
+<p>在AMD64架构中，32位和64位的代码可以共存，这意味着在一个平台上可以同时运行32位和64位应用程序。这使得AMD64成为在服务器和高性能计算领域广泛使用的64位计算平台。</p>
+<p>除了AMD64，还有其他的64位计算平台，如Intel64和Itanium。Intel64是32位的x86-64架构，而Itanium是64位的Itanium-64架构。这些平台都是向后兼容于32位和64位的x86架构，并且都包括两个处理器插槽和一个64位的数据总线。</p>
+<p>x86_64架构具有以下特点：</p>
+<ul>
+<li>向后兼容：与32位和16位的x86架构相比，x86_64架构是向后兼容的，可以在不更改硬件的情况下运行32位和16位应用程序。</li>
+<li>高性能：x86_64架构的处理器具有高时钟频率和大缓存，可以执行高性能计算和浮点运算。</li>
+<li>安全性：x86_64架构采用了安全扩展（SSSE3）指令集，可以提供额外的安全性特性，如AES加密、SHA-256计算等。</li>
+<li>多媒体支持：x86_64架构的处理器支持高效的音频、视频和图形处理，可以轻松处理高清视频、3D游戏等多媒体应用。</li>
+</ul>
+<p>在2008年，微软公司发布了.NET框架，其中包括了对x86_64的支持。这使得C#和.NET程序可以编译为64位的.NET程序，并在64位的Windows操作系统上运行。此外，Linux发行版也开始将x86_64架构作为其默认的64位架构，以提供对64位程序的完全支持。</p>
+]]></content>
+      <categories>
+        <category>开发运维</category>
+        <category>rockyLinux</category>
+      </categories>
+      <tags>
+        <tag>rocky</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hugo初体验</title>
     <url>/2023/04/14/hugo%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
     <content><![CDATA[<p>centos-stream-9 初体验hugo，初体验比较简化，只拿了一篇示例文章进行体验。</p>
@@ -5299,7 +5387,7 @@
 <p><strong>主题所在目录</strong>：themes</p>
 <p><strong>获取Next主题</strong>：使用git clone或者直接下载</p>
 <blockquote>
-<p>git clone <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;</a>:next-theme&#x2F;hexo-theme-next.git</p>
+<p>git clone <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#111;&#x6d;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#111;&#x6d;</a>:next-theme&#x2F;hexo-theme-next.git</p>
 <p><a href="https://github.com/next-theme/hexo-theme-next/archive/refs/heads/master.zip">https://github.com/next-theme/hexo-theme-next/archive/refs/heads/master.zip</a></p>
 </blockquote>
 <p>下载后复制到themes目录，然后<strong>修改hexo配置文件</strong>_config.yml：</p>
@@ -11192,7 +11280,7 @@
 </ul>
 <h3 id="2、前世今生"><a href="#2、前世今生" class="headerlink" title="2、前世今生"></a>2、前世今生</h3><ul>
 <li><p>作者</p>
-<p>Timo Rinne <a href="mailto:&#x74;&#114;&#x69;&#64;&#105;&#x6b;&#105;&#x2e;&#x66;&#105;">&#x74;&#114;&#x69;&#64;&#105;&#x6b;&#105;&#x2e;&#x66;&#105;</a> 和 Tatu Ylonen <a href="mailto:&#121;&#x6c;&#111;&#64;&#99;&#x73;&#46;&#104;&#117;&#x74;&#46;&#x66;&#105;">&#121;&#x6c;&#111;&#64;&#99;&#x73;&#46;&#104;&#117;&#x74;&#46;&#x66;&#105;</a></p>
+<p>Timo Rinne <a href="mailto:&#116;&#114;&#105;&#x40;&#x69;&#107;&#x69;&#x2e;&#102;&#105;">&#116;&#114;&#105;&#x40;&#x69;&#107;&#x69;&#x2e;&#102;&#105;</a> 和 Tatu Ylonen <a href="mailto:&#x79;&#x6c;&#x6f;&#64;&#x63;&#115;&#46;&#104;&#x75;&#x74;&#46;&#102;&#x69;">&#x79;&#x6c;&#x6f;&#64;&#x63;&#115;&#46;&#104;&#x75;&#x74;&#46;&#102;&#x69;</a></p>
 </li>
 <li><p>起源</p>
 <p>scp 基于University of California BSD 的 rcp(1) 源代码</p>
@@ -12396,8 +12484,8 @@
 ]]></content>
       <categories>
         <category>数据库</category>
-        <category>MySQL</category>
         <category>Linux</category>
+        <category>MySQL</category>
       </categories>
       <tags>
         <tag>MySQL</tag>
