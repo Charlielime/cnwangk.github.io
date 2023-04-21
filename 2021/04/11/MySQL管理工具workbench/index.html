@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"changyan":{"order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="MySQL工具篇介绍——workbench。 MySQL的可视化连接工具还是比较丰富的，大家所熟知的有phpMyAdmin（需要php环境支撑，免费的）；再就是MySQL官方提供的MySQL workbench可视化连接工具，虽然界面很简陋，但胜在是官方提供，功能齐全并且是免费的。其它的还有SQLyog，旗舰正版是收费的，我个人比较喜欢这款工具，用的很趁手；Navicat一样支持MySQL连接，但">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL连接工具workbench">
+<meta property="og:url" content="https://www.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/index.html">
+<meta property="og:site_name" content="养得胸中一种恬静">
+<meta property="og:description" content="MySQL工具篇介绍——workbench。 MySQL的可视化连接工具还是比较丰富的，大家所熟知的有phpMyAdmin（需要php环境支撑，免费的）；再就是MySQL官方提供的MySQL workbench可视化连接工具，虽然界面很简陋，但胜在是官方提供，功能齐全并且是免费的。其它的还有SQLyog，旗舰正版是收费的，我个人比较喜欢这款工具，用的很趁手；Navicat一样支持MySQL连接，但">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/99c9419851161f1d11c0469f94b326b3.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/d0986e09e73af6fa5440022d35b4bff5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/d0de3bc11b1ba767411b83d066241740.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/78da37685db647a36a2114d5dc20e9fd.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/5a60b4f0d860c7c0d9df640167fd3fd0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/2fcee2a246e5d78bb6edb6b596ba80e0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/2ccf164ba585ef5611812f2d05b0ce64.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/5dadd83be7b7c0e414b697d8e9ce87fd.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/e4ba54fc970a21edb25c61d61396ef93.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/0a484170df8ddb6ea0d8b026739b28cd.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/7cbde89c797e706a8da03302cb148cf8.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/ca4379709a149811bdba1ba5cbef5315.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/363a30edaf77956c012bb10c2772aed7.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/0f32cee143de5497fab33f465cf372dc.png">
+<meta property="article:published_time" content="2021-04-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-04-21T08:42:52.042Z">
+<meta property="article:author" content="文正耕耘">
+<meta property="article:tag" content="workbench">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/99c9419851161f1d11c0469f94b326b3.png">
+
+
+<link rel="canonical" href="https://www.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/","path":"2021/04/11/MySQL管理工具workbench/","title":"MySQL连接工具workbench"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MySQL连接工具workbench | 养得胸中一种恬静</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?8cd73d3e373ec975b52226e6d54add67"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">养得胸中一种恬静</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">文正耕耘</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-globe fa-fw fa-fw"></i>友情链接</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-bangumis"><a href="/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>番剧</a></li><li class="menu-item menu-item-cinemas"><a href="/cinemas/" rel="section"><i class="fa fa-th fa-fw"></i>电视剧</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL%E5%B7%A5%E5%85%B7%E7%AF%87"><span class="nav-number">1.</span> <span class="nav-text">MySQL工具篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81MySQL%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">一、MySQL工具的介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81MySQL-workbench"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、MySQL workbench</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81phpMyAdmin"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、phpMyAdmin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81SQLyog"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、SQLyog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81Navicat-for-MySQL"><span class="nav-number">1.1.4.</span> <span class="nav-text">4、Navicat for MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81MySQL%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.5.</span> <span class="nav-text">5、MySQL的安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81MySQL-workbench%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">二、MySQL workbench安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81MySQL-workbench%E4%BD%BF%E7%94%A8"><span class="nav-number">1.3.</span> <span class="nav-text">三、MySQL workbench使用</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="文正耕耘"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">文正耕耘</p>
+  <div class="site-description" itemprop="description">莫问收获，但问耕耘。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cnwangk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cnwangk" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dywangk@gmail.com" title="E-Mail → mailto:dywangk@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="养得胸中一种恬静">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MySQL连接工具workbench | 养得胸中一种恬静">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MySQL连接工具workbench
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-04-11 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-11T00:00:00+08:00">2021-04-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-21 16:42:52" itemprop="dateModified" datetime="2023-04-21T16:42:52+08:00">2023-04-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">管理工具</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>MySQL工具篇介绍——workbench。</p>
+<p>MySQL的可视化连接工具还是比较丰富的，大家所熟知的有phpMyAdmin（需要php环境支撑，免费的）；再就是MySQL官方提供的MySQL workbench可视化连接工具，虽然界面很简陋，但胜在是官方提供，功能齐全并且是免费的。其它的还有SQLyog，旗舰正版是收费的，我个人比较喜欢这款工具，用的很趁手；Navicat一样支持MySQL连接，但一样是收费的。</p>
+<h1 id="MySQL工具篇"><a href="#MySQL工具篇" class="headerlink" title="MySQL工具篇"></a>MySQL工具篇</h1><p><strong>官方提供的sakila和world数据库</strong>，官网下载地址已经提供，可以下载进行参考学习。</p>
+<p><strong>sakila-db数据库包含三个文件</strong>：</p>
+<ul>
+<li>sakila-schema.sql：数据库表结构</li>
+<li>sakila-data.sql：数据库示例模拟数据</li>
+<li>sakila.mwb：数据库物理模型，在MySQL workbench中可以打开查看。</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://downloads.mysql.com/docs/sakila-db.zip">https://downloads.mysql.com/docs/sakila-db.zip</a></p>
+</blockquote>
+<p><strong>world-db数据库</strong>，表结构与data数据包含在一起：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://downloads.mysql.com/docs/world-db.zip">https://downloads.mysql.com/docs/world-db.zip</a></p>
+</blockquote>
+<h2 id="一、MySQL工具的介绍"><a href="#一、MySQL工具的介绍" class="headerlink" title="一、MySQL工具的介绍"></a>一、MySQL工具的介绍</h2><h3 id="1、MySQL-workbench"><a href="#1、MySQL-workbench" class="headerlink" title="1、MySQL workbench"></a>1、MySQL workbench</h3><p>workbench下载地址，MySQL官方提供的可视化连接管理工具，并且支持新建以及查看物理模型。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/workbench/">https://dev.mysql.com/downloads/workbench/</a></p>
+<p>mysql-workbench-community-8.0.28-winx64.msi</p>
+</blockquote>
+<h3 id="2、phpMyAdmin"><a href="#2、phpMyAdmin" class="headerlink" title="2、phpMyAdmin"></a>2、phpMyAdmin</h3><p>phpMyAdmin，提供MySQL在浏览器网页中访问的应用程序，需要php+MySQL(MariaDB)+phpMyAdmin环境支撑。不推荐在Windows上安装，因为在Windows上有很多的客户端图形可视化界面可选择。安装php7以上的版本，然后使用nginx或者Apache安装phpMyAdmin-5.1.2-all-languages.zip或者源码包。</p>
+<p><strong>phpMyAdmin访问MySQL，官网demo示例</strong>：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://demo.phpmyadmin.net/master-config/">https://demo.phpmyadmin.net/master-config/</a></p>
+</blockquote>
+<h3 id="3、SQLyog"><a href="#3、SQLyog" class="headerlink" title="3、SQLyog"></a>3、SQLyog</h3><p>SQLyog连接工具下载地址</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://webyog.com/product/sqlyog/trial/">https://webyog.com/product/sqlyog/trial/</a></p>
+</blockquote>
+<p>部分界面展示：</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/99c9419851161f1d11c0469f94b326b3.png"></p>
+<h3 id="4、Navicat-for-MySQL"><a href="#4、Navicat-for-MySQL" class="headerlink" title="4、Navicat for MySQL"></a>4、Navicat for MySQL</h3><p>Navicat部分界面以及功能展示，顺带提一下这玩意支持逆向生成EER关系模型图。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/d0986e09e73af6fa5440022d35b4bff5.png"></p>
+<p>新建连接</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/d0de3bc11b1ba767411b83d066241740.png"></p>
+<p>连接成功后的界面，导入了MySQL官方提供的示例数据库sakila和world，在文章开始我有提供官网下载地址。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/78da37685db647a36a2114d5dc20e9fd.png"></p>
+<h3 id="5、MySQL的安装"><a href="#5、MySQL的安装" class="headerlink" title="5、MySQL的安装"></a>5、MySQL的安装</h3><p>MySQL installer下载地址，Windows下可下载zip包或者msi文件。msi文件对初学者来说比较友好，毕竟在Windows图形化界面安装基本上就是傻瓜式一键安装，注意安装目录不要放在C盘。个人比较倾向于zip包，熟悉命令安装比较快捷，然后配置my.ini文件即可。</p>
+<p>MySQL官网下载地址，多种平台版本可选：Windows、Linux发行版以及macOS。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p>
+</blockquote>
+<p>msi文件下载</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/installer/">https://dev.mysql.com/downloads/installer/</a></p>
+</blockquote>
+<p>个人MySQL8.0.28安装教程地址：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cnwangk/p/15860688.html">https://www.cnblogs.com/cnwangk/p/15860688.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cnwangk/SQL-study/tree/master/MySQL">https://github.com/cnwangk/SQL-study/tree/master/MySQL</a></p>
+</blockquote>
+<h2 id="二、MySQL-workbench安装"><a href="#二、MySQL-workbench安装" class="headerlink" title="二、MySQL workbench安装"></a>二、MySQL workbench安装</h2><p>主要介绍Windows下的msi文件安装。</p>
+<p><strong>1、workbench图形化安装第一步</strong>，选择next（下一步）进行安装。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/5a60b4f0d860c7c0d9df640167fd3fd0.png"></p>
+<p><strong>2、workbench图形化安装第二步</strong>，注意选择（change）安装目录，默认会安装到C盘，建议安装到D盘或者顺延。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/2fcee2a246e5d78bb6edb6b596ba80e0.png"></p>
+<p><strong>3、workbench图形化安装第三步</strong>，指定安装目录，个人指定安装到D盘。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/2ccf164ba585ef5611812f2d05b0ce64.png"></p>
+<p><strong>4、workbench图形化安装第四步</strong>、complete（代表完全安装，默认选择完全安装）；custom（自定义安装，根据自己的需求选择功能）。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/5dadd83be7b7c0e414b697d8e9ce87fd.png"></p>
+<p>5、<strong>workbench图形化安装第五步</strong>，安装完成；左下角选中则会立即打开workbench，取消则不立即打开。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/e4ba54fc970a21edb25c61d61396ef93.png"></p>
+<p>以上是在Windows下进行安装MySQL workbench的步骤，安装过程很简单，需要注意选择安装目录，不要放到C盘了。</p>
+<h2 id="三、MySQL-workbench使用"><a href="#三、MySQL-workbench使用" class="headerlink" title="三、MySQL workbench使用"></a>三、MySQL workbench使用</h2><p>主要介绍界面调整以及基本的连接设置。</p>
+<p><strong>1、workbench的欢迎界面</strong>，安装完成初次进入的首页。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/0a484170df8ddb6ea0d8b026739b28cd.png"></p>
+<p><strong>2、连接MySQL</strong>，使用快捷键<strong>Ctrl + U</strong>打开连接配置界面。然后配置主机和端口以及用户名，连接到MySQL数据库。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/7cbde89c797e706a8da03302cb148cf8.png"></p>
+<p><strong>3、界面优化设置</strong>，选择<strong>Edit</strong>，然后进入<strong>Preferences</strong>找到<strong>Fonts &amp; Colors</strong>。初始化界面字体太小了，进入调整界面字体大小；<strong>需要重启软件生效</strong>。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/ca4379709a149811bdba1ba5cbef5315.png"></p>
+<p><strong>4、查看物理模型结构，显示EER模型</strong>，从官网获取的sakila数据库。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/363a30edaf77956c012bb10c2772aed7.png"></p>
+<p><strong>5、打开EER diagram</strong>，查看图形界面</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/0f32cee143de5497fab33f465cf372dc.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.zhihu.com/people/hbwk">
+            <span class="icon">
+              <i class="fab fa-zhihu"></i>
+            </span>
+
+            <span class="label">Zhihu</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/workbench/" rel="tag"><i class="fa fa-tag"></i> workbench</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/08/%E8%A7%A3%E5%86%B3sublime-text%E6%89%93%E5%BC%80txt%E6%96%87%E4%BB%B6%E4%B9%B1%E7%A0%81%E4%BB%A5%E5%8F%8A%E8%A2%AB%E5%A2%99%E5%B9%B6%E7%A6%81%E6%AD%A2%E6%9B%B4%E6%96%B0%E6%8F%90%E7%A4%BA/" rel="prev" title="解决sublime-text打开txt文件乱码以及被墙并禁止更新提示">
+                  <i class="fa fa-chevron-left"></i> 解决sublime-text打开txt文件乱码以及被墙并禁止更新提示
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/04/26/Linux%EF%BC%88Redhat7-or-Centos7%EF%BC%89%E4%BD%BF%E7%94%A8VMware12%E6%90%AD%E5%BB%BA%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83/" rel="next" title="Linux（Redhat7 or Centos7）使用VMware12搭建测试环境">
+                  Linux（Redhat7 or Centos7）使用VMware12搭建测试环境 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS" sid="53415069d118faa1a098570b735583d5"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Copyright © 文正耕耘. All Rights Reserved.</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">238k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">14:26</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+       本站访客数： <span id="busuanzi_value_site_uv"></span> 人次
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/cnwangk" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvYahXgE","appkey":"e8a1b5a07c194290dcb3394f450e7fba"}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
+
+</body>
+</html>
