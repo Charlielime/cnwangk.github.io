@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"changyan":{"order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":{"gitalk":{"order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="最近接触到了国产数据库达梦，因此想着写一个合集方便查阅连接驱动，以及配置连接。  MySQL5.x &amp; MySQL8.x 达梦数据库（DM8） Oracle11gR2 SqlServer2012  主流数据库以及国产数据库驱动配置参考（端口默认没改动）数据库：  MySQL 达梦数据库（DM8 for Windows10） Oracle11gR2 SqlServer2012  MySQL数">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="MySQL等主流数据库连接驱动盘点合集">
-<meta property="og:url" content="https://www.cnwangk.top/2022/02/03/MySQL%E7%AD%89%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%A9%B1%E5%8A%A8%E7%9B%98%E7%82%B9%E5%90%88%E9%9B%86/index.html">
+<meta property="og:url" content="https://blog.cnwangk.top/2022/02/03/MySQL%E7%AD%89%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%A9%B1%E5%8A%A8%E7%9B%98%E7%82%B9%E5%90%88%E9%9B%86/index.html">
 <meta property="og:site_name" content="文正耕耘">
 <meta property="og:description" content="最近接触到了国产数据库达梦，因此想着写一个合集方便查阅连接驱动，以及配置连接。  MySQL5.x &amp; MySQL8.x 达梦数据库（DM8） Oracle11gR2 SqlServer2012  主流数据库以及国产数据库驱动配置参考（端口默认没改动）数据库：  MySQL 达梦数据库（DM8 for Windows10） Oracle11gR2 SqlServer2012  MySQL数">
 <meta property="og:locale" content="zh_CN">
@@ -34,11 +34,11 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.cnwangk.top/2022/02/03/MySQL%E7%AD%89%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%A9%B1%E5%8A%A8%E7%9B%98%E7%82%B9%E5%90%88%E9%9B%86/">
+<link rel="canonical" href="https://blog.cnwangk.top/2022/02/03/MySQL%E7%AD%89%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%A9%B1%E5%8A%A8%E7%9B%98%E7%82%B9%E5%90%88%E9%9B%86/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.cnwangk.top/2022/02/03/MySQL%E7%AD%89%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%A9%B1%E5%8A%A8%E7%9B%98%E7%82%B9%E5%90%88%E9%9B%86/","path":"2022/02/03/MySQL等主流数据库连接驱动盘点合集/","title":"MySQL等主流数据库连接驱动盘点合集"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.cnwangk.top/2022/02/03/MySQL%E7%AD%89%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%A9%B1%E5%8A%A8%E7%9B%98%E7%82%B9%E5%90%88%E9%9B%86/","path":"2022/02/03/MySQL等主流数据库连接驱动盘点合集/","title":"MySQL等主流数据库连接驱动盘点合集"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>MySQL等主流数据库连接驱动盘点合集 | 文正耕耘</title>
@@ -224,7 +224,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/02/03/MySQL%E7%AD%89%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%A9%B1%E5%8A%A8%E7%9B%98%E7%82%B9%E5%90%88%E9%9B%86/">
+    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/02/03/MySQL%E7%AD%89%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%A9%B1%E5%8A%A8%E7%9B%98%E7%82%B9%E5%90%88%E9%9B%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -401,7 +401,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.cnwangk.top/2022/02/03/MySQL%E7%AD%89%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%A9%B1%E5%8A%A8%E7%9B%98%E7%82%B9%E5%90%88%E9%9B%86/" title="MySQL等主流数据库连接驱动盘点合集">https://www.cnwangk.top/2022/02/03/MySQL等主流数据库连接驱动盘点合集/</a>
+      <a href="https://blog.cnwangk.top/2022/02/03/MySQL%E7%AD%89%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%A9%B1%E5%8A%A8%E7%9B%98%E7%82%B9%E5%90%88%E9%9B%86/" title="MySQL等主流数据库连接驱动盘点合集">https://blog.cnwangk.top/2022/02/03/MySQL等主流数据库连接驱动盘点合集/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -465,7 +465,7 @@
 
 
 
-    <div class="comments" id="SOHUCS" sid="d31b77f878c97215a0f2454b1c9629fe"></div>
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -572,8 +572,10 @@ const darkmode = new Darkmode(options);
 window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
-<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvYahXgE","appkey":"e8a1b5a07c194290dcb3394f450e7fba"}</script>
-<script src="/js/third-party/comments/changyan.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"cnwangk","repo":"https://github.com/cnwangk/cnwangk.github.io/issues","client_id":"e7d99e865db3093917a5","client_secret":"ff744ff52aa1f6f52fd990e69dc108cc4907eeb4","admin_user":"cnwangk","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://unpkg.com/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"d31b77f878c97215a0f2454b1c9629fe"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
 </html>

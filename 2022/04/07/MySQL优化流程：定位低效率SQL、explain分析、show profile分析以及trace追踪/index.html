@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"changyan":{"order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":{"gitalk":{"order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="MySQL优化流程SQL优化流程：show status查询SQL执行频率、explain分析、show profile分析和trace追踪。 ﻿MySQL优化流程——SQL优化流程。MySQL优化篇（基于MySQL8.0.28测试验证）。 只停留在看上面，提升效果甚微。应该带着思考去测试佐证，或者使用（同类书籍）新版本进行对比，这样带来的效果更好。最重要的一环，养成阅读官方文档，是一个良好的习惯">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪">
-<meta property="og:url" content="https://www.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/index.html">
+<meta property="og:url" content="https://blog.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/index.html">
 <meta property="og:site_name" content="文正耕耘">
 <meta property="og:description" content="MySQL优化流程SQL优化流程：show status查询SQL执行频率、explain分析、show profile分析和trace追踪。 ﻿MySQL优化流程——SQL优化流程。MySQL优化篇（基于MySQL8.0.28测试验证）。 只停留在看上面，提升效果甚微。应该带着思考去测试佐证，或者使用（同类书籍）新版本进行对比，这样带来的效果更好。最重要的一环，养成阅读官方文档，是一个良好的习惯">
 <meta property="og:locale" content="zh_CN">
@@ -49,11 +49,11 @@
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/c31371bb6fe54667a734649308365ddd.png?x-oss-process=,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_18,color_FFFFFF,t_70,g_se,x_16#pic_center">
 
 
-<link rel="canonical" href="https://www.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/">
+<link rel="canonical" href="https://blog.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/","path":"2022/04/07/MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪/","title":"MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/","path":"2022/04/07/MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪/","title":"MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪 | 文正耕耘</title>
@@ -239,7 +239,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/">
+    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -669,7 +669,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/" title="MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪">https://www.cnwangk.top/2022/04/07/MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪/</a>
+      <a href="https://blog.cnwangk.top/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%AE%9A%E4%BD%8D%E4%BD%8E%E6%95%88%E7%8E%87SQL%E3%80%81explain%E5%88%86%E6%9E%90%E3%80%81show%20profile%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Atrace%E8%BF%BD%E8%B8%AA/" title="MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪">https://blog.cnwangk.top/2022/04/07/MySQL优化流程：定位低效率SQL、explain分析、show profile分析以及trace追踪/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -714,8 +714,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/04/07/MySQL%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95%EF%BC%9Aoptimize%E3%80%81INSERT%E3%80%81ORDER%20BY%E3%80%81GROUP%20BY%E5%92%8COR%20%E4%BB%A5%E5%8F%8A%E5%88%86%E9%A1%B5%E5%92%8C%E5%B5%8C%E5%A5%97%E6%9F%A5%E8%AF%A2/" rel="prev" title="MySQL优化方法：optimize、INSERT、ORDER BY、GROUP BY和OR 以及分页和嵌套查询">
-                  <i class="fa fa-chevron-left"></i> MySQL优化方法：optimize、INSERT、ORDER BY、GROUP BY和OR 以及分页和嵌套查询
+                <a href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98InnoDB%E9%94%81%EF%BC%9A%E8%A1%8C%E9%94%81%E3%80%81lock%E4%B8%8Elatch%E3%80%81%E5%A4%96%E9%94%AE%E4%B8%8E%E9%94%81%E3%80%81%E9%94%81%E7%AE%97%E6%B3%95%E4%BB%A5%E5%8F%8A%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98/" rel="prev" title="MySQL锁问题InnoDB锁：行锁、lock与latch、外键与锁、锁算法以及死锁问题">
+                  <i class="fa fa-chevron-left"></i> MySQL锁问题InnoDB锁：行锁、lock与latch、外键与锁、锁算法以及死锁问题
                 </a>
             </div>
             <div class="post-nav-item">
@@ -733,7 +733,7 @@
 
 
 
-    <div class="comments" id="SOHUCS" sid="dc32d3970d0c8c3fab8e1e9bc2120b8c"></div>
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -840,8 +840,10 @@ const darkmode = new Darkmode(options);
 window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
-<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvYahXgE","appkey":"e8a1b5a07c194290dcb3394f450e7fba"}</script>
-<script src="/js/third-party/comments/changyan.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"cnwangk","repo":"https://github.com/cnwangk/cnwangk.github.io/issues","client_id":"e7d99e865db3093917a5","client_secret":"ff744ff52aa1f6f52fd990e69dc108cc4907eeb4","admin_user":"cnwangk","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://unpkg.com/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"dc32d3970d0c8c3fab8e1e9bc2120b8c"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
 </html>

@@ -18,12 +18,12 @@
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"changyan":{"order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":{"gitalk":{"order":-1}}},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="MySQL工具篇介绍——workbench。 MySQL的可视化连接工具还是比较丰富的，大家所熟知的有phpMyAdmin（需要php环境支撑，免费的）；再就是MySQL官方提供的MySQL workbench可视化连接工具，虽然界面很简陋，但胜在是官方提供，功能齐全并且是免费的。其它的还有SQLyog，旗舰正版是收费的，我个人比较喜欢这款工具，用的很趁手；Navicat一样支持MySQL连接，但">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="MySQL连接工具workbench">
-<meta property="og:url" content="https://www.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/index.html">
+<meta property="og:url" content="https://blog.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/index.html">
 <meta property="og:site_name" content="文正耕耘">
 <meta property="og:description" content="MySQL工具篇介绍——workbench。 MySQL的可视化连接工具还是比较丰富的，大家所熟知的有phpMyAdmin（需要php环境支撑，免费的）；再就是MySQL官方提供的MySQL workbench可视化连接工具，虽然界面很简陋，但胜在是官方提供，功能齐全并且是免费的。其它的还有SQLyog，旗舰正版是收费的，我个人比较喜欢这款工具，用的很趁手；Navicat一样支持MySQL连接，但">
 <meta property="og:locale" content="zh_CN">
@@ -49,11 +49,11 @@
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/99c9419851161f1d11c0469f94b326b3.png">
 
 
-<link rel="canonical" href="https://www.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/">
+<link rel="canonical" href="https://blog.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/","path":"2021/04/11/MySQL管理工具workbench/","title":"MySQL连接工具workbench"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/","path":"2021/04/11/MySQL管理工具workbench/","title":"MySQL连接工具workbench"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>MySQL连接工具workbench | 文正耕耘</title>
@@ -222,7 +222,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/">
+    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -400,7 +400,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/" title="MySQL连接工具workbench">https://www.cnwangk.top/2021/04/11/MySQL管理工具workbench/</a>
+      <a href="https://blog.cnwangk.top/2021/04/11/MySQL%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7workbench/" title="MySQL连接工具workbench">https://blog.cnwangk.top/2021/04/11/MySQL管理工具workbench/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -464,7 +464,7 @@
 
 
 
-    <div class="comments" id="SOHUCS" sid="53415069d118faa1a098570b735583d5"></div>
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -571,8 +571,10 @@ const darkmode = new Darkmode(options);
 window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
-<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvYahXgE","appkey":"e8a1b5a07c194290dcb3394f450e7fba"}</script>
-<script src="/js/third-party/comments/changyan.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"cnwangk","repo":"https://github.com/cnwangk/cnwangk.github.io/issues","client_id":"e7d99e865db3093917a5","client_secret":"ff744ff52aa1f6f52fd990e69dc108cc4907eeb4","admin_user":"cnwangk","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://unpkg.com/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"53415069d118faa1a098570b735583d5"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
 </html>
