@@ -688,7 +688,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98InnoDB%E9%94%81%EF%BC%9A%E8%A1%8C%E9%94%81%E3%80%81lock%E4%B8%8Elatch%E3%80%81%E5%A4%96%E9%94%AE%E4%B8%8E%E9%94%81%E3%80%81%E9%94%81%E7%AE%97%E6%B3%95%E4%BB%A5%E5%8F%8A%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98%EF%BC%9AMyISAM%E5%8A%A0%E8%A1%A8%E9%94%81%E3%80%81%E5%B9%B6%E5%8F%91%E6%8F%92%E5%85%A5%E4%BB%A5%E5%8F%8A%E9%94%81%E8%B0%83%E5%BA%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -706,7 +706,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98InnoDB%E9%94%81%EF%BC%9A%E8%A1%8C%E9%94%81%E3%80%81lock%E4%B8%8Elatch%E3%80%81%E5%A4%96%E9%94%AE%E4%B8%8E%E9%94%81%E3%80%81%E9%94%81%E7%AE%97%E6%B3%95%E4%BB%A5%E5%8F%8A%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">MySQL锁问题InnoDB锁：行锁、lock与latch、外键与锁、锁算法以及死锁问题</a>
+          <a href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98%EF%BC%9AMyISAM%E5%8A%A0%E8%A1%A8%E9%94%81%E3%80%81%E5%B9%B6%E5%8F%91%E6%8F%92%E5%85%A5%E4%BB%A5%E5%8F%8A%E9%94%81%E8%B0%83%E5%BA%A6/" class="post-title-link" itemprop="url">MySQL锁问题：MyISAM加表锁、并发插入以及锁调度</a>
         </h2>
 
         <div class="post-meta-container">
@@ -724,7 +724,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-04-21 16:21:44" itemprop="dateModified" datetime="2023-04-21T16:21:44+08:00">2023-04-21</time>
+      <time title="修改时间：2023-04-21 16:21:37" itemprop="dateModified" datetime="2023-04-21T16:21:37+08:00">2023-04-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -747,14 +747,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>13k</span>
+      <span>3.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>48 分钟</span>
+      <span>13 分钟</span>
     </span>
 </div>
 
@@ -765,19 +765,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>主要介绍内容有：MySQL锁介绍、InnoDB行锁、lock与latch区别、锁类型、一致性非锁（锁）定读；自增长与锁；外键与锁；锁的算法；阻塞、死锁以及锁升级。</p>
-<p>我可以和面试官多聊几句吗？只是想…<br><strong>MySQL锁介绍以及InnoDB锁问题</strong>。﻿<strong>养成阅读官方文档</strong>，是一个良好的习惯。能编写官方文档，至少证明他们在这个领域是有很高的造诣，对用法足够熟练。</p>
-<p><strong>面试官</strong>：咦，小伙子，又来啦。</p>
-<p><strong>我</strong>：面试官，您好，又见面了。前面确实收获不少，我想……想获取更多的经验。</p>
-<p><strong>面试官</strong>：不错，不错，不错，年纪轻轻，有我当年一半的风范，挺有觉悟。接着上次的话题，继续MySQL锁问题。</p>
-<p><strong>我</strong>：好呀，这次我准备了InnoDB锁一些总结，希望您多多指教。</p>
-<p><strong>面试官</strong>：那，让我们进入今天的话题，一起讨论MySQL锁问题。</p>
-<p><strong>我</strong>：好的，请接着往下看。</p>
-<p>[toc]</p>
-<p>如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。</p>
+          <p>主要介绍：MySQL锁、MyISAM表锁、查询表锁互掐、MySQL表锁模式、如何加（显示）表锁、模拟并发插入以及MyISAM锁调度的介绍。</p>
+<p>只停留在看上面，提升效果甚微。应该带着思考去测试佐证，或者使用（同类书籍）新版本进行对比，这样带来的效果更好。最重要的一环，<strong>养成阅读官方文档</strong>，是一个良好的习惯。能编写官方文档，至少证明他们在这个领域是有很高的造诣，对用法足够熟练。</p>
+<p>接着上一篇MySQL数据库SQL优化流程。在对MySQL进行举例并使用到示例数据库：大多数情况使用MySQL官方提供的sakila（模拟电影出租信息管理系统）和world数据库，类似于Oracle的scott用户。</p>
+<p>如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。官方文档非常具有参考意义。你可以将这篇博文，当成过度到MySQL8.0的参考资料。<strong>友情提示:经验是用来参考，但不是拿来即用</strong>。如果你能看到并分享这篇文章，我很荣幸。如果有误导你的地方，我表示抱歉。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/9897445be9ccea40278b7827713ecfa6.png"></p>
+<h1 id="MySQL锁问题——MyISAM表锁"><a href="#MySQL锁问题——MyISAM表锁" class="headerlink" title="MySQL锁问题——MyISAM表锁"></a>MySQL锁问题——MyISAM表锁</h1><p><strong>注意</strong>：在某些情况，你自己测试的结果可能与我演示有所不同，我省略了查询结果的部分参数。</p>
+<p><strong>本文侧重点在SQL优化流程以及MySQL锁问题</strong>（MyISAM和InnoDB存储引擎）。图片可能会挂，演示时尽量使用SQL查询语句返回结果进行示例。篇幅很长，因此使用markdown语法加了目录。</p>
+<p>如果你是从MySQL5.6或者5.7版本过渡到MySQL8.0。学习之前，建议线看官方文档这一章节：1.3 What Is New MySQL8.0 。在做对比的时候，<strong>文档中带有Note标识是你应该注意的地方</strong>。比如下面这张截图：</p>
+<p><img data-src="https://img-blog.csdnimg.cn/7439166f7c74468e8ecb3f25391795ec.png#pic_center" alt="在这里插入图片描述"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98InnoDB%E9%94%81%EF%BC%9A%E8%A1%8C%E9%94%81%E3%80%81lock%E4%B8%8Elatch%E3%80%81%E5%A4%96%E9%94%AE%E4%B8%8E%E9%94%81%E3%80%81%E9%94%81%E7%AE%97%E6%B3%95%E4%BB%A5%E5%8F%8A%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98/#more" rel="contents">
+              <a class="btn" href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98%EF%BC%9AMyISAM%E5%8A%A0%E8%A1%A8%E9%94%81%E3%80%81%E5%B9%B6%E5%8F%91%E6%8F%92%E5%85%A5%E4%BB%A5%E5%8F%8A%E9%94%81%E8%B0%83%E5%BA%A6/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
