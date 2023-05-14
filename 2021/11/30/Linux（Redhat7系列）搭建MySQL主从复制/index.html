@@ -9,19 +9,20 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="manifest" href="/manifest.json">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
 
-<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-mac-osx.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="前言MySQL主从复制实战。以前总听说集群之类的，从来没有好好思考过。如今有空余时间，终于亲自搭建环境得以实现MySQL主从复制。 从搭建虚拟机环境，以及安装Redhat系列的centos7.5服务器，部署MySQL5.6环境。嘿嘿，测试使用虚拟机搭建美滋滋。当然你也可以花money，多建几台云服务器实现集群环境。 正文MySQL主从复制实战 主要使用到的环境说明 数据库版本 12#使用cento">
-<meta property="og:type" content="blog">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Linux（Redhat7系列）搭建MySQL主从复制">
 <meta property="og:url" content="https://blog.cnwangk.top/2021/11/30/Linux%EF%BC%88Redhat7%E7%B3%BB%E5%88%97%EF%BC%89%E6%90%AD%E5%BB%BAMySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/index.html">
 <meta property="og:site_name" content="文正耕耘">
@@ -93,7 +94,7 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -129,7 +130,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">40</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">38</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">94</span></a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-globe fa-fw fa-fw"></i>友链</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-bangumis"><a href="/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>番剧</a></li><li class="menu-item menu-item-cinemas"><a href="/cinemas/" rel="section"><i class="fa fa-th fa-fw"></i>电视剧</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-globe fa-fw fa-fw"></i>友链</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-bangumis"><a href="/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>番剧</a></li><li class="menu-item menu-item-cinemas"><a href="/cinemas/" rel="section"><i class="fa fa-th fa-fw"></i>电视剧</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -213,14 +214,14 @@
 </div>
   <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/cnwangk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cnwangk" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Nud2FuZ2s=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cnwangk"><i class="fab fa-github fa-fw"></i>GitHub</span>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:dywangk@gmail.com" title="E-Mail → mailto:dywangk@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <span class="exturl" data-url="bWFpbHRvOmR5d2FuZ2tAZ21haWwuY29t" title="E-Mail → mailto:dywangk@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
       </span>
   </div>
   <div class="cc-license animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://unpkg.com/@creativecommons/vocabulary@2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
   </div>
 
         </div>
@@ -228,6 +229,7 @@
     </div>
 
     
+        <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
               <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
@@ -273,6 +275,7 @@
 
           </div>
         </div>
+        </div>
   </aside>
 
 
@@ -312,8 +315,6 @@
 
         <div class="post-meta-container">
           <div class="post-meta">
-
-  
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
@@ -374,8 +375,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>MySQL主从复制实战。以前总听说集群之类的，从来没有好好思考过。如今有空余时间，终于亲自搭建环境得以实现MySQL主从复制。</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>MySQL主从复制实战。以前总听说集群之类的，从来没有好好思考过。如今有空余时间，终于亲自搭建环境得以实现MySQL主从复制。</p>
 <p>从搭建虚拟机环境，以及安装Redhat系列的centos7.5服务器，部署MySQL5.6环境。嘿嘿，测试使用虚拟机搭建美滋滋。当然你也可以花money，多建几台云服务器实现集群环境。</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>MySQL主从复制实战</p>
 <h2 id="主要使用到的环境说明"><a href="#主要使用到的环境说明" class="headerlink" title="主要使用到的环境说明"></a>主要使用到的环境说明</h2><p><img data-src="https://img-blog.csdnimg.cn/b4f0f1eb4dae4cc0a6d57b0507ab1fe6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_20,color_FFFFFF,t_70,g_se,x_16#" alt="在这里插入图片描述"></p>
@@ -387,7 +387,7 @@
 
 <p><strong>测试环境</strong>：VMware12虚拟机搭建三台centos7.3服务器<br><strong>服务器IP地址</strong>：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IP_MASTER：<span class="number">192.168</span>.<span class="number">245.131</span></span><br><span class="line">IP_SLAVE：<span class="number">192.168</span>.<span class="number">245.132</span></span><br><span class="line">IP_SLAVE：<span class="number">192.168</span>.<span class="number">245.132</span></span><br></pre></td></tr></table></figure>
-<p><strong>搭建服务器环境参考文章</strong>：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Tolove_dream/article/details/116085467">VMware12配合使用Centos7搭建Linux开发环境</a></p>
+<p><strong>搭建服务器环境参考文章</strong>：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbS9hcnRpY2xlL2RldGFpbHMvMTE2MDg1NDY3">VMware12配合使用Centos7搭建Linux开发环境<i class="fa fa-external-link-alt"></i></span></p>
 <p><strong>测试模型</strong>：一主两从，即（master、slave、slave）<br><strong>知识宝库</strong>：VMware的简单使用，Linux基本命令、MySQL数据库CRUD<br><strong>tips</strong>：VMware8亦可搭建，解决内存过小，这个小伙子有点东西啊！<br><strong>目标实现</strong>：MySQL主从复制</p>
 <h2 id="一、binlog与relay-log"><a href="#一、binlog与relay-log" class="headerlink" title="一、binlog与relay-log"></a>一、binlog与relay-log</h2><h3 id="1-1-binlog"><a href="#1-1-binlog" class="headerlink" title="1.1 binlog"></a>1.1 binlog</h3><p><strong>作用</strong>：记录数据库改变的数据，在第四步可以进行验证。</p>
 <p><strong>查看binlog日志</strong> </p>
@@ -459,7 +459,7 @@
 
 
 <h2 id="四、创建表以及新增数据进行验证"><a href="#四、创建表以及新增数据进行验证" class="headerlink" title="四、创建表以及新增数据进行验证"></a>四、创建表以及新增数据进行验证</h2><h3 id="4-1-创建数据库用户"><a href="#4-1-创建数据库用户" class="headerlink" title="4.1 创建数据库用户"></a>4.1 创建数据库用户</h3><p>建议使用SQLyog工具创建用户，比较方便。</p>
-<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/11gIlZKxoTG5BCCcoXdVJRg"> https://pan.baidu.com/s/11gIlZKxoTG5BCCcoXdVJRg</a> 提取码: ntu7</p>
+<p>链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMTFnSWxaS3hvVEc1QkNDY29YZFZKUmc="> https://pan.baidu.com/s/11gIlZKxoTG5BCCcoXdVJRg<i class="fa fa-external-link-alt"></i></span> 提取码: ntu7</p>
 <h3 id="4-2-创建表"><a href="#4-2-创建表" class="headerlink" title="4.2 创建表"></a>4.2 创建表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 创建测试表GIRL **/</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `GIRL` (</span><br><span class="line">  `ID` <span class="type">varchar</span>(<span class="number">64</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `GIRE_NAME` <span class="type">varchar</span>(<span class="number">64</span>) <span class="keyword">COLLATE</span> utf8_bin <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `GIRL_AGE` <span class="type">varchar</span>(<span class="number">10</span>) <span class="keyword">COLLATE</span> utf8_bin <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `CUP_SIZE` <span class="type">varchar</span>(<span class="number">2</span>) <span class="keyword">COLLATE</span> utf8_bin <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`ID`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8_bin</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-3-生成测试数据"><a href="#4-3-生成测试数据" class="headerlink" title="4.3 生成测试数据"></a>4.3 生成测试数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 插入测试数据 **/</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> GIRL <span class="keyword">values</span>(<span class="string">&#x27;tolove16B&#x27;</span>,<span class="string">&#x27;梦梦&#x27;</span>,<span class="string">&#x27;16&#x27;</span>,<span class="string">&#x27;B&#x27;</span>);</span><br></pre></td></tr></table></figure>
@@ -509,7 +509,7 @@
 
 <p>查看是否开放：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall<span class="literal">-cmd</span> <span class="literal">--zone</span>=public <span class="literal">--query-port</span>=<span class="number">3306</span>/tcp</span><br></pre></td></tr></table></figure>
-<h3 id="5-5-连接工具"><a href="#5-5-连接工具" class="headerlink" title="5.5 连接工具"></a>5.5 连接工具</h3><p>推荐使用Navicat和SQLyog可视化工具。<br>链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/11gIlZKxoTG5BCCcoXdVJRg">https://pan.baidu.com/s/11gIlZKxoTG5BCCcoXdVJRg</a> 提取码: ntu7<br>SQLyog官网下载<br><a target="_blank" rel="noopener" href="https://sqlyog.en.softonic.com/">https://sqlyog.en.softonic.com/</a></p>
+<h3 id="5-5-连接工具"><a href="#5-5-连接工具" class="headerlink" title="5.5 连接工具"></a>5.5 连接工具</h3><p>推荐使用Navicat和SQLyog可视化工具。<br>链接: <span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMTFnSWxaS3hvVEc1QkNDY29YZFZKUmc=">https://pan.baidu.com/s/11gIlZKxoTG5BCCcoXdVJRg<i class="fa fa-external-link-alt"></i></span> 提取码: ntu7<br>SQLyog官网下载<br><span class="exturl" data-url="aHR0cHM6Ly9zcWx5b2cuZW4uc29mdG9uaWMuY29tLw==">https://sqlyog.en.softonic.com/<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="六、实现MySQL主从复制"><a href="#六、实现MySQL主从复制" class="headerlink" title="六、实现MySQL主从复制"></a>六、实现MySQL主从复制</h2><h3 id="6-1-分析模型"><a href="#6-1-分析模型" class="headerlink" title="6.1 分析模型"></a>6.1 分析模型</h3><p>分析模型：一主一从，一主多从，多主一从</p>
 <h3 id="6-1-1-一主一从模型：master-gt-slave"><a href="#6-1-1-一主一从模型：master-gt-slave" class="headerlink" title="6.1.1 一主一从模型：master-&gt;slave"></a>6.1.1 一主一从模型：master-&gt;slave</h3><p><img data-src="https://img-blog.csdnimg.cn/9421b86c2f2b4519a0e7cc6216ef5693.png#" alt="在这里插入图片描述"></p>
 <h3 id="6-1-2-一主多从"><a href="#6-1-2-一主多从" class="headerlink" title="6.1.2 一主多从"></a>6.1.2 一主多从</h3><p>在slave节点再配置slave缓解master服务器压力<br><img data-src="https://img-blog.csdnimg.cn/6a6ea12e0dbe4fb5a07a5f2b683b8c3f.png?x-oss-process=,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_18,color_FFFFFF,t_70,g_se,x_16#" alt="在这里插入图片描述"></p>
@@ -526,7 +526,7 @@
 
 <p>master节点创建GIRL表，slave同步创建</p>
 <p>tips：如果想实现主-主同步，则需要在其它两台配置数据库用户关联授权，参考第二步。<br>      我并没有验证主-主同步，嘿嘿，当然你可以私下验证哟！</p>
-<h2 id="七、附件（搭建环境）"><a href="#七、附件（搭建环境）" class="headerlink" title="七、附件（搭建环境）"></a>七、附件（搭建环境）</h2><h3 id="7-1-虚拟机搭建环境"><a href="#7-1-虚拟机搭建环境" class="headerlink" title="7.1 虚拟机搭建环境"></a>7.1 虚拟机搭建环境</h3><p><strong>搭建服务器环境参考文章</strong>：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Tolove_dream/article/details/116085467">VMware12配合使用Centos7搭建Linux开发环境</a></p>
+<h2 id="七、附件（搭建环境）"><a href="#七、附件（搭建环境）" class="headerlink" title="七、附件（搭建环境）"></a>七、附件（搭建环境）</h2><h3 id="7-1-虚拟机搭建环境"><a href="#7-1-虚拟机搭建环境" class="headerlink" title="7.1 虚拟机搭建环境"></a>7.1 虚拟机搭建环境</h3><p><strong>搭建服务器环境参考文章</strong>：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbS9hcnRpY2xlL2RldGFpbHMvMTE2MDg1NDY3">VMware12配合使用Centos7搭建Linux开发环境<i class="fa fa-external-link-alt"></i></span></p>
 <p>7.1.1 搭建虚拟机环境<br><img data-src="https://img-blog.csdnimg.cn/5f71fb1bf7a541659167e279e64a9c1f.png?x-oss-process=,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_20,color_FFFFFF,t_70,g_se,x_16#" alt="在这里插入图片描述"></p>
 <p>7.1.2 虚拟机服务器配置<br><img data-src="https://img-blog.csdnimg.cn/a1c23c5687f744b8baba899c2cfb0122.png?x-oss-process=,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_20,color_FFFFFF,t_70,g_se,x_16#" alt="在这里插入图片描述"></p>
 <h3 id="7-2-xshell远程连接"><a href="#7-2-xshell远程连接" class="headerlink" title="7.2  xshell远程连接"></a>7.2  xshell远程连接</h3><p>7.2.1  使用xshell远程连接<br><img data-src="https://img-blog.csdnimg.cn/870c93fdf05544f58019209b9fd6d940.png?x-oss-process=,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_20,color_FFFFFF,t_70,g_se,x_16#" alt="在这里插入图片描述"></p>
@@ -557,7 +557,7 @@
 <p>133_slave_同步数据<br><img data-src="https://img-blog.csdnimg.cn/635b955eec404eeaa64fa2a4d42df58e.png?x-oss-process=,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6b6Z6IW-5LiH6YeMc2t5,size_20,color_FFFFFF,t_70,g_se,x_16#" alt="在这里插入图片描述"></p>
 <p><strong>持续更新优化中…</strong></p>
 <h1 id="开心一刻"><a href="#开心一刻" class="headerlink" title="开心一刻"></a>开心一刻</h1><p>开心一刻，乐呵乐呵。创作乐无边，学而思有境。<strong>你会发现，自己的知识宝库越来越丰富</strong>。好了，到此为止就是此篇文章的全部内容了，<strong>能看到这里的都是帅哥靓妹啊</strong>！！！善于总结，其乐不穷。<strong>好记性不如烂笔头</strong>，多收集自己第一次尝试的成果，收获也颇丰。<strong>你会发现，自己的知识宝库越来越丰富</strong>。白嫖有瘾，原创不易。</p>
-<H3 align=center><a target="_blank" rel="noopener" href="https://blog.csdn.net/Tolove_dream">by 龙腾万里sky 原创不易，白嫖有瘾</a></H3>
+<H3 align=center><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RvbG92ZV9kcmVhbQ==">by 龙腾万里sky 原创不易，白嫖有瘾<i class="fa fa-external-link-alt"></i></span></H3>
 
 
     </div>
@@ -579,7 +579,7 @@
       <a href="https://blog.cnwangk.top/2021/11/30/Linux%EF%BC%88Redhat7%E7%B3%BB%E5%88%97%EF%BC%89%E6%90%AD%E5%BB%BAMySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" title="Linux（Redhat7系列）搭建MySQL主从复制">https://blog.cnwangk.top/2021/11/30/Linux（Redhat7系列）搭建MySQL主从复制/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
@@ -618,6 +618,11 @@
           </div>
 
         
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+  </div>
 
           <div class="post-nav">
             <div class="post-nav-item">
@@ -640,6 +645,27 @@
 
 
 
+    
+  
+  <div class="comments">
+    <script src="https://giscus.app/client.js"
+        data-repo="cnwangk/blog-talk" 
+        data-repo-id="kgDOJg6bLQ" 
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJg6bLc4CWXpT"
+        data-mapping="pathname" 
+        data-reactions-enabled="1" 
+        data-emit-metadata="1" 
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        data-input-position="bottom"
+        data-loading="lazy"
+        async>
+    </script>
+  </div>
+  
+  
 </div>
   </main>
 
@@ -685,11 +711,11 @@
         <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
-        本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+       本站总访问量： <span id="busuanzi_value_site_pv"></span> 次
       </span>
     </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
 
     </div>
@@ -701,7 +727,7 @@
     <span>0%</span>
   </div>
 
-  <a href="https://github.com/cnwangk" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Nud2FuZ2s=" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -709,43 +735,29 @@
 
 
   
-  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
-  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
 
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
 
+  <script src="/js/third-party/pace.js"></script>
+
+  <script src="/js/third-party/addtoany.js"></script>
 
   
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 
 </body>
 </html>

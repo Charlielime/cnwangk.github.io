@@ -9,19 +9,20 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="manifest" href="/manifest.json">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
 
-<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-mac-osx.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="MySQL、Oracle、达梦数据库？还是SQL server？为什么要学SQL，入门选择哪款关系型数据库(RDBMS)最合适？ 学习某个技能点或者是知识点时，可以尝试建立一项知识梳理体系，如下：  输入：可以照葫芦画瓢，亲自动手实践。 分析：有自己独立的分析和思考。 输出：产出的内容与预期进行对比。 札记：记录收获过程（手写或者以电子文档形式记录）。  前言我：菲菲，听说你对Linux命令、Ja">
-<meta property="og:type" content="blog">
+<meta property="og:type" content="article">
 <meta property="og:title" content="SQL是什么？如何选择">
 <meta property="og:url" content="https://blog.cnwangk.top/2022/01/21/SQL%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/index.html">
 <meta property="og:site_name" content="文正耕耘">
@@ -56,7 +57,7 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -92,7 +93,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">40</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">38</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">94</span></a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-globe fa-fw fa-fw"></i>友链</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-bangumis"><a href="/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>番剧</a></li><li class="menu-item menu-item-cinemas"><a href="/cinemas/" rel="section"><i class="fa fa-th fa-fw"></i>电视剧</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-globe fa-fw fa-fw"></i>友链</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-bangumis"><a href="/bangumis/" rel="section"><i class="fa fa-th fa-fw"></i>番剧</a></li><li class="menu-item menu-item-cinemas"><a href="/cinemas/" rel="section"><i class="fa fa-th fa-fw"></i>电视剧</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -176,14 +177,14 @@
 </div>
   <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/cnwangk" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cnwangk" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Nud2FuZ2s=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cnwangk"><i class="fab fa-github fa-fw"></i>GitHub</span>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:dywangk@gmail.com" title="E-Mail → mailto:dywangk@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <span class="exturl" data-url="bWFpbHRvOmR5d2FuZ2tAZ21haWwuY29t" title="E-Mail → mailto:dywangk@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
       </span>
   </div>
   <div class="cc-license animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://unpkg.com/@creativecommons/vocabulary@2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
   </div>
 
         </div>
@@ -191,6 +192,8 @@
     </div>
 
     
+        <div class="pjax">
+        </div>
   </aside>
 
 
@@ -230,8 +233,6 @@
 
         <div class="post-meta-container">
           <div class="post-meta">
-
-  
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
@@ -288,8 +289,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <p>MySQL、Oracle、达梦数据库？还是SQL server？为什么要学SQL，入门选择哪款关系型数据库(RDBMS)最合适？</p>
+    <div class="post-body" itemprop="articleBody"><p>MySQL、Oracle、达梦数据库？还是SQL server？为什么要学SQL，入门选择哪款关系型数据库(RDBMS)最合适？</p>
 <p>学习某个技能点或者是知识点时，可以尝试建立一项知识梳理体系，如下：</p>
 <ol>
 <li><strong>输入</strong>：可以照葫芦画瓢，亲自动手实践。</li>
@@ -299,8 +299,8 @@
 </ol>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>我</strong>：菲菲，听说你对Linux命令、Java以及数据库SQL方面的知识比较熟悉，公司业务主要也是基于Java开发的web项目。</p>
 <p><strong>菲菲</strong>：是的，以前学过一点Java方面的知识，用过一段时间的Linux命令，会一点数据库操作。</p>
-<p>本文已经收录到github仓库：<a target="_blank" rel="noopener" href="https://github.com/cnwangk/wangk-stick">https://github.com/cnwangk/wangk-stick</a></p>
-<h3 id="构思缘起"><a href="#构思缘起" class="headerlink" title="构思缘起"></a>构思缘起</h3><p>这篇文章的构思来源：前段时间公司新招了一名驻场运维人员，基础有点薄弱，SQL方面的知识需要辅导。在我的上一篇文章<a target="_blank" rel="noopener" href="https://www.cnblogs.com/cnwangk/p/15829648.html">《初学者如何入门linux，原来linux还可以这样学》</a>其实也是基于这种想法编写的。我寻思着，如何快速带他先入个门，至少得教会工作中最常用的（select、insert、update、delete）增删改查。我就在思考着，是不是要出一篇文章好好地辅导一下。当然写的很基础，基于给想入门SQL语言的初学者一点小小的建议。</p>
+<p>本文已经收录到github仓库：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Nud2FuZ2svd2FuZ2stc3RpY2s=">https://github.com/cnwangk/wangk-stick<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="构思缘起"><a href="#构思缘起" class="headerlink" title="构思缘起"></a>构思缘起</h3><p>这篇文章的构思来源：前段时间公司新招了一名驻场运维人员，基础有点薄弱，SQL方面的知识需要辅导。在我的上一篇文章<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vY253YW5nay9wLzE1ODI5NjQ4Lmh0bWw=">《初学者如何入门linux，原来linux还可以这样学》<i class="fa fa-external-link-alt"></i></span>其实也是基于这种想法编写的。我寻思着，如何快速带他先入个门，至少得教会工作中最常用的（select、insert、update、delete）增删改查。我就在思考着，是不是要出一篇文章好好地辅导一下。当然写的很基础，基于给想入门SQL语言的初学者一点小小的建议。</p>
 <p>虽然菲菲基础知识不是很牢靠，但是好学，这点值得肯定。我也经常对他说，多用你的小本本做记录，久而久之你就会积累很多知识。当然，这也是在实际工作中才发现的。起初，通过交谈认为他至少会一点基础，这也是后话了。</p>
 <h3 id="SQL的简介，SQL是什么？"><a href="#SQL的简介，SQL是什么？" class="headerlink" title="SQL的简介，SQL是什么？"></a>SQL的简介，SQL是什么？</h3><p>SQL必知必会这样描述到：</p>
 <p><strong>SQL</strong>（发音为字母S-Q-L或sequel）是Structure Query Language（<strong>结构化查询语言</strong>）的缩写。SQL是一种专业用于与数据库沟通交互的语言。</p>
@@ -421,7 +421,7 @@
 <li>另一种是社区版，免费提供给普通用户使用。但MySQL被Oracle收购后，存在闭源的风险。MySQL的创始人开始着手MariaDB，也是基于原版版的MySQL打造的，完全兼容MySQL，拥抱开源。</li>
 </ul>
 <p>关于社区版和企业版的最大区别，我个人还是深有体会的。之前有幸接触过政企项目，使用付费版的国产数据库DM8。出了问题，直接电话联系供应商，找来了达梦数据库的<strong>技术支持人员上门排查解决问题</strong>。<strong>划重点，上门服务</strong>。有商业支持确实是好事，但更应该拥抱开源。</p>
-<h4 id="2、入门"><a href="#2、入门" class="headerlink" title="2、入门"></a>2、入门</h4><h5 id="2-1、下载与安装"><a href="#2-1、下载与安装" class="headerlink" title="2.1、下载与安装"></a>2.1、下载与安装</h5><p>MySQL官网下载地址：<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/">https://dev.mysql.com/downloads/</a>，下载社区版，社区版是免费提供下载的。</p>
+<h4 id="2、入门"><a href="#2、入门" class="headerlink" title="2、入门"></a>2、入门</h4><h5 id="2-1、下载与安装"><a href="#2-1、下载与安装" class="headerlink" title="2.1、下载与安装"></a>2.1、下载与安装</h5><p>MySQL官网下载地址：<span class="exturl" data-url="aHR0cHM6Ly9kZXYubXlzcWwuY29tL2Rvd25sb2Fkcy8=">https://dev.mysql.com/downloads/<i class="fa fa-external-link-alt"></i></span>，下载社区版，社区版是免费提供下载的。</p>
 <p><strong>在linux下安装二进制包，建议事先这样处理</strong>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加mysql组</span></span><br><span class="line">$ groupadd mysql</span><br><span class="line"><span class="comment">#新增mysql用户到mysql组中</span></span><br><span class="line">$ useradd -g mysql mysql</span><br></pre></td></tr></table></figure>
 
@@ -437,9 +437,9 @@
 <li>编译：make </li>
 <li>安装：make install</li>
 </ul>
-<p>在所有的关系型数据库中，我提醒你要注意的一点是，都有个很重要的过程就是<strong>数据库的实例化</strong>，<strong>没有实例化是无法启动数据库服务的</strong>。更多安装方式可以参考菜鸟教程进行安装：<a target="_blank" rel="noopener" href="https://www.runoob.com/mysql/mysql-install.html">https://www.runoob.com/mysql/mysql-install.html</a></p>
+<p>在所有的关系型数据库中，我提醒你要注意的一点是，都有个很重要的过程就是<strong>数据库的实例化</strong>，<strong>没有实例化是无法启动数据库服务的</strong>。更多安装方式可以参考菜鸟教程进行安装：<span class="exturl" data-url="aHR0cHM6Ly93d3cucnVub29iLmNvbS9teXNxbC9teXNxbC1pbnN0YWxsLmh0bWw=">https://www.runoob.com/mysql/mysql-install.html<i class="fa fa-external-link-alt"></i></span></p>
 <p>MySQL数据库的安装配置与Oracle数据库相比要简单的多。下载完后并完成安装，MySQL的官网也提供了示例数据库和Oracle提供的scott用户下的emp和dept类似。你可以<strong>到官网获取MySQL提供的数据库示例sakila和world</strong>，然后进行导入到数据库中。</p>
-<p>也给出MariaDB的下载地址：<a target="_blank" rel="noopener" href="https://mariadb.org/download/">https://mariadb.org/download/</a></p>
+<p>也给出MariaDB的下载地址：<span class="exturl" data-url="aHR0cHM6Ly9tYXJpYWRiLm9yZy9kb3dubG9hZC8=">https://mariadb.org/download/<i class="fa fa-external-link-alt"></i></span></p>
 <p><strong>修改密码</strong>，默认安装设置密码大概率为空，手动去指定密码。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> password <span class="keyword">for</span> root<span class="variable">@localhost</span><span class="operator">=</span>password(<span class="string">&#x27;123456&#x27;</span>);</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;新密码&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
@@ -661,9 +661,9 @@
 
 
 
-<h4 id="3、连接工具介绍"><a href="#3、连接工具介绍" class="headerlink" title="3、连接工具介绍"></a>3、连接工具介绍</h4><p>推荐几个比较常用的工具：<a target="_blank" rel="noopener" href="https://www.phpmyadmin.net/">phpMyAdmin</a>、<a target="_blank" rel="noopener" href="https://webyog.com/product/sqlyog/trial/">SQLyog</a>、<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/workbench/">MySQL Workbench</a>、Navicat可视化工具进行连接操作。工具的使用是其次的，更重要的在于对MySQL命令语句的运用。</p>
+<h4 id="3、连接工具介绍"><a href="#3、连接工具介绍" class="headerlink" title="3、连接工具介绍"></a>3、连接工具介绍</h4><p>推荐几个比较常用的工具：<span class="exturl" data-url="aHR0cHM6Ly93d3cucGhwbXlhZG1pbi5uZXQv">phpMyAdmin<i class="fa fa-external-link-alt"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly93ZWJ5b2cuY29tL3Byb2R1Y3Qvc3FseW9nL3RyaWFsLw==">SQLyog<i class="fa fa-external-link-alt"></i></span>、<span class="exturl" data-url="aHR0cHM6Ly9kZXYubXlzcWwuY29tL2Rvd25sb2Fkcy93b3JrYmVuY2gv">MySQL Workbench<i class="fa fa-external-link-alt"></i></span>、Navicat可视化工具进行连接操作。工具的使用是其次的，更重要的在于对MySQL命令语句的运用。</p>
 <p><strong>tips</strong>：包含了SQLyog、plsqldev、Navicat，还整理了部分安装包以及MySQL官方提供的<strong>sakila</strong> 、<strong>world</strong>示例哟！</p>
-<p>链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/11gIlZKxoTG5BCCcoXdVJRg">https://pan.baidu.com/s/11gIlZKxoTG5BCCcoXdVJRg </a>   提取码： ntu7</p>
+<p>链接: <span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMTFnSWxaS3hvVEc1QkNDY29YZFZKUmc=">https://pan.baidu.com/s/11gIlZKxoTG5BCCcoXdVJRg <i class="fa fa-external-link-alt"></i></span>   提取码： ntu7</p>
 <p>给出一个使用Navicat逆向生成的示例数据库world的模型：</p>
 <p><strong>如果真的要使用到建物理模型</strong>：推荐你学习Sybase PowerDesigner设计工具的使用，而且需要了解关系数据库设计遵循的三范式。现在数据库设计最多满足3NF，普遍认为范式过高，虽然具有对数据关系更好的约束性，但也导致数据关系表增加而令数据库IO更易繁忙，原来交由数据库处理的关系约束现更多在数据库使用程序中完成。</p>
 <h4 id="4、找回root用户密码"><a href="#4、找回root用户密码" class="headerlink" title="4、找回root用户密码"></a>4、找回root用户密码</h4><p>无论是初学者或者是熟手都有可能忘记之前设置的密码。咱当初安装MySQL也是吃过亏的，采用生成随机密码坑过自己一次。</p>
@@ -686,9 +686,9 @@
 
 <p>越过权限验证,然后启动mysql并放入后台运行，如果你用root用户测试的，将user后的参数改为root。然后使用update语句修改密码。以上就是root用户密码忘记了，通过越过权限认证表修改密码。看完之后，是不是感觉很简单。</p>
 <h4 id="5、常用网络资源"><a href="#5、常用网络资源" class="headerlink" title="5、常用网络资源"></a>5、常用网络资源</h4><ul>
-<li>MySQL官网下载地址：<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/">https://dev.mysql.com/downloads/</a></li>
-<li>目前最权威的MySQL数据库以及工具在线手册：<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/">https://dev.mysql.com/doc/</a></li>
-<li>MySQL发布的bug列表：<a target="_blank" rel="noopener" href="https://bugs.mysql.com/">https://bugs.mysql.com/</a></li>
+<li>MySQL官网下载地址：<span class="exturl" data-url="aHR0cHM6Ly9kZXYubXlzcWwuY29tL2Rvd25sb2Fkcy8=">https://dev.mysql.com/downloads/<i class="fa fa-external-link-alt"></i></span></li>
+<li>目前最权威的MySQL数据库以及工具在线手册：<span class="exturl" data-url="aHR0cHM6Ly9kZXYubXlzcWwuY29tL2RvYy8=">https://dev.mysql.com/doc/<i class="fa fa-external-link-alt"></i></span></li>
+<li>MySQL发布的bug列表：<span class="exturl" data-url="aHR0cHM6Ly9idWdzLm15c3FsLmNvbS8=">https://bugs.mysql.com/<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <h2 id="03-第三夜"><a href="#03-第三夜" class="headerlink" title="03 第三夜"></a>03 第三夜</h2><p>第二夜的知识点对MySQL进行了简单的介绍，也需要下去踏踏实实的实际操作。尤其是核心知识：视图、函数、存储过程以及触发器。</p>
 <p><strong>我</strong>：菲菲啊，通过昨晚的探讨，MySQL的一些知识应该掌握不少了吧。</p>
@@ -784,7 +784,7 @@
 <p><strong>我</strong>：接下来就开始给你讲讲SQLserver方面的一些注意事项。</p>
 <p><strong>菲菲</strong>：嗯嗯，并点了点头。拿出了小本本开始记录…</p>
 <h3 id="四、SQL-server"><a href="#四、SQL-server" class="headerlink" title="四、SQL server"></a>四、SQL server</h3><p>关于Windows平台的一些镜像或者工具下载，推荐去msdn itellyou这个小站去获取，提供的都是原生纯净版的iso镜像地址。这年头，为爱发电的良心小站已经不多了。</p>
-<p><a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">https://msdn.itellyou.cn/</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9tc2RuLml0ZWxseW91LmNuLw==">https://msdn.itellyou.cn/<i class="fa fa-external-link-alt"></i></span></p>
 <h4 id="1、版本-2"><a href="#1、版本-2" class="headerlink" title="1、版本"></a>1、版本</h4><p>版本使用的较经典的三个版本，当然都是微软家的那一套.NET（C#、Winform）</p>
 <ul>
 <li>第一版是比较久远的SQLserver2005，当年入门学的第一门SQL语言就是SQLserver2005了，堪称入门经典。</li>
@@ -818,7 +818,7 @@
 </ul>
 <h4 id="2、入门-3"><a href="#2、入门-3" class="headerlink" title="2、入门"></a>2、入门</h4><p><strong>2.1、Windows平台安装DM8</strong></p>
 <p>官方有提供DM8安装手册，在官网进行注册登录即可下载，安装请进行参考：</p>
-<p>DM8官网直通车：<a target="_blank" rel="noopener" href="https://www.dameng.com/view_61.html">https://www.dameng.com/view_61.html</a></p>
+<p>DM8官网直通车：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZGFtZW5nLmNvbS92aWV3XzYxLmh0bWw=">https://www.dameng.com/view_61.html<i class="fa fa-external-link-alt"></i></span></p>
 <blockquote>
 <p>DM8安装手册.pdf</p>
 </blockquote>
@@ -893,7 +893,7 @@
 <p>通过五晚的知识交流，菲菲现在也能在工作中积极的运用所学知识。时不时还喊着老哥老哥，与我套近乎。想get到更多的知识点，这点小九九我还能不清楚吗？当然是开个玩笑，我一向是乐于助人的。</p>
 <p>持续更新优化中…</p>
 <h1 id="END"><a href="#END" class="headerlink" title="END"></a>END</h1><p><strong>能看到这里的，都是帅哥靓妹</strong>。以上就是此次文章的所有内容的，希望能对你的工作有所帮助。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/cnwangk/wangk-stick">https://github.com/cnwangk/wangk-stick</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Nud2FuZ2svd2FuZ2stc3RpY2s=">https://github.com/cnwangk/wangk-stick<i class="fa fa-external-link-alt"></i></span></p>
 
     </div>
 
@@ -914,7 +914,7 @@
       <a href="https://blog.cnwangk.top/2022/01/21/SQL%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9/" title="SQL是什么？如何选择">https://blog.cnwangk.top/2022/01/21/SQL是什么？如何选择/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
@@ -953,11 +953,16 @@
           </div>
 
         
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+  </div>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/01/17/Git%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E4%B8%8E%E7%B4%A2%E5%BC%95/" rel="prev" title="Git文件管理与索引">
-                  <i class="fa fa-chevron-left"></i> Git文件管理与索引
+                <a href="/2022/01/17/Github%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5/" rel="prev" title="Github入门与实践">
+                  <i class="fa fa-chevron-left"></i> Github入门与实践
                 </a>
             </div>
             <div class="post-nav-item">
@@ -975,6 +980,27 @@
 
 
 
+    
+  
+  <div class="comments">
+    <script src="https://giscus.app/client.js"
+        data-repo="cnwangk/blog-talk" 
+        data-repo-id="kgDOJg6bLQ" 
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJg6bLc4CWXpT"
+        data-mapping="pathname" 
+        data-reactions-enabled="1" 
+        data-emit-metadata="1" 
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        data-input-position="bottom"
+        data-loading="lazy"
+        async>
+    </script>
+  </div>
+  
+  
 </div>
   </main>
 
@@ -1020,11 +1046,11 @@
         <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
-        本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+       本站总访问量： <span id="busuanzi_value_site_pv"></span> 次
       </span>
     </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
 
     </div>
@@ -1036,7 +1062,7 @@
     <span>0%</span>
   </div>
 
-  <a href="https://github.com/cnwangk" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Nud2FuZ2s=" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -1044,43 +1070,29 @@
 
 
   
-  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
-  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
 
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
 
+  <script src="/js/third-party/pace.js"></script>
+
+  <script src="/js/third-party/addtoany.js"></script>
 
   
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 
 </body>
 </html>
