@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-mac-osx.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"giscus","storage":true,"lazyload":true,"nav":null,"activeClass":"giscus"},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="一入编程深似海，从此节操是路人。 前段时间由于业务场景需求，不得不近一步学习 vim 使用方法，提高工作效率，就总结了一些常用快捷键使用方法。满足一般需求，掌握基本增、删、改、查就可以了，近一步学习可以了解多屏操作和宏的使用以及自定义插件功能。 Linux发行版服务器基本上是已经配置好 vi 或者 vim，可以使用进行练习，也可以下载vim客户端（支持多个平台：Linux、macOS、Window">
 <meta property="og:type" content="article">
@@ -48,7 +48,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9CMX4.png">
 <meta property="og:image" content="https://s1.ax1x.com/2023/02/26/pp9C37R.png">
 <meta property="article:published_time" content="2023-02-26T12:04:54.000Z">
-<meta property="article:modified_time" content="2023-04-21T09:02:19.114Z">
+<meta property="article:modified_time" content="2023-05-15T13:24:09.770Z">
 <meta property="article:author" content="文正耕耘">
 <meta property="article:tag" content="vim">
 <meta name="twitter:card" content="summary">
@@ -212,6 +212,23 @@
     </div>
 
     
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2023/05/10/vim-9-0-%E6%BA%90%E7%A0%81%E5%8C%85%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" rel="bookmark">
+        <time class="popular-posts-time">2023-05-10</time>
+        <br>
+      vim 9.0 源码包编译安装
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
   </aside>
 
 
@@ -264,7 +281,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-04-21 17:02:19" itemprop="dateModified" datetime="2023-04-21T17:02:19+08:00">2023-04-21</time>
+      <time title="修改时间：2023-05-15 21:24:09" itemprop="dateModified" datetime="2023-05-15T21:24:09+08:00">2023-05-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -290,14 +307,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.2k</span>
+      <span>2.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>8 分钟</span>
+      <span>9 分钟</span>
     </span>
 </div>
 
@@ -310,6 +327,9 @@
     <div class="post-body" itemprop="articleBody"><p>一入编程深似海，从此节操是路人。</p>
 <p><strong>前段时间由于业务场景需求</strong>，不得不近一步学习 vim 使用方法，<strong>提高工作效率</strong>，就总结了一些常用快捷键使用方法。满足一般需求，掌握基本增、删、改、查就可以了，近一步学习可以了解多屏操作和宏的使用以及自定义插件功能。</p>
 <p>Linux发行版服务器基本上是已经配置好 vi 或者 vim，可以使用进行练习，也可以下载vim客户端（支持多个平台：Linux、macOS、Windows）软件进行练习，当然还使用git bash一样可以进行练习。目前主流IDE工具，基本上是支持安装vim插件，开启插件支持vim相关功能。例如：VSCode、IntelliJ IDEA（社区版与旗舰版均支持）。</p>
+<span id="more"></span>
+
+
 <p>展示一下Windows平台下的vim以及gvim：</p>
 <p>vim：在字符界面进行使用，可以看到初次进入会显示版本信息、维护人以及一些帮助命令。</p>
 <p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CGA1"><img data-src="https://s1.ax1x.com/2023/02/26/pp9CGA1.png" alt="pp9CGA1.png"></a></p>
@@ -520,12 +540,31 @@
 <p>Linux平台一样需要新增 .vimrc</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.vimrc</span><br></pre></td></tr></table></figure>
 
-<p>加入如下内容即可安装插件：</p>
+<p>Rocky 9 Linux 平台如下操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim </span><br><span class="line">--directory-prefix=/usr/local/share/vim/vim90/autoload/</span><br></pre></td></tr></table></figure>
+<p>下载文件，如何指定保存路径？通过帮助文档查询：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># wget --help | grep &quot;保存文件&quot;</span></span><br><span class="line">  -P,  --directory-prefix=前缀     保存文件到 &lt;前缀&gt;/..</span><br></pre></td></tr></table></figure>
+
+<p>如果没有 wget 工具，请先安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf -y install wget</span><br></pre></td></tr></table></figure>
+
+
+<p>Windows 平台，访问直接下载：<br><span class="exturl" data-url="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2p1bmVndW5uL3ZpbS1wbHVnL21hc3Rlci9wbHVnLnZpbQ==">https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim<i class="fa fa-external-link-alt"></i></span></p>
+<p>复制到你安装 vim 后，生成 autoload 所在目录，比如：D:&#x2F;vim90&#x2F;autoload&#x2F;</p>
+<p>安装 vim-plug 插件后，加入如下内容即可安装 nerdtree 和 tagbar 插件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> number</span><br><span class="line">call plug<span class="comment">#begin()</span></span><br><span class="line">  Plug <span class="string">&#x27;preservim/nerdtree&#x27;</span></span><br><span class="line">  Plug <span class="string">&#x27;preservim/tagbar&#x27;</span></span><br><span class="line">call plug<span class="comment">#end()</span></span><br></pre></td></tr></table></figure>
+<p>个人认为，这两个插件还是很实用的，尤其是浏览代码。</p>
+<p>Rocky 9 Linux 平台，如果想 tagbar 正常运行，同样需安装 ctags 软件包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf -y install ctags</span><br></pre></td></tr></table></figure>
+
 <p>插件安装命令： </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:PlugInstall</span><br></pre></td></tr></table></figure>
 <p>插件安装后，重启vim即可生效。</p>
-<p>安装插件效果展示，最左侧是nerdtree效果，最右侧是tagbar效果。<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CYh6"><img data-src="https://s1.ax1x.com/2023/02/26/pp9CYh6.jpg" alt="pp9CYh6.jpg"></a></p>
+<p>安装插件效果展示，最左侧是nerdtree效果，最右侧是tagbar效果。</p>
+<p>示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim Test.java</span><br><span class="line">:NERDTree</span><br><span class="line">:Tagbar</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pp9CYh6"><img data-src="https://s1.ax1x.com/2023/02/26/pp9CYh6.jpg" alt="pp9CYh6.jpg"></a></p>
 <h2 id="vim无处不在"><a href="#vim无处不在" class="headerlink" title="vim无处不在"></a>vim无处不在</h2><p><strong>vim与Tmux</strong>可以在Linux服务器上安装tmux配合vim使用，效果更加。</p>
 <p>Linux发行版（centos9-stream）安装tmux</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Centos9-Stream ~]# yum list | grep tmuxtmux.x86_64                                          3.2a-4.el9                         baseos[root@Centos9-Stream ~]# yum -y install tmux[root@Centos9-Stream ~]# rpm -qa | grep tmuxtmux-3.2a-4.el9.x86_64</span><br></pre></td></tr></table></figure>
@@ -554,6 +593,8 @@
 <p><strong>站在巨人的肩膀上，打造炫酷的vim</strong><br>SpaceVim：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NwYWNlVmltL1NwYWNlVmlt">https://github.com/SpaceVim/SpaceVim<i class="fa fa-external-link-alt"></i></span></p>
 <p>个人收藏一些vim相关插件仓库地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N0YXJzL2Nud2FuZ2svbGlzdHMvdmlt">https://github.com/stars/cnwangk/lists/vim<i class="fa fa-external-link-alt"></i></span></p>
 <p>你还可以通过 vimawesome 寻找vim插件：<span class="exturl" data-url="aHR0cHM6Ly92aW1hd2Vzb21lLmNvbS8=">https://vimawesome.com<i class="fa fa-external-link-alt"></i></span></p>
+<p>以上总结，仅供参考哟，希望对你的工作有所帮助！</p>
+<p>—END—</p>
 
     </div>
 
@@ -682,14 +723,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">247k</span>
+    <span title="站点总字数">248k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14:58</span>
+    <span title="站点阅读时长">15:03</span>
   </span>
 </div>
 <div class="busuanzi-count">
