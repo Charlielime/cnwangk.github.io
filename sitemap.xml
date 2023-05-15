@@ -1069,6 +1069,13 @@
   </url>
   
   <url>
+    <loc>https://blog.cnwangk.top/tags/VScode/</loc>
+    <lastmod>2023-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.cnwangk.top/tags/Ubuntu/</loc>
     <lastmod>2023-05-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -1077,13 +1084,6 @@
   
   <url>
     <loc>https://blog.cnwangk.top/tags/PostgreSQL/</loc>
-    <lastmod>2023-05-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.cnwangk.top/tags/VScode/</loc>
     <lastmod>2023-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1125,14 +1125,14 @@
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/nginx/</loc>
+    <loc>https://blog.cnwangk.top/tags/npm/</loc>
     <lastmod>2023-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/npm/</loc>
+    <loc>https://blog.cnwangk.top/tags/nginx/</loc>
     <lastmod>2023-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1181,6 +1181,13 @@
   </url>
   
   <url>
+    <loc>https://blog.cnwangk.top/tags/eclipse/</loc>
+    <lastmod>2023-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.cnwangk.top/tags/sublime-text/</loc>
     <lastmod>2023-05-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -1189,13 +1196,6 @@
   
   <url>
     <loc>https://blog.cnwangk.top/tags/xshell/</loc>
-    <lastmod>2023-05-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.cnwangk.top/tags/eclipse/</loc>
     <lastmod>2023-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1365,6 +1365,13 @@
   </url>
   
   <url>
+    <loc>https://blog.cnwangk.top/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2023-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.cnwangk.top/categories/Linux/Ubuntu/</loc>
     <lastmod>2023-05-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -1373,13 +1380,6 @@
   
   <url>
     <loc>https://blog.cnwangk.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/PostgreSQL/</loc>
-    <lastmod>2023-05-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.cnwangk.top/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2023-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1407,14 +1407,14 @@
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/categories/web%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    <loc>https://blog.cnwangk.top/categories/nodejs/</loc>
     <lastmod>2023-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/categories/nodejs/</loc>
+    <loc>https://blog.cnwangk.top/categories/web%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2023-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1456,14 +1456,14 @@
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/categories/web%E6%9C%8D%E5%8A%A1%E5%99%A8/nginx/</loc>
+    <loc>https://blog.cnwangk.top/categories/nodejs/npm/</loc>
     <lastmod>2023-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/categories/nodejs/npm/</loc>
+    <loc>https://blog.cnwangk.top/categories/web%E6%9C%8D%E5%8A%A1%E5%99%A8/nginx/</loc>
     <lastmod>2023-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
