@@ -48,6 +48,7 @@
   <script async src="https://hm.baidu.com/hm.js?8cd73d3e373ec975b52226e6d54add67"></script>
 
 
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{&quot;token&quot;: &quot;7be9d37fb35342a9b143b2d559783611&quot;}'></script>
 
 
 
@@ -205,6 +206,125 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98%EF%BC%9AMyISAM%E5%8A%A0%E8%A1%A8%E9%94%81%E3%80%81%E5%B9%B6%E5%8F%91%E6%8F%92%E5%85%A5%E4%BB%A5%E5%8F%8A%E9%94%81%E8%B0%83%E5%BA%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="文正耕耘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="文正耕耘">
+      <meta itemprop="description" content="莫问收获，但问耕耘。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 文正耕耘">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98%EF%BC%9AMyISAM%E5%8A%A0%E8%A1%A8%E9%94%81%E3%80%81%E5%B9%B6%E5%8F%91%E6%8F%92%E5%85%A5%E4%BB%A5%E5%8F%8A%E9%94%81%E8%B0%83%E5%BA%A6/" class="post-title-link" itemprop="url">MySQL锁问题：MyISAM加表锁、并发插入以及锁调度</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-07T00:00:00+08:00">2022-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-21 16:21:37" itemprop="dateModified" datetime="2023-04-21T16:21:37+08:00">2023-04-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>13 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>主要介绍：MySQL锁、MyISAM表锁、查询表锁互掐、MySQL表锁模式、如何加（显示）表锁、模拟并发插入以及MyISAM锁调度的介绍。</p>
+<p>只停留在看上面，提升效果甚微。应该带着思考去测试佐证，或者使用（同类书籍）新版本进行对比，这样带来的效果更好。最重要的一环，<strong>养成阅读官方文档</strong>，是一个良好的习惯。能编写官方文档，至少证明他们在这个领域是有很高的造诣，对用法足够熟练。</p>
+<p>接着上一篇MySQL数据库SQL优化流程。在对MySQL进行举例并使用到示例数据库：大多数情况使用MySQL官方提供的sakila（模拟电影出租信息管理系统）和world数据库，类似于Oracle的scott用户。</p>
+<p>如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。官方文档非常具有参考意义。你可以将这篇博文，当成过度到MySQL8.0的参考资料。<strong>友情提示:经验是用来参考，但不是拿来即用</strong>。如果你能看到并分享这篇文章，我很荣幸。如果有误导你的地方，我表示抱歉。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/9897445be9ccea40278b7827713ecfa6.png"></p>
+<h1 id="MySQL锁问题——MyISAM表锁"><a href="#MySQL锁问题——MyISAM表锁" class="headerlink" title="MySQL锁问题——MyISAM表锁"></a>MySQL锁问题——MyISAM表锁</h1><p><strong>注意</strong>：在某些情况，你自己测试的结果可能与我演示有所不同，我省略了查询结果的部分参数。</p>
+<p><strong>本文侧重点在SQL优化流程以及MySQL锁问题</strong>（MyISAM和InnoDB存储引擎）。图片可能会挂，演示时尽量使用SQL查询语句返回结果进行示例。篇幅很长，因此使用markdown语法加了目录。</p>
+<p>如果你是从MySQL5.6或者5.7版本过渡到MySQL8.0。学习之前，建议线看官方文档这一章节：1.3 What Is New MySQL8.0 。在做对比的时候，<strong>文档中带有Note标识是你应该注意的地方</strong>。比如下面这张截图：</p>
+<p><img data-src="https://img-blog.csdnimg.cn/7439166f7c74468e8ecb3f25391795ec.png#pic_center" alt="在这里插入图片描述"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98%EF%BC%9AMyISAM%E5%8A%A0%E8%A1%A8%E9%94%81%E3%80%81%E5%B9%B6%E5%8F%91%E6%8F%92%E5%85%A5%E4%BB%A5%E5%8F%8A%E9%94%81%E8%B0%83%E5%BA%A6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98InnoDB%E9%94%81%EF%BC%9A%E8%A1%8C%E9%94%81%E3%80%81lock%E4%B8%8Elatch%E3%80%81%E5%A4%96%E9%94%AE%E4%B8%8E%E9%94%81%E3%80%81%E9%94%81%E7%AE%97%E6%B3%95%E4%BB%A5%E5%8F%8A%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -295,125 +415,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98InnoDB%E9%94%81%EF%BC%9A%E8%A1%8C%E9%94%81%E3%80%81lock%E4%B8%8Elatch%E3%80%81%E5%A4%96%E9%94%AE%E4%B8%8E%E9%94%81%E3%80%81%E9%94%81%E7%AE%97%E6%B3%95%E4%BB%A5%E5%8F%8A%E6%AD%BB%E9%94%81%E9%97%AE%E9%A2%98/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.cnwangk.top/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98%EF%BC%9AMyISAM%E5%8A%A0%E8%A1%A8%E9%94%81%E3%80%81%E5%B9%B6%E5%8F%91%E6%8F%92%E5%85%A5%E4%BB%A5%E5%8F%8A%E9%94%81%E8%B0%83%E5%BA%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="文正耕耘">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="文正耕耘">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 文正耕耘">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98%EF%BC%9AMyISAM%E5%8A%A0%E8%A1%A8%E9%94%81%E3%80%81%E5%B9%B6%E5%8F%91%E6%8F%92%E5%85%A5%E4%BB%A5%E5%8F%8A%E9%94%81%E8%B0%83%E5%BA%A6/" class="post-title-link" itemprop="url">MySQL锁问题：MyISAM加表锁、并发插入以及锁调度</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-04-07 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-07T00:00:00+08:00">2022-04-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-04-21 16:21:37" itemprop="dateModified" datetime="2023-04-21T16:21:37+08:00">2023-04-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.6k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>13 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>主要介绍：MySQL锁、MyISAM表锁、查询表锁互掐、MySQL表锁模式、如何加（显示）表锁、模拟并发插入以及MyISAM锁调度的介绍。</p>
-<p>只停留在看上面，提升效果甚微。应该带着思考去测试佐证，或者使用（同类书籍）新版本进行对比，这样带来的效果更好。最重要的一环，<strong>养成阅读官方文档</strong>，是一个良好的习惯。能编写官方文档，至少证明他们在这个领域是有很高的造诣，对用法足够熟练。</p>
-<p>接着上一篇MySQL数据库SQL优化流程。在对MySQL进行举例并使用到示例数据库：大多数情况使用MySQL官方提供的sakila（模拟电影出租信息管理系统）和world数据库，类似于Oracle的scott用户。</p>
-<p>如果没有进行特别说明，一般是基于MySQL8.0.28进行测试验证。官方文档非常具有参考意义。你可以将这篇博文，当成过度到MySQL8.0的参考资料。<strong>友情提示:经验是用来参考，但不是拿来即用</strong>。如果你能看到并分享这篇文章，我很荣幸。如果有误导你的地方，我表示抱歉。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/9897445be9ccea40278b7827713ecfa6.png"></p>
-<h1 id="MySQL锁问题——MyISAM表锁"><a href="#MySQL锁问题——MyISAM表锁" class="headerlink" title="MySQL锁问题——MyISAM表锁"></a>MySQL锁问题——MyISAM表锁</h1><p><strong>注意</strong>：在某些情况，你自己测试的结果可能与我演示有所不同，我省略了查询结果的部分参数。</p>
-<p><strong>本文侧重点在SQL优化流程以及MySQL锁问题</strong>（MyISAM和InnoDB存储引擎）。图片可能会挂，演示时尽量使用SQL查询语句返回结果进行示例。篇幅很长，因此使用markdown语法加了目录。</p>
-<p>如果你是从MySQL5.6或者5.7版本过渡到MySQL8.0。学习之前，建议线看官方文档这一章节：1.3 What Is New MySQL8.0 。在做对比的时候，<strong>文档中带有Note标识是你应该注意的地方</strong>。比如下面这张截图：</p>
-<p><img data-src="https://img-blog.csdnimg.cn/7439166f7c74468e8ecb3f25391795ec.png#pic_center" alt="在这里插入图片描述"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/04/07/MySQL%E9%94%81%E9%97%AE%E9%A2%98%EF%BC%9AMyISAM%E5%8A%A0%E8%A1%A8%E9%94%81%E3%80%81%E5%B9%B6%E5%8F%91%E6%8F%92%E5%85%A5%E4%BB%A5%E5%8F%8A%E9%94%81%E8%B0%83%E5%BA%A6/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -706,7 +707,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/15/Windows%E4%B8%8B%E4%BD%BF%E7%94%A8hexo-%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">Windows下使用hexo--搭建私人博客</a>
+          <a href="/2022/03/15/Windows%E4%B8%8B%E4%BD%BF%E7%94%A8hexo-%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">Windows 平台使用 hexo 搭建私人博客</a>
         </h2>
 
         <div class="post-meta-container">
@@ -724,7 +725,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-20 18:19:08" itemprop="dateModified" datetime="2023-03-20T18:19:08+08:00">2023-03-20</time>
+      <time title="修改时间：2023-05-17 13:09:38" itemprop="dateModified" datetime="2023-05-17T13:09:38+08:00">2023-05-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -747,7 +748,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
+      <span>2.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -768,22 +769,42 @@
           <p>Windows中使用hexo搭建个人博客。</p>
 <p>既学了git和github的用法，也熟悉了nodejs。</p>
 <p>又多了一项打发业余时间的软技能。慢慢地变成硬技能，何乐而不为？</p>
-<p>@[toc]</p>
-<h1 id="Windows中使用hexo搭建私人博客"><a href="#Windows中使用hexo搭建私人博客" class="headerlink" title="Windows中使用hexo搭建私人博客"></a>Windows中使用hexo搭建私人博客</h1><p><strong>必备环境（Windows）</strong>：</p>
+<h1 id="Windows-平台使用-hexo-搭建私人博客"><a href="#Windows-平台使用-hexo-搭建私人博客" class="headerlink" title="Windows 平台使用 hexo 搭建私人博客"></a>Windows 平台使用 hexo 搭建私人博客</h1><p><strong>必备环境（Windows）</strong>：</p>
 <ul>
-<li><p>Nodejs：<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">https://nodejs.org/en/<i class="fa fa-external-link-alt"></i></span>（hexo官方建议：Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本。）</p>
+<li><p>Nodejs：<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==">https://nodejs.org/en/<i class="fa fa-external-link-alt"></i></span>（hexo 官方建议：Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本。）</p>
 </li>
-<li><p><strong>提醒</strong>：Node.js 14.0版本在运行hexo服务时会出现警告，<strong>但不影响使用</strong>。</p>
+<li><p><strong>提醒</strong>：Node.js 14.0版本在运行hexo服务时会出现警告，<strong>但不影响使用</strong>，也可以升级更高版本。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INFO  Start processing    <span class="comment"># 使用nodejs 14.0出现警告，搜索后发现基本是让降版本至nodejs 12.0</span></span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br><span class="line">(node:4464) Warning: Accessing non-existent property <span class="string">&#x27;lineno&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(Use `node --trace-warnings ...` to show <span class="built_in">where</span> the warning was created)</span><br><span class="line">(node:4464) Warning: Accessing non-existent property <span class="string">&#x27;column&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:4464) Warning: Accessing non-existent property <span class="string">&#x27;filename&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:4464) Warning: Accessing non-existent property <span class="string">&#x27;lineno&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:4464) Warning: Accessing non-existent property <span class="string">&#x27;column&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:4464) Warning: Accessing non-existent property <span class="string">&#x27;filename&#x27;</span> of module exports inside circular dependency</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Git：<span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9kb3dubG9hZHM=">https://git-scm.com/downloads<i class="fa fa-external-link-alt"></i></span>（个人使用版本：git version 2.31.1.windows.1）</p>
 </li>
-<li><p>Hexo：<span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3MvZ2l0aHViLXBhZ2Vz">https://hexo.io/zh-cn/docs/github-pages<i class="fa fa-external-link-alt"></i></span>（个人使用版本：5.4.1）</p>
+<li><p>Hexo：<span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3MvZ2l0aHViLXBhZ2Vz">https://hexo.io/zh-cn/docs/github-pages<i class="fa fa-external-link-alt"></i></span>（个人使用版本：6.3.0）</p>
 </li>
 </ul>
-<p><strong>建议</strong>：如果只是想简单发点私人博客，使用landscape主题完全可以满足。</p>
-<p><strong>如果想弄点花里胡哨的功能，那就使用Next主题</strong>。</p>
-<h2 id="一-安装hexo"><a href="#一-安装hexo" class="headerlink" title="一  安装hexo"></a>一  安装hexo</h2>
+<p><strong>建议</strong>：如果只是想简单发点私人博客，landscape 主题完全可以满足。</p>
+<p><strong>如果想看简洁的界面，又想有许多新功能，那就使用 Next 主题，这款主题持续更新</strong>。</p>
+<h2 id="一-安装hexo"><a href="#一-安装hexo" class="headerlink" title="一  安装hexo"></a>一  安装hexo</h2><h3 id="01-使用npm安装hexo环境"><a href="#01-使用npm安装hexo环境" class="headerlink" title="01  使用npm安装hexo环境"></a>01  使用npm安装hexo环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli   <span class="comment">#使用npm安装Hexo-cli</span></span><br><span class="line">npm install hexo          <span class="comment">#使用npm安装Hexo，熟悉的用户可以仅局部安装Hexo包</span></span><br></pre></td></tr></table></figure>
+
+<p>做完上面操作，恭喜你可以进行初始化安装blog文件了。</p>
+<h3 id="02-初始化博客（blog）目录"><a href="#02-初始化博客（blog）目录" class="headerlink" title="02  初始化博客（blog）目录"></a>02  初始化博客（blog）目录</h3><p>1、进入d盘（Windows terminal 下打开 cmd 或者 powershell）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> d:</span><br></pre></td></tr></table></figure>
+<p>2、 创建hexo目录，方便自管理，知道这是使用hexo搭建的博客</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> hexo</span><br></pre></td></tr></table></figure>
+
+<p>3、 切换到hexo目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br></pre></td></tr></table></figure>
+<p>4、 初始化blog目录，如果速度很慢，建议替换为国内镜像源地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">```      </span><br><span class="line">   </span><br><span class="line">5、 建议启动debug模式</span><br><span class="line">   </span><br><span class="line"> ```bash</span><br><span class="line">hexo --debug</span><br><span class="line">```      </span><br><span class="line">   </span><br><span class="line">6、 新增md文件</span><br><span class="line">   </span><br><span class="line">```bash</span><br><span class="line">hexo new <span class="string">&quot;hello my blog&quot;</span></span><br><span class="line"> ```   </span><br><span class="line">生成md（markdown）文件所在目录：<span class="built_in">source</span></span><br><span class="line">      </span><br><span class="line">   </span><br><span class="line">7、 生成静态文件</span><br><span class="line">   </span><br><span class="line">```bash</span><br><span class="line">  hexo g</span><br></pre></td></tr></table></figure>
+<p>生成静态文件所在目录：public</p>
+<p>8、 启动服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>或者指定 ip 地址和 port（端口）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo s -i 192.168.0.233 -p 4001</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 二  切换 nodejs 镜像源</span></span><br><span class="line"></span><br><span class="line">nodejs 临时配置国内 taobao 镜像源。</span><br><span class="line"></span><br><span class="line">​npm 镜像源地址，国内镜像站：</span><br><span class="line">&gt;  [https://npmmirror.com/](https://npmmirror.com/)</span><br><span class="line"></span><br><span class="line">​nodejs 临时配置国内 taobao 镜像源：</span><br><span class="line">&gt; npm config <span class="built_in">set</span> registry http://registry.npm.taobao.org/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 三  安装插件（进阶）</span></span><br><span class="line"></span><br><span class="line">如果你会一丢丢前端（nodejs）知识，对这些插件使用会很顺手。</span><br><span class="line"></span><br><span class="line">1、 安装hexo插件（Next主题）</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">npm install hexo-xxx-xxx --save</span><br></pre></td></tr></table></figure>
+
+<p>安装插件目录：node_modules</p>
+<p><strong>比较实用的几个插件</strong>：部分对landscape适用，主要是对Next主题适用。</p>
+<ul>
+<li>hexo-auto-excerpt：配置阅读全文功能，主页实现折叠效果（或者使用手动截断：
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/03/15/Windows%E4%B8%8B%E4%BD%BF%E7%94%A8hexo-%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/#more" rel="contents">
@@ -834,14 +855,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">248k</span>
+    <span title="站点总字数">249k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">15:03</span>
+    <span title="站点阅读时长">15:04</span>
   </span>
 </div>
 <div class="busuanzi-count">

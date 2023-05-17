@@ -48,6 +48,7 @@
   <script async src="https://hm.baidu.com/hm.js?8cd73d3e373ec975b52226e6d54add67"></script>
 
 
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{&quot;token&quot;: &quot;7be9d37fb35342a9b143b2d559783611&quot;}'></script>
 
 
 
@@ -361,7 +362,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-21 20:10:44" itemprop="dateModified" datetime="2023-03-21T20:10:44+08:00">2023-03-21</time>
+      <time title="修改时间：2023-05-17 17:23:34" itemprop="dateModified" datetime="2023-05-17T17:23:34+08:00">2023-05-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -384,14 +385,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2k</span>
+      <span>2.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
+      <span>8 分钟</span>
     </span>
 </div>
 
@@ -402,29 +403,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="Windows平台安装MySQL"><a href="#Windows平台安装MySQL" class="headerlink" title="Windows平台安装MySQL"></a>Windows平台安装MySQL</h3><p><strong>Windows install MySQL8.0.x (Archive zip) 简易安装教程</strong><br>注意：x代表使用MySQL8.0具体版本</p>
-<ol>
-<li>解压免安装版MySQL：unzip mysql-8.0.x-winx64.zip</li>
-<li>切换到MySQL解压目录：cd mysql-8.0.x-winx64</li>
-<li>新增MySQL配置文件： my.ini</li>
-<li>初始化MySQL：bin\mysqld –initialize-insecure 或者 bin\mysqld –initialize-insecure –console </li>
-<li>注册MySQL服务：bin\mysqld –install MySQL80（将MySQL服务注册到service，可以使用net命令进行管理）</li>
-<li>启动MySQL服务：net start MySQL80 或者 sc start MySQL80</li>
-<li>登录MySQL字符管理界面：mysql -uroot -p</li>
-</ol>
-<p>Windows环境新建my.ini做如下设置，指定基本安装目录与数据存放目录：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">basedir=D:\\mysql-8.0.32-winx64</span><br><span class="line">datadir=D:\\mysql-8.0.32-winx64\\data</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>tips</strong>：打开CMD或者Powershell时以管理员身份运行，如果没有，安装服务时则会提示权限拒绝，如下所示。</p>
-<p><strong>D:\software\mysql-8.0.32-winx64\bin&gt;mysqld –install MySQL80</strong><br><strong>Install&#x2F;Remove of the Service Denied!</strong></p>
-<p><strong>Windows11操作系统中安装MySQL8.0.32</strong> (noinstall Archive zip)步骤</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">D:\software\mysql-8.0.32-winx64\bin&gt;mysqld --initialize-insecure --console</span><br><span class="line">D:\software\mysql-8.0.32-winx64\bin&gt;mysqld --install MySQL80</span><br><span class="line">Service successfully installed.</span><br><span class="line">D:\software\mysql-8.0.32-winx64\bin&gt;net start mysql80</span><br><span class="line">MySQL80 服务正在启动 .</span><br><span class="line">MySQL80 服务已经启动成功。</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>初步使用MySQL</strong></p>
+          <p>MySQL 8.0.x 简易安装教程。</p>
+<p><strong>注意</strong>：如果你想在 MySQL 官网获取 8.0.29 ，是找不到资源的。因为出现了重大问题，官网直接移除了下载资源。推荐跳过 MySQL 8.0.29，升级到更高的版本或者使用历史稳定版本。</p>
+<blockquote>
+<p>Important<br>This release is no longer available for download. It was removed due to a critical issue that could cause data in InnoDB<br>tables having added columns to be interpreted incorrectly. Please upgrade to MySQL 8.0.30 instead.</p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/03/15/MySQL8-0-x-%E7%AE%80%E6%98%93%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/#more" rel="contents">
@@ -839,14 +822,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">248k</span>
+    <span title="站点总字数">249k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">15:03</span>
+    <span title="站点阅读时长">15:04</span>
   </span>
 </div>
 <div class="busuanzi-count">
