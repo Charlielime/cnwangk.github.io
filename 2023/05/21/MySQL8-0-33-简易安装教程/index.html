@@ -31,7 +31,7 @@
 <meta property="og:description" content="Windows 11 和 Rocky 9 Linux 初体验 MySQL8.0.33 简易安装教程。 MySQL 8.0 目前最新稳定版本已经更新到了 MySQL 8.0.33，估计下一个稳定版本（大约在今年 7月份）推出。当然，这是我个人根据MySQL 的发行注记做出的推测。 本篇总结作为对之前发出的MySQL系列博文 《MySQL8.0.28安装教程全程参考MySQL官方文档》补充说明。 My">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-21T14:09:58.000Z">
-<meta property="article:modified_time" content="2023-05-22T15:14:11.788Z">
+<meta property="article:modified_time" content="2023-05-23T09:00:58.787Z">
 <meta property="article:author" content="文正耕耘">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -227,10 +227,10 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/2023/04/10/MariaDB%E4%B8%8B%E8%BD%BD/" rel="bookmark">
-        <time class="popular-posts-time">2023-04-10</time>
+      <a class="popular-posts-link" href="/2021/12/15/MySQL%E5%92%8COracle%E4%B8%BB%E6%B5%81%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E5%8D%83%E4%B8%87%E7%BA%A7%E5%88%AB%E6%95%B0%E6%8D%AE%E5%A4%A7%E8%A1%A8/" rel="bookmark">
+        <time class="popular-posts-time">2021-12-15</time>
         <br>
-      MariaDB下载
+      MySQL和Oracle主流数据库如何生成千万级别数据大表
       </a>
     </li>
   </ul>
@@ -289,7 +289,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-22 23:14:11" itemprop="dateModified" datetime="2023-05-22T23:14:11+08:00">2023-05-22</time>
+      <time title="修改时间：2023-05-23 17:00:58" itemprop="dateModified" datetime="2023-05-23T17:00:58+08:00">2023-05-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -319,14 +319,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.4k</span>
+      <span>4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>12 分钟</span>
+      <span>14 分钟</span>
     </span>
 </div>
 
@@ -382,7 +382,7 @@
 
 <p><strong>友情提示</strong>：打开 CMD 或者 PowerShell 时，请以管理员身份运行，如果没有，安装服务时则会提示权限拒绝，如下所示。</p>
 <p><strong>D:\software\mysql-8.0.33-winx64\bin&gt;mysqld –install MySQL80</strong><br><strong>Install&#x2F;Remove of the Service Denied!</strong></p>
-<p>**Windows 11 操作系统中安装 MySQL8.0.33 ** (noinstall Archive zip)步骤</p>
+<p><strong>Windows 11 操作系统中安装 MySQL8.0.33</strong>  (noinstall Archive zip) 步骤</p>
 <p>使用 Windows 自带的终端管理工具，打开 PowerShell：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">PS D:\work&gt; <span class="built_in">cd</span> D:\work\mysql-8.0.33-winx64</span><br><span class="line">PS D:\work\mysql-8.0.33-winx64&gt; .\bin\mysqld --initialize-insecure --console</span><br><span class="line">2023-05-21T07:04:03.420220Z 0 [System] [MY-013169] [Server] D:\work\mysql-8.0.33-winx64\bin\mysqld.exe (mysqld 8.0.33) initializing of server <span class="keyword">in</span> progress as process 13344</span><br><span class="line">2023-05-21T07:04:03.465908Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.</span><br><span class="line">2023-05-21T07:04:03.941998Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.</span><br><span class="line">2023-05-21T07:04:05.242589Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.</span><br><span class="line"></span><br><span class="line">D:\work\mysql-8.0.33-winx64&gt;bin\mysqld --install MySQL80</span><br><span class="line">Service successfully installed.</span><br><span class="line">D:\work\mysql-8.0.33-winx64&gt;net start MySQL80</span><br><span class="line">MySQL80 服务正在启动 .</span><br><span class="line">MySQL80 服务已经启动成功。</span><br><span class="line"></span><br><span class="line">PS D:\work\mysql-8.0.33-winx64&gt; bin\mysql -uroot -p -P 3307</span><br><span class="line">Enter password:</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection <span class="built_in">id</span> is 8</span><br><span class="line">Server version: 8.0.33 MySQL Community Server - GPL</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2023, Oracle and/or its affiliates.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
 
@@ -466,28 +466,54 @@
 <p>如果在 RHEL 9 中默认没有安装 chkconfig，没有软连接 &#x2F;etc&#x2F;init.d&#x2F; 目录，请安装 chkconfig 管理工具</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf -y install chkconfig-1.20-2.el9.x86_64</span><br></pre></td></tr></table></figure>
 
-<p>启动服务</p>
+<p>启动 MySQL 服务</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysql.server</span><br></pre></td></tr></table></figure>
+
+<p>如果使用 systemctl 启动 MySQL 服务，出现<code>/etc/rc.d/init.d/mysql.server:行239: /usr/local/mysql/bin/my_print_defaults</code>: 权限不够，<code>Starting MySQL ERROR! Couldn&#39;t find MySQL server (/usr/local/mysql/bin/mysqld_safe)</code></p>
+<p><strong>解决方案，配置 MySQL 环境变量</strong>。补充一点，此处只介绍设置全局生效环境变量，需要 root 用户权限，或者使用 sudo 提权。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost mysql]<span class="comment"># systemctl status mysql</span></span><br><span class="line">● mysql.server.service - LSB: start and stop MySQL</span><br><span class="line">     Loaded: loaded (/etc/rc.d/init.d/mysql.server; generated)</span><br><span class="line">     Active: active (exited) since Tue 2023-05-23 16:26:14 CST; 7min ago</span><br><span class="line">       Docs: man:systemd-sysv-generator(8)</span><br><span class="line">        CPU: 12ms</span><br><span class="line"></span><br><span class="line">5月 23 16:26:14 localhost.localdomain systemd[1]: Starting LSB: start and stop MySQL...</span><br><span class="line">5月 23 16:26:14 localhost.localdomain mysql.server[4244]: /etc/rc.d/init.d/mysql.server:行239: /usr/local/mysql/bin/my_print_defaults: 权限不够</span><br><span class="line">5月 23 16:26:14 localhost.localdomain mysql.server[4237]: Starting MySQL ERROR! Couldn<span class="string">&#x27;t find MySQL server (/usr/local/mysql/bin/mysqld_safe)</span></span><br><span class="line"><span class="string">5月 23 16:26:14 localhost.localdomain systemd[1]: Started LSB: start and stop MySQL.</span></span><br></pre></td></tr></table></figure>
+
+
+<p>则做如下设置，编辑：vim &#x2F;etc&#x2F;profile，需要 root 用户权限，或者使用 sudo vim &#x2F;etc&#x2F;profile：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mysql home</span></span><br><span class="line">MYSQL_HOME=/usr/local/mysql</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$MYSQL_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> MYSQL_HOME PATH</span><br></pre></td></tr></table></figure>
+<p>执行 <code>source /etc/profile</code> 或者 <code>sudo source /etc/profile</code> 命令，环境变量立即生效。</p>
+<p>再次查看 MySQL 服务状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost mysql]<span class="comment"># systemctl status mysql</span></span><br><span class="line">● mysql.server.service - LSB: start and stop MySQL</span><br><span class="line">     Loaded: loaded (/etc/rc.d/init.d/mysql.server; generated)</span><br><span class="line">     Active: active (running) since Tue 2023-05-23 16:40:35 CST; 4s ago</span><br><span class="line">       Docs: man:systemd-sysv-generator(8)</span><br><span class="line">    Process: 5003 ExecStart=/etc/rc.d/init.d/mysql.server start (code=exited, status=0/SUCCESS)</span><br><span class="line">      Tasks: 39 (<span class="built_in">limit</span>: 22833)</span><br><span class="line">     Memory: 370.1M</span><br><span class="line">        CPU: 765ms</span><br><span class="line">     CGroup: /system.slice/mysql.server.service</span><br><span class="line">             ├─5014 /bin/sh /usr/local/mysql/bin/mysqld_safe --datadir=/usr/local/mysql/data --pid-file=/usr/local/mysql/data/localhost.localdo&gt;</span><br><span class="line">             └─5153 /usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --plugin-dir=/usr/local/mysql/lib/pl&gt;</span><br><span class="line"></span><br><span class="line">5月 23 16:40:34 localhost.localdomain systemd[1]: Starting LSB: start and stop MySQL...</span><br><span class="line">5月 23 16:40:35 localhost.localdomain mysql.server[5003]: Starting MySQL. SUCCESS!</span><br><span class="line">5月 23 16:40:35 localhost.localdomain systemd[1]: Started LSB: start and stop MySQL.</span><br></pre></td></tr></table></figure>
+
 
 <p>设置开机自启</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> mysql.server</span><br></pre></td></tr></table></figure>
 
-<p>当然，你还可以通过这种方式启动与关闭 mysql 服务：</p>
+<p>当然，你还可以通过这种方式启动与关闭 MySQL 服务：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">support-files/mysql.server start</span><br><span class="line">Starting MySQL.. SUCCESS!</span><br><span class="line"></span><br><span class="line">support-files/mysql.server stop</span><br><span class="line">Shutting down MySQL. SUCCESS!</span><br></pre></td></tr></table></figure>
 
+<p>使用 <code>mysql.server</code> 脚本，支持 <code>start|stop|restart|reload|force-reload|status</code> 多种命令操作：</p>
+<ol>
+<li>start：启动服务</li>
+<li>stop：停止服务</li>
+<li>restart：重启服务</li>
+<li>reload：重载服务</li>
+<li>force-reload：强制重载服务</li>
+<li>status：查看服务状态</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost mysql]<span class="comment"># support-files/mysql.server</span></span><br><span class="line">Usage: mysql.server  &#123;start|stop|restart|reload|force-reload|status&#125;  [ MySQL server options ]</span><br></pre></td></tr></table></figure>
 
 
-<p>登录</p>
+<p>登录 MySQL 字符命令终端（已经配置好环境变量）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
 
+<p>登录 MySQL 字符命令终端（没有环境变量），切换到部署 MySQL 根目录，<code>cd /usr/local/mysql</code>，然后执行如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/mysql -uroot -p</span><br></pre></td></tr></table></figure>
+
+
 <p>修改用户密码</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;mypwd@123&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;Mypwd@123&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p>创建用户root，主机地址为localhost</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;mypwd@123&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;Mypwd@123&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p>创建用户root，主机地址%，匹配所有</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;mypwd@123&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;Mypwd@123&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p>授权root用户所有权限，即可使远程登录</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br></pre></td></tr></table></figure>
@@ -716,7 +742,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">15:15</span>
+    <span title="站点阅读时长">15:16</span>
   </span>
 </div>
 <div class="busuanzi-count">
