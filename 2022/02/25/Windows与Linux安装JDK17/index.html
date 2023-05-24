@@ -23,13 +23,14 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"giscus","storage":true,"lazyload":true,"nav":null,"activeClass":"giscus"},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="JDK最新版JDK17下载与安装；Windows版本与Linux（Redhat7系列安装配置JDK17），在Windows平台下Eclipse IDE配置JDK17。历史版本需要注册账号登录才能下载，真的太骚了，看着那个锁标志是锁住的。 前段时间，在某平台看到有人吐槽CSDN下载JDK17还需要付费。官方免费提供下载，CSDN欺负萌新不懂吗？ 顺带一提目前使用比较广泛的两个JDK版本JDK8和JD">
+    <meta name="description" content="友情提醒：当你看到本篇博文时，目前 JDK17 最新版已经更新到 JDK17.0.7。latest 代表最新版，当你点击如下给出的下载地址时，下载当前最新版本。 JDK 最新版 JDK17 下载与安装；Windows 版本与 Linux（ REHL 系列安装配置 JDK17），在 Windows 平台下 Eclipse ID E配置 JDK17。历史版本需要注册账号登录才能下载，真的太骚了，看着那">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows与Linux安装JDK17">
 <meta property="og:url" content="https://blog.cnwangk.top/2022/02/25/Windows%E4%B8%8ELinux%E5%AE%89%E8%A3%85JDK17/index.html">
 <meta property="og:site_name" content="文正耕耘">
-<meta property="og:description" content="JDK最新版JDK17下载与安装；Windows版本与Linux（Redhat7系列安装配置JDK17），在Windows平台下Eclipse IDE配置JDK17。历史版本需要注册账号登录才能下载，真的太骚了，看着那个锁标志是锁住的。 前段时间，在某平台看到有人吐槽CSDN下载JDK17还需要付费。官方免费提供下载，CSDN欺负萌新不懂吗？ 顺带一提目前使用比较广泛的两个JDK版本JDK8和JD">
+<meta property="og:description" content="友情提醒：当你看到本篇博文时，目前 JDK17 最新版已经更新到 JDK17.0.7。latest 代表最新版，当你点击如下给出的下载地址时，下载当前最新版本。 JDK 最新版 JDK17 下载与安装；Windows 版本与 Linux（ REHL 系列安装配置 JDK17），在 Windows 平台下 Eclipse ID E配置 JDK17。历史版本需要注册账号登录才能下载，真的太骚了，看着那">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2023/04/20/p9kLfrq.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/d94f4c4cc7463d16ef2b996f4c14f567.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/1e54cdae9e37be028d8526de78baecdd.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/3a7e6ab587c3c985eb2cfb96a30d32ce.png">
@@ -41,15 +42,16 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/4ebf346824c82027d374dbdca36f5948.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/8fa361711ae04248141699459c73d076.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/7154927140f25deec45a18a4233985da.png">
+<meta property="og:image" content="https://s1.ax1x.com/2023/04/20/p9kLfrq.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/c1cea421255b93fc526c8a061b1e2ced.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/146ce95aa5e8e98fbe77e86d6f36b872.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/acb1355ed068ce1f592ba3330f714da7.png">
 <meta property="article:published_time" content="2022-02-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-21T08:47:35.195Z">
+<meta property="article:modified_time" content="2023-05-24T09:27:24.029Z">
 <meta property="article:author" content="文正耕耘">
 <meta property="article:tag" content="JDK">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/d94f4c4cc7463d16ef2b996f4c14f567.png">
+<meta name="twitter:image" content="https://s1.ax1x.com/2023/04/20/p9kLfrq.png">
 
 
 <link rel="canonical" href="https://blog.cnwangk.top/2022/02/25/Windows%E4%B8%8ELinux%E5%AE%89%E8%A3%85JDK17/">
@@ -159,7 +161,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BEGIN-JDK17%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">BEGIN JDK17下载与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81JDK17%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="nav-number">1.1.</span> <span class="nav-text">一、JDK17下载地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-Windows%E7%89%88%E6%9C%ACJDK17"><span class="nav-number">1.1.1.</span> <span class="nav-text">01 Windows版本JDK17</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-Linux%E7%89%88%E6%9C%ACJDK17"><span class="nav-number">1.1.2.</span> <span class="nav-text">02 Linux版本JDK17</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-MacOS%E7%89%88%E6%9C%ACJDK17"><span class="nav-number">1.1.3.</span> <span class="nav-text">03 MacOS版本JDK17</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Windows%E5%AE%89%E8%A3%85JDK17%EF%BC%88Archive%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">二、Windows安装JDK17（Archive）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-zip%E5%8C%85JDK%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85JRE"><span class="nav-number">1.2.1.</span> <span class="nav-text">01 zip包JDK手动安装JRE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-Eclipse-IDE%E6%B7%BB%E5%8A%A0JDK17"><span class="nav-number">1.2.2.</span> <span class="nav-text">02 Eclipse IDE添加JDK17</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-Windows%E4%B8%8B%E9%85%8D%E7%BD%AEJDK%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.2.3.</span> <span class="nav-text">03 Windows下配置JDK环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81Linux%EF%BC%88Redhat7%E7%B3%BB%E5%88%97%EF%BC%89%E5%AE%89%E8%A3%85JDK17"><span class="nav-number">1.3.</span> <span class="nav-text">三、Linux（Redhat7系列）安装JDK17</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-Linux%EF%BC%88Redhat7%E7%B3%BB%E5%88%97%EF%BC%89%E5%AE%89%E8%A3%85JDK17"><span class="nav-number">1.3.1.</span> <span class="nav-text">01 Linux（Redhat7系列）安装JDK17</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-Linux%EF%BC%88Redhat7%E7%B3%BB%E5%88%97%EF%BC%89%E9%85%8D%E7%BD%AEJDK%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">02 Linux（Redhat7系列）配置JDK环境变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#END-%E5%90%91%E9%98%B3%E8%80%8C%E7%94%9F"><span class="nav-number">2.</span> <span class="nav-text">END 向阳而生</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BEGIN-JDK17%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">BEGIN JDK17下载与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81JDK17%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="nav-number">1.1.</span> <span class="nav-text">一、JDK17下载地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-Windows-%E7%89%88%E6%9C%AC-JDK17"><span class="nav-number">1.1.1.</span> <span class="nav-text">01 Windows 版本 JDK17</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-Linux-%E7%89%88%E6%9C%AC-JDK17"><span class="nav-number">1.1.2.</span> <span class="nav-text">02 Linux 版本 JDK17</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-MacOS-%E7%89%88%E6%9C%AC-JDK17"><span class="nav-number">1.1.3.</span> <span class="nav-text">03 MacOS 版本 JDK17</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Windows-%E5%AE%89%E8%A3%85-JDK17%EF%BC%88Archive%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">二、Windows 安装 JDK17（Archive）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-zip-%E5%8C%85-JDK-%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85-JRE"><span class="nav-number">1.2.1.</span> <span class="nav-text">01 zip 包 JDK 手动安装 JRE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-Eclipse-IDE-%E6%B7%BB%E5%8A%A0-JDK17"><span class="nav-number">1.2.2.</span> <span class="nav-text">02 Eclipse IDE 添加 JDK17</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-Windows-%E4%B8%8B%E9%85%8D%E7%BD%AE-JDK-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.2.3.</span> <span class="nav-text">03 Windows 下配置 JDK 环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81Linux%EF%BC%88REHL%E7%B3%BB%E5%88%97%EF%BC%89%E5%AE%89%E8%A3%85-JDK17"><span class="nav-number">1.3.</span> <span class="nav-text">三、Linux（REHL系列）安装 JDK17</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#01-Linux%EF%BC%88REHL%E7%B3%BB%E5%88%97%EF%BC%89%E5%AE%89%E8%A3%85-JDK17"><span class="nav-number">1.3.1.</span> <span class="nav-text">01 Linux（REHL系列）安装 JDK17</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-Linux%EF%BC%88REHL%E7%B3%BB%E5%88%97%EF%BC%89%E9%85%8D%E7%BD%AE-JDK-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">02 Linux（REHL系列）配置 JDK 环境变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#END-%E5%90%91%E9%98%B3%E8%80%8C%E7%94%9F"><span class="nav-number">2.</span> <span class="nav-text">END 向阳而生</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -207,6 +209,23 @@
     </div>
 
     
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2017/01/01/Java%E7%89%88hello-world/" rel="bookmark">
+        <time class="popular-posts-time">2017-01-01</time>
+        <br>
+      程序人生：人生中的第一个 Java 应用程序 hello world
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
   </aside>
 
 
@@ -259,7 +278,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-04-21 16:47:35" itemprop="dateModified" datetime="2023-04-21T16:47:35+08:00">2023-04-21</time>
+      <time title="修改时间：2023-05-24 17:27:24" itemprop="dateModified" datetime="2023-05-24T17:27:24+08:00">2023-05-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -289,14 +308,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.9k</span>
+      <span>2.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
+      <span>8 分钟</span>
     </span>
 </div>
 
@@ -306,20 +325,33 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>JDK最新版JDK17下载与安装；Windows版本与Linux（Redhat7系列安装配置JDK17），在Windows平台下Eclipse IDE配置JDK17。历史版本需要注册账号登录才能下载，真的太骚了，看着那个锁标志是锁住的。</p>
-<p>前段时间，在某平台看到有人吐槽CSDN下载JDK17还需要付费。官方免费提供下载，CSDN欺负萌新不懂吗？</p>
-<p>顺带一提目前使用比较广泛的两个JDK版本JDK8和JDK11最新版，需要登录账号才能下载哟：</p>
+    <div class="post-body" itemprop="articleBody"><p><strong>友情提醒</strong>：当你看到本篇博文时，目前 JDK17 最新版已经更新到 JDK17.0.7。latest 代表最新版，当你点击如下给出的下载地址时，下载当前最新版本。</p>
+<p>JDK 最新版 JDK17 下载与安装；Windows 版本与 Linux（ REHL 系列安装配置 JDK17），在 Windows 平台下 Eclipse ID E配置 JDK17。历史版本需要注册账号登录才能下载，真的太骚了，看着那个锁标志是锁住的。</p>
+<p>前段时间，在某平台看到有人吐槽 CSDN 下载 JDK17 还需要付费。官方免费提供下载，CSDN欺负萌新不懂吗？</p>
+<p>顺带一提目前使用比较广泛的两个 JDK 版本 JDK8 和 JDK11 最新版，需要登录账号才能下载哟：</p>
 <ol>
 <li>JDK8最新版本：JDK8u321。</li>
 <li>JDK11最新版本：JDK11.0.14。</li>
 </ol>
+<p>在正式介绍 JDK 下载、安装、配置时，先来点科普知识。</p>
+<ol>
+<li>JRE：Java 运行时环境（Java Runtime Environment），如果在非开发环境，只需运行，下载 JRE 即可。</li>
+<li>JDK：Java 开发环境（Java Development Kit），通常包含 JDK 和 JRE ，某些新版本可能需要手动生成 JRE 。</li>
+</ol>
+<p>Linux 平台 shell 环境变量调用顺序流程图：</p>
+<p><img data-src="https://s1.ax1x.com/2023/04/20/p9kLfrq.png"></p>
+<span id="more"></span>
+
+
+
 <h1 id="BEGIN-JDK17下载与安装"><a href="#BEGIN-JDK17下载与安装" class="headerlink" title="BEGIN JDK17下载与安装"></a>BEGIN JDK17下载与安装</h1><h2 id="一、JDK17下载地址"><a href="#一、JDK17下载地址" class="headerlink" title="一、JDK17下载地址"></a>一、JDK17下载地址</h2><p>JDK官网提供三大平台下载地址：</p>
 <ol>
-<li>Linux版本JDK下载地址（ARM64和x64）。</li>
-<li>macOS版本JDK下载地址（ARM64和x64）。</li>
-<li>Windows版本JDK下载地址（x64）。</li>
+<li>Linux 版本 JDK 下载地址（ARM64和x64）。</li>
+<li>macOS 版本 JDK 下载地址（ARM64和x64）。</li>
+<li>Windows 版本 JDK 下载地址（x64）。</li>
 </ol>
-<h3 id="01-Windows版本JDK17"><a href="#01-Windows版本JDK17" class="headerlink" title="01 Windows版本JDK17"></a>01 Windows版本JDK17</h3><blockquote>
+<h3 id="01-Windows-版本-JDK17"><a href="#01-Windows-版本-JDK17" class="headerlink" title="01 Windows 版本 JDK17"></a>01 Windows 版本 JDK17</h3><p><strong>tips</strong>：图片资源可能被防盗链（寄）了，可以<strong>右键属性复制地址在地址栏查看</strong>哈。</p>
+<blockquote>
 <p><span class="exturl" data-url="aHR0cHM6Ly93d3cub3JhY2xlLmNvbS9qYXZhL3RlY2hub2xvZ2llcy9kb3dubG9hZHMvI2pkazE3LXdpbmRvd3M=">https://www.oracle.com/java/technologies/downloads/#jdk17-windows<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
 <ol>
@@ -340,7 +372,7 @@
 <blockquote>
 <p><span class="exturl" data-url="aHR0cHM6Ly9kb3dubG9hZC5vcmFjbGUuY29tL2phdmEvMTcvbGF0ZXN0L2pkay0xN193aW5kb3dzLXg2NF9iaW4ubXNp">https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.msi<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
-<h3 id="02-Linux版本JDK17"><a href="#02-Linux版本JDK17" class="headerlink" title="02 Linux版本JDK17"></a>02 Linux版本JDK17</h3><p>Linux版JDK17.0.2下载：分为ARM64和x64架构</p>
+<h3 id="02-Linux-版本-JDK17"><a href="#02-Linux-版本-JDK17" class="headerlink" title="02 Linux 版本 JDK17"></a>02 Linux 版本 JDK17</h3><p>Linux版JDK17.0.2下载：分为ARM64和x64架构</p>
 <ol>
 <li>ARM64 Compressed Archive：被压缩的归档包文件，其实是JDK归档压缩包。</li>
 <li>ARM64 RPM Packages：ARM64架构rpm包。</li>
@@ -352,18 +384,18 @@
 <p><span class="exturl" data-url="aHR0cHM6Ly93d3cub3JhY2xlLmNvbS9qYXZhL3RlY2hub2xvZ2llcy9kb3dubG9hZHMvI2pkazE3LWxpbnV4">https://www.oracle.com/java/technologies/downloads/#jdk17-linux<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
 <p><img data-src="https://img-blog.csdnimg.cn/img_convert/1e54cdae9e37be028d8526de78baecdd.png"></p>
-<p>JDK源码包下载地址：</p>
+<p>JDK 二进制包下载地址：</p>
 <blockquote>
 <p><span class="exturl" data-url="aHR0cHM6Ly9kb3dubG9hZC5vcmFjbGUuY29tL2phdmEvMTcvbGF0ZXN0L2pkay0xN19saW51eC14NjRfYmluLnRhci5neg==">https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
-<h3 id="03-MacOS版本JDK17"><a href="#03-MacOS版本JDK17" class="headerlink" title="03 MacOS版本JDK17"></a>03 MacOS版本JDK17</h3><p>MAC版本JDK17下载地址：</p>
+<h3 id="03-MacOS-版本-JDK17"><a href="#03-MacOS-版本-JDK17" class="headerlink" title="03 MacOS 版本 JDK17"></a>03 MacOS 版本 JDK17</h3><p>MAC版本JDK17下载地址：</p>
 <blockquote>
 <p><span class="exturl" data-url="aHR0cHM6Ly93d3cub3JhY2xlLmNvbS9qYXZhL3RlY2hub2xvZ2llcy9kb3dubG9hZHMvI2pkazE3LW1hYw==">https://www.oracle.com/java/technologies/downloads/#jdk17-mac<i class="fa fa-external-link-alt"></i></span></p>
 </blockquote>
 <p><img data-src="https://img-blog.csdnimg.cn/img_convert/3a7e6ab587c3c985eb2cfb96a30d32ce.png"></p>
-<h2 id="二、Windows安装JDK17（Archive）"><a href="#二、Windows安装JDK17（Archive）" class="headerlink" title="二、Windows安装JDK17（Archive）"></a>二、Windows安装JDK17（Archive）</h2><p>介绍zip包的使用，不用点那个烦人的下一步下一步，比较自由，得自己控制。</p>
+<h2 id="二、Windows-安装-JDK17（Archive）"><a href="#二、Windows-安装-JDK17（Archive）" class="headerlink" title="二、Windows 安装 JDK17（Archive）"></a>二、Windows 安装 JDK17（Archive）</h2><p>介绍zip包的使用，不用点那个烦人的下一步下一步，比较自由，得自己控制。</p>
 <p><strong>注意</strong>：有可能存在配置环境变量后没有及时生效，重启就好了。</p>
-<h3 id="01-zip包JDK手动安装JRE"><a href="#01-zip包JDK手动安装JRE" class="headerlink" title="01 zip包JDK手动安装JRE"></a>01 zip包JDK手动安装JRE</h3><p>当然我自己也做了测试，对于<code>jdk12</code>、<code>jdk14</code>、<code>jdk17</code>都适用。其它版本，没测试过。</p>
+<h3 id="01-zip-包-JDK-手动安装-JRE"><a href="#01-zip-包-JDK-手动安装-JRE" class="headerlink" title="01 zip 包 JDK 手动安装 JRE"></a>01 zip 包 JDK 手动安装 JRE</h3><p>当然我自己也做了测试，对于<code>jdk12</code>、<code>jdk14</code>、<code>jdk17</code>都适用。其它版本，没测试过。</p>
 <ol>
 <li>切换至jdk解压目录：D:\work\JavaEE\jdk17.0.2</li>
 <li>查看当前JDK版本，切换至jdk17.0.2\bin目录执行：<code>java -version</code>，看下面代码示例就很清晰。</li>
@@ -373,7 +405,7 @@
 
 
 
-<h3 id="02-Eclipse-IDE添加JDK17"><a href="#02-Eclipse-IDE添加JDK17" class="headerlink" title="02 Eclipse IDE添加JDK17"></a>02 Eclipse IDE添加JDK17</h3><ol>
+<h3 id="02-Eclipse-IDE-添加-JDK17"><a href="#02-Eclipse-IDE-添加-JDK17" class="headerlink" title="02 Eclipse IDE 添加 JDK17"></a>02 Eclipse IDE 添加 JDK17</h3><ol>
 <li>找到Eclipse IDE状态栏的Windows选项。</li>
 <li>点击Windows然后打开Preferences。</li>
 <li>搜索<code>jres</code>，选中<code>Installed JREs</code>，点击右侧add添加JDK17。</li>
@@ -387,7 +419,7 @@
 <p> <img data-src="https://img-blog.csdnimg.cn/img_convert/742e118c4bd9868301426dce8a6fc3c2.png"></p>
 <p><strong>完成添加JDK17，点击apply and close应用并提出当前窗口</strong>：</p>
 <p><img data-src="https://img-blog.csdnimg.cn/img_convert/9ba43cb7f475baced5318fdc9d1fd3a5.png"></p>
-<h3 id="03-Windows下配置JDK环境变量"><a href="#03-Windows下配置JDK环境变量" class="headerlink" title="03 Windows下配置JDK环境变量"></a>03 Windows下配置JDK环境变量</h3><p>根据自己需求来，为了方便，建议配置一个经常使用的版本作为当前用户或者全局环境变量。</p>
+<h3 id="03-Windows-下配置-JDK-环境变量"><a href="#03-Windows-下配置-JDK-环境变量" class="headerlink" title="03 Windows 下配置 JDK 环境变量"></a>03 Windows 下配置 JDK 环境变量</h3><p>根据自己需求来，为了方便，建议配置一个经常使用的版本作为当前用户或者全局环境变量。</p>
 <p>在实际工作中，我可以有多种方式去给自己测试的web应用配置JDK，一般情况是<strong>startup.bat或者catalina.bat</strong>文件中指定，<strong>比如tomcat中指定JDK目录</strong>，或者在rocketmq中也可以指定JDK目录：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=D:\work\JavaEE\jdk17.0.2</span><br></pre></td></tr></table></figure>
 
@@ -395,28 +427,32 @@
 <ol>
 <li>编辑当前用户或者系统环境变量加入如下配置：D:\work\JavaEE\jdk17.0.2</li>
 <li>编辑当前用户或者系统PATH环境变量加入如下配置：D:\work\JavaEE\jdk17.0.2\bin</li>
-<li>编辑当前用户或者系统CLASS_PATH环境变量加入如下配置：.;%JAVA_HOME%\bin;%JAVA_HOME%\lib\dt.jar;%Java_Home%\lib\tools.jar;%SystemRoot%&#x2F;system32;%SystemRoot%;，<strong>注意结尾英文分号隔开</strong>，在JDK5以后是可以不用配置这一选项。</li>
+<li>编辑当前用户或者系统CLASS_PATH环境变量加入如下配置：<code>.;%JAVA_HOME%\bin;%JAVA_HOME%\lib\dt.jar;%Java_Home%\lib\tools.jar;%SystemRoot%/system32;%SystemRoot%;</code>，<strong>注意结尾英文分号隔开</strong>，在JDK5以后是可以不用配置这一选项。</li>
 </ol>
 <p>编辑当前用户或者系统环境变量：<strong>添加JAVA_HOME</strong></p>
 <p><img data-src="https://img-blog.csdnimg.cn/img_convert/dcddc9686691b52695804d069ca4dd95.png"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">变量名:JAVA_HOME</span><br><span class="line">变量值:D:\work\JavaEE\jdk17.0.2</span><br></pre></td></tr></table></figure>
 
-<p>配置JAVA_HOME后的效果：</p>
+<p>配置 JAVA_HOME 后的效果：</p>
 <p><img data-src="https://img-blog.csdnimg.cn/img_convert/4ebf346824c82027d374dbdca36f5948.png"></p>
 <p>编辑当前用户或者系统环境变量：<strong>添加PATH</strong></p>
 <p><img data-src="https://img-blog.csdnimg.cn/img_convert/8fa361711ae04248141699459c73d076.png"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">变量名:PATH</span><br><span class="line">变量值:D:\work\JavaEE\jdk17.0.2\bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">变量名: PATH</span><br><span class="line">变量值: D:\work\JavaEE\jdk17.0.2\bin </span><br><span class="line">或者配合成: %JAVA_HOME%</span><br></pre></td></tr></table></figure>
 
 <p><strong>添加后的path环境变量</strong>，个人测试配置了很多，其实大部分是系统自动生成的：</p>
 <p><img data-src="https://img-blog.csdnimg.cn/img_convert/7154927140f25deec45a18a4233985da.png"></p>
 <p>编辑当前用户或者系统环境变量：<strong>添加CLASS_PATH</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">变量名:CLASS_PATH</span><br><span class="line">变量值:.;%JAVA_HOME%\bin;%JAVA_HOME%\lib\dt.jar;%Java_Home%\lib\tools.jar;%SystemRoot%/system32;%SystemRoot%;</span><br></pre></td></tr></table></figure>
 
-<h2 id="三、Linux（Redhat7系列）安装JDK17"><a href="#三、Linux（Redhat7系列）安装JDK17" class="headerlink" title="三、Linux（Redhat7系列）安装JDK17"></a>三、Linux（Redhat7系列）安装JDK17</h2><p>安利一款实用多终端管理工具tabby，其实也不用我安利，在github上已经快30K的star（星标）。最新版可以设置中文模式。</p>
+
+
+<h2 id="三、Linux（REHL系列）安装-JDK17"><a href="#三、Linux（REHL系列）安装-JDK17" class="headerlink" title="三、Linux（REHL系列）安装 JDK17"></a>三、Linux（REHL系列）安装 JDK17</h2><p>Linux 平台 shell 环境变量调用顺序流程图：</p>
+<p><img data-src="https://s1.ax1x.com/2023/04/20/p9kLfrq.png"></p>
+<p>安利一款实用多终端管理工具tabby，其实也不用我安利，在github上已经快30K的star（星标）。最新版可以设置中文模式。当我更新到 Windows 11 后，自带的 Windows terminal 也可以满足一般需求，挺好用的。</p>
 <p><img data-src="https://img-blog.csdnimg.cn/img_convert/c1cea421255b93fc526c8a061b1e2ced.png"></p>
-<p>如同Windows下配置环境变量一样，Linux下也有当前用户和全局用户（root）环境变量两种配置方式。</p>
+<p>如同 Windows 平台配置环境变量一样，Linux 平台也有当前用户和全局用户（root）环境变量两种配置方式。</p>
 <p>以下均作为演示，仅供参考，不喜勿喷。</p>
-<h3 id="01-Linux（Redhat7系列）安装JDK17"><a href="#01-Linux（Redhat7系列）安装JDK17" class="headerlink" title="01 Linux（Redhat7系列）安装JDK17"></a>01 Linux（Redhat7系列）安装JDK17</h3><ol>
+<h3 id="01-Linux（REHL系列）安装-JDK17"><a href="#01-Linux（REHL系列）安装-JDK17" class="headerlink" title="01 Linux（REHL系列）安装 JDK17"></a>01 Linux（REHL系列）安装 JDK17</h3><ol>
 <li>解压jdk17安装包</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cnwangk work]<span class="comment"># tar -zxvf jdk-17_linux-x64_bin.tar.gz</span></span><br></pre></td></tr></table></figure>
@@ -442,12 +478,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@cnwangk jdk17]<span class="comment"># ./bin/jlink --module-path jmods --add-modules java.desktop --output jre</span></span><br><span class="line">[root@cnwangk jdk17]<span class="comment"># ls</span></span><br><span class="line">bin  conf  include  jmods  jre  legal  lib  LICENSE  man  README  release</span><br></pre></td></tr></table></figure>
 
 <p>能贴代码做演示的，我一般不愿意贴图，因为图片可能会因为各种原因挂掉。</p>
-<h3 id="02-Linux（Redhat7系列）配置JDK环境变量"><a href="#02-Linux（Redhat7系列）配置JDK环境变量" class="headerlink" title="02 Linux（Redhat7系列）配置JDK环境变量"></a>02 Linux（Redhat7系列）配置JDK环境变量</h3><ol>
+<h3 id="02-Linux（REHL系列）配置-JDK-环境变量"><a href="#02-Linux（REHL系列）配置-JDK-环境变量" class="headerlink" title="02 Linux（REHL系列）配置 JDK 环境变量"></a>02 Linux（REHL系列）配置 JDK 环境变量</h3><p>如果想环境变量即时生效，执行 <code>source /etc/profile</code>  命令即可。</p>
+<ol>
 <li>全局环境变量，<strong>需要root用户权限</strong></li>
 <li>编辑<code>profile</code>文件：<code>vim /etc/profile</code>，加入如下配置：</li>
 </ol>
 <p><img data-src="https://img-blog.csdnimg.cn/img_convert/146ce95aa5e8e98fbe77e86d6f36b872.png"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#JAVA environment</span></span><br><span class="line">JAVA_HOME=/usr/local/jdk17</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#JAVA environment</span></span><br><span class="line">JAVA_HOME=/usr/local/jdk17</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME PATH</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>配置jdk环境变量在当前用户test生效</li>
@@ -455,16 +492,18 @@
 <li>在<code>.bashrc</code>和<code>.bash_profile</code>都有可以看到环境变量，个人一般编辑.bash_profile</li>
 </ol>
 <p><img data-src="https://img-blog.csdnimg.cn/img_convert/acb1355ed068ce1f592ba3330f714da7.png"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#JAVA environment</span></span><br><span class="line">JAVA_HOME=/usr/local/jdk17</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#JAVA environment</span></span><br><span class="line">JAVA_HOME=/usr/local/jdk17</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME PATH</span><br></pre></td></tr></table></figure>
 
 <ol start="6">
 <li><strong>因为上面配置了全局的</strong>，所以我在test用户下一样可以查看jdk版本</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">test</span>@cnwangk jdk17]$ java -version</span><br><span class="line">java version <span class="string">&quot;17.0.2&quot;</span> 2022-01-18 LTS</span><br><span class="line">Java(TM) SE Runtime Environment (build 17.0.2+8-LTS-86)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)</span><br></pre></td></tr></table></figure>
-<p>Linux环境变量立即生效两种方式：</p>
+
+
+<p>Linux 环境变量<strong>立即生效</strong>两种方式：</p>
 <ul>
-<li>使用source命令：source &#x2F;etc&#x2F;profile</li>
-<li>重启服务器：reboot 或者 shutdown -r now</li>
+<li>使用source命令：<code>source /etc/profile</code></li>
+<li>重启服务器：<code>reboot</code> 或者 <code>shutdown -r now</code></li>
 </ul>
 <p>关于JDK17的下载与安装就介绍到这里。</p>
 <h1 id="END-向阳而生"><a href="#END-向阳而生" class="headerlink" title="END 向阳而生"></a>END 向阳而生</h1><p>向阳而生，生而向阳。</p>
@@ -473,7 +512,7 @@
 <blockquote>
 <p>养得胸中一种恬静。</p>
 </blockquote>
-<p>以上总结仅供参考！</p>
+<p>以上总结仅供参考哟！希望对你的学习和工作有所帮助。</p>
 <p>——END——</p>
 
     </div>
@@ -610,7 +649,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">15:16</span>
+    <span title="站点阅读时长">15:17</span>
   </span>
 </div>
 <div class="busuanzi-count">

@@ -239,7 +239,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-17 13:09:38" itemprop="dateModified" datetime="2023-05-17T13:09:38+08:00">2023-05-17</time>
+      <time title="修改时间：2023-05-24 18:23:24" itemprop="dateModified" datetime="2023-05-24T18:23:24+08:00">2023-05-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -307,13 +307,14 @@
 
 <p>3、 切换到hexo目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo</span><br></pre></td></tr></table></figure>
+
 <p>4、 初始化blog目录，如果速度很慢，建议替换为国内镜像源地址</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">```      </span><br><span class="line">   </span><br><span class="line">5、 建议启动debug模式</span><br><span class="line">   </span><br><span class="line"> ```bash</span><br><span class="line">hexo --debug</span><br><span class="line">```      </span><br><span class="line">   </span><br><span class="line">6、 新增md文件</span><br><span class="line">   </span><br><span class="line">```bash</span><br><span class="line">hexo new <span class="string">&quot;hello my blog&quot;</span></span><br><span class="line"> ```   </span><br><span class="line">生成md（markdown）文件所在目录：<span class="built_in">source</span></span><br><span class="line">      </span><br><span class="line">   </span><br><span class="line">7、 生成静态文件</span><br><span class="line">   </span><br><span class="line">```bash</span><br><span class="line">  hexo g</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">```      </span><br><span class="line">   </span><br><span class="line">5、 建议启动debug模式</span><br><span class="line"> ```bash</span><br><span class="line">hexo --debug</span><br><span class="line">```      </span><br><span class="line">   </span><br><span class="line">6、 新增md文件</span><br><span class="line">```bash</span><br><span class="line">hexo new <span class="string">&quot;hello my blog&quot;</span></span><br><span class="line"> ```   </span><br><span class="line">生成md（markdown）文件所在目录：<span class="built_in">source</span></span><br><span class="line">      </span><br><span class="line">   </span><br><span class="line">7、 生成静态文件</span><br><span class="line">```bash</span><br><span class="line">  hexo g</span><br></pre></td></tr></table></figure>
 <p>生成静态文件所在目录：public</p>
 <p>8、 启动服务</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <p>或者指定 ip 地址和 port（端口）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo s -i 192.168.0.233 -p 4001</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 二  切换 nodejs 镜像源</span></span><br><span class="line"></span><br><span class="line">nodejs 临时配置国内 taobao 镜像源。</span><br><span class="line"></span><br><span class="line">​npm 镜像源地址，国内镜像站：</span><br><span class="line">&gt;  [https://npmmirror.com/](https://npmmirror.com/)</span><br><span class="line"></span><br><span class="line">​nodejs 临时配置国内 taobao 镜像源：</span><br><span class="line">&gt; npm config <span class="built_in">set</span> registry http://registry.npm.taobao.org/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 三  安装插件（进阶）</span></span><br><span class="line"></span><br><span class="line">如果你会一丢丢前端（nodejs）知识，对这些插件使用会很顺手。</span><br><span class="line"></span><br><span class="line">1、 安装hexo插件（Next主题）</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">npm install hexo-xxx-xxx --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo s -i 192.168.0.233 -p 4001</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 二  切换 nodejs 镜像源</span></span><br><span class="line"></span><br><span class="line">nodejs 临时配置国内 taobao 镜像源。</span><br><span class="line"></span><br><span class="line">​npm 镜像源地址，国内镜像站：</span><br><span class="line">&gt;  [https://npmmirror.com/](https://npmmirror.com/)</span><br><span class="line"></span><br><span class="line">​nodejs 临时配置国内 taobao 镜像源：</span><br><span class="line">&gt; npm config <span class="built_in">set</span> registry http://registry.npm.taobao.org/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 三  安装插件（进阶）</span></span><br><span class="line"></span><br><span class="line">如果你会一丢丢前端（nodejs）知识，对这些插件使用会很顺手。</span><br><span class="line"></span><br><span class="line">1、 安装hexo插件（Next主题）</span><br><span class="line">```bash</span><br><span class="line">npm install hexo-xxx-xxx --save</span><br></pre></td></tr></table></figure>
 
 <p>安装插件目录：node_modules</p>
 <p><strong>比较实用的几个插件</strong>：部分对landscape适用，主要是对Next主题适用。</p>
@@ -622,7 +623,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-04-21 16:47:35" itemprop="dateModified" datetime="2023-04-21T16:47:35+08:00">2023-04-21</time>
+      <time title="修改时间：2023-05-24 17:27:24" itemprop="dateModified" datetime="2023-05-24T17:27:24+08:00">2023-05-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -645,14 +646,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.9k</span>
+      <span>2.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
+      <span>8 分钟</span>
     </span>
 </div>
 
@@ -663,22 +664,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>JDK最新版JDK17下载与安装；Windows版本与Linux（Redhat7系列安装配置JDK17），在Windows平台下Eclipse IDE配置JDK17。历史版本需要注册账号登录才能下载，真的太骚了，看着那个锁标志是锁住的。</p>
-<p>前段时间，在某平台看到有人吐槽CSDN下载JDK17还需要付费。官方免费提供下载，CSDN欺负萌新不懂吗？</p>
-<p>顺带一提目前使用比较广泛的两个JDK版本JDK8和JDK11最新版，需要登录账号才能下载哟：</p>
+          <p><strong>友情提醒</strong>：当你看到本篇博文时，目前 JDK17 最新版已经更新到 JDK17.0.7。latest 代表最新版，当你点击如下给出的下载地址时，下载当前最新版本。</p>
+<p>JDK 最新版 JDK17 下载与安装；Windows 版本与 Linux（ REHL 系列安装配置 JDK17），在 Windows 平台下 Eclipse ID E配置 JDK17。历史版本需要注册账号登录才能下载，真的太骚了，看着那个锁标志是锁住的。</p>
+<p>前段时间，在某平台看到有人吐槽 CSDN 下载 JDK17 还需要付费。官方免费提供下载，CSDN欺负萌新不懂吗？</p>
+<p>顺带一提目前使用比较广泛的两个 JDK 版本 JDK8 和 JDK11 最新版，需要登录账号才能下载哟：</p>
 <ol>
 <li>JDK8最新版本：JDK8u321。</li>
 <li>JDK11最新版本：JDK11.0.14。</li>
 </ol>
-<h1 id="BEGIN-JDK17下载与安装"><a href="#BEGIN-JDK17下载与安装" class="headerlink" title="BEGIN JDK17下载与安装"></a>BEGIN JDK17下载与安装</h1><h2 id="一、JDK17下载地址"><a href="#一、JDK17下载地址" class="headerlink" title="一、JDK17下载地址"></a>一、JDK17下载地址</h2><p>JDK官网提供三大平台下载地址：</p>
+<p>在正式介绍 JDK 下载、安装、配置时，先来点科普知识。</p>
 <ol>
-<li>Linux版本JDK下载地址（ARM64和x64）。</li>
-<li>macOS版本JDK下载地址（ARM64和x64）。</li>
-<li>Windows版本JDK下载地址（x64）。</li>
+<li>JRE：Java 运行时环境（Java Runtime Environment），如果在非开发环境，只需运行，下载 JRE 即可。</li>
+<li>JDK：Java 开发环境（Java Development Kit），通常包含 JDK 和 JRE ，某些新版本可能需要手动生成 JRE 。</li>
 </ol>
-<h3 id="01-Windows版本JDK17"><a href="#01-Windows版本JDK17" class="headerlink" title="01 Windows版本JDK17"></a>01 Windows版本JDK17</h3><blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cub3JhY2xlLmNvbS9qYXZhL3RlY2hub2xvZ2llcy9kb3dubG9hZHMvI2pkazE3LXdpbmRvd3M=">https://www.oracle.com/java/technologies/downloads/#jdk17-windows<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
+<p>Linux 平台 shell 环境变量调用顺序流程图：</p>
+<p><img data-src="https://s1.ax1x.com/2023/04/20/p9kLfrq.png"></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/25/Windows%E4%B8%8ELinux%E5%AE%89%E8%A3%85JDK17/#more" rel="contents">
@@ -845,7 +845,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">15:16</span>
+    <span title="站点阅读时长">15:17</span>
   </span>
 </div>
 <div class="busuanzi-count">

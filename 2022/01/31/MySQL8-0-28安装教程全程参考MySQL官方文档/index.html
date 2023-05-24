@@ -42,7 +42,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2023/04/04/pp5FkdO.jpg">
 <meta property="og:image" content="https://s1.ax1x.com/2023/04/04/pp5Flef.jpg">
 <meta property="article:published_time" content="2022-01-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-17T09:22:59.818Z">
+<meta property="article:modified_time" content="2023-05-23T14:24:10.725Z">
 <meta property="article:author" content="文正耕耘">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -280,7 +280,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-17 17:22:59" itemprop="dateModified" datetime="2023-05-17T17:22:59+08:00">2023-05-17</time>
+      <time title="修改时间：2023-05-23 22:24:10" itemprop="dateModified" datetime="2023-05-23T22:24:10+08:00">2023-05-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -367,7 +367,7 @@
 <h3 id="1、Windows版本下载"><a href="#1、Windows版本下载" class="headerlink" title="1、Windows版本下载"></a>1、Windows版本下载</h3><p>在Windows下可以选择下载msi文件或者解压版zip文件。<strong>一般使用，选择我使用紫色框线选中的即可</strong>。关于下面的Debug Test Suite，是带有许多的测试套件在里面，对于有测试需求的人员可以进行下载。</p>
 <p><img data-src="https://s1.ax1x.com/2023/04/04/pp5FVFe.jpg"></p>
 <h3 id="2、Linux版本下载"><a href="#2、Linux版本下载" class="headerlink" title="2、Linux版本下载"></a>2、Linux版本下载</h3><p>根据自己需要的Linux发行版版本适配的MySQL进行选择。安装方式多种多样，二进制包（MySQL-8.0.28-xx.tar.gz，打包成tar包然后压缩成gz格式）、rpm包以及源码包（source）安装。选择你擅长一种方式即可，没必要纠结，但也要根据实际场景进行下载安装。</p>
-<p>比如，我个人选择的是自己比较熟悉的Redhat7（Centos7）系列进行下载。同样有bundle版本，包含了一些插件和依赖在里面，便于使用rpm包安装。安装单个的server服务，需要安装其它的依赖包比较繁琐。对于初学者，<strong>建议直接使用官方提供的yum源或者其它源直接进行安装</strong>。我偏不，就要折腾。那也行，请接着往下看，一样提供了详细安装步骤。</p>
+<p>比如，我个人选择的是自己比较熟悉的 RHEL7 （Centos7）系列进行下载。同样有bundle版本，包含了一些插件和依赖在里面，便于使用rpm包安装。安装单个的server服务，需要安装其它的依赖包比较繁琐。对于初学者，<strong>建议直接使用官方提供的yum源或者其它源直接进行安装</strong>。我偏不，就要折腾。那也行，请接着往下看，一样提供了详细安装步骤。</p>
 <p><img data-src="https://s1.ax1x.com/2023/04/04/pp5FFeK.jpg"></p>
 <h3 id="3、注意事项"><a href="#3、注意事项" class="headerlink" title="3、注意事项"></a>3、注意事项</h3><p>一般情况可能没仔细看，官方会提示登录，加了button按钮字体非常显眼，而下面的的我需要立即下载则字体很小。<strong>所以注意了，选择下面的No thanks，我需要立即下载</strong>。选择的是社区版本，免费提供下载。</p>
 <p><img data-src="https://s1.ax1x.com/2023/04/04/pp5FZJH.jpg"></p>
@@ -486,9 +486,9 @@
 <li>源码包（source package）：最灵活，可根据需求编译安装功能，难易度最高。</li>
 <li>docker形式安装：其实是在容器中安装。</li>
 </ol>
-<p>使用rpm包安装MySQL其实相对较容易，只是缺少依赖包时比较繁琐，需要提前准备好所有依赖包。建议初学者不要像我这样去安装rpm包，<strong>你可以直接下载rpm bundle，或者使用mysql官方的yum源</strong>。</p>
+<p>使用 rpm 包安装 MySQL 其实相对较容易，只是缺少依赖包时比较繁琐，需要提前准备好所有依赖包。建议初学者不要像我这样去安装rpm包，<strong>你可以直接下载rpm bundle，或者使用mysql官方的yum源</strong>。</p>
 <p><strong>一定要注意Linux操作系统的权限问题</strong>，<strong>权限在最小范围内满足即可</strong>。</p>
-<p>接下来将详细介绍在Redhat7系列使用rpm包形式安装MySQL8.0.28，也是最为简单的一种方式。持续更新中，二进制包与源码包安装教程也会陆续加进来。先简单介绍二进制包安装部分步骤，详细步骤在后续更新：</p>
+<p>接下来将详细介绍在 RHEL7 系列使用rpm包形式安装 MySQL8.0.28，也是最为简单的一种方式。持续更新中，二进制包与源码包安装教程也会陆续加进来。先简单介绍二进制包安装部分步骤，详细步骤在后续更新：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$&gt; groupadd mysql     <span class="comment">#创建mysql组                  </span></span><br><span class="line">$&gt; useradd -r -g mysql -s /bin/false mysql    <span class="comment">#创建mysql用户并做软链接 </span></span><br><span class="line">$&gt; <span class="built_in">cd</span> /usr/local      <span class="comment">#切换到local目录                  </span></span><br><span class="line">$&gt; tar xvf /path/to/mysql-VERSION-OS.tar.xz   <span class="comment">#解压tar包mysql文件 </span></span><br><span class="line">$&gt; <span class="built_in">ln</span> -s full-path-to-mysql-VERSION-OS mysql  <span class="comment">#创建软链接</span></span><br><span class="line">$&gt; <span class="built_in">cd</span> mysql   <span class="comment">#进入到mysql目录</span></span><br><span class="line">$&gt; <span class="built_in">mkdir</span> mysql-files  <span class="comment">#创建mysql-files目录</span></span><br><span class="line">$&gt; <span class="built_in">chown</span> mysql:mysql mysql-files <span class="comment">#赋予mysql用户mysql-files目录权限</span></span><br><span class="line">$&gt; <span class="built_in">chmod</span> 750 mysql-files  <span class="comment">#赋予mysql-files权限750</span></span><br><span class="line">$&gt; bin/mysqld --initialize --user=mysql <span class="comment">#初始化并设置用户为mysql，生成随机密码会打印在字符界面（使用 --initialize-insecure则设置空密码）</span></span><br><span class="line"><span class="comment">#--defaults-file=/usr/local/mysql/my.cnf 初始化指定my.cnf路径</span></span><br><span class="line">$&gt; bin/mysqld --defaults-file=/usr/local/mysql/my.cnf  --initialize-insecure --user=mysql </span><br><span class="line">--basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data</span><br><span class="line">$&gt; bin/mysql_ssl_rsa_setup   <span class="comment">#启动ssl_rsa验证</span></span><br><span class="line">$&gt; bin/mysqld_safe --user=mysql &amp; <span class="comment">#启动服务</span></span><br><span class="line"><span class="comment"># Next command is optional  #复制mysql.server脚本服务到Linux环境init.d目录，便于管理</span></span><br><span class="line">$&gt; <span class="built_in">cp</span> support-files/mysql.server /etc/init.d/</span><br></pre></td></tr></table></figure>
 
 <p>以龙蜥系统8.4GA进行简单说明：<br>1.必备安装包（兼容Centos8，缺少依赖包）：</p>
@@ -525,7 +525,7 @@
 <p>切换至我准备好所有必备的rpm包目录，然后使用yum命令一键安装依赖。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum remove mariadb-libs</span><br><span class="line">$ <span class="built_in">cd</span> /opt/soft/mysql      <span class="comment">#这一步是进入到rpm包存放目录</span></span><br><span class="line">$ sudo yum -y install mysql-community*</span><br></pre></td></tr></table></figure>
 
-<p><strong>2.2.2、Redhat7系列需要卸载原有的mariadb-libs</strong>，替换为mysql-community-libs依赖</p>
+<p><strong>2.2.2、 RHEL7 系列需要卸载原有的mariadb-libs</strong>，替换为mysql-community-libs依赖</p>
 <p>卸载掉原有的mariadb-libs依赖包，毕竟是担心被Oracle收购的MySQL有闭源风险，所以默认依赖包都被换成MariaDB了。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum remove mariadb-libs</span><br></pre></td></tr></table></figure>
 
@@ -1028,7 +1028,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">15:16</span>
+    <span title="站点阅读时长">15:17</span>
   </span>
 </div>
 <div class="busuanzi-count">
