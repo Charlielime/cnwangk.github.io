@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.cnwangk.top/2022/03/15/Windows%E4%B8%8B%E4%BD%BF%E7%94%A8hexo-%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2023-05-25</lastmod>
+  </url>
+  <url>
     <loc>https://blog.cnwangk.top/2022/03/14/SQL%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D-%E9%80%9A%E9%85%8D%E7%AC%A6-%E9%AB%98%E7%BA%A7%E8%BF%87%E6%BB%A4/</loc>
     <lastmod>2023-05-25</lastmod>
   </url>
@@ -50,10 +54,6 @@
   </url>
   <url>
     <loc>https://blog.cnwangk.top/2022/02/25/Windows%E4%B8%8ELinux%E5%AE%89%E8%A3%85JDK17/</loc>
-    <lastmod>2023-05-25</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.cnwangk.top/2022/03/15/Windows%E4%B8%8B%E4%BD%BF%E7%94%A8hexo-%E6%90%AD%E5%BB%BA%E7%A7%81%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2023-05-25</lastmod>
   </url>
   <url>
