@@ -27,7 +27,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux基本命令scp详细教程">
 <meta property="og:url" content="https://blog.cnwangk.top/2022/01/04/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4scp%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/index.html">
-<meta property="og:site_name" content="文正耕耘">
+<meta property="og:site_name" content="文正耕耘的博客">
 <meta property="og:description" content="今天给大家带来的是linux中比较实用的命令scp。善用小技巧，解决工作中的痛点。掌握一门好的技术或者说一门好的艺术，最快捷的方式就是融入到工作中。 在工作的不断鞭策之下，我其实也想偷偷懒，有时候觉得怎样简单快捷怎样来。在某种特定的工作环境下，有些操作被限制死了，只能用传统的方式传输（比如定制的商业加密U盘、光盘刻录）。当你了解实际情况后，可能有更优解，你会寻求其它的突破口或者折中方案。 夸张的说">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/86f00e907ac0dc393af8a29d971e5e44.png">
@@ -56,7 +56,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.cnwangk.top/2022/01/04/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4scp%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B/","path":"2022/01/04/Linux基本命令scp详细教程/","title":"Linux基本命令scp详细教程"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Linux基本命令scp详细教程 | 文正耕耘</title>
+<title>Linux基本命令scp详细教程 | 文正耕耘的博客</title>
   
 
 
@@ -89,7 +89,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">文正耕耘</p>
+      <p class="site-title">文正耕耘的博客</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">养得胸中一种恬静</p>
@@ -165,7 +165,7 @@
     <img class="site-author-image" itemprop="image" alt="文正耕耘"
       src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">文正耕耘</p>
-  <div class="site-description" itemprop="description">莫问收获，但问耕耘。</div>
+  <div class="site-description" itemprop="description">技术偏好：Linux(CentOS | Rocky) | Java | Database(数据库)方向</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
@@ -177,7 +177,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -228,12 +228,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="文正耕耘">
-      <meta itemprop="description" content="莫问收获，但问耕耘。">
+      <meta itemprop="name" content="文正耕耘的博客">
+      <meta itemprop="description" content="技术偏好：Linux(CentOS | Rocky) | Java | Database(数据库)方向">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Linux基本命令scp详细教程 | 文正耕耘">
+      <meta itemprop="name" content="Linux基本命令scp详细教程 | 文正耕耘的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -319,7 +319,7 @@
 </ul>
 <h3 id="2、前世今生"><a href="#2、前世今生" class="headerlink" title="2、前世今生"></a>2、前世今生</h3><ul>
 <li><p>作者</p>
-<p>Timo Rinne <span class="exturl" data-url="bWFpbHRvOiYjMTE2OyYjeDcyOyYjMTA1OyYjeDQwOyYjeDY5OyYjeDZiOyYjMTA1OyYjeDJlOyYjMTAyOyYjeDY5Ow==">&#116;&#x72;&#105;&#x40;&#x69;&#x6b;&#105;&#x2e;&#102;&#x69;<i class="fa fa-external-link-alt"></i></span> 和 Tatu Ylonen <span class="exturl" data-url="bWFpbHRvOiYjMTIxOyYjeDZjOyYjMTExOyYjeDQwOyYjOTk7JiN4NzM7JiN4MmU7JiN4Njg7JiN4NzU7JiN4NzQ7JiN4MmU7JiN4NjY7JiN4Njk7">&#121;&#x6c;&#111;&#x40;&#99;&#x73;&#x2e;&#x68;&#x75;&#x74;&#x2e;&#x66;&#x69;<i class="fa fa-external-link-alt"></i></span></p>
+<p>Timo Rinne <span class="exturl" data-url="bWFpbHRvOiYjeDc0OyYjMTE0OyYjeDY5OyYjNjQ7JiMxMDU7JiMxMDc7JiN4Njk7JiM0NjsmIzEwMjsmI3g2OTs=">&#x74;&#114;&#x69;&#64;&#105;&#107;&#x69;&#46;&#102;&#x69;<i class="fa fa-external-link-alt"></i></span> 和 Tatu Ylonen <span class="exturl" data-url="bWFpbHRvOiYjeDc5OyYjeDZjOyYjMTExOyYjeDQwOyYjOTk7JiMxMTU7JiN4MmU7JiMxMDQ7JiN4NzU7JiMxMTY7JiM0NjsmI3g2NjsmIzEwNTs=">&#x79;&#x6c;&#111;&#x40;&#99;&#115;&#x2e;&#104;&#x75;&#116;&#46;&#x66;&#105;<i class="fa fa-external-link-alt"></i></span></p>
 </li>
 <li><p>起源</p>
 <p>scp 基于University of California BSD 的 rcp(1) 源代码</p>
