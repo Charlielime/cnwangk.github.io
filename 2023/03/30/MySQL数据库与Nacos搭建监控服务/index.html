@@ -49,7 +49,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2023/03/22/ppdI8r8.png">
 <meta property="og:image" content="https://s1.ax1x.com/2023/03/23/ppwyHDs.png">
 <meta property="article:published_time" content="2023-03-30T14:15:05.000Z">
-<meta property="article:modified_time" content="2023-05-28T13:58:29.101Z">
+<meta property="article:modified_time" content="2023-05-31T09:33:04.820Z">
 <meta property="article:author" content="文正耕耘">
 <meta property="article:tag" content="nacos">
 <meta name="twitter:card" content="summary">
@@ -184,7 +184,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -287,7 +287,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-28 21:58:29" itemprop="dateModified" datetime="2023-05-28T21:58:29+08:00">2023-05-28</time>
+      <time title="修改时间：2023-05-31 17:33:04" itemprop="dateModified" datetime="2023-05-31T17:33:04+08:00">2023-05-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -349,11 +349,12 @@
 <p><img data-src="https://s1.ax1x.com/2023/03/22/ppdImUH.png" alt="ppdImUH"></p>
 <h3 id="Nacos部署"><a href="#Nacos部署" class="headerlink" title="Nacos部署"></a>Nacos部署</h3><h4 id="项目环境"><a href="#项目环境" class="headerlink" title="项目环境"></a>项目环境</h4><p>Nacos 依赖 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm9yYWNsZS5jb20vY2QvRTE5MTgyLTAxLzgyMC03ODUxL2luc3RfY2xpX2pka19qYXZhaG9tZV90Lw==">Java<i class="fa fa-external-link-alt"></i></span> 环境来运行。如果你是一名开发人员，或许需要准备如下环境：</p>
 <ul>
-<li>Maven 3.2.x+</li>
-<li>64 bit JDK1.8+</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLmFsaXl1bi5jb20vYXBhY2hlL21hdmVuL21hdmVuLTMvP3NwbT1hMmM2aC4yNTYwMzg2NC4wLjAuMWYwNDEzNmZvVkxIUlo=">Maven 3.2.x+<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cub3JhY2xlLmNvbS9qYXZhL3RlY2hub2xvZ2llcy9kb3dubG9hZHMvI2phdmE4">64 bit JDK1.8+<i class="fa fa-external-link-alt"></i></span></li>
 <li>64 bit OS，支持 Linux&#x2F;Unix&#x2F;Mac&#x2F;Windows，<strong>推荐选用 Linux&#x2F;Unix&#x2F;Mac</strong></li>
-<li>Git 2.3.x</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9kb3dubG9hZHM=">Git 2.3.x<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
+<p>Git 版本不一定要与我保持一致，只要版本不是太老就行。</p>
 <p><strong>主要以Linux平台作为演示环境</strong>。关于nacos 的获取（发行包、源码包），可以前往github开源仓库。</p>
 <p>你可以通过<strong>源码</strong>和<strong>发行包</strong>两种方式来获取 Nacos。</p>
 <p><strong>个人推荐</strong>：下载发行包。关于版本，使用稳定版本（<strong>通常有GA标识</strong>），个人习惯使用官方推荐的上一个小版本。有特殊需求可以下载源码包，修改源码重新编译。</p>
@@ -362,10 +363,11 @@
 
 
 
-<p>nacos开源仓库：<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FsaWJhYmEvbmFjb3M=">https://github.com/alibaba/nacos<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>nacos开源仓库</strong>：<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FsaWJhYmEvbmFjb3M=">https://github.com/alibaba/nacos<i class="fa fa-external-link-alt"></i></span></p>
 <p>目前nacos最新稳定版是2.2.1：<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FsaWJhYmEvbmFjb3MvcmVsZWFzZXMvdGFnLzIuMi4x">https://github.com/alibaba/nacos/releases/tag/2.2.1<i class="fa fa-external-link-alt"></i></span></p>
-<p>下载很缓慢，可以使用在线工具箱加速（公共免费资源请适度使用）：<br><span class="exturl" data-url="aHR0cHM6Ly90b29sLm1pbnRpbWF0ZS5jbi9naC8=">https://tool.mintimate.cn/gh/<i class="fa fa-external-link-alt"></i></span></p>
-<p>官方推荐版本为2.1.1：</p>
+<p>当你看到这篇博文时，nacos 最新稳定版可能已经更新到 2.2.3 或者更高的版本。</p>
+<p>下载很缓慢，可以使用在线工具箱加速，<span class="exturl" data-url="aHR0cHM6Ly93d3cubWludGltYXRlLmNuLw==">雨月空间站<i class="fa fa-external-link-alt"></i></span>（公共免费资源请适度使用）：<br><span class="exturl" data-url="aHR0cHM6Ly90b29sLm1pbnRpbWF0ZS5jbi9naC8=">https://tool.mintimate.cn/gh/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>官方推荐版本为2.1.1</strong>：</p>
 <blockquote>
 <p>您可以在Nacos的release notes及博客中找到每个版本支持的功能的介绍，当前推荐的稳定版本为2.1.1。</p>
 </blockquote>
@@ -455,7 +457,7 @@
 <p>上面聊到 nacos 可以在配置文件中配置数据源，当然必不可少，需要部署MySQL数据库。</p>
 <p>找到<strong>application.properties</strong>配置文件，配置MySQL数据源：</p>
 <p><img data-src="https://s1.ax1x.com/2023/03/22/ppdIlxP.png"></p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### If use MySQL as datasource: </span></span><br><span class="line"><span class="attr">spring.datasource.platform</span>=<span class="string">mysql                                                                           ### Count of DB:                                                                                             </span></span><br><span class="line"><span class="attr">db.num</span>=<span class="string">1                                                                   </span></span><br><span class="line"><span class="comment">### Connect URL of DB:                                                                                   </span></span><br><span class="line"><span class="attr">db.url.0</span>=<span class="string">jdbc:mysql://192.168.245.132:3306/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true&amp;useUnicode=true&amp;useSSL=false&amp;serverTimezone=UTC        </span></span><br><span class="line"><span class="attr">db.user.0</span>=<span class="string">root                                                                                              db.password.0=mypwd@123        </span></span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### If use MySQL as datasource: </span></span><br><span class="line"><span class="attr">spring.datasource.platform</span>=<span class="string">mysql                                                                         </span></span><br><span class="line"><span class="comment">### Count of DB:                                                                                             </span></span><br><span class="line"><span class="attr">db.num</span>=<span class="string">1                                                                   </span></span><br><span class="line"><span class="comment">### Connect URL of DB:</span></span><br><span class="line"><span class="attr">db.url.0</span>=<span class="string">jdbc:mysql://192.168.245.132:3306/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true&amp;useUnicode=true&amp;useSSL=false&amp;serverTimezone=UTC        </span></span><br><span class="line"><span class="attr">db.user.0</span>=<span class="string">root                                                                                            </span></span><br><span class="line"><span class="attr">db.password.0</span>=<span class="string">mypwd@123        </span></span><br></pre></td></tr></table></figure>
 
 <p>很奇怪的一个问题，第一次使用，只导入初始化sql脚本MySQL数据源：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@Centos9-Stream ~]<span class="comment"># cat /usr/local/nacos-2.2.0/conf/mysql-schema.sql | mysql -uroot -p nacos</span></span><br></pre></td></tr></table></figure>
@@ -473,7 +475,7 @@
 <p>Caused by: java.lang.IllegalStateException: <strong>No DataSource set</strong></p>
 <p>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘externalDumpService’: Invocation of init  method failed; nested exception is ErrCode:500, ErrMsg:Nacos Server did not start because dumpservice bean construction failure ：<strong>No DataSource set</strong></p>
 <p><strong>也有可能是MySQL版本问题和设置时区问题，连接配置做如下调整：</strong></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Connect URL of DB:</span></span><br><span class="line"><span class="string">db.url.0=jdbc:mysql://192.168.245.132:3306/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true&amp;useUnicode</span>    <span class="string">=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai</span></span><br><span class="line"><span class="string">db.user.0=root</span></span><br><span class="line"><span class="string">db.password.0=mypwd@123</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Connect URL of DB:</span></span><br><span class="line"><span class="attr">db.url.0</span>=<span class="string">jdbc:mysql://192.168.245.132:3306/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true&amp;useUnicode    =true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai</span></span><br><span class="line"><span class="attr">db.user.0</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">db.password.0</span>=<span class="string">mypwd@123</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -514,8 +516,7 @@
 <p>由于测试使用，本人数据库使用比较新，MySQL8.0.30。说8.0新，其实也并不是很新，距离8.0第一个稳定版<span class="exturl" data-url="aHR0cHM6Ly9kZXYubXlzcWwuY29tL2RvYy9yZWxub3Rlcy9teXNxbC84LjAvZW4vbmV3cy04LTAtMTEuaHRtbA==">Changes in MySQL 8.0.11 (2018-04-19, General Availability)<i class="fa fa-external-link-alt"></i></span>快5年了。</p>
 <p>目前市面上主要以MySQL5.7为主，离停止维护不远了，未来应该会逐渐升级为MySQL8.0.x。看到官网将MySQL5.6文档页面转移了，已停止版本更新。</p>
 <p><strong>Windows 平台</strong></p>
-<p>此处省略安装过程。</p>
-<p>请参考个人公众号里面的文章，有简易安装教程：SQL基础知识扫盲。</p>
+<p>此处省略安装过程，请参考个人公众号以及站内的博文<a href="https://blog.cnwangk.top/2023/05/21/MySQL8-0-33-%E7%AE%80%E6%98%93%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">《MySQL 8.0.33 简易安装教程》</a> ，有详细说明。</p>
 <h4 id="Linux平台（CentOS-Stream-9）部署MySQL"><a href="#Linux平台（CentOS-Stream-9）部署MySQL" class="headerlink" title="Linux平台（CentOS-Stream-9）部署MySQL"></a>Linux平台（CentOS-Stream-9）部署MySQL</h4><p>此处我只演示<strong>Linux平台（CentOS-Stream-9）</strong>其中最方便的一种部署方式。</p>
 <p><strong>Linux平台（CentOS-Stream-9）</strong></p>
 <p>通过RHEL系列自带的命令服务安装管理工具，yum与dnf二选一即可。</p>
@@ -528,11 +529,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
 
 
+
 <h4 id="调试防火墙管理工具"><a href="#调试防火墙管理工具" class="headerlink" title="调试防火墙管理工具"></a>调试防火墙管理工具</h4><p>如需远程登录，需要关闭防火墙相关服务，或者开放相应端口，个人建议采用开放相应端口</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=3306/tcp --permanent</span><br></pre></td></tr></table></figure>
 <p>由于MySQL默认端口3306可能被黑客利用通用扫描软件攻击，建议实际工作中进行修改。或者利用隧道转发功能。<br>如果只是在本地使用，改与不改并不影响。</p>
 <p><strong>重载firewalld服务</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
 
 
 <h4 id="MySQL用户权限"><a href="#MySQL用户权限" class="headerlink" title="MySQL用户权限"></a>MySQL用户权限</h4><p><strong>设置开机自启</strong></p>
@@ -674,7 +677,7 @@
 <p><strong>配置详情</strong>：配置的比较随意，参考看看就行</p>
 <p><img data-src="https://s1.ax1x.com/2023/03/30/pp2dsXT.png"></p>
 <p>当然，你也需要在controller层  Java 代码里加入如下匹配：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 使用动态配置获取测试 --BEGIN-- **/</span></span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Value(&quot;$&#123;alibaba.config.discovery&#125;&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> String discovery;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Value(&quot;$&#123;alibaba.config.name&#125;&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@GetMapping(&quot;/getConfig&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getConfig</span><span class="params">()</span> &#123;</span><br><span class="line">		log.info(<span class="string">&quot;getConfig&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;getConfig&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;</span> + <span class="string">&quot;发现：&quot;</span> + discovery + <span class="string">&quot;&gt;&gt;&gt;服务名称：&quot;</span> + name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Value(&quot;$&#123;custom.config.find&#125;&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> String find;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Value(&quot;$&#123;custom.config.say&#125;&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> String say;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@GetMapping(&quot;/meet&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">meet</span><span class="params">()</span> &#123;</span><br><span class="line">		log.info(<span class="string">&quot;meet&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;meet&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;</span> + <span class="string">&quot;偶遇老湿：&quot;</span> + find + <span class="string">&quot;&gt;&gt;&gt;你好：&quot;</span> + say;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/** 使用动态配置获取测试 --END-- **/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 使用动态配置获取测试 --BEGIN-- **/</span></span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Value(&quot;$&#123;alibaba.config.discovery&#125;&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> String discovery;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Value(&quot;$&#123;alibaba.config.name&#125;&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@GetMapping(&quot;/getConfig&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getConfig</span><span class="params">()</span> &#123;</span><br><span class="line">		log.info(<span class="string">&quot;getConfig&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;getConfig&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;</span> + <span class="string">&quot;发现：&quot;</span> + discovery + <span class="string">&quot;&gt;&gt;&gt;服务名称：&quot;</span> + name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Value(&quot;$&#123;custom.config.find&#125;&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> String find;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Value(&quot;$&#123;custom.config.say&#125;&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> String say;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@GetMapping(&quot;/meet&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">meet</span><span class="params">()</span> &#123;</span><br><span class="line">		log.info(<span class="string">&quot;meet&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;meet&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;</span> + <span class="string">&quot;偶遇老湿：&quot;</span> + find + <span class="string">&quot;&gt;&gt;&gt;你好：&quot;</span> + say;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">/** 使用动态配置获取测试 --END-- **/</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -684,13 +687,11 @@
 <p>使用到注解：</p>
 <ul>
 <li>@Value ：通常情况，使用注解取值。</li>
-</ul>
-<ul>
 <li>@Component ：加入注解，便于被扫描到。</li>
 <li>@ConfigurationProperties：引入配置，通过prefix指定配置前缀。</li>
 </ul>
 <p>在项目中注入：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   <span class="meta">@Autowired</span></span><br><span class="line">   <span class="keyword">private</span> CustomConf custom;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/custom&quot;)</span></span><br><span class="line">   <span class="keyword">public</span> String <span class="title function_">custom</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="string">&quot;[custom] &quot;</span> + custom;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> CustomConf custom;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/custom&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">custom</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;[custom] &quot;</span> + custom;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -889,14 +890,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">253k</span>
+    <span title="站点总字数">251k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">15:19</span>
+    <span title="站点阅读时长">15:14</span>
   </span>
 </div>
 <div class="busuanzi-count">
