@@ -929,14 +929,14 @@
 
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/jekyll/</loc>
+    <loc>https://blog.cnwangk.top/tags/Rust/</loc>
     <lastmod>2023-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/Rust/</loc>
+    <loc>https://blog.cnwangk.top/tags/jekyll/</loc>
     <lastmod>2023-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -964,7 +964,7 @@
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/github/</loc>
+    <loc>https://blog.cnwangk.top/tags/hexo/</loc>
     <lastmod>2023-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -978,14 +978,14 @@
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/hexo/</loc>
+    <loc>https://blog.cnwangk.top/tags/Java/</loc>
     <lastmod>2023-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/Java/</loc>
+    <loc>https://blog.cnwangk.top/tags/zabbix/</loc>
     <lastmod>2023-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -999,7 +999,7 @@
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/zabbix/</loc>
+    <loc>https://blog.cnwangk.top/tags/github/</loc>
     <lastmod>2023-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1188,13 +1188,6 @@
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/xshell/</loc>
-    <lastmod>2023-05-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.cnwangk.top/tags/sublime-text/</loc>
     <lastmod>2023-05-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -1208,17 +1201,24 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://blog.cnwangk.top/tags/xshell/</loc>
+    <lastmod>2023-05-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
-    <loc>https://blog.cnwangk.top/categories/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://blog.cnwangk.top/categories/web%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2023-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/categories/web%E5%BC%80%E5%8F%91/</loc>
+    <loc>https://blog.cnwangk.top/categories/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2023-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
