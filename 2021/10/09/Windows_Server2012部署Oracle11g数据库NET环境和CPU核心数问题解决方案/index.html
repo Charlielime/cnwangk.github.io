@@ -23,30 +23,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.cnwangk.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"giscus","storage":true,"lazyload":true,"nav":null,"activeClass":"giscus"},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="主要以Windows server2012R2为主进行介绍，解决实际工作中遇到到的一些问题。比如服务器CPU核心数过高，导致Oracle数据库安装时卡在2%的情况。在Windows下，你安装VMware工具模拟使用Windows server达到熟悉的目的。 说句心里话，我真没想到过我会在Windows服务器上总结这么多。一分耕耘一分收获，但是血赚不亏。 正文第一次接触Windows服务器大约在5">
+    <meta name="description" content="前言主要以 Windows server2012R2 为主进行介绍，解决实际工作中遇到到的一些问题。 比如服务器 CPU 核心数过高，导致 Oracle 数据库安装时卡在 2% 的情况。 在 Windows 平台，你可以安装 VMware 工具模拟使用 Windows server 达到熟悉的目的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows_server2012服务器部署Oracle11g：.NET和CPU核心数问题解决方案">
 <meta property="og:url" content="https://blog.cnwangk.top/2021/10/09/Windows_Server2012%E9%83%A8%E7%BD%B2Oracle11g%E6%95%B0%E6%8D%AE%E5%BA%93NET%E7%8E%AF%E5%A2%83%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="文正耕耘的博客">
-<meta property="og:description" content="主要以Windows server2012R2为主进行介绍，解决实际工作中遇到到的一些问题。比如服务器CPU核心数过高，导致Oracle数据库安装时卡在2%的情况。在Windows下，你安装VMware工具模拟使用Windows server达到熟悉的目的。 说句心里话，我真没想到过我会在Windows服务器上总结这么多。一分耕耘一分收获，但是血赚不亏。 正文第一次接触Windows服务器大约在5">
+<meta property="og:description" content="前言主要以 Windows server2012R2 为主进行介绍，解决实际工作中遇到到的一些问题。 比如服务器 CPU 核心数过高，导致 Oracle 数据库安装时卡在 2% 的情况。 在 Windows 平台，你可以安装 VMware 工具模拟使用 Windows server 达到熟悉的目的。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/82425eb0cead43315f66a14bec3b6122.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/0a6139c3d47a8c3e3229fc0304b29443.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/af34fbc4dd53c24f7b5bef2d2f3d88da.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/d9d976e979fc0b3a2a82c724ea35416b.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/05488105c6ea9d4445b2215d20a98450.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/4cb90f5b86f022da71b6d744f580251b.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/efb984d5c170269d208e90314ba3cab3.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/eee4f790a16f92358d33e61d60db0e33.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/35fdc2c7fbee80e505a4ba9c18c3beee.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/8e5ffa0746dadd2f577c4a1824c30b01.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/faa599a6ac3bc19ebf12cbcd72fc286d.png">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-fe5ce26ed9df00d5a05d2aa236cb91f0_720w.jpeg?source=d16d100b">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-0ea42e97764352b980208b492cbf0645_720w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-ae35ab73de16263bce32c41625b60259_720w.png?source=d16d100b">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-e952c64714b504b3455d1eb68b4ee687_720w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-ad95757957cdfb0499e6fd8b7f54ced5_720w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-f46dcdbdfa18f66c41eccd296fda511c_720w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-39f6f46ab6b769eb86ef340e8c5dba2a_720w.png?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-c34e42b299d1a054b0a60e17f638d5f4_720w.jpg?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-a5bc00f7ed3cce11c873923f78ad28f6_720w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pica.zhimg.com/80/v2-d19089effc245b475e2fd96af6dbaeba_720w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-ff8ef218a407578907cdeb60580e459f_720w.jpg?source=d16d100b">
 <meta property="article:published_time" content="2021-10-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-29T11:27:11.713Z">
+<meta property="article:modified_time" content="2023-06-01T13:59:37.192Z">
 <meta property="article:author" content="文正耕耘">
 <meta property="article:tag" content="Oracle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/82425eb0cead43315f66a14bec3b6122.png">
+<meta name="twitter:image" content="https://picx.zhimg.com/80/v2-fe5ce26ed9df00d5a05d2aa236cb91f0_720w.jpeg?source=d16d100b">
 
 
 <link rel="canonical" href="https://blog.cnwangk.top/2021/10/09/Windows_Server2012%E9%83%A8%E7%BD%B2Oracle11g%E6%95%B0%E6%8D%AE%E5%BA%93NET%E7%8E%AF%E5%A2%83%E5%92%8CCPU%E6%A0%B8%E5%BF%83%E6%95%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
@@ -156,7 +156,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">1.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E8%A3%85%E5%8D%A1%E5%9C%A82"><span class="nav-number">1.1.</span> <span class="nav-text">一、Oracle数据库安装卡在2%</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、解决问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85-net3-5%E5%A4%B1%E8%B4%A5"><span class="nav-number">1.2.</span> <span class="nav-text">二、安装.net3.5失败</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C%EF%BC%8C%E6%8F%90%E5%8F%96sxs"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、准备工作，提取sxs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%86%8D%E6%AC%A1%E5%AE%89%E8%A3%85-net3-5"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、再次安装.net3.5</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1%E3%80%81%E6%8C%87%E5%AE%9A%E4%BE%9D%E8%B5%96sxs%EF%BC%8C%E5%AE%89%E8%A3%85-net3-5"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">2.1、指定依赖sxs，安装.net3.5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2%E3%80%81Windows-server%E4%BB%AA%E8%A1%A8%E6%9D%BF"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">2.2、Windows server仪表板</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%93%8D%E4%BD%9C%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="nav-number">1.3.</span> <span class="nav-text">三、操作小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E4%BB%A5Oracle%E6%9C%8D%E5%8A%A1%E4%B8%BA%E4%BE%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">1、以Oracle服务为例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E9%85%8D%E7%BD%AEIP%E5%9C%B0%E5%9D%80%E4%B8%8EDNS"><span class="nav-number">1.3.2.</span> <span class="nav-text">2、配置IP地址与DNS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"><span class="nav-number">1.3.3.</span> <span class="nav-text">3、磁盘管理</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E8%A3%85%E5%BC%80%E5%9C%A82"><span class="nav-number">3.</span> <span class="nav-text">一、Oracle数据库安装开在2%</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">3.1.</span> <span class="nav-text">1、问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="nav-number">3.2.</span> <span class="nav-text">2、解决问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85-net3-5%E5%A4%B1%E8%B4%A5"><span class="nav-number">4.</span> <span class="nav-text">二、安装.net3.5失败</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C%EF%BC%8C%E6%8F%90%E5%8F%96sxs"><span class="nav-number">4.1.</span> <span class="nav-text">1、准备工作，提取sxs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%86%8D%E6%AC%A1%E5%AE%89%E8%A3%85-net3-5"><span class="nav-number">4.2.</span> <span class="nav-text">2、再次安装.net3.5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1%E3%80%81%E6%8C%87%E5%AE%9A%E4%BE%9D%E8%B5%96sxs%EF%BC%8C%E5%AE%89%E8%A3%85-net3-5"><span class="nav-number">4.3.</span> <span class="nav-text">2.1、指定依赖sxs，安装.net3.5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2%E3%80%81Windows-server%E4%BB%AA%E8%A1%A8%E6%9D%BF"><span class="nav-number">4.4.</span> <span class="nav-text">2.2、Windows server仪表板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%93%8D%E4%BD%9C%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="nav-number">5.</span> <span class="nav-text">三、操作小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E4%BB%A5Oracle%E6%9C%8D%E5%8A%A1%E4%B8%BA%E4%BE%8B"><span class="nav-number">5.1.</span> <span class="nav-text">1、以Oracle服务为例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E9%85%8D%E7%BD%AEIP%E5%9C%B0%E5%9D%80%E4%B8%8EDNS"><span class="nav-number">5.2.</span> <span class="nav-text">2、配置IP地址与DNS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"><span class="nav-number">5.3.</span> <span class="nav-text">3、磁盘管理</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -204,6 +204,23 @@
     </div>
 
     
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/2022/06/30/Windows-%E5%8E%9F%E7%89%88%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/" rel="bookmark">
+        <time class="popular-posts-time">2022-06-30</time>
+        <br>
+      Windows 原版镜像下载地址
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
   </aside>
 
 
@@ -256,7 +273,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-29 19:27:11" itemprop="dateModified" datetime="2023-05-29T19:27:11+08:00">2023-05-29</time>
+      <time title="修改时间：2023-06-01 21:59:37" itemprop="dateModified" datetime="2023-06-01T21:59:37+08:00">2023-06-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -282,7 +299,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
+      <span>1.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -299,42 +316,47 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>主要以Windows server2012R2为主进行介绍，解决实际工作中遇到到的一些问题。<strong>比如服务器CPU核心数过高，导致Oracle数据库安装时卡在2%的情况</strong>。在Windows下，你安装VMware工具模拟使用Windows server达到熟悉的目的。<br><img data-src="https://img-blog.csdnimg.cn/img_convert/82425eb0cead43315f66a14bec3b6122.png"></p>
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>主要以 Windows server2012R2 为主进行介绍，解决实际工作中遇到到的一些问题。</p>
+<p>比如服务器 CPU 核心数过高，导致 Oracle 数据库安装时卡在 2% 的情况。</p>
+<p>在 Windows 平台，你可以安装 VMware 工具模拟使用 Windows server 达到熟悉的目的。</p>
+<p><img data-src="https://picx.zhimg.com/80/v2-fe5ce26ed9df00d5a05d2aa236cb91f0_720w.jpeg?source=d16d100b" alt="img"></p>
+<span id="more"></span>
+
+
+
 <p>说句心里话，我真没想到过我会在Windows服务器上总结这么多。一分耕耘一分收获，但是血赚不亏。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>第一次接触Windows服务器大约在5年前，那会的活动价我入手了入门级的Windows服务器。第一次安装了Windows server2012，低配版的服务器确实很吃力。<em>用了一段时间熟悉了就弃用了，后来果断换成了linux操作系统（Centos）。centos被（Redhat）红帽收购后，逐渐。。。说白了还是利益二字。感慨了一番，关于centos的这段话可以忽略。</em></p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>第一次接触Windows服务器大约在5年前，那会的活动价我入手了入门级的Windows服务器。第一次安装了Windows server2012，低配版的服务器确实很吃力。</p>
 <p>想熟悉Windows server服务器最新版，建议使用VMware配合服务器镜像。</p>
-<p><strong>镜像获取地址</strong>，推荐msdn我告诉你。良心网站，专业收集原版镜像。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9tc2RuLml0ZWxseW91LmNuLw==">https://msdn.itellyou.cn/<i class="fa fa-external-link-alt"></i></span></p>
-<p><strong>关于想体验最新版的Windows11或者Windows server2022服务器</strong>，可以访问新地址</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9uZXh0Lml0ZWxseW91LmNuLw==">https://next.itellyou.cn<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="一、Oracle数据库安装卡在2"><a href="#一、Oracle数据库安装卡在2" class="headerlink" title="一、Oracle数据库安装卡在2%"></a>一、Oracle数据库安装卡在2%</h2><h3 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h3><p>1.1、<strong>服务器CPU核心数过高</strong>。在使用Windows server2012或者是其它Windows服务器，可能也会遇到这类问题。</p>
+<p><strong>镜像获取地址</strong>，推荐 <span class="exturl" data-url="aHR0cHM6Ly9tc2RuLml0ZWxseW91LmNuLw==">msdn，我告诉你<i class="fa fa-external-link-alt"></i></span>。良心网站，专业收集原版镜像。</p>
+<p><strong>关于想体验最新版的Windows11或者Windows server2022服务器</strong>，可以访问新地址 <span class="exturl" data-url="aHR0cHM6Ly9uZXh0Lml0ZWxseW91LmNuLw==">https://next.itellyou.cn/<i class="fa fa-external-link-alt"></i></span>。</p>
+<h2 id="一、Oracle数据库安装开在2"><a href="#一、Oracle数据库安装开在2" class="headerlink" title="一、Oracle数据库安装开在2%"></a>一、Oracle数据库安装开在2%</h2><h3 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h3><p>1.1、<strong>服务器CPU核心数过高</strong>。在使用 Windows server2012 或者是其它 Windows 服务器，可能也会遇到这类问题。</p>
 <h3 id="2、解决问题"><a href="#2、解决问题" class="headerlink" title="2、解决问题"></a>2、解决问题</h3><p>2.1、<strong>解决问题，进入服务器的系统配置</strong>，一次找到引导-&gt;高级选项，<strong>设置处理器的核心数为16，然后重启即可生效</strong>。</p>
 <p>2.2、小技巧</p>
 <p><strong>快捷键win + r，然后输入msconfig</strong>命令即可快速进入系统配置。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/0a6139c3d47a8c3e3229fc0304b29443.png"></p>
+<p><img data-src="https://pic1.zhimg.com/80/v2-0ea42e97764352b980208b492cbf0645_720w.jpg?source=d16d100b" alt="img"></p>
 <h2 id="二、安装-net3-5失败"><a href="#二、安装-net3-5失败" class="headerlink" title="二、安装.net3.5失败"></a>二、安装.net3.5失败</h2><h3 id="1、准备工作，提取sxs"><a href="#1、准备工作，提取sxs" class="headerlink" title="1、准备工作，提取sxs"></a>1、准备工作，提取sxs</h3><p>1.1、准备服务器镜像，可以<strong>通过我上面提到的网址进行获取</strong>。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/af34fbc4dd53c24f7b5bef2d2f3d88da.png"></p>
+<p><img data-src="https://picx.zhimg.com/80/v2-ae35ab73de16263bce32c41625b60259_720w.png?source=d16d100b" alt="img"></p>
 <p><strong>1.2、提取sxs</strong></p>
 <p>使用解压缩软件或者iso模拟软件打开镜像包，然后<strong>进入&#x2F;source&#x2F;找到sxs</strong>复制出来。在安装.net3.5时作为备用源使用，安装Oracle11gR2时需要安装.net3.5。</p>
 <p>解压缩软件推荐360zip国际版（旧版1.0几的无广告）或者7z（体积小）。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/d9d976e979fc0b3a2a82c724ea35416b.png"></p>
-<h3 id="2、再次安装-net3-5"><a href="#2、再次安装-net3-5" class="headerlink" title="2、再次安装.net3.5"></a>2、再次安装.net3.5</h3><h4 id="2-1、指定依赖sxs，安装-net3-5"><a href="#2-1、指定依赖sxs，安装-net3-5" class="headerlink" title="2.1、指定依赖sxs，安装.net3.5"></a>2.1、指定依赖sxs，安装.net3.5</h4><p>将之前从<strong>Windows server中提取的sxs</strong>复制到系统盘根目录下，然后在服务器仪表板中添加角色和功能（安装依赖），按照图上的提示<strong>指定我们准备好的sxs源路径</strong>，最终完美解决服务器上.net3.5无法安装的问题。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/05488105c6ea9d4445b2215d20a98450.png"></p>
-<h4 id="2-2、Windows-server仪表板"><a href="#2-2、Windows-server仪表板" class="headerlink" title="2.2、Windows server仪表板"></a>2.2、Windows server仪表板</h4><p>添加角色与功能，选择需要安装的功能时用得上，比如上面安装.net3.5</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/4cb90f5b86f022da71b6d744f580251b.png"></p>
+<p><img data-src="https://pic1.zhimg.com/80/v2-e952c64714b504b3455d1eb68b4ee687_720w.jpg?source=d16d100b" alt="img"></p>
+<h3 id="2、再次安装-net3-5"><a href="#2、再次安装-net3-5" class="headerlink" title="2、再次安装.net3.5"></a>2、再次安装.net3.5</h3><h3 id="2-1、指定依赖sxs，安装-net3-5"><a href="#2-1、指定依赖sxs，安装-net3-5" class="headerlink" title="2.1、指定依赖sxs，安装.net3.5"></a>2.1、指定依赖sxs，安装.net3.5</h3><p>将之前从<strong>Windows server中提取的sxs</strong>复制到系统盘根目录下，然后在服务器仪表板中添加角色和功能（安装依赖），按照图上的提示<strong>指定我们准备好的sxs源路径</strong>，最终完美解决服务器上.net3.5无法安装的问题。</p>
+<p><img data-src="https://pic1.zhimg.com/80/v2-ad95757957cdfb0499e6fd8b7f54ced5_720w.jpg?source=d16d100b" alt="img"></p>
+<h3 id="2-2、Windows-server仪表板"><a href="#2-2、Windows-server仪表板" class="headerlink" title="2.2、Windows server仪表板"></a>2.2、Windows server仪表板</h3><p>添加角色与功能，选择需要安装的功能时用得上，比如上面安装.net3.5</p>
+<p><img data-src="https://picx.zhimg.com/80/v2-f46dcdbdfa18f66c41eccd296fda511c_720w.jpg?source=d16d100b" alt="img"></p>
 <h2 id="三、操作小技巧"><a href="#三、操作小技巧" class="headerlink" title="三、操作小技巧"></a>三、操作小技巧</h2><h3 id="1、以Oracle服务为例"><a href="#1、以Oracle服务为例" class="headerlink" title="1、以Oracle服务为例"></a>1、以Oracle服务为例</h3><p>1.1、进入服务快捷命令，<strong>win + r快捷键输入service.msc</strong>，如下图所示</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/efb984d5c170269d208e90314ba3cab3.png"></p>
+<p><img data-src="https://pic1.zhimg.com/80/v2-39f6f46ab6b769eb86ef340e8c5dba2a_720w.png?source=d16d100b" alt="img"></p>
 <p>1.2、定位Oracle服务，你看到的Oracle服务是双倍的，因为我安装了双实例。实际工作中，并不推荐在单台服务器上部署双实例。不要问我为什么，因为实际中遇到过。内存也耗不起，最终把服务器拖挂掉了，最后通过清理日志解决。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/eee4f790a16f92358d33e61d60db0e33.png"></p>
+<p><img data-src="https://picx.zhimg.com/80/v2-c34e42b299d1a054b0a60e17f638d5f4_720w.jpg?source=d16d100b" alt="img"></p>
 <h3 id="2、配置IP地址与DNS"><a href="#2、配置IP地址与DNS" class="headerlink" title="2、配置IP地址与DNS"></a>2、配置IP地址与DNS</h3><p>配置IP地址与DNS与平时使用的win7或者win10是一样的配置方法</p>
 <p>2.1、<strong>进入控制面板找到网络和共享中心</strong></p>
-<p><code>win + r</code> 快捷键运行<code>control</code>命令进入控制面板，下图是VMware搭建的测试环境。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/35fdc2c7fbee80e505a4ba9c18c3beee.png"></p>
+<p>win + r 快捷键运行control命令进入控制面板，下图是VMware搭建的测试环境。</p>
+<p><img data-src="https://picx.zhimg.com/80/v2-a5bc00f7ed3cce11c873923f78ad28f6_720w.jpg?source=d16d100b" alt="img"></p>
 <p><strong>2.2、配置IP地址和DNS</strong></p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/8e5ffa0746dadd2f577c4a1824c30b01.png"></p>
+<p><img data-src="https://pica.zhimg.com/80/v2-d19089effc245b475e2fd96af6dbaeba_720w.jpg?source=d16d100b" alt="img"></p>
 <h3 id="3、磁盘管理"><a href="#3、磁盘管理" class="headerlink" title="3、磁盘管理"></a>3、磁盘管理</h3><p>最后再介绍一个小技巧，关于磁盘管理。当我们并不熟悉仪表板的操作时，或者旧版的服务器压根就没这玩意，如何处理。这是我们可以采用命令方式，先打开计算机管理。</p>
-<p>同样使用<code>win + r</code> 快捷键，然后运行<code>compmgmt.msc</code>命令进入计算机管理，最后定位到磁盘管理。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/img_convert/faa599a6ac3bc19ebf12cbcd72fc286d.png"></p>
+<p>同样使用win + r 快捷键，然后运行compmgmt.msc命令进入计算机管理，最后定位到磁盘管理。</p>
+<p><img data-src="https://pic1.zhimg.com/80/v2-ff8ef218a407578907cdeb60580e459f_720w.jpg?source=d16d100b" alt="img"></p>
 <p>以上均为实际运维工作中使用到的小技巧，方便我们去管理维护服务器。在实际工作中，更多的是经验的累积。在之前的公司遇到这样一种，服务器的硬盘突然就gg思密达了。结果去查看后简直是让我措手不及，服务器版本那叫一个老，一些命令都不适用。心里真想来句mmp，最后还是硬着头皮上解决问题。</p>
 <p>说实话，当时我在Windows服务器的实施与运维经验还没linux上丰富，现在想来完全是<strong>工作让你不得不去适应</strong>。</p>
 <p>以上总结，仅供参考哟！如果你有幸看到本篇博文，希望对你的学习和工作有所帮助。</p>
