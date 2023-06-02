@@ -936,14 +936,14 @@
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/Rust/</loc>
+    <loc>https://blog.cnwangk.top/tags/MySQL/</loc>
     <lastmod>2023-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/MySQL/</loc>
+    <loc>https://blog.cnwangk.top/tags/Rust/</loc>
     <lastmod>2023-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -971,13 +971,6 @@
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/git/</loc>
-    <lastmod>2023-06-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.cnwangk.top/tags/hexo/</loc>
     <lastmod>2023-06-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -986,6 +979,13 @@
   
   <url>
     <loc>https://blog.cnwangk.top/tags/Java/</loc>
+    <lastmod>2023-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.cnwangk.top/tags/git/</loc>
     <lastmod>2023-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1055,13 +1055,6 @@
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/redis/</loc>
-    <lastmod>2023-06-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.cnwangk.top/tags/rocky/</loc>
     <lastmod>2023-06-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -1069,7 +1062,7 @@
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/VScode/</loc>
+    <loc>https://blog.cnwangk.top/tags/redis/</loc>
     <lastmod>2023-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1077,6 +1070,13 @@
   
   <url>
     <loc>https://blog.cnwangk.top/tags/Ubuntu/</loc>
+    <lastmod>2023-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.cnwangk.top/tags/VScode/</loc>
     <lastmod>2023-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1125,14 +1125,14 @@
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/npm/</loc>
+    <loc>https://blog.cnwangk.top/tags/nginx/</loc>
     <lastmod>2023-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/tags/nginx/</loc>
+    <loc>https://blog.cnwangk.top/tags/npm/</loc>
     <lastmod>2023-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1218,14 +1218,14 @@
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/categories/web%E5%BC%80%E5%8F%91/</loc>
+    <loc>https://blog.cnwangk.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2023-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.cnwangk.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://blog.cnwangk.top/categories/web%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2023-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
